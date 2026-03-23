@@ -1974,7 +1974,22 @@ async function initializeSupabaseAuth() {
 }
 
 function authRedirectUrl() {
-  return window.location.origin + window.location.pathname;
+  const configuredSiteUrl = window.SONNY_SUPABASE_CONFIG?.siteUrl?.trim();
+  const isLocalHost =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1";
+
+  if (isLocalHost || !configuredSiteUrl) {
+    return window.location.origin + window.location.pathname;
+  }
+
+  try {
+    const redirectUrl = new URL(window.location.pathname, configuredSiteUrl);
+    return redirectUrl.toString();
+  } catch (error) {
+    console.warn("Falling back to current page for auth redirect", error);
+    return window.location.origin + window.location.pathname;
+  }
 }
 
 async function sendMagicLink() {
@@ -5943,6 +5958,10 @@ function renderGrid(items) {
     const badges = fragment.querySelector(".name-badges");
     const sourceNote = fragment.querySelector(".source-note");
     const buttons = fragment.querySelectorAll(".status-button");
+    const mobileStatusSelect = fragment.querySelector(".mobile-status-select");
+    const mobileOwnedCounter = fragment.querySelector(".mobile-owned-counter");
+    const mobileOwnedValue = fragment.querySelector(".mobile-owned-value");
+    const mobileOwnedDecreaseButton = fragment.querySelector('[data-mobile-owned-adjust="-1"]');
     const ownedSlot = fragment.querySelector(".status-slot-owned");
     const ownedButton = fragment.querySelector('.status-button[data-status="have"]');
     const ownedCounter = fragment.querySelector(".owned-counter");
@@ -5964,11 +5983,26 @@ function renderGrid(items) {
       button.classList.toggle("is-active", isActive);
     });
 
-    const isOwned = getStatus(item.id) === "have";
+    const currentStatus = getStatus(item.id);
+    const isOwned = currentStatus === "have";
     const ownedCount = getOwnedCount(item.id);
+    card.dataset.status = currentStatus;
     if (ownedSlot) {
       ownedSlot.classList.toggle("is-active", isOwned);
       ownedSlot.classList.toggle("is-peek-open", isOwned && activeOwnedCounterId === item.id);
+    }
+    if (mobileStatusSelect) {
+      mobileStatusSelect.value = currentStatus;
+      mobileStatusSelect.setAttribute("aria-label", `${displayName(item)} status`);
+    }
+    if (mobileOwnedCounter) {
+      mobileOwnedCounter.hidden = !isOwned;
+    }
+    if (mobileOwnedValue) {
+      mobileOwnedValue.textContent = String(ownedCount);
+    }
+    if (mobileOwnedDecreaseButton) {
+      mobileOwnedDecreaseButton.disabled = ownedCount <= 1;
     }
     if (ownedButton) {
       ownedButton.classList.toggle("has-inline-counter", isOwned);
@@ -6378,6 +6412,25 @@ grid.addEventListener("click", (event) => {
     return;
   }
 
+  const mobileOwnedAdjustButton = event.target.closest(".mobile-owned-button");
+  if (mobileOwnedAdjustButton) {
+    const card = mobileOwnedAdjustButton.closest(".card");
+    const id = card?.dataset.id;
+    const delta = Number(mobileOwnedAdjustButton.dataset.mobileOwnedAdjust || 0);
+    if (!id || !delta) {
+      return;
+    }
+
+    const nextCount = Math.max(1, getOwnedCount(id) + delta);
+    saveOwnedCount(id, nextCount);
+    try {
+      applyFilters();
+    } catch (error) {
+      console.error("Failed to refresh tracker after mobile owned count change", error);
+    }
+    return;
+  }
+
   const button = event.target.closest(".status-button");
   if (!button) {
     return;
@@ -6397,6 +6450,27 @@ grid.addEventListener("click", (event) => {
     applyFilters();
   } catch (error) {
     console.error("Failed to refresh tracker after status change", error);
+  }
+});
+grid.addEventListener("change", (event) => {
+  const mobileStatusSelect = event.target.closest(".mobile-status-select");
+  if (!mobileStatusSelect) {
+    return;
+  }
+
+  const card = mobileStatusSelect.closest(".card");
+  const id = card?.dataset.id;
+  const status = mobileStatusSelect.value;
+  if (!id || !status) {
+    return;
+  }
+
+  activeOwnedCounterId = null;
+  saveStatusChange(id, status);
+  try {
+    applyFilters();
+  } catch (error) {
+    console.error("Failed to refresh tracker after mobile status change", error);
   }
 });
 grid.addEventListener("mouseleave", () => {

@@ -1173,7 +1173,22 @@ async function importLocalStockAndFundToCloud() {
 }
 
 function stockAuthRedirectUrl() {
-  return window.location.origin + window.location.pathname;
+  const configuredSiteUrl = window.SONNY_SUPABASE_CONFIG?.siteUrl?.trim();
+  const isLocalHost =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1";
+
+  if (isLocalHost || !configuredSiteUrl) {
+    return window.location.origin + window.location.pathname;
+  }
+
+  try {
+    const redirectUrl = new URL(window.location.pathname, configuredSiteUrl);
+    return redirectUrl.toString();
+  } catch (error) {
+    console.warn("Falling back to current page for stock auth redirect", error);
+    return window.location.origin + window.location.pathname;
+  }
 }
 
 async function stockSendMagicLink() {
@@ -1625,6 +1640,12 @@ function formatTimestampForFilename(value) {
   const date = new Date(value);
   const pad = (part) => String(part).padStart(2, "0");
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}_${pad(date.getHours())}-${pad(date.getMinutes())}`;
+}
+
+function currentLocalDateInputValue() {
+  const now = new Date();
+  const offsetDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+  return offsetDate.toISOString().slice(0, 10);
 }
 
 function csvEscape(value) {
@@ -3174,6 +3195,9 @@ function render() {
   if (fundSentToRealFundLabel) {
     fundSentToRealFundLabel.textContent = fundRealToggleLabel(fundTypeInput?.value || "in");
   }
+  if (!fundDateInput.value) {
+    fundDateInput.value = currentLocalDateInputValue();
+  }
   if (fundAmountModeInput) {
     fundAmountModeInput.value = fundAmountModeInput.value || "total";
   }
@@ -3298,7 +3322,7 @@ addFundForm.addEventListener("submit", (event) => {
     fundAmountModeInput.value = "total";
   }
   fundTypeInput.value = "in";
-  fundDateInput.value = "2026-03-14";
+  fundDateInput.value = currentLocalDateInputValue();
   fundSentToRealFundInput.checked = false;
   applyFundAmountModeUi("total", fundAmountLabel, fundAmountInput, fundFigurePriceInput?.closest("label"), fundFigurePriceInput, 0);
   fundNoteInput.focus();
@@ -3670,7 +3694,7 @@ exportActivityLogButton.addEventListener("click", () => {
   downloadActivityLogCsv();
 });
 
-fundDateInput.value = "2026-03-14";
+fundDateInput.value = currentLocalDateInputValue();
 fundRangeFilter.value = fundFilter;
 syncPriceHistoryFromCurrentStock();
 window.addEventListener("storage", (event) => {
