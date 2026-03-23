@@ -4166,6 +4166,14 @@ function compareText(left, right, direction = "asc") {
   return left.localeCompare(right) * multiplier;
 }
 
+function compareDateDesc(left, right) {
+  const leftTime = left ? new Date(left).getTime() : 0;
+  const rightTime = right ? new Date(right).getTime() : 0;
+  const safeLeft = Number.isFinite(leftTime) ? leftTime : 0;
+  const safeRight = Number.isFinite(rightTime) ? rightTime : 0;
+  return safeRight - safeLeft;
+}
+
 function getCatalogSortParts(item) {
   const match = String(item?.id || "").match(/^page-(\d+)-(\d+)-/);
   if (match) {
@@ -5721,6 +5729,7 @@ function renderCollectedArmiesShelf(items, threshold) {
 function switchView(view) {
   document.body.classList.toggle("settings-active", view === "settings");
   document.body.classList.toggle("stock-active", view === "stock");
+  document.body.classList.toggle("wishlist-active", view === "wishlist");
   viewTabs.forEach((tab) => {
     tab.classList.toggle("is-active", tab.dataset.view === view);
   });
