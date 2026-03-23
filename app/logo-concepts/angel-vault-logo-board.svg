@@ -1,0 +1,192 @@
+<svg width="2200" height="1280" viewBox="0 0 2200 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBase" x1="1100" y1="0" x2="1100" y2="1280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffefc"/>
+      <stop offset="1" stop-color="#fffaf3"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 180) rotate(30) scale(620 380)">
+      <stop stop-color="#f4c8cf" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f4c8cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sageGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1940 140) rotate(145) scale(520 320)">
+      <stop stop-color="#d8e3cf" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#d8e3cf" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="bgPattern" width="180" height="180" patternUnits="userSpaceOnUse">
+      <path d="M32 52C40 32 60 19 81 19C102 19 122 32 130 52" stroke="#E9D8C6" stroke-width="1"/>
+      <path d="M51 110C56 97 69 88 84 88C99 88 112 97 117 110" stroke="#E9D8C6" stroke-width="1"/>
+      <circle cx="90" cy="90" r="3" fill="#EFD7B4"/>
+    </pattern>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#68503A" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .ink { stroke: #5C5752; fill: none; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+      .title { fill: #35261E; font-size: 62px; font-weight: 700; font-family: Georgia, 'Times New Roman', serif; }
+      .subtitle { fill: #78685E; font-size: 24px; font-weight: 500; font-family: Arial, Helvetica, sans-serif; }
+      .badgeText { fill: #78685E; font-size: 15px; font-weight: 700; letter-spacing: 2px; font-family: Arial, Helvetica, sans-serif; }
+      .cardTitle { fill: #35261E; font-size: 25px; font-weight: 700; font-family: Arial, Helvetica, sans-serif; }
+      .cardNote { fill: #78685E; font-size: 17px; font-weight: 500; font-family: Arial, Helvetica, sans-serif; }
+      .wordmark { fill: #5C5752; font-size: 24px; font-weight: 700; font-family: Georgia, 'Times New Roman', serif; }
+    </style>
+  </defs>
+
+  <rect width="2200" height="1280" fill="url(#bgBase)"/>
+  <rect width="2200" height="1280" fill="url(#roseGlow)"/>
+  <rect width="2200" height="1280" fill="url(#sageGlow)"/>
+  <rect width="2200" height="1280" fill="url(#bgPattern)" opacity="0.45"/>
+
+  <g transform="translate(64 44)">
+    <rect x="0" y="0" width="152" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.78"/>
+    <text x="18" y="26" class="badgeText">ANGEL VAULT</text>
+    <text x="0" y="108" class="title">Minimal logo directions</text>
+    <text x="0" y="146" class="subtitle">Soft dark grey marks on the current Angel Vault paper-toned background.</text>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="52" y="190" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="468" y="190" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="884" y="190" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="1300" y="190" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="1716" y="190" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="52" y="716" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="468" y="716" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="884" y="716" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="1300" y="716" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+    <rect x="1716" y="716" width="384" height="480" rx="30" fill="#FFFBF5" fill-opacity="0.9"/>
+  </g>
+
+  <g transform="translate(52 190)">
+    <text x="24" y="42" class="cardTitle">1. Halo Lock</text>
+    <text x="24" y="68" class="cardNote">Padlock outline with a halo crown</text>
+    <g transform="translate(192 214)">
+      <ellipse cx="0" cy="-54" rx="46" ry="13" class="ink"/>
+      <path d="M-58 -6V74C-58 87 -47 98 -34 98H34C47 98 58 87 58 74V-6" class="ink"/>
+      <path d="M-34 -6V-28C-34 -50 -18 -64 0 -64C18 -64 34 -50 34 -28V-6" class="ink"/>
+      <circle cx="0" cy="38" r="10" class="ink"/>
+      <path d="M0 48V72" class="ink"/>
+    </g>
+    <text x="135" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(468 190)">
+    <text x="24" y="42" class="cardTitle">2. Winged V</text>
+    <text x="24" y="68" class="cardNote">Geometric V with restrained wings</text>
+    <g transform="translate(192 214)">
+      <path d="M-20 -54L0 78L20 -54" class="ink"/>
+      <path d="M-30 -16C-62 -28 -94 -16 -122 10" class="ink"/>
+      <path d="M-28 22C-62 30 -94 52 -118 82" class="ink"/>
+      <path d="M30 -16C62 -28 94 -16 122 10" class="ink"/>
+      <path d="M28 22C62 30 94 52 118 82" class="ink"/>
+    </g>
+    <text x="134" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(884 190)">
+    <text x="24" y="42" class="cardTitle">3. Vault Door Halo</text>
+    <text x="24" y="68" class="cardNote">Circular vault mark topped by a halo</text>
+    <g transform="translate(192 214)">
+      <ellipse cx="0" cy="-54" rx="46" ry="13" class="ink"/>
+      <circle cx="0" cy="26" r="62" class="ink"/>
+      <circle cx="0" cy="26" r="15" class="ink"/>
+      <path d="M0 -12V-38" class="ink"/>
+      <path d="M0 64V90" class="ink"/>
+      <path d="M38 26H62" class="ink"/>
+      <path d="M-38 26H-62" class="ink"/>
+      <path d="M-27 -1L-44 -18" class="ink"/>
+      <path d="M27 53L44 70" class="ink"/>
+    </g>
+    <text x="128" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(1300 190)">
+    <text x="24" y="42" class="cardTitle">4. Cherub Key</text>
+    <text x="24" y="68" class="cardNote">Key silhouette with halo-wing head</text>
+    <g transform="translate(192 214)">
+      <circle cx="-8" cy="10" r="24" class="ink"/>
+      <path d="M-44 4C-66 -12 -92 -10 -114 10" class="ink"/>
+      <path d="M-42 26C-62 34 -84 50 -100 72" class="ink"/>
+      <ellipse cx="-8" cy="-30" rx="36" ry="10" class="ink"/>
+      <path d="M20 12H86" class="ink"/>
+      <path d="M58 12V40H78V22H98V48" class="ink"/>
+    </g>
+    <text x="138" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(1716 190)">
+    <text x="24" y="42" class="cardTitle">5. Angel Archive</text>
+    <text x="24" y="68" class="cardNote">Monogram A with halo crossbar</text>
+    <g transform="translate(192 214)">
+      <path d="M-52 90L0 -52L52 90" class="ink"/>
+      <ellipse cx="0" cy="4" rx="40" ry="12" class="ink"/>
+    </g>
+    <text x="140" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(52 716)">
+    <text x="24" y="42" class="cardTitle">6. Sacred Box</text>
+    <text x="24" y="68" class="cardNote">Display-case form with floating halo</text>
+    <g transform="translate(192 214)">
+      <ellipse cx="0" cy="-54" rx="46" ry="13" class="ink"/>
+      <rect x="-58" y="-8" width="116" height="106" rx="8" class="ink"/>
+      <path d="M-22 -8V-34" class="ink"/>
+      <path d="M22 -8V-34" class="ink"/>
+      <path d="M-34 20H34" class="ink" opacity="0.45"/>
+      <path d="M-34 44H34" class="ink" opacity="0.45"/>
+      <path d="M-34 68H34" class="ink" opacity="0.45"/>
+    </g>
+    <text x="135" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(468 716)">
+    <text x="24" y="42" class="cardTitle">7. Feather Shield</text>
+    <text x="24" y="68" class="cardNote">Shield badge with one feather detail</text>
+    <g transform="translate(192 214)">
+      <path d="M0 -54C44 -54 68 -34 68 6V34C68 78 34 106 0 120C-34 106 -68 78 -68 34V6C-68 -34 -44 -54 0 -54Z" class="ink"/>
+      <path d="M8 -8C28 8 28 42 0 76" class="ink"/>
+      <path d="M0 76C-18 54 -18 18 4 -8" class="ink"/>
+      <path d="M4 8L-8 24" class="ink" opacity="0.55"/>
+      <path d="M6 24L-10 42" class="ink" opacity="0.55"/>
+      <path d="M8 40L-10 58" class="ink" opacity="0.55"/>
+    </g>
+    <text x="132" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(884 716)">
+    <text x="24" y="42" class="cardTitle">8. Hidden Wings</text>
+    <text x="24" y="68" class="cardNote">Rounded vault with winged inner cutout</text>
+    <g transform="translate(192 214)">
+      <path d="M-78 88V2C-78 -40 -48 -66 0 -66C48 -66 78 -40 78 2V88" class="ink"/>
+      <path d="M-44 72C-40 38 -20 12 0 -2C20 12 40 38 44 72" class="ink"/>
+      <path d="M-14 30C-26 40 -34 54 -38 70" class="ink"/>
+      <path d="M14 30C26 40 34 54 38 70" class="ink"/>
+    </g>
+    <text x="138" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(1300 716)">
+    <text x="24" y="42" class="cardTitle">9. Star + Vault</text>
+    <text x="24" y="68" class="cardNote">Celestial star paired with a lockbox</text>
+    <g transform="translate(192 214)">
+      <path d="M0 -74V-34" class="ink"/>
+      <path d="M-18 -54H18" class="ink"/>
+      <path d="M-12 -66L12 -42" class="ink"/>
+      <path d="M12 -66L-12 -42" class="ink"/>
+      <rect x="-66" y="-2" width="132" height="92" rx="16" class="ink"/>
+      <path d="M-34 -2V-28C-34 -48 -18 -62 0 -62C18 -62 34 -48 34 -28V-2" class="ink"/>
+      <circle cx="0" cy="42" r="9" class="ink"/>
+    </g>
+    <text x="138" y="390" class="wordmark">angel vault</text>
+  </g>
+
+  <g transform="translate(1716 716)">
+    <text x="24" y="42" class="cardTitle">10. Wordmark Only</text>
+    <text x="24" y="68" class="cardNote">Typography-led route with halo accent</text>
+    <g transform="translate(192 220)">
+      <text x="-122" y="20" class="wordmark" style="font-size:44px;">angel vault</text>
+      <ellipse cx="-78" cy="-22" rx="22" ry="7" class="ink"/>
+      <path d="M170 -4C182 -16 192 -28 200 -42" class="ink"/>
+      <path d="M200 -42C206 -28 216 -16 228 -4" class="ink"/>
+    </g>
+  </g>
+</svg>

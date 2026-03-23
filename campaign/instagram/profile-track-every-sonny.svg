@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f7efe7" />
+
+  <text
+    x="540"
+    y="430"
+    text-anchor="middle"
+    fill="#3f2b22"
+    font-family="Georgia, Times New Roman, serif"
+    font-size="165"
+    font-weight="700"
+    letter-spacing="-5"
+  >
+    Track every
+  </text>
+
+  <text
+    x="540"
+    y="650"
+    text-anchor="middle"
+    fill="#3f2b22"
+    font-family="Georgia, Times New Roman, serif"
+    font-size="205"
+    font-weight="700"
+    letter-spacing="-6"
+  >
+    Sonny!
+  </text>
+</svg>

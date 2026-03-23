@@ -1,0 +1,57 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBase" x1="540" y1="0" x2="540" y2="1920" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffdf9"/>
+      <stop offset="1" stop-color="#fff8ef"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(170 180) rotate(24) scale(380 280)">
+      <stop stop-color="#f4c8cf" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#f4c8cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sageGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(928 230) rotate(136) scale(310 250)">
+      <stop stop-color="#d8e3cf" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#d8e3cf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1080" height="1920" fill="url(#bgBase)"/>
+  <rect width="1080" height="1920" fill="url(#roseGlow)"/>
+  <rect width="1080" height="1920" fill="url(#sageGlow)"/>
+
+  <g opacity="0.36" stroke="#ead9c8" stroke-width="2">
+    <path d="M104 264C172 176 274 132 392 132C510 132 612 176 680 264"/>
+    <path d="M132 1496C186 1412 270 1368 366 1368C462 1368 546 1412 600 1496"/>
+    <path d="M742 1458C772 1402 830 1372 896 1372C962 1372 1020 1402 1050 1458"/>
+  </g>
+
+  <ellipse cx="306" cy="286" rx="118" ry="36" stroke="#5c5752" stroke-width="24"/>
+  <text x="94" y="462" fill="#5c5752" font-family="Fraunces, Georgia, serif" font-size="124" font-weight="700">angel vault</text>
+
+  <g transform="rotate(-5 552 938)">
+    <rect x="150" y="614" width="782" height="702" rx="44" fill="#ffffff" stroke="#35261e" stroke-width="6"/>
+    <rect x="190" y="668" width="702" height="250" rx="28" fill="#fff8ef"/>
+    <rect x="228" y="726" width="142" height="18" rx="9" fill="#f4c8cf"/>
+    <rect x="388" y="726" width="118" height="18" rx="9" fill="#d8e3cf"/>
+    <rect x="524" y="726" width="126" height="18" rx="9" fill="#f0dca7"/>
+    <rect x="668" y="726" width="136" height="18" rx="9" fill="#f4c8cf" fill-opacity="0.7"/>
+    <rect x="224" y="792" width="148" height="94" rx="22" fill="#ffffff" stroke="#ead9c8"/>
+    <rect x="392" y="792" width="148" height="94" rx="22" fill="#ffffff" stroke="#ead9c8"/>
+    <rect x="560" y="792" width="148" height="94" rx="22" fill="#ffffff" stroke="#ead9c8"/>
+    <circle cx="298" cy="840" r="28" fill="#f7cad2"/>
+    <circle cx="466" cy="840" r="28" fill="#d8e3cf"/>
+    <circle cx="634" cy="840" r="28" fill="#f1dfae"/>
+    <text x="226" y="1038" fill="#78685e" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="3">TRACKER</text>
+    <text x="226" y="1156" fill="#35261e" font-family="Fraunces, Georgia, serif" font-size="128" font-weight="700">features!</text>
+    <text x="226" y="1238" fill="#78685e" font-family="Manrope, Arial, sans-serif" font-size="32">cute ways to browse your sonnies</text>
+  </g>
+
+  <g transform="translate(760 468)">
+    <circle cx="0" cy="0" r="108" fill="#fffefb"/>
+    <circle cx="0" cy="0" r="94" fill="#f7cad2"/>
+    <circle cx="-26" cy="-14" r="9" fill="#35261e"/>
+    <circle cx="26" cy="-14" r="9" fill="#35261e"/>
+    <path d="M-26 34C-14 52 14 52 26 34" stroke="#35261e" stroke-width="8" stroke-linecap="round"/>
+    <path d="M-54 -74C-58 -116 -22 -138 8 -118C18 -92 -6 -62 -28 -48" stroke="#35261e" stroke-width="8" stroke-linecap="round"/>
+    <path d="M54 -74C58 -116 22 -138 -8 -118C-18 -92 6 -62 28 -48" stroke="#35261e" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

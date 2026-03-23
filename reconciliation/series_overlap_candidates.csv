@@ -1,0 +1,114 @@
+official_series,official_name_count,local_series,local_name_count,overlap_count,overlap_ratio,overlap_names,official_names_missing_from_local
+Advent Calendar(2025),11,11th Anniversary Series,14,4,0.364,"fawn, lion, rabbit, starfish","candy, carrot, frenchbulldog, penguin, reindeer, rose, sunflower"
+Advent Calendar(2025),11,12th Anniversary Series,14,3,0.273,"fawn, rabbit, rose","candy, carrot, frenchbulldog, lion, penguin, reindeer, starfish, sunflower"
+Advent Calendar(2025),11,Christmas Dinner Series,8,3,0.273,"carrot, lion, reindeer","candy, fawn, frenchbulldog, penguin, rabbit, rose, starfish, sunflower"
+Advent Calendar(2025),11,Hippers Animal Series,13,3,0.273,"fawn, lion, rabbit","candy, carrot, frenchbulldog, penguin, reindeer, rose, starfish, sunflower"
+Advent Calendar(2025),11,Hippers Dreaming Series,13,3,0.273,"fawn, lion, rabbit","candy, carrot, frenchbulldog, penguin, reindeer, rose, starfish, sunflower"
+Animal Series 1 (~2018),9,Animal Series Ver. 1,14,9,1.000,"cockerel, dalmatian, elephant, frog, koala, monkey, panda, rabbit, tiger",
+Animal Series 1 (~2018),9,Animal Series Ver. 1 Special Color,13,9,1.000,"cockerel, dalmatian, elephant, frog, koala, monkey, panda, rabbit, tiger",
+Animal Series 1 (~2018),9,Unrefined Animal Series Ver. 1,14,9,1.000,"cockerel, dalmatian, elephant, frog, koala, monkey, panda, rabbit, tiger",
+Animal Series 1 (~2018),9,Decoppin Animal Series Ver. 1,13,8,0.889,"cockerel, elephant, frog, koala, monkey, panda, rabbit, tiger",dalmatian
+Animal Series 1 (~2018),9,Mini Figure Strap Animal Version,6,6,0.667,"elephant, frog, monkey, panda, rabbit, tiger","cockerel, dalmatian, koala"
+Animal Series 2 (~2018),8,Animal Series Ver. 2,14,8,1.000,"cow, fawn, lesserpanda, mouse, pig, reindeer, sheep, uribou",
+Animal Series 2 (~2018),8,Animal Series Ver. 2 Special Color,13,8,1.000,"cow, fawn, lesserpanda, mouse, pig, reindeer, sheep, uribou",
+Animal Series 2 (~2018),8,Unrefined Animal Series Ver. 2,14,8,1.000,"cow, fawn, lesserpanda, mouse, pig, reindeer, sheep, uribou",
+Animal Series 2 (~2018),8,Hippers Animal Series,13,4,0.500,"fawn, mouse, pig, sheep","cow, lesserpanda, reindeer, uribou"
+Animal Series 2 (~2018),8,Hippers Dreaming Series,13,4,0.500,"fawn, mouse, pig, sheep","cow, lesserpanda, reindeer, uribou"
+Animal Series 3 (~2018),5,Animal Series Ver. 3,14,5,1.000,"americanshorthair, frenchbulldog, lopearrabbit, parrot, zebra",
+Animal Series 3 (~2018),5,Animal Series Ver. 3 Special Color,13,5,1.000,"americanshorthair, frenchbulldog, lopearrabbit, parrot, zebra",
+Animal Series 3 (~2018),5,Unrefined Animal Series Ver. 3,14,5,1.000,"americanshorthair, frenchbulldog, lopearrabbit, parrot, zebra",
+Animal Series 3 (~2018),5,12th Anniversary Series,14,1,0.200,lopearrabbit,"americanshorthair, frenchbulldog, parrot, zebra"
+Animal Series 3 (~2018),5,Cactus Series,10,1,0.200,parrot,"americanshorthair, frenchbulldog, lopearrabbit, zebra"
+Animal Series 4 (~2018),5,Animal Series Ver. 4,14,5,1.000,"calicocat, goat, horse, peacock, shibainu",
+Animal Series 4 (~2018),5,Unrefined Animal Series Ver. 4,14,5,1.000,"calicocat, goat, horse, peacock, shibainu",
+Animal Series 4 (~2018),5,Cherry Blossom Series,6,3,0.600,"calicocat, goat, peacock","horse, shibainu"
+Animal Series 4 (~2018),5,Cherry Blossom Series -Night Version-,6,3,0.600,"calicocat, goat, peacock","horse, shibainu"
+Animal Series 4 (~2018),5,Cherry Blossom Series -Peaceful Spring Edition-,6,3,0.600,"calicocat, goat, peacock","horse, shibainu"
+Cherry Blossom Series -Hanami Edition-,6,11th Anniversary Series,14,3,0.500,"fawn, rabbit, sheep","calicocat, goat, parrot"
+Cherry Blossom Series -Hanami Edition-,6,Cherry Blossom Series,6,3,0.500,"calicocat, goat, rabbit","fawn, parrot, sheep"
+Cherry Blossom Series -Hanami Edition-,6,Cherry Blossom Series -Night Version-,6,3,0.500,"calicocat, goat, rabbit","fawn, parrot, sheep"
+Cherry Blossom Series -Hanami Edition-,6,Cherry Blossom Series -Peaceful Spring Edition-,6,3,0.500,"calicocat, goat, rabbit","fawn, parrot, sheep"
+Cherry Blossom Series -Hanami Edition-,6,Christmas Series 2021 Dreaming Christmas,8,3,0.500,"fawn, rabbit, sheep","calicocat, goat, parrot"
+Flower Series,1,11th Anniversary Series,14,1,1.000,cherryblossom,
+Flower Series,1,Flower Series,14,1,1.000,cherryblossom,
+Fruit Series,4,Sonny Angel Cafe Series,12,1,0.250,orange,"dragonfruit, durian, raspberry"
+Fruit Series,4,Strong Current Series,12,1,0.250,orange,"dragonfruit, durian, raspberry"
+Fruit Series (~2019),8,Unrefined Fruit Series,14,7,0.875,"apple, melon, peach, pear, pineapple, strawberry, watermelon",grapes
+Fruit Series (~2019),8,Hippers Harvest Series,13,5,0.625,"apple, melon, pear, pineapple, strawberry","grapes, peach, watermelon"
+Fruit Series (~2019),8,Refreshing Cold Drinks,5,3,0.375,"peach, strawberry, watermelon","apple, grapes, melon, pear, pineapple"
+Fruit Series (~2019),8,11th Anniversary Series,14,1,0.125,strawberry,"apple, grapes, melon, peach, pear, pineapple, watermelon"
+Fruit Series (~2019),8,12th Anniversary Series,14,1,0.125,apple,"grapes, melon, peach, pear, pineapple, strawberry, watermelon"
+Gifts of Love(2024),1,Easter Series,15,1,1.000,chocolate,
+HIPPERS Cherry Blossom Series,12,Hippers Looking Back Series,13,5,0.417,"cat, duck, fawn, monkey, rabbit","dalmatian, frog, goat, peacock, reindeer, sheep, shibainu"
+HIPPERS Cherry Blossom Series,12,Animal Series Ver. 1,14,4,0.333,"dalmatian, frog, monkey, rabbit","cat, duck, fawn, goat, peacock, reindeer, sheep, shibainu"
+HIPPERS Cherry Blossom Series,12,Animal Series Ver. 1 Special Color,13,4,0.333,"dalmatian, frog, monkey, rabbit","cat, duck, fawn, goat, peacock, reindeer, sheep, shibainu"
+HIPPERS Cherry Blossom Series,12,Animal Series Ver. 2,14,4,0.333,"duck, fawn, reindeer, sheep","cat, dalmatian, frog, goat, monkey, peacock, rabbit, shibainu"
+HIPPERS Cherry Blossom Series,12,Christmas Series 2021 Dreaming Christmas,8,4,0.333,"fawn, monkey, rabbit, sheep","cat, dalmatian, duck, frog, goat, peacock, reindeer, shibainu"
+I LOVE RAINY DAY Series,6,Francfranc 20th Anniversary,7,3,0.500,"duck, elephant, hippopotamus","axolotl, frog, goldfish"
+I LOVE RAINY DAY Series,6,11th Anniversary Series,14,2,0.333,"elephant, hippopotamus","axolotl, duck, frog, goldfish"
+I LOVE RAINY DAY Series,6,Animal Series Ver. 1,14,2,0.333,"elephant, frog","axolotl, duck, goldfish, hippopotamus"
+I LOVE RAINY DAY Series,6,Animal Series Ver. 1 Special Color,13,2,0.333,"elephant, frog","axolotl, duck, goldfish, hippopotamus"
+I LOVE RAINY DAY Series,6,Bobbing Head Limited Color Ver.,6,2,0.333,"elephant, frog","axolotl, duck, goldfish, hippopotamus"
+Kiss Kiss(2025),5,Hippers Looking Back Series,13,4,0.800,"cat, elephant, mouse, rabbit",fennec
+Kiss Kiss(2025),5,12th Anniversary Series,14,3,0.600,"elephant, mouse, rabbit","cat, fennec"
+Kiss Kiss(2025),5,Bobbing Head LOG-ON 20th Anniversary Limited,3,3,0.600,"elephant, mouse, rabbit","cat, fennec"
+Kiss Kiss(2025),5,Hippers Animal Series,13,3,0.600,"elephant, mouse, rabbit","cat, fennec"
+Kiss Kiss(2025),5,Hippers Dreaming Series,13,3,0.600,"elephant, mouse, rabbit","cat, fennec"
+Ladurée Pâtisserie Collection,2,Ladurée Pâtisserie Collection,13,1,0.500,sainthonoreroseframboise,macaronmentheglaclale
+Marine Series (~2019),11,Marine Series,14,11,1.000,"blowfish, clownfish, dolphin, jellyfish, penguin, seahorse, seal, shark, shell, starfish, whale",
+Marine Series (~2019),11,Unrefined Marine Series,14,11,1.000,"blowfish, clownfish, dolphin, jellyfish, penguin, seahorse, seal, shark, shell, starfish, whale",
+Marine Series (~2019),11,EXCEPTION The Living Sea Blue,3,3,0.273,"blowfish, seahorse, whale","clownfish, dolphin, jellyfish, penguin, seal, shark, shell, starfish"
+Marine Series (~2019),11,11th Anniversary Series,14,1,0.091,starfish,"blowfish, clownfish, dolphin, jellyfish, penguin, seahorse, seal, shark, shell, whale"
+Marine Series (~2019),11,12th Anniversary Series,14,1,0.091,shark,"blowfish, clownfish, dolphin, jellyfish, penguin, seahorse, seal, shell, starfish, whale"
+Message of Love (2022),3,Animal Series Ver. 1,14,1,0.333,dalmatian,"deer, fennec"
+Message of Love (2022),3,Animal Series Ver. 1 Special Color,13,1,0.333,dalmatian,"deer, fennec"
+Message of Love (2022),3,Dog Time Series,14,1,0.333,dalmatian,"deer, fennec"
+Message of Love (2022),3,NYLON 10th Anniversary Series,5,1,0.333,dalmatian,"deer, fennec"
+Message of Love (2022),3,Unrefined Animal Series Ver. 1,14,1,0.333,dalmatian,"deer, fennec"
+NewYork Series,4,NewYork Series,6,4,1.000,"bigapple, broadway, statueofliberty, yellowcab",
+Plush Collection -Cuddly Bear-,2,Cuddly Bear,2,2,1.000,"brownbear, whitebear",
+Plush Collection -Cuddly Bear-,2,Animal Series Ver. 1,14,1,0.500,whitebear,brownbear
+Plush Collection -Cuddly Bear-,2,Unrefined Animal Series Ver. 2,14,1,0.500,whitebear,brownbear
+Plush Collection -Cuddly Rabbit-,2,Sonny Angel Cafe Series,12,2,1.000,"pink, white",
+Plush Collection -Cuddly Rabbit-,2,Strong Current Series,12,2,1.000,"pink, white",
+Plush Collection -Cuddly Rabbit-,2,Cat Life Series,14,1,0.500,white,pink
+Plush Collection -Cuddly Rabbit-,2,Collaboration WAAC 2022,4,1,0.500,white,pink
+Plush Collection -Cuddly Rabbit-,2,Collaboration WAAC 2023,4,1,0.500,pink,white
+Pumpkin Patch Series,6,Hippers Animal Series,13,4,0.667,"elephant, lopearrabbit, mouse, panda","cat, frog"
+Pumpkin Patch Series,6,Hippers Dreaming Series,13,4,0.667,"elephant, lopearrabbit, mouse, panda","cat, frog"
+Pumpkin Patch Series,6,12th Anniversary Series,14,3,0.500,"elephant, lopearrabbit, mouse","cat, frog, panda"
+Pumpkin Patch Series,6,Animal Series Ver. 1,14,3,0.500,"elephant, frog, panda","cat, lopearrabbit, mouse"
+Pumpkin Patch Series,6,Animal Series Ver. 1 Special Color,13,3,0.500,"elephant, frog, panda","cat, lopearrabbit, mouse"
+Santa's Little Helper Series,6,Hippers Animal Series,13,4,0.667,"duck, elephant, lopearrabbit, pig","dalmatian, sloth"
+Santa's Little Helper Series,6,Hippers Dreaming Series,13,4,0.667,"duck, elephant, lopearrabbit, pig","dalmatian, sloth"
+Santa's Little Helper Series,6,Animal Series Ver. 1,14,3,0.500,"dalmatian, elephant, sloth","duck, lopearrabbit, pig"
+Santa's Little Helper Series,6,Hippers Looking Back Series,13,3,0.500,"duck, elephant, sloth","dalmatian, lopearrabbit, pig"
+Santa's Little Helper Series,6,12th Anniversary Series,14,2,0.333,"elephant, lopearrabbit","dalmatian, duck, pig, sloth"
+Sky Color Series,6,Sky Color Series,8,6,1.000,"cloudy, rainbow, rainy, snowy, sunny, thunder",
+Sonny Angel Christmas Ornament(2022),6,Sonny Angel Christmas Ornament(2022),10,6,1.000,"angel, christmastree, reindeer, santaclaus, snowman, star",
+Sonny Angel Christmas Ornament(2022),6,Christmas Series 2009,3,3,0.500,"angel, reindeer, santaclaus","christmastree, snowman, star"
+Sonny Angel Christmas Ornament(2022),6,Christmas Series 2011,6,3,0.500,"reindeer, santaclaus, snowman","angel, christmastree, star"
+Sonny Angel Christmas Ornament(2022),6,Christmas Series 2013,4,3,0.500,"reindeer, santaclaus, snowman","angel, christmastree, star"
+Sonny Angel Christmas Ornament(2022),6,Christmas Series 2015,5,3,0.500,"christmastree, reindeer, santaclaus","angel, snowman, star"
+Sonny Angel Hello Jeju (2022),6,Sonny Angel Hello Jeju (2022),8,6,1.000,"camelliarabbit, canolaflower, chocolatepig, hallamountain, jejuhorse, jejutangerine",
+Sonny Angel in Space Adventure Series (2020),6,Sonny Angel in Space Adventure Series (2020),8,6,1.000,"alien, astronaut, earth, moon, rocket, sun",
+Sonny Angel in Wonderland Series (2020),6,Sonny Angel in Wonderland Series (2020),8,6,1.000,"card, cheshirecat, madhatter, rabbit, sonny, teapot",
+Sonny Angel in Wonderland Series (2020),6,11th Anniversary Series,14,1,0.167,rabbit,"card, cheshirecat, madhatter, sonny, teapot"
+Sonny Angel in Wonderland Series (2020),6,12th Anniversary Series,14,1,0.167,rabbit,"card, cheshirecat, madhatter, sonny, teapot"
+Sonny Angel in Wonderland Series (2020),6,Angel in The Bird Garden,2,1,0.167,rabbit,"card, cheshirecat, madhatter, sonny, teapot"
+Sonny Angel in Wonderland Series (2020),6,Animal Series Ver. 1,14,1,0.167,rabbit,"card, cheshirecat, madhatter, sonny, teapot"
+Strawberry Love Series,6,12th Anniversary Series,14,5,0.833,"fawn, lopearrabbit, monkey, mouse, rabbit",strawberry
+Strawberry Love Series,6,Hippers Animal Series,13,4,0.667,"fawn, lopearrabbit, mouse, rabbit","monkey, strawberry"
+Strawberry Love Series,6,Hippers Dreaming Series,13,4,0.667,"fawn, lopearrabbit, mouse, rabbit","monkey, strawberry"
+Strawberry Love Series,6,Hippers Looking Back Series,13,4,0.667,"fawn, monkey, mouse, rabbit","lopearrabbit, strawberry"
+Strawberry Love Series,6,11th Anniversary Series,14,3,0.500,"fawn, rabbit, strawberry","lopearrabbit, monkey, mouse"
+Sweets Series,12,Sweets Series,14,11,0.917,"candy, cookie, creampuff, cupcake, fruittart, jellybeans, konpeito, pancake, popcorn, pudding, strawberryshortcake",icecreams
+Sweets Series,12,Afternoon Tea(2023),4,1,0.083,cupcake,"candy, cookie, creampuff, fruittart, icecreams, jellybeans, konpeito, pancake, popcorn, pudding, strawberryshortcake"
+Sweets Series,12,Birthday Gift,7,1,0.083,strawberryshortcake,"candy, cookie, creampuff, cupcake, fruittart, icecreams, jellybeans, konpeito, pancake, popcorn, pudding"
+Valentine Series (2020),4,Valentine Series (2020),6,4,1.000,"chocolatecat, chocolateelephant, chocolatefrenchbulldog, chocolaterabbit",
+Valentine Series (2020),4,Valentine's Day Series 2019,5,1,0.250,chocolaterabbit,"chocolatecat, chocolateelephant, chocolatefrenchbulldog"
+Vegetable Series (~2019),8,Unrefined Vegetable Series,14,7,0.875,"cabbage, carrot, corn, eggplant, onion, radish, tomato",pimento
+Vegetable Series (~2019),8,Vegetable Series,14,7,0.875,"cabbage, carrot, corn, eggplant, onion, radish, tomato",pimento
+Vegetable Series (~2019),8,Hippers Harvest Series,13,4,0.500,"carrot, eggplant, radish, tomato","cabbage, corn, onion, pimento"
+Vegetable Series (~2019),8,12th Anniversary Series,14,1,0.125,cabbage,"carrot, corn, eggplant, onion, pimento, radish, tomato"
+Vegetable Series (~2019),8,Christmas Dinner Series,8,1,0.125,carrot,"cabbage, corn, eggplant, onion, pimento, radish, tomato"

@@ -1,0 +1,32 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBase" x1="540" y1="0" x2="540" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffefc"/>
+      <stop offset="1" stop-color="#fffaf3"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 140) rotate(30) scale(340 260)">
+      <stop stop-color="#f4c8cf" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f4c8cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sageGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 120) rotate(145) scale(280 220)">
+      <stop stop-color="#d8e3cf" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#d8e3cf" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .brand { fill: #5C5752; font-size: 118px; font-weight: 700; font-family: Georgia; }
+      .copy { fill: #78685E; font-size: 42px; font-weight: 500; font-family: Arial; }
+      .eyebrow { fill: #78685E; font-size: 26px; font-weight: 700; letter-spacing: 3px; font-family: Arial; }
+    </style>
+  </defs>
+  <rect width="1080" height="1080" rx="48" fill="url(#bgBase)"/>
+  <rect width="1080" height="1080" rx="48" fill="url(#roseGlow)"/>
+  <rect width="1080" height="1080" rx="48" fill="url(#sageGlow)"/>
+  <rect x="78" y="96" width="182" height="46" rx="23" fill="#FFFFFF" fill-opacity="0.78"/>
+  <text x="108" y="126" class="eyebrow">ANGEL VAULT</text>
+  <ellipse cx="304" cy="334" rx="104" ry="32" stroke="#5C5752" stroke-width="22"/>
+  <text x="116" y="514" class="brand">angel vault</text>
+  <text x="116" y="662" class="copy">Collect what you love.</text>
+  <text x="116" y="716" class="copy">Track every Sonny.</text>
+  <rect x="116" y="790" width="848" height="2" fill="#5C5752" fill-opacity="0.16"/>
+  <text x="116" y="866" class="copy">Soft, minimal, collectible.</text>
+</svg>

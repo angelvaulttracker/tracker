@@ -1,0 +1,30 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBase" x1="600" y1="0" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffefc"/>
+      <stop offset="1" stop-color="#fffaf3"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 120) rotate(28) scale(320 190)">
+      <stop stop-color="#f4c8cf" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f4c8cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sageGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1070 100) rotate(145) scale(260 160)">
+      <stop stop-color="#d8e3cf" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#d8e3cf" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .brand { fill: #5C5752; font-size: 126px; font-weight: 700; font-family: Georgia; }
+      .copy { fill: #78685E; font-size: 34px; font-weight: 500; font-family: Arial; }
+      .eyebrow { fill: #78685E; font-size: 20px; font-weight: 700; letter-spacing: 3px; font-family: Arial; }
+    </style>
+  </defs>
+  <rect width="1200" height="630" rx="28" fill="url(#bgBase)"/>
+  <rect width="1200" height="630" rx="28" fill="url(#roseGlow)"/>
+  <rect width="1200" height="630" rx="28" fill="url(#sageGlow)"/>
+  <rect x="62" y="56" width="164" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.78"/>
+  <text x="88" y="82" class="eyebrow">ANGEL VAULT</text>
+  <ellipse cx="266" cy="208" rx="94" ry="29" stroke="#5C5752" stroke-width="20"/>
+  <text x="70" y="356" class="brand">angel vault</text>
+  <text x="74" y="450" class="copy">A minimal collection tracker for Sonny Angel collectors.</text>
+  <text x="74" y="498" class="copy">Soft visuals. Calm organization. Everything in one place.</text>
+</svg>

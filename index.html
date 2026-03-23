@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sonny Angel Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./app/brand-assets/png/favicons/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./app/brand-assets/png/favicons/apple-touch-icon-180.png" />
+    <link rel="stylesheet" href="./app/styles.css?v=20260323-wishlist-landing" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="app-header">
+        <a class="app-brand" href="./index.html" aria-label="Angel Vault home">
+          <span class="app-brand-badge">Collection Tracker</span>
+          <img
+            class="app-brand-logo"
+            src="./app/brand-assets/png/logos/angel-vault-wordmark-1024w.png"
+            alt="Angel Vault"
+            width="1024"
+            height="384"
+          />
+        </a>
+
+        <section class="view-switcher app-nav" aria-label="Pages">
+          <button class="view-tab is-active" data-view="tracker" type="button">
+            Tracker
+          </button>
+          <button class="view-tab" data-view="insights" type="button">
+            Insights
+          </button>
+          <button class="view-tab" data-view="wishlist" type="button">
+            ISO / DISO
+          </button>
+          <button class="view-tab" data-view="collected" type="button">
+            Collected
+          </button>
+          <button class="view-tab" data-view="stock" type="button">
+            UFS / UFT
+          </button>
+          <button class="view-tab" data-view="settings" type="button">
+            Settings
+          </button>
+        </section>
+
+        <div class="account-menu-wrap app-account" id="account-menu-wrap">
+          <button
+            class="account-trigger"
+            id="account-trigger"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="account-menu"
+          >
+            <span class="account-trigger-avatar" id="account-trigger-avatar">?</span>
+            <span class="account-trigger-text">
+              <strong id="account-trigger-label">Log in</strong>
+              <span id="account-trigger-subtext">Save to cloud</span>
+            </span>
+          </button>
+          <div class="account-menu" id="account-menu" role="menu" hidden>
+            <button class="account-menu-item" id="account-open-modal" type="button" role="menuitem">
+              Log in / Account
+            </button>
+            <button class="account-menu-item" id="account-open-settings" type="button" role="menuitem">
+              Open Settings
+            </button>
+            <button class="account-menu-item" id="account-menu-sign-out" type="button" role="menuitem" hidden>
+              Log out
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Sonny Angel Tracker</p>
+          <h1>Track every Sonny!</h1>
+          <div class="hero-status-strip" aria-live="polite">
+            <span class="hero-status-pill" id="save-status-pill">Device only</span>
+            <p class="hero-status-copy" id="save-status-copy">
+              Tracker changes are currently saved on this device.
+            </p>
+          </div>
+          <p class="hero-text">
+            Mark the Sonnies you already have, spotlight your DISOs, and keep
+            your progress saved on this device or synced to your account.
+          </p>
+          <p class="hero-text">
+            Need your selling inventory too? Open the Stock shelf tab to manage it separately from your collection.
+          </p>
+        </div>
+        <div class="hero-panel">
+          <div class="stat-grid" id="stat-grid"></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="view-panel is-active" data-panel="tracker">
+          <section class="controls">
+            <label class="search-field">
+              <span>Search</span>
+              <input
+                id="search-input"
+                type="search"
+                autocomplete="off"
+                autocapitalize="off"
+                autocorrect="off"
+                spellcheck="false"
+                placeholder="Rabbit, cat life, cherry blossom..."
+              />
+            </label>
+            <label class="select-field">
+              <span>Status</span>
+              <select id="status-filter">
+                <option value="all">All</option>
+                <option value="have">Owned</option>
+                <option value="missing">Missing</option>
+                <option value="iso">ISO</option>
+                <option value="diso">DISO</option>
+              </select>
+            </label>
+            <label class="select-field">
+              <span>Series</span>
+              <select id="series-filter">
+                <option value="all">All series</option>
+              </select>
+            </label>
+            <label class="select-field">
+              <span>Sort</span>
+              <select id="sort-filter">
+                <option value="catalog">Catalog order</option>
+                <option value="name-asc">Name A-Z</option>
+                <option value="name-desc">Name Z-A</option>
+                <option value="series-asc">Series A-Z</option>
+                <option value="series-desc">Series Z-A</option>
+                <option value="status">Status</option>
+                <option value="wanted">Most wanted first</option>
+              </select>
+            </label>
+            <label class="select-field">
+              <span>Cards per row</span>
+              <select id="tracker-columns">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </label>
+            <label class="toggle-field" for="show-only-favorites">
+              <input id="show-only-favorites" type="checkbox" />
+              <span>Only show looking for</span>
+            </label>
+          </section>
+
+          <section class="shelf-meta">
+            <p id="results-count"></p>
+            <div class="legend">
+              <span class="pill pill-have">Owned</span>
+              <span class="pill pill-missing">Missing</span>
+              <span class="pill pill-iso">ISO</span>
+              <span class="pill pill-diso">DISO</span>
+            </div>
+          </section>
+
+          <section class="collection-grid" id="collection-grid"></section>
+        </section>
+
+        <section class="view-panel insights-panel" data-panel="insights">
+          <section class="insights-board">
+            <div class="insights-header">
+              <div>
+                <p class="eyebrow">Collection Insights</p>
+                <h2>See where your shelf is strongest 😎</h2>
+              </div>
+              <p class="wishlist-copy">
+                All collections at a glance!
+              </p>
+            </div>
+            <div class="insight-grid" id="insight-grid"></div>
+          </section>
+
+          <section class="series-browser">
+            <div class="series-browser-header">
+              <div>
+                <p class="eyebrow">Series Browser</p>
+                <h2>Browse every set by progress</h2>
+              </div>
+              <div class="series-browser-actions">
+                <label class="select-field insights-sort-field">
+                  <span>Show Sonnies</span>
+                  <select id="insights-series-filter">
+                    <option value="all">All Sonnies</option>
+                    <option value="regular">Regular</option>
+                    <option value="limited">Limited</option>
+                    <option value="artist">Artist</option>
+                    <option value="other">Other</option>
+                    <option value="completed">Completed</option>
+                    <option value="in-progress">In progress</option>
+                    <option value="none-owned">Don't own any</option>
+                    <option value="wanted">Wanted</option>
+                  </select>
+                </label>
+                <label class="select-field insights-sort-field">
+                  <span>Sort series</span>
+                  <select id="insights-series-sort">
+                    <option value="guidebook-20th">20th guidebook</option>
+                    <option value="completion-desc">Mostly completed</option>
+                    <option value="completion-asc">Least completed</option>
+                    <option value="closest">Closest to done</option>
+                    <option value="wanted-desc">Most wanted</option>
+                    <option value="name-asc">Name A-Z</option>
+                    <option value="name-desc">Name Z-A</option>
+                  </select>
+                </label>
+                <label class="toggle-field insights-toggle-field" for="insights-color-code-mode">
+                  <input id="insights-color-code-mode" type="checkbox" />
+                  <span>Color code off</span>
+                </label>
+                <button class="ghost-button insights-reset-button" id="insights-reset-browser" type="button">
+                  Go back to insights dashboard
+                </button>
+              </div>
+            </div>
+            <div class="series-progress-grid" id="series-progress-grid"></div>
+          </section>
+        </section>
+
+        <section class="view-panel stock-panel" data-panel="stock">
+          <section class="stock-panel-shell">
+            <div class="stock-panel-header">
+              <div>
+                <p class="eyebrow">Stock Shelf</p>
+                <h2>Your selling shelf</h2>
+                <p class="wishlist-copy">
+                  Separate from your collection. Send Sonnies here from `Collected`, then move them back whenever you want.
+                </p>
+              </div>
+            </div>
+
+            <section class="controls stock-controls">
+              <label class="search-field">
+                <span>Search stock</span>
+                <input
+                  id="tracker-stock-search"
+                  type="search"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                  placeholder="Rabbit, cherry blossom, panda..."
+                />
+              </label>
+              <label class="select-field">
+                <span>Status</span>
+                <select id="tracker-stock-status-filter">
+                  <option value="all">All statuses</option>
+                  <option value="available">Available</option>
+                  <option value="pending">Pending</option>
+                  <option value="sold">Sold</option>
+                  <option value="traded">Traded</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span>Sort</span>
+                <select id="tracker-stock-sort">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Newest last</option>
+                  <option value="price-desc">Price high to low</option>
+                  <option value="price-asc">Price low to high</option>
+                  <option value="name-asc">Name A-Z</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span>Card size</span>
+                <select id="tracker-stock-card-density">
+                  <option value="roomy">Roomy cards</option>
+                  <option value="compact">Compact cards</option>
+                </select>
+              </label>
+              <label class="toggle-field stock-toggle-field" for="tracker-stock-display-mode">
+                <input id="tracker-stock-display-mode" type="checkbox" />
+                <span>Shelf version on</span>
+              </label>
+            </section>
+
+            <section class="shelf-meta stock-meta">
+              <p id="tracker-stock-results-count"></p>
+              <div class="legend stock-legend">
+                <span class="pill stock-status-pill stock-status-pill-available">Available</span>
+                <span class="pill stock-status-pill stock-status-pill-pending">Pending</span>
+                <span class="pill stock-status-pill stock-status-pill-sold">Sold</span>
+                <span class="pill stock-status-pill stock-status-pill-traded">Traded</span>
+              </div>
+            </section>
+
+            <section class="tracker-stock-grid is-shelf-view" id="tracker-stock-grid"></section>
+          </section>
+        </section>
+
+        <section class="view-panel" data-panel="wishlist">
+          <section class="wishlist-board">
+            <div id="wishlist-board-view">
+              <div class="wishlist-header">
+                <div>
+                  <p class="eyebrow">Looking For</p>
+                  <h2>Your ISO + DISO board</h2>
+                </div>
+                <div class="wishlist-header-actions">
+                  <p class="wishlist-copy">
+                    A dedicated shelf for the Sonnies you are actively hunting.
+                  </p>
+                  <button class="ghost-button wishlist-maker-trigger" id="open-iso-maker" type="button">
+                    ISO maker
+                  </button>
+                </div>
+              </div>
+              <section class="wishlist-landing" id="wishlist-landing">
+                <div class="wishlist-landing-copy">
+                  <p class="eyebrow">Dream board</p>
+                  <h3>Float through your current ISO / DISO world</h3>
+                  <p class="wishlist-copy" id="wishlist-landing-summary">
+                    Your most wanted Sonnies drift here first, so the tab opens like a dreamy trading page instead of a plain list.
+                  </p>
+                  <div class="wishlist-landing-legend">
+                    <span class="wishlist-legend-chip wishlist-legend-chip-buy">Starred for buy</span>
+                    <span class="wishlist-legend-chip wishlist-legend-chip-diso">DISO dreamies</span>
+                    <span class="wishlist-legend-chip wishlist-legend-chip-iso">ISO floaters</span>
+                  </div>
+                </div>
+                <div class="wishlist-landing-stage">
+                  <div class="wishlist-landing-stage-title">
+                    <span>Dreamy</span>
+                    <strong>ISO / DISO</strong>
+                  </div>
+                  <div class="wishlist-floating-grid" id="wishlist-floating-grid"></div>
+                </div>
+              </section>
+              <section class="controls collected-controls wishlist-controls">
+                <label class="search-field">
+                  <span>Search wishlist</span>
+                  <input
+                    id="wishlist-search"
+                    type="search"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                    placeholder="Rabbit, cherry blossom, cat life..."
+                  />
+                </label>
+                <label class="select-field">
+                  <span>View</span>
+                  <select id="wishlist-status-filter">
+                    <option value="all">ISO + DISO</option>
+                    <option value="iso">ISO only</option>
+                    <option value="diso">DISO only</option>
+                  </select>
+                </label>
+                <label class="select-field">
+                  <span>Series</span>
+                  <select id="wishlist-series-filter">
+                    <option value="all">All series</option>
+                  </select>
+                </label>
+                <label class="select-field">
+                  <span>Sort</span>
+                  <select id="wishlist-sort-filter">
+                    <option value="wishlist-date-desc">Date added to ISO/DISO</option>
+                    <option value="name-asc">Name A-Z</option>
+                    <option value="name-desc">Name Z-A</option>
+                    <option value="rank-asc">Rank ascending</option>
+                    <option value="rank-desc">Rank descending</option>
+                  </select>
+                </label>
+              </section>
+              <div class="wishlist-columns">
+                <section class="wishlist-column" id="iso-column">
+                  <div class="wishlist-label-row">
+                    <span class="pill pill-iso">ISO</span>
+                    <strong id="iso-count">0</strong>
+                  </div>
+                  <div class="wishlist-grid" id="iso-grid"></div>
+                </section>
+                <section class="wishlist-column wishlist-column-diso" id="diso-column">
+                  <div class="wishlist-label-row">
+                    <span class="pill pill-diso">DISO</span>
+                    <strong id="diso-count">0</strong>
+                  </div>
+                  <div class="wishlist-grid" id="diso-grid"></div>
+                </section>
+              </div>
+            </div>
+            <section class="maker-flow" id="wishlist-maker-flow" hidden>
+              <div class="maker-step" id="maker-selection-step">
+                <div class="maker-header">
+                  <div>
+                    <p class="eyebrow">ISO Maker</p>
+                    <h3>Pick the Sonnies to include</h3>
+                  </div>
+                  <p class="wishlist-copy">
+                    Everything in your ISO / DISO list starts selected. Uncheck any you do not want in the maker before continuing.
+                  </p>
+                </div>
+                <div class="maker-toolbar">
+                  <p class="maker-selection-count" id="maker-selection-count">0 selected</p>
+                  <div class="maker-toolbar-actions">
+                    <button class="ghost-button maker-toolbar-button" id="maker-close" type="button">
+                      Back to board
+                    </button>
+                    <button class="ghost-button maker-toolbar-button" id="maker-select-all" type="button">
+                      Select all
+                    </button>
+                    <button class="ghost-button maker-toolbar-button" id="maker-clear-all" type="button">
+                      Clear all
+                    </button>
+                    <button class="ghost-button maker-toolbar-button maker-toolbar-button-primary" id="maker-build" type="button">
+                      Make layout
+                    </button>
+                  </div>
+                </div>
+                <div class="maker-picker-grid" id="maker-picker-grid"></div>
+              </div>
+
+              <div class="maker-step" id="maker-canvas-step" hidden>
+                <div class="maker-header maker-header-canvas">
+                  <div>
+                    <p class="eyebrow">ISO Maker</p>
+                    <h3>Your selected Sonnies</h3>
+                  </div>
+                  <div class="maker-toolbar-actions">
+                    <button class="ghost-button maker-toolbar-button" id="maker-close-canvas" type="button">
+                      Back to board
+                    </button>
+                    <button class="ghost-button maker-toolbar-button" id="maker-edit-selection" type="button">
+                      Edit selection
+                    </button>
+                  </div>
+                </div>
+                <div class="maker-canvas-meta">
+                  <p class="maker-selection-count" id="maker-canvas-count">0 Sonnies in layout</p>
+                </div>
+                <div class="maker-design-grid">
+                  <section class="maker-design-card">
+                    <div class="maker-design-card-header">
+                      <div>
+                        <p class="eyebrow">Background</p>
+                        <h4>Choose the mood</h4>
+                      </div>
+                      <p class="maker-design-copy">Placeholder scenes for now. We can swap these for custom backgrounds next.</p>
+                    </div>
+                    <div class="maker-background-grid" id="maker-background-grid"></div>
+                  </section>
+
+                  <section class="maker-design-card">
+                    <div class="maker-design-card-header">
+                      <div>
+                        <p class="eyebrow">Layout</p>
+                        <h4>Control the lineup</h4>
+                      </div>
+                      <p class="maker-design-copy">Decide how dense each row should feel and whether the order is automatic or custom.</p>
+                    </div>
+                    <div class="maker-control-grid">
+                      <div class="select-field">
+                        <span>Sonnies per row</span>
+                        <div class="maker-stepper" aria-label="Sonnies per row">
+                          <button class="ghost-button maker-stepper-button" id="maker-columns-down" type="button">-</button>
+                          <div class="maker-stepper-value">
+                            <strong id="maker-columns-value">4</strong>
+                            <span>per row</span>
+                          </div>
+                          <button class="ghost-button maker-stepper-button" id="maker-columns-up" type="button">+</button>
+                        </div>
+                      </div>
+                      <div class="select-field">
+                        <span>Background size</span>
+                        <div class="maker-size-grid">
+                          <div class="maker-stepper" aria-label="Background width in inches">
+                            <button class="ghost-button maker-stepper-button" id="maker-width-down" type="button">-</button>
+                            <div class="maker-stepper-value">
+                              <strong id="maker-width-value">8</strong>
+                              <span>in wide</span>
+                            </div>
+                            <button class="ghost-button maker-stepper-button" id="maker-width-up" type="button">+</button>
+                          </div>
+                          <div class="maker-stepper" aria-label="Background height in inches">
+                            <button class="ghost-button maker-stepper-button" id="maker-height-down" type="button">-</button>
+                            <div class="maker-stepper-value">
+                              <strong id="maker-height-value">10</strong>
+                              <span>in tall</span>
+                            </div>
+                            <button class="ghost-button maker-stepper-button" id="maker-height-up" type="button">+</button>
+                          </div>
+                        </div>
+                      </div>
+                      <label class="select-field">
+                        <span>Order</span>
+                        <select id="maker-order-select">
+                          <option value="custom">Custom</option>
+                          <option value="rank-asc">Wishlist rank</option>
+                          <option value="iso-first">ISO, then DISO</option>
+                          <option value="wanted">DISO, then ISO</option>
+                          <option value="name-asc">Name A-Z</option>
+                          <option value="series-asc">Series A-Z</option>
+                        </select>
+                      </label>
+                      <label class="select-field">
+                        <span>Annotation style</span>
+                        <select id="maker-label-style-select">
+                          <option value="none">None</option>
+                          <option value="section-labels">Section labels</option>
+                          <option value="emoji-code">Emoji code</option>
+                        </select>
+                      </label>
+                    </div>
+                    <p class="maker-design-note" id="maker-order-note">
+                      Custom order keeps the exact lineup below. Use the arrows to move Sonnies earlier or later.
+                    </p>
+                    <div class="maker-emoji-panel" id="maker-emoji-panel" hidden>
+                      <div class="maker-design-card-header">
+                        <div>
+                          <p class="eyebrow">Emoji Code</p>
+                          <h4>Choose your badge meanings</h4>
+                        </div>
+                        <p class="maker-design-copy">These show in the legend and as small circle badges on the bottom-right of each Sonny.</p>
+                      </div>
+                      <div class="maker-emoji-grid">
+                        <label class="select-field">
+                          <span>DISO emoji</span>
+                          <input id="maker-diso-emoji" type="text" maxlength="4" value="💗" />
+                        </label>
+                        <label class="select-field">
+                          <span>ISO emoji</span>
+                          <input id="maker-iso-emoji" type="text" maxlength="4" value="💙" />
+                        </label>
+                        <label class="toggle-field maker-toggle-field" for="maker-custom-code-enabled">
+                          <input id="maker-custom-code-enabled" type="checkbox" />
+                          <span>Use custom code</span>
+                        </label>
+                      </div>
+                      <div class="maker-emoji-grid maker-emoji-grid-custom" id="maker-custom-code-fields" hidden>
+                        <label class="select-field">
+                          <span>Custom label</span>
+                          <input id="maker-custom-label-name" type="text" value="On the way" />
+                        </label>
+                        <label class="select-field">
+                          <span>Custom emoji</span>
+                          <input id="maker-custom-emoji" type="text" maxlength="4" value="✨" />
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <section class="maker-arrangement-card">
+                  <div class="maker-design-card-header">
+                    <div>
+                      <p class="eyebrow">Arrangement</p>
+                      <h4>Fine-tune the order</h4>
+                    </div>
+                    <p class="maker-design-copy">This is the sequence used left-to-right, top-to-bottom in the final layout.</p>
+                  </div>
+                  <div class="maker-arrangement-list" id="maker-arrangement-list"></div>
+                </section>
+                <div class="maker-canvas" id="maker-canvas"></div>
+              </div>
+            </section>
+          </section>
+        </section>
+
+        <section class="view-panel collected-panel" data-panel="collected">
+          <section class="collected-header">
+            <div class="collected-header-copy">
+              <p class="eyebrow">Collected</p>
+              <h2>Your kept shelf</h2>
+            </div>
+          </section>
+
+          <section class="collected-summary" id="collected-summary"></section>
+
+          <section class="controls collected-controls">
+            <label class="search-field">
+              <span>Search collected</span>
+              <input
+                id="collected-search"
+                type="search"
+                autocomplete="off"
+                autocapitalize="off"
+                autocorrect="off"
+                spellcheck="false"
+                placeholder="Search your collected Sonnies..."
+              />
+            </label>
+            <div class="select-field collected-series-multifield">
+              <span>Series</span>
+              <div class="collected-series-multiselect" id="collected-series-multiselect">
+                <button
+                  class="collected-series-trigger"
+                  id="collected-series-filter-button"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  All series
+                </button>
+                <div class="collected-series-panel" id="collected-series-filter-panel" hidden>
+                  <label class="collected-series-option is-all">
+                    <input id="collected-series-all" type="checkbox" checked />
+                    <span>All series</span>
+                  </label>
+                  <div class="collected-series-options" id="collected-series-options"></div>
+                </div>
+              </div>
+            </div>
+            <label class="select-field">
+              <span>View</span>
+              <select id="collected-view-filter">
+                <option value="compact">Compact cards</option>
+                <option value="shelf-series">Shelf per series</option>
+                <option value="minimalist" selected>Minimalist shelf</option>
+                <option value="armies">Armies</option>
+              </select>
+            </label>
+            <label class="select-field" id="collected-armies-view-field" hidden>
+              <span>Armies view</span>
+              <select id="collected-armies-view">
+                <option value="overview">Overview cards</option>
+                <option value="shelf">Shelf per army</option>
+              </select>
+            </label>
+            <label class="search-field" id="collected-shelf-density-field" hidden>
+              <span>Sonnies per row</span>
+              <input id="collected-shelf-density" type="number" min="1" max="8" step="1" inputmode="numeric" value="4" />
+            </label>
+            <label class="search-field" id="collected-army-threshold-field" hidden>
+              <span>Army threshold</span>
+              <input id="collected-army-threshold" type="number" min="2" step="1" inputmode="numeric" value="2" />
+            </label>
+            <label class="select-field">
+              <span>Sort</span>
+              <select id="collected-sort-filter">
+                <option value="date-desc">Recently collected</option>
+                <option value="date-asc">Oldest collected</option>
+                <option value="name-asc">Name A-Z</option>
+                <option value="name-desc">Name Z-A</option>
+                <option value="series-asc">Series A-Z</option>
+                <option value="series-desc">Series Z-A</option>
+                <option value="army-size-desc">Army size: largest first</option>
+                <option value="army-size-asc">Army size: smallest first</option>
+                <option value="notes">Notes first</option>
+              </select>
+            </label>
+            <label class="toggle-field" id="collected-show-multiple-separate-field" for="collected-show-multiple-separate">
+              <input id="collected-show-multiple-separate" type="checkbox" />
+              <span>Show multiple as separate</span>
+            </label>
+          </section>
+
+          <section class="shelf-meta">
+            <p id="collected-results-count"></p>
+          </section>
+
+          <section class="collected-grid" id="collected-grid"></section>
+        </section>
+
+        <section class="view-panel settings-panel" data-panel="settings">
+          <section class="settings-board">
+            <div class="settings-header">
+              <div>
+                <p class="eyebrow">Settings</p>
+                <h2>Tidy up your tracker view</h2>
+              </div>
+              <p class="wishlist-copy">
+                Hide series or individual Sonnies from the tracker without deleting any of your saved statuses.
+              </p>
+            </div>
+
+            <section class="settings-account-card" id="settings-account-card">
+              <div class="settings-account-header">
+                <div>
+                  <p class="eyebrow">Account Sync</p>
+                  <h3>Your account</h3>
+                </div>
+                <p class="wishlist-copy">
+                  Keep the tracker itself simple here, then open your account panel whenever you want to log in, sync, or switch devices.
+                </p>
+              </div>
+              <div class="auth-status-card" id="settings-auth-status-card">
+                <div>
+                  <strong id="settings-auth-summary-title">Cloud sync not connected</strong>
+                  <p id="settings-auth-summary-copy">Add your Supabase project keys to turn on account sync.</p>
+                </div>
+                <span class="auth-status-pill" id="settings-auth-summary-pill">Setup needed</span>
+              </div>
+              <div class="settings-account-actions">
+                <button class="ghost-button settings-account-open" id="settings-open-account" type="button">
+                  Open account panel
+                </button>
+              </div>
+              <div class="sync-snapshot" aria-label="Sync snapshot">
+                <article class="sync-snapshot-card">
+                  <span>Cloud account</span>
+                  <strong id="settings-cloud-count">--</strong>
+                </article>
+                <article class="sync-snapshot-card">
+                  <span>This device</span>
+                  <strong id="settings-device-count">--</strong>
+                </article>
+              </div>
+              <div class="sync-meta">
+                <p class="source-note sync-meta-line" id="settings-cloud-state">
+                  Cloud status: not loaded yet.
+                </p>
+                <p class="source-note sync-meta-line" id="settings-last-sync">
+                  Last successful sync: not yet.
+                </p>
+              </div>
+              <p class="source-note auth-feedback" id="auth-feedback">
+                Cloud sync is off until Supabase is connected.
+              </p>
+            </section>
+
+            <section class="settings-subtabs" aria-label="Settings sections">
+              <button class="settings-subtab is-active" data-settings-view="hide" type="button">
+                Hide series / Sonnies
+              </button>
+              <button class="settings-subtab" data-settings-view="collection-fields" type="button">
+                Collection fields
+              </button>
+            </section>
+
+            <section class="settings-subpanel is-active" data-settings-panel="hide">
+              <div class="hide-manager">
+                <div class="hide-manager-controls">
+                  <label class="search-field">
+                    <span>Search series or Sonnies</span>
+                    <input
+                      id="hide-search-input"
+                      type="search"
+                      autocomplete="off"
+                      autocapitalize="off"
+                      autocorrect="off"
+                      spellcheck="false"
+                      placeholder="Animal Series 1, Rabbit, Cherry Blossom..."
+                    />
+                  </label>
+                  <div class="hide-manager-summary">
+                    <div class="hide-summary-card">
+                      <span>Hidden series</span>
+                      <strong id="hidden-series-count">0</strong>
+                    </div>
+                    <div class="hide-summary-card">
+                      <span>Hidden Sonnies</span>
+                      <strong id="hidden-sonnies-count">0</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hide-manager-toolbar">
+                  <div class="hide-visibility-toggle" aria-label="Hide manager view">
+                    <button class="hide-view-button is-active" data-hide-view="all" type="button">
+                      All items
+                    </button>
+                    <button class="hide-view-button" data-hide-view="hidden" type="button">
+                      Hidden only
+                    </button>
+                  </div>
+                  <div class="hide-bulk-actions">
+                    <button class="ghost-button hide-bulk-button" id="unhide-visible-series" type="button">
+                      Show visible series
+                    </button>
+                    <button class="ghost-button hide-bulk-button" id="unhide-visible-sonnies" type="button">
+                      Show visible Sonnies
+                    </button>
+                  </div>
+                </div>
+
+                <div class="hide-manager-grid">
+                  <section class="hide-column">
+                    <div class="hide-column-header">
+                      <div>
+                        <p class="eyebrow">Series</p>
+                        <h3>Hide whole sets</h3>
+                      </div>
+                      <p class="wishlist-copy">
+                        Hiding a series removes every Sonny in that set from the tracker and insights.
+                      </p>
+                    </div>
+                    <div class="hide-list" id="hide-series-list"></div>
+                  </section>
+
+                  <section class="hide-column">
+                    <div class="hide-column-header">
+                      <div>
+                        <p class="eyebrow">Sonnies</p>
+                        <h3>Hide individual picks</h3>
+                      </div>
+                      <p class="wishlist-copy">
+                        Use this for one-offs you do not want cluttering the main tracker.
+                      </p>
+                    </div>
+                    <div class="hide-list hide-sonny-list" id="hide-sonnies-list"></div>
+                  </section>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-subpanel" data-settings-panel="collection-fields">
+              <div class="settings-fields-card">
+                <div class="hide-column-header">
+                  <div>
+                    <p class="eyebrow">Collection Fields</p>
+                    <h3>Choose what shows in Sonny details</h3>
+                  </div>
+                  <p class="wishlist-copy">
+                    Turn collection detail fields on or off without deleting any saved information.
+                  </p>
+                </div>
+                <div class="collection-fields-grid" id="collection-fields-grid">
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-collected-name" type="checkbox" checked />
+                    <span>Collected name</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-date-collected" type="checkbox" checked />
+                    <span>Date collected</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-acquisition" type="checkbox" checked />
+                    <span>Purchased / traded details</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-condition" type="checkbox" checked />
+                    <span>Condition</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-box-foil" type="checkbox" checked />
+                    <span>Has box / foil</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-display-location" type="checkbox" checked />
+                    <span>Display location</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-current-value" type="checkbox" checked />
+                    <span>Current value estimate</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-notes" type="checkbox" checked />
+                    <span>Notes</span>
+                  </label>
+                  <label class="toggle-field collection-field-toggle">
+                    <input id="field-toggle-photo" type="checkbox" checked />
+                    <span>Photo upload</span>
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-danger-zone">
+              <div>
+                <p class="eyebrow">Saved Data</p>
+                <h3>Reset tracker progress</h3>
+                <p class="wishlist-copy">
+                  Clear your saved `Have`, `Missing`, `ISO`, `DISO`, notes, and collected dates from this browser or your signed-in cloud account.
+                </p>
+              </div>
+              <button class="ghost-button settings-danger-button" id="reset-button" type="button">
+                Reset saved progress
+              </button>
+            </section>
+          </section>
+        </section>
+      </main>
+
+      <section class="account-modal-shell" id="account-modal-shell" hidden>
+        <div class="account-modal-backdrop" id="account-modal-backdrop"></div>
+        <div class="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-modal-title">
+          <div class="account-modal-header">
+            <div>
+              <p class="eyebrow">Account</p>
+              <h2 id="account-modal-title">Save your tracker to the cloud</h2>
+            </div>
+            <button class="ghost-button account-modal-close" id="account-modal-close" type="button">
+              Close
+            </button>
+          </div>
+
+          <p class="account-modal-copy">
+            Magic link is the lightest option. Password login is here too if you want something more traditional.
+          </p>
+
+          <div class="auth-status-card" id="auth-status-card">
+            <div>
+              <strong id="auth-status-title">Cloud sync not connected</strong>
+              <p id="auth-status-copy">Add your Supabase project keys to turn on account sync.</p>
+            </div>
+            <span class="auth-status-pill" id="auth-status-pill">Setup needed</span>
+          </div>
+
+          <div class="account-modal-section" id="account-modal-auth-section">
+            <form class="auth-form" id="auth-form">
+              <label class="search-field">
+                <span>Email</span>
+                <input
+                  id="auth-email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                />
+              </label>
+              <label class="search-field">
+                <span>Password</span>
+                <input
+                  id="auth-password"
+                  type="password"
+                  autocomplete="current-password"
+                  placeholder="Optional for magic link"
+                />
+              </label>
+              <div class="auth-actions">
+                <button class="ghost-button maker-toolbar-button-primary" id="auth-magic-link" type="button">
+                  Email me a magic link
+                </button>
+                <button class="ghost-button" id="auth-sign-in" type="button">
+                  Sign in with password
+                </button>
+                <button class="ghost-button" id="auth-sign-up" type="button">
+                  Create account
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="account-modal-section" id="account-modal-session-section" hidden>
+            <div class="account-session-copy">
+              <p>
+                Your collection lives in your account now. Use these actions if you want to refresh the cloud copy or replace it with what is currently on this device.
+              </p>
+            </div>
+            <div class="sync-snapshot" aria-label="Sync snapshot">
+              <article class="sync-snapshot-card">
+                <span>Cloud account</span>
+                <strong id="account-cloud-count">--</strong>
+              </article>
+              <article class="sync-snapshot-card">
+                <span>This device</span>
+                <strong id="account-device-count">--</strong>
+              </article>
+            </div>
+            <div class="sync-meta">
+              <p class="source-note sync-meta-line" id="account-cloud-state">
+                Cloud status: not loaded yet.
+              </p>
+              <p class="source-note sync-meta-line" id="account-last-sync">
+                Last successful sync: not yet.
+              </p>
+            </div>
+            <div class="account-password-panel">
+              <label class="search-field">
+                <span>Set or change password</span>
+                <input
+                  id="auth-new-password"
+                  type="password"
+                  autocomplete="new-password"
+                  placeholder="Use this if you signed up with magic link first"
+                />
+              </label>
+              <button class="ghost-button" id="auth-set-password" type="button">
+                Save password for this account
+              </button>
+            </div>
+            <div class="account-restore-panel">
+              <label class="search-field account-file-field">
+                <span>Restore from backup file</span>
+                <input
+                  id="auth-backup-file"
+                  type="file"
+                  accept=".json,application/json"
+                />
+              </label>
+              <button class="ghost-button" id="auth-restore-backup" type="button">
+                Restore tracker backup
+              </button>
+            </div>
+            <div class="account-restore-panel">
+              <div class="account-export-copy">
+                <span>Download your tracker data</span>
+                <p>Save your current progress and settings as a JSON file for your own records.</p>
+              </div>
+              <button class="ghost-button" id="auth-export-json" type="button">
+                Download JSON backup
+              </button>
+            </div>
+            <div class="auth-session-actions">
+              <button class="ghost-button" id="auth-sync-now" type="button">
+                Sync now
+              </button>
+              <button class="ghost-button" id="auth-import-local" type="button">
+                Use this device's data for my account
+              </button>
+              <button class="ghost-button" id="auth-sign-out" type="button">
+                Log out
+              </button>
+            </div>
+          </div>
+
+          <p class="source-note auth-feedback" id="account-auth-feedback">
+            Cloud sync is off until Supabase is connected.
+          </p>
+        </div>
+      </section>
+
+      <section class="collected-detail-modal-shell" id="collected-detail-modal-shell" hidden>
+        <div class="account-modal-backdrop" id="collected-detail-backdrop"></div>
+        <div
+          class="collected-detail-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="collected-detail-title"
+        >
+          <div class="account-modal-header">
+            <div>
+              <p class="eyebrow">Sonny details</p>
+              <h2 id="collected-detail-title">Collection details</h2>
+            </div>
+            <button class="ghost-button account-modal-close" id="collected-detail-close" type="button">
+              Close
+            </button>
+          </div>
+
+          <div class="collected-detail-layout">
+            <div class="collected-detail-figure-panel">
+              <div class="collected-detail-art" id="collected-detail-art"></div>
+              <p class="series-name" id="collected-detail-series"></p>
+              <h3 class="wishlist-name" id="collected-detail-name"></h3>
+              <div class="collected-detail-photo-tools">
+                <input id="collected-detail-photo-input" type="file" accept="image/*" hidden />
+                <button class="ghost-button" id="collected-detail-photo-upload" type="button">
+                  Upload photo
+                </button>
+                <button class="ghost-button" id="collected-detail-photo-replace" type="button" hidden>
+                  Change photo
+                </button>
+                <button class="ghost-button" id="collected-detail-photo-remove" type="button" hidden>
+                  Remove photo
+                </button>
+              </div>
+              <div class="collected-detail-uploaded-photo" id="collected-detail-uploaded-photo" hidden>
+                <img id="collected-detail-uploaded-photo-image" alt="Uploaded Sonny photo" />
+              </div>
+            </div>
+
+            <form class="collected-detail-form" id="collected-detail-form">
+              <label class="search-field" data-collection-field="collected-name">
+                <span>Collected name</span>
+                <input id="collected-detail-custom-name" type="text" placeholder="Give this Sonny a nickname..." />
+              </label>
+
+              <label class="search-field" data-collection-field="date-collected">
+                <span>Date collected</span>
+                <input id="collected-detail-date" type="date" />
+              </label>
+
+              <div class="collected-detail-mode-field" data-collection-field="acquisition">
+                <span>How did you get it?</span>
+                <div class="collected-detail-mode-toggle" id="collected-detail-mode-toggle">
+                  <button class="ghost-button collected-detail-mode-button" data-detail-mode="purchased" type="button">
+                    Purchased
+                  </button>
+                  <button class="ghost-button collected-detail-mode-button" data-detail-mode="traded" type="button">
+                    Traded
+                  </button>
+                  <button class="ghost-button collected-detail-mode-button" data-detail-mode="mix" type="button">
+                    Mix
+                  </button>
+                </div>
+              </div>
+
+              <div class="collected-detail-grid" id="collected-detail-purchased-fields" hidden data-collection-field="acquisition">
+                <label class="search-field">
+                  <span>Purchased in / from</span>
+                  <input id="collected-detail-purchased-from" type="text" placeholder="Shop, seller, event..." />
+                </label>
+                <label class="search-field">
+                  <span>Purchased price</span>
+                  <input id="collected-detail-purchased-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="18.00" />
+                </label>
+              </div>
+
+              <div class="collected-detail-grid" id="collected-detail-traded-fields" hidden data-collection-field="acquisition">
+                <label class="search-field">
+                  <span>Traded with</span>
+                  <input id="collected-detail-traded-with" type="text" placeholder="Name, username..." />
+                </label>
+                <div class="search-field">
+                  <span>Traded for</span>
+                  <div class="collected-detail-trade-picker">
+                    <input
+                      id="collected-detail-traded-for-input"
+                      type="text"
+                      list="collected-detail-traded-for-options"
+                      placeholder="Search a Sonny or type your own..."
+                    />
+                    <datalist id="collected-detail-traded-for-options"></datalist>
+                    <button class="ghost-button" id="collected-detail-add-traded-for" type="button">
+                      Add
+                    </button>
+                  </div>
+                  <div class="collected-detail-traded-list" id="collected-detail-traded-for-list"></div>
+                </div>
+              </div>
+
+              <div class="collected-detail-grid" id="collected-detail-mix-fields" hidden data-collection-field="acquisition">
+                <label class="search-field">
+                  <span>Paying amount</span>
+                  <input id="collected-detail-mix-paying-amount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="8.00" />
+                </label>
+              </div>
+
+              <div class="collected-detail-grid" data-collection-field="condition">
+                <label class="search-field">
+                  <span>Condition</span>
+                  <select id="collected-detail-condition">
+                    <option value="">Select condition</option>
+                    <option value="mint">Mint</option>
+                    <option value="good">Good</option>
+                    <option value="minor-flaws">Minor flaws</option>
+                    <option value="major-flaws">Major flaws</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </label>
+                <label class="search-field" id="collected-detail-condition-custom-field" hidden>
+                  <span>Custom condition</span>
+                  <input id="collected-detail-condition-custom" type="text" placeholder="Describe condition..." />
+                </label>
+              </div>
+
+              <label class="toggle-field collected-detail-checkbox" data-collection-field="box-foil">
+                <input id="collected-detail-has-box-foil" type="checkbox" />
+                <span>Has box / foil</span>
+              </label>
+
+              <label class="search-field" data-collection-field="display-location">
+                <span>Display location</span>
+                <input id="collected-detail-display-location" type="text" placeholder="Shelf, room, bin..." />
+              </label>
+
+              <label class="search-field" data-collection-field="current-value">
+                <span>Current value estimate</span>
+                <input id="collected-detail-current-value" type="number" min="0" step="0.01" inputmode="decimal" placeholder="25.00" />
+              </label>
+
+              <label class="search-field" data-collection-field="notes">
+                <span>Notes</span>
+                <textarea
+                  class="bug-report-textarea"
+                  id="collected-detail-notes"
+                  rows="5"
+                  placeholder="Display notes, memories, condition, trade context..."
+                ></textarea>
+              </label>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <section class="bug-report-cta">
+          <div>
+            <p class="eyebrow">Found Something Weird?</p>
+            <h2>Send a bug ticket</h2>
+            <p class="wishlist-copy">
+              Open a quick report without leaving the page so you can still scroll around and grab screenshots first.
+            </p>
+          </div>
+          <button class="ghost-button bug-report-open" id="open-bug-report" type="button">
+            Report a bug
+          </button>
+        </section>
+
+        <section class="bug-report-panel" id="bug-report-panel" hidden>
+          <div class="bug-report-sheet" role="dialog" aria-modal="false" aria-labelledby="bug-report-title">
+        <div class="bug-report-header">
+          <div>
+            <p class="eyebrow">Bug Ticket</p>
+            <h2 id="bug-report-title">Tell me what broke</h2>
+          </div>
+          <button class="ghost-button bug-report-close" id="close-bug-report" type="button">
+            Close
+          </button>
+        </div>
+
+        <form class="bug-report-form" id="bug-report-form">
+          <div class="bug-report-grid">
+            <label class="search-field">
+              <span>Name</span>
+              <input id="bug-report-name" type="text" placeholder="Optional name" />
+            </label>
+            <label class="search-field">
+              <span>Contact info</span>
+              <input
+                id="bug-report-contact"
+                type="text"
+                placeholder="Optional email, IG handle, phone..."
+              />
+            </label>
+          </div>
+
+          <label class="search-field">
+            <span>What happened?</span>
+            <textarea
+              class="bug-report-textarea"
+              id="bug-report-description"
+              rows="6"
+              placeholder="Describe the bug, what you expected, and what page/tab you were on."
+            ></textarea>
+          </label>
+
+          <label class="bug-upload">
+            <span class="eyebrow">Add screenshots</span>
+            <input id="bug-report-images" type="file" accept="image/*" multiple />
+            <strong>Choose images</strong>
+            <p>You can add one or more screenshots here. This is UI-only for now.</p>
+          </label>
+
+          <div class="bug-upload-list" id="bug-upload-list"></div>
+
+          <div class="bug-report-actions">
+            <button class="ghost-button" id="cancel-bug-report" type="button">
+              Cancel
+            </button>
+            <button class="ghost-button maker-toolbar-button-primary" type="submit">
+              Submit bug ticket
+            </button>
+          </div>
+          <p class="source-note">
+            This currently does not send a real email yet, but the form is ready for that wiring later.
+          </p>
+        </form>
+          </div>
+        </section>
+      </footer>
+    </div>
+
+    <template id="card-template">
+      <article class="card">
+        <div class="card-art">
+          <div class="page-crop"></div>
+        </div>
+        <div class="card-body">
+          <p class="series-name"></p>
+          <h2 class="sonny-name-row">
+            <span class="sonny-name"></span>
+            <span class="name-badges"></span>
+          </h2>
+          <p class="source-note"></p>
+          <div class="card-actions">
+            <div class="status-slot status-slot-owned">
+              <button class="status-button" data-status="have" type="button">
+                <span class="status-button-label">Owned</span>
+              </button>
+              <div class="owned-counter" hidden>
+                <button class="owned-counter-button owned-counter-up" data-owned-adjust="1" type="button" aria-label="Increase owned count">
+                  +
+                </button>
+                <span class="owned-counter-value">1</span>
+                <button class="owned-counter-button owned-counter-down" data-owned-adjust="-1" type="button" aria-label="Decrease owned count">
+                  -
+                </button>
+              </div>
+            </div>
+            <button class="status-button" data-status="missing" type="button">
+              Missing
+            </button>
+            <button class="status-button" data-status="iso" type="button">
+              ISO
+            </button>
+            <button class="status-button" data-status="diso" type="button">
+              DISO
+            </button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <template id="wishlist-card-template">
+      <article class="wishlist-card">
+        <div class="wishlist-art"></div>
+        <div class="wishlist-details">
+          <p class="series-name"></p>
+          <h3 class="wishlist-name-row">
+            <span class="wishlist-name"></span>
+            <span class="name-badges"></span>
+          </h3>
+        </div>
+      </article>
+    </template>
+
+    <template id="collected-card-template">
+      <article class="collected-card">
+        <div class="collected-art"></div>
+        <div class="collected-body">
+          <p class="series-name"></p>
+          <h3 class="wishlist-name-row">
+            <span class="wishlist-name"></span>
+            <span class="name-badges"></span>
+          </h3>
+          <label class="notes-field">
+            <span>Notes</span>
+            <textarea
+              class="notes-input"
+              rows="4"
+              placeholder="When you got it, trade stories, display ideas..."
+            ></textarea>
+          </label>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app/data/sonnies.js?v=20260317-manual-art-4"></script>
+    <script src="./app/data/sonny_image_map.js?v=20260317-manual-art-4"></script>
+    <script src="./app/data/manual_overrides.js?v=20260317-manual-art-4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./app/supabase-config.js"></script>
+    <script src="./app/app.js?v=20260323-wishlist-landing"></script>
+  </body>
+</html>

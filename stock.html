@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sonny Stock Shelf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./app/brand-assets/png/favicons/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./app/brand-assets/png/favicons/apple-touch-icon-180.png" />
+    <link rel="stylesheet" href="./app/stock.css" />
+  </head>
+  <body>
+    <div class="stock-shell">
+      <nav class="view-switcher" aria-label="Tracker sections">
+        <button class="view-tab is-active" data-view-target="stock" type="button">
+          Stock Shelf
+        </button>
+        <button class="view-tab" data-view-target="fund" type="button">
+          Sonny Fund
+        </button>
+        <button class="view-tab" data-view-target="shipments" type="button">
+          Shipments
+        </button>
+        <button class="view-tab" data-view-target="logs" type="button">
+          Activity
+        </button>
+        <button class="view-tab" data-view-target="settings" type="button">
+          Settings
+        </button>
+      </nav>
+
+      <header class="stock-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Whimsical selling companion</p>
+          <h1 id="hero-title">Your Sonny stock shelf.</h1>
+          <div class="hero-status-strip" aria-live="polite">
+            <span class="hero-status-pill" id="stock-save-status-pill">Device only</span>
+            <p class="hero-status-copy" id="stock-save-status-copy">
+              Stock and fund changes are currently saved on this device.
+            </p>
+          </div>
+          <p class="hero-text">
+            <span id="hero-copy">
+              Keep your inventory in one sweet little spot, tweak prices as they
+              change, and add new Sonnies whenever one joins the shelf.
+            </span>
+          </p>
+          <div class="hero-actions">
+            <a class="ghost-link" href="./index.html">Open collection tracker</a>
+          </div>
+        </div>
+
+        <section class="hero-panel" aria-label="Stock summary">
+          <div class="summary-grid" id="summary-grid"></div>
+          <button class="ghost-button" id="reset-active-view" type="button">
+            Reset current view
+          </button>
+        </section>
+      </header>
+
+      <main class="view-panel is-active" id="stock-view">
+        <div class="stock-layout">
+          <section class="add-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Add To Stock</p>
+              <h2>Pop a new Sonny onto the shelf</h2>
+            </div>
+
+            <form id="add-stock-form" class="add-form">
+              <label>
+                <span>Find Sonny</span>
+                <input
+                  id="stock-catalog-search"
+                  name="name"
+                  type="search"
+                  placeholder="Rabbit, cherry blossom, panda..."
+                  list="stock-catalog-options"
+                  autocomplete="off"
+                  required
+                />
+              </label>
+              <datalist id="stock-catalog-options"></datalist>
+              <div class="catalog-preview" id="stock-catalog-preview">
+                <div class="catalog-preview-art catalog-preview-art-empty"></div>
+                <div class="catalog-preview-copy">
+                  <p class="eyebrow">Catalog Preview</p>
+                  <strong>Pick a Sonny from the list</strong>
+                  <span>Search by name or series and choose a matching catalog result.</span>
+                </div>
+              </div>
+              <label>
+                <span>Sell price</span>
+                <input
+                  id="new-price"
+                  name="price"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.01"
+                  placeholder="18.00"
+                  required
+                />
+              </label>
+              <label>
+                <span>Quantity</span>
+                <input
+                  id="new-quantity"
+                  name="quantity"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  step="1"
+                  value="1"
+                  required
+                />
+              </label>
+              <button class="primary-button" type="submit">Add Sonny</button>
+            </form>
+
+            <section class="message-builder-card">
+              <div class="section-heading section-heading-tight">
+                <p class="eyebrow">Message Builder</p>
+                <h2>Make a listing message</h2>
+              </div>
+              <p class="inventory-copy">
+                Build a sales post from the stock you can currently see, then edit the wording however you want.
+              </p>
+              <div class="message-builder-actions">
+                <button class="ghost-button" id="build-stock-message" type="button" onclick="window.buildStockMessageDraftNow && window.buildStockMessageDraftNow()">Build From Current Stock</button>
+                <button class="ghost-button" id="copy-stock-message" type="button">Copy Message</button>
+              </div>
+              <p class="message-builder-status" id="stock-message-status">Build a message from the stock you can currently see.</p>
+              <label class="field">
+                <span>Your message</span>
+                <textarea id="stock-message-output" rows="16" placeholder="Your stock message will show up here."></textarea>
+              </label>
+            </section>
+          </section>
+
+          <section class="inventory-panel">
+            <div class="inventory-header">
+              <div>
+                <p class="eyebrow">Current Stock</p>
+                <h2>At-a-glance inventory</h2>
+              </div>
+              <p class="inventory-copy">
+                Edit any price right in the card. Everything saves in this browser.
+              </p>
+            </div>
+
+            <div class="stock-filters">
+              <label>
+                <span>Search stock</span>
+                <input id="stock-search" type="search" placeholder="Rabbit, penguin, cherry blossom..." />
+              </label>
+              <label>
+                <span>Status</span>
+                <select id="stock-status-filter">
+                  <option value="all">All statuses</option>
+                  <option value="available">Available</option>
+                  <option value="pending">Pending</option>
+                  <option value="sold">Sold</option>
+                  <option value="traded">Traded</option>
+                </select>
+              </label>
+              <label>
+                <span>Type</span>
+                <select id="stock-kind-filter">
+                  <option value="all">All stock</option>
+                  <option value="selling">Selling only</option>
+                  <option value="trading">Trading only</option>
+                </select>
+              </label>
+              <label>
+                <span>Sort</span>
+                <select id="stock-sort">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Newest last</option>
+                  <option value="price-desc">Price high to low</option>
+                  <option value="price-asc">Price low to high</option>
+                  <option value="name-asc">Name A-Z</option>
+                </select>
+              </label>
+              <label>
+                <span>Display</span>
+                <button class="ghost-button display-toggle-button" id="stock-display-toggle" type="button">
+                  Shelf version off
+                </button>
+              </label>
+              <label>
+                <span>Card size</span>
+                <select id="stock-card-density">
+                  <option value="roomy">Roomy cards</option>
+                  <option value="compact">Compact cards</option>
+                </select>
+              </label>
+            </div>
+
+            <p class="inventory-results" id="stock-results-count"></p>
+
+            <div class="inventory-grid" id="inventory-grid"></div>
+          </section>
+        </div>
+      </main>
+
+      <main class="view-panel" id="fund-view">
+        <div class="stock-layout">
+          <section class="add-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Add Movement</p>
+              <h2>Track your Sonny fund flow</h2>
+            </div>
+
+            <form id="add-fund-form" class="add-form">
+              <label>
+                <span>What happened</span>
+                <input id="fund-note" name="note" type="text" placeholder="Sold Cherry Blossom Rabbit" required />
+              </label>
+              <label>
+                <span>Date</span>
+                <input id="fund-date" name="date" type="date" required />
+              </label>
+              <label>
+                <span>Amount style</span>
+                <select id="fund-amount-mode" name="amount-mode">
+                  <option value="total">Total purchase amount</option>
+                  <option value="per-sonny">Amount per Sonny</option>
+                </select>
+              </label>
+              <label>
+                <span id="fund-amount-label">Total amount</span>
+                <input
+                  id="fund-amount"
+                  name="amount"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.01"
+                  placeholder="25.00"
+                  required
+                />
+              </label>
+              <label>
+                <span>Sonnies</span>
+                <input
+                  id="fund-sonnies"
+                  name="sonnies"
+                  type="text"
+                  list="stock-catalog-options"
+                  placeholder="Pick a Sonny and add it"
+                />
+                <div class="fund-sonny-preview-list" id="fund-sonny-preview-list"></div>
+              </label>
+              <label>
+                <span>Price per Sonny</span>
+                <input
+                  id="fund-figure-price"
+                  name="figure-price"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.01"
+                  placeholder="0.00"
+                />
+              </label>
+              <label>
+                <span>Person</span>
+                <input
+                  id="fund-person"
+                  name="person"
+                  type="text"
+                  placeholder="Rameen, Jordana..."
+                />
+              </label>
+              <label>
+                <span>Movement</span>
+                <select id="fund-type" name="type">
+                  <option value="in">Add money</option>
+                  <option value="out">Remove money</option>
+                </select>
+              </label>
+              <label class="toggle-field">
+                <input id="fund-sent-to-real-fund" name="sent-to-real-fund" type="checkbox" />
+                <span id="fund-sent-to-real-fund-label">Sent to real fund?</span>
+              </label>
+              <button class="primary-button" type="submit">Add Movement</button>
+            </form>
+          </section>
+
+          <section class="inventory-panel">
+            <div class="inventory-header">
+              <div>
+                <p class="eyebrow">Sonny Fund</p>
+                <h2>Money in, money out, always saved</h2>
+              </div>
+              <p class="inventory-copy">
+                Edit names, dates, amounts, and movement types right in the list. Everything saves automatically.
+              </p>
+            </div>
+
+            <div class="fund-filters">
+              <label>
+                <span>View</span>
+                <select id="fund-range-filter">
+                  <option value="7d">Past 7 days</option>
+                  <option value="30d">Past 30 days</option>
+                  <option value="90d">Past 3 months</option>
+                  <option value="all" selected>Lifetime</option>
+                </select>
+              </label>
+              <label>
+                <span>Order</span>
+                <select id="fund-sort">
+                  <option value="newest">Latest to earliest</option>
+                  <option value="oldest">Earliest to latest</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="fund-list" id="fund-list"></div>
+          </section>
+        </div>
+      </main>
+
+      <main class="view-panel" id="shipments-view">
+        <div class="stock-layout shipments-layout">
+          <section class="add-panel">
+            <div class="section-heading">
+              <p class="eyebrow">New Shipment</p>
+              <h2>Plan an incoming box</h2>
+            </div>
+
+            <form id="add-shipment-form" class="add-form">
+              <label>
+                <span>Shipment name</span>
+                <input id="shipment-name" name="name" type="text" placeholder="Rameen Mar 13" required />
+              </label>
+              <label>
+                <span>Original payment</span>
+                <input
+                  id="shipment-cost"
+                  name="cost"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.01"
+                  placeholder="705.00"
+                  required
+                />
+              </label>
+              <button class="primary-button" type="submit">Create Shipment</button>
+            </form>
+
+            <div class="shipment-list-block">
+              <div class="section-heading section-heading-tight">
+                <p class="eyebrow">Saved Shipments</p>
+                <h2>Your planner list</h2>
+              </div>
+              <div class="shipment-list" id="shipment-list"></div>
+            </div>
+          </section>
+
+          <section class="inventory-panel">
+            <div class="inventory-header">
+              <div>
+                <p class="eyebrow">Shipment Planner</p>
+                <h2 id="shipment-plan-title">Select a shipment</h2>
+              </div>
+              <p class="inventory-copy" id="shipment-plan-copy">
+                Split each Sonny between sell and keep, then watch the totals update automatically.
+              </p>
+            </div>
+
+            <div class="shipment-editor" id="shipment-editor"></div>
+          </section>
+        </div>
+      </main>
+
+      <main class="view-panel" id="logs-view">
+        <div class="stock-layout">
+          <section class="add-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Activity Log</p>
+              <h2>Everything gets tracked</h2>
+            </div>
+            <p class="inventory-copy">
+              Adds, edits, removals, and planner changes are saved here with timestamps so you can see what changed.
+            </p>
+          </section>
+
+          <section class="inventory-panel">
+            <div class="inventory-header">
+              <div>
+                <p class="eyebrow">Recent Activity</p>
+                <h2>Saved history</h2>
+              </div>
+              <div class="activity-actions">
+                <p class="inventory-copy">
+                  The newest actions stay at the top. This log is stored in your browser with the rest of your tracker data.
+                </p>
+                <p class="inventory-copy" id="last-backup-status">
+                  No backup exported yet from this browser.
+                </p>
+                <button class="ghost-button activity-export-button" id="export-full-backup" type="button">
+                  Download Full Backup (.json)
+                </button>
+                <button class="ghost-button activity-export-button" id="import-full-backup" type="button">
+                  Restore From Backup (.json)
+                </button>
+                <button class="ghost-button activity-export-button" id="export-activity-log" type="button">
+                  Download Activity Log (.csv)
+                </button>
+                <input id="import-full-backup-input" type="file" accept=".json,application/json" hidden />
+              </div>
+            </div>
+
+            <div class="activity-filters">
+              <label>
+                <span>Search log</span>
+                <input id="activity-search" type="search" placeholder="sold, shipment, rabbit..." />
+              </label>
+              <label>
+                <span>Category</span>
+                <select id="activity-kind-filter">
+                  <option value="all">All activity</option>
+                  <option value="stock">Stock</option>
+                  <option value="fund">Fund</option>
+                  <option value="shipment">Shipment</option>
+                  <option value="system">System</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="activity-list" id="activity-list"></div>
+          </section>
+        </div>
+      </main>
+
+      <main class="view-panel" id="settings-view">
+        <div class="stock-layout">
+          <section class="add-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Settings</p>
+              <h2>Tailor the stock math</h2>
+            </div>
+            <p class="inventory-copy">
+              Keep the stock dashboard simple by default, or turn on extra trade-value tracking if you want rough value estimates for your trading Sonnies.
+            </p>
+          </section>
+
+          <section class="inventory-panel">
+            <div class="inventory-header">
+              <div>
+                <p class="eyebrow">Stock Preferences</p>
+                <h2>How totals should behave</h2>
+              </div>
+              <p class="inventory-copy">
+                These settings only affect this browser and can be changed anytime.
+              </p>
+            </div>
+
+            <div class="settings-list">
+              <label class="settings-card">
+                <span class="settings-toggle">
+                  <input id="setting-use-fund" type="checkbox" />
+                  <span>Use Sonny Fund</span>
+                </span>
+                <span class="settings-help">
+                  Turn this off if you only want stock tracking. The Sonny Fund tab will hide and sold items will just be marked sold.
+                </span>
+              </label>
+
+              <label class="settings-card">
+                <span class="settings-toggle">
+                  <input id="setting-allow-trade-values" type="checkbox" />
+                  <span>Allow value on trading Sonnies</span>
+                </span>
+                <span class="settings-help">
+                  When this is on, trade-only cards can keep an optional value instead of forcing the price field blank.
+                </span>
+              </label>
+
+              <label class="settings-card">
+                <span class="settings-toggle">
+                  <input id="setting-include-trade-values" type="checkbox" />
+                  <span>Include trading values in total stock price</span>
+                </span>
+                <span class="settings-help">
+                  Use this if you want the dashboard total to count the optional values you entered for trading Sonnies.
+                </span>
+              </label>
+
+              <div class="settings-card">
+                <span class="settings-toggle">Reset this view</span>
+                <span class="settings-help">
+                  Restore the settings on this page back to their default values for this browser.
+                </span>
+                <button class="ghost-button" id="reset-settings-view" type="button">Reset current view</button>
+              </div>
+
+              <section class="settings-card">
+                <p class="eyebrow">Storage</p>
+                <h3>This stock site stays local</h3>
+                <p class="settings-help">
+                  Stock, fund, shipment, and activity data on this page are saved in this browser only. Use the backup buttons in Activity if you want to move or keep a copy.
+                </p>
+              </section>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <template id="stock-card-template">
+      <article class="stock-card">
+        <div class="stock-card-art"></div>
+        <div class="card-topper">
+          <span class="sparkle">✦</span>
+          <span class="stock-status-pill"></span>
+          <button class="remove-button" type="button">Remove</button>
+        </div>
+        <label class="field">
+          <span>Series</span>
+          <input class="series-input" type="text" disabled />
+        </label>
+        <label class="field">
+          <span>Name</span>
+          <input class="name-input" type="text" disabled />
+        </label>
+        <label class="field">
+          <span>Price</span>
+          <div class="price-input-wrap">
+            <span class="currency">$</span>
+            <input class="price-input" type="number" min="0" step="0.01" inputmode="decimal" />
+          </div>
+        </label>
+        <div class="stock-card-grid">
+          <label class="field">
+            <span>Quantity</span>
+            <input class="quantity-input" type="number" min="1" step="1" inputmode="numeric" />
+          </label>
+          <label class="field">
+            <span>Status</span>
+            <select class="status-select">
+              <option value="available">Available</option>
+              <option value="pending">Pending</option>
+              <option value="sold">Sold</option>
+            </select>
+          </label>
+        </div>
+        <label class="toggle-field stock-trade-toggle">
+          <input class="just-trading-input" type="checkbox" />
+          <span>Just trading</span>
+        </label>
+        <section class="stock-history-panel" hidden>
+          <div class="stock-history-summary"></div>
+          <div class="stock-history-list"></div>
+        </section>
+        <div class="stock-card-actions">
+          <button class="ghost-button stock-history-button" type="button">Show Price History</button>
+          <button class="ghost-button stock-sold-button" type="button">Mark Sold + Log Fund</button>
+        </div>
+      </article>
+    </template>
+
+    <template id="fund-row-template">
+      <article class="fund-row">
+        <div class="fund-row-main">
+          <div class="fund-row-fields">
+            <label class="field fund-movement-field">
+              <span>Movement</span>
+              <input class="fund-label-input" type="text" />
+            </label>
+            <label class="field fund-date-field">
+              <span>Date</span>
+              <input class="fund-date-input" type="date" />
+            </label>
+            <label class="field fund-type-field">
+              <span>Type</span>
+              <select class="fund-type-input">
+                <option value="in">Money in</option>
+                <option value="out">Money out</option>
+              </select>
+            </label>
+            <label class="field fund-mode-field">
+              <span>Amount style</span>
+              <select class="fund-amount-mode-input">
+                <option value="total">Total purchase amount</option>
+                <option value="per-sonny">Amount per Sonny</option>
+              </select>
+            </label>
+            <label class="field fund-sonnies-field">
+              <span>Sonnies</span>
+              <input class="fund-sonnies-input" type="text" list="stock-catalog-options" placeholder="Pick a Sonny and add it" />
+              <div class="fund-sonny-preview-list"></div>
+            </label>
+            <label class="field fund-figure-field">
+              <span class="fund-figure-price-label">Amount per Sonny</span>
+              <div class="price-input-wrap">
+                <span class="currency">$</span>
+                <input class="fund-figure-price-input" type="number" min="0" step="0.01" inputmode="decimal" />
+              </div>
+            </label>
+            <label class="field fund-person-field">
+              <span>Person</span>
+              <input class="fund-person-input" type="text" />
+            </label>
+            <label class="toggle-field fund-real-toggle">
+              <input class="fund-sent-to-real-fund-input" type="checkbox" />
+              <span class="fund-sent-to-real-fund-label">Sent to real fund?</span>
+            </label>
+            <label class="field fund-amount-field">
+              <span class="fund-amount-field-label">Total amount</span>
+              <div class="price-input-wrap">
+                <span class="currency">$</span>
+                <input class="fund-amount-input" type="number" min="0" step="0.01" inputmode="decimal" />
+              </div>
+            </label>
+          </div>
+          <span class="fund-row-balance"></span>
+        </div>
+        <button class="remove-button" type="button">Remove</button>
+      </article>
+    </template>
+
+    <template id="shipment-list-item-template">
+      <button class="shipment-list-item" type="button">
+        <span class="shipment-list-name"></span>
+        <span class="shipment-list-meta"></span>
+      </button>
+    </template>
+
+    <template id="shipment-item-template">
+      <article class="shipment-item-row">
+        <div class="shipment-item-fields">
+          <label class="field shipment-name-field">
+            <span>Sonny name</span>
+            <input class="shipment-item-name-input" type="text" list="stock-catalog-options" placeholder="Pick from the Sonny catalog" />
+            <div class="shipment-item-identity">
+              <div class="shipment-item-thumb shipment-item-thumb-empty"></div>
+              <div class="shipment-item-identity-copy">
+                <strong class="shipment-item-identity-name">Choose a Sonny</strong>
+                <span class="shipment-item-identity-series">Selecting from the list keeps the exact identity matched.</span>
+              </div>
+            </div>
+            <div class="shipment-item-history-summary"></div>
+          </label>
+          <label class="field">
+            <span>Quantity</span>
+            <input class="shipment-item-quantity-input" type="number" min="1" step="1" inputmode="numeric" />
+          </label>
+          <label class="field">
+            <span>Selling price</span>
+            <div class="price-input-wrap">
+              <span class="currency">$</span>
+              <input class="shipment-item-sell-input" type="number" min="0" step="0.01" inputmode="decimal" />
+            </div>
+          </label>
+          <label class="field">
+            <span>Keeping price</span>
+            <div class="price-input-wrap">
+              <span class="currency">$</span>
+              <input class="shipment-item-keep-input" type="number" min="0" step="0.01" inputmode="decimal" />
+            </div>
+          </label>
+        </div>
+        <div class="shipment-item-actions">
+          <label class="shipment-select-toggle">
+            <input class="shipment-item-select-input" type="checkbox" />
+            <span>Select</span>
+          </label>
+          <button class="ghost-button shipment-history-button" type="button">Show History</button>
+          <button class="ghost-button shipment-to-stock-button" type="button">Send To Stock</button>
+          <button class="remove-button" type="button">Remove</button>
+        </div>
+        <section class="shipment-history-panel" hidden>
+          <div class="shipment-history-list"></div>
+        </section>
+      </article>
+    </template>
+
+    <template id="activity-item-template">
+      <article class="activity-item">
+        <div class="activity-item-top">
+          <span class="activity-item-kind"></span>
+          <time class="activity-item-time"></time>
+        </div>
+        <strong class="activity-item-title"></strong>
+        <p class="activity-item-detail"></p>
+      </article>
+    </template>
+
+    <script src="./app/data/sonnies.js"></script>
+    <script src="./app/data/sonny_image_map.js"></script>
+    <script src="./app/stock.js"></script>
+    <script>
+      window.buildStockMessageDraftNow = function () {
+        const textarea = document.querySelector("#stock-message-output");
+        const status = document.querySelector("#stock-message-status");
+        const search = (document.querySelector("#stock-search")?.value || "").trim().toLowerCase();
+        const statusFilter = document.querySelector("#stock-status-filter")?.value || "all";
+        const kindFilter = document.querySelector("#stock-kind-filter")?.value || "all";
+        const sort = document.querySelector("#stock-sort")?.value || "newest";
+        const keys = [
+          "sonny-stock-shelf-local-v2",
+          "sonny-stock-shelf-local-mirror-v2",
+          "sonny-stock-shelf-v1",
+        ];
+
+        let stock = [];
+        for (const key of keys) {
+          try {
+            const saved = JSON.parse(localStorage.getItem(key) || "null");
+            if (Array.isArray(saved) && saved.length) {
+              stock = saved;
+              break;
+            }
+          } catch {}
+        }
+
+        const filtered = stock
+          .filter((item) => {
+            const name = String(item?.name || "").toLowerCase();
+            const series = String(item?.series || "").toLowerCase();
+            const matchesSearch = !search || name.includes(search) || series.includes(search);
+            const matchesStatus = statusFilter === "all" || item?.status === statusFilter;
+            const matchesKind =
+              kindFilter === "all" ||
+              (kindFilter === "selling" && !item?.justTrading) ||
+              (kindFilter === "trading" && !!item?.justTrading);
+            return matchesSearch && matchesStatus && matchesKind && ["available", "pending"].includes(item?.status || "available");
+          })
+          .sort((a, b) => {
+            if (sort === "price-desc") return Number(b?.price || 0) - Number(a?.price || 0);
+            if (sort === "price-asc") return Number(a?.price || 0) - Number(b?.price || 0);
+            if (sort === "name-asc") return String(a?.name || "").localeCompare(String(b?.name || ""));
+            return 0;
+          });
+
+        const grouped = new Map();
+        filtered.forEach((item) => {
+          const groupKey = String(item?.series || "other").trim().toLowerCase();
+          if (!grouped.has(groupKey)) grouped.set(groupKey, []);
+          const quantity = Math.max(1, Number(item?.quantity) || 1);
+          const price = item?.justTrading && Number(item?.price || 0) <= 0
+            ? "trade only"
+            : new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(Number(item?.price || 0));
+          const label = `${String(item?.series || "").trim()} ${String(item?.name || "").trim()}`
+            .trim()
+            .replace(/\s+/g, " ")
+            .toLowerCase();
+          grouped.get(groupKey).push(`${label} ${price}${quantity > 1 ? ` x${quantity}` : ""}`.trim());
+        });
+
+        const listing = Array.from(grouped.values())
+          .map((lines) => lines.join("\n"))
+          .join("\n\n");
+
+        const message = [
+          "ufs/uft! ❤️",
+          "all are all for trade as well, willing to bundle too.",
+          "",
+          "😄 open to lowering prices esp. if bundling! ✨",
+          "",
+          "ship is $5.50. i accept paypal, venmo and zelle ❤️",
+          "",
+          listing || "no available sonnies right now",
+        ].join("\n");
+
+        if (textarea) {
+          textarea.value = message;
+          textarea.focus();
+          textarea.select();
+          try {
+            localStorage.setItem("sonny-stock-message-draft-v1", message);
+          } catch {}
+        }
+
+        if (status) {
+          status.textContent = `Built a message from ${filtered.length} ${filtered.length === 1 ? "stock card" : "stock cards"} in the current view.`;
+        }
+      };
+    </script>
+  </body>
+</html>

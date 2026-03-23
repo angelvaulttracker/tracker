@@ -1,0 +1,59 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBase" x1="540" y1="0" x2="540" y2="1920" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffefc"/>
+      <stop offset="1" stop-color="#fffaf3"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(132 190) rotate(28) scale(360 280)">
+      <stop stop-color="#f4c8cf" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#f4c8cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sageGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 170) rotate(145) scale(300 250)">
+      <stop stop-color="#d8e3cf" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#d8e3cf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardGlow" x1="160" y1="760" x2="920" y2="1580" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#fff8ef" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1920" fill="url(#bgBase)"/>
+  <rect width="1080" height="1920" fill="url(#roseGlow)"/>
+  <rect width="1080" height="1920" fill="url(#sageGlow)"/>
+
+  <g opacity="0.45" stroke="#e9d8c6" stroke-width="2">
+    <path d="M120 242C170 146 277 92 396 92C515 92 622 146 672 242"/>
+    <path d="M760 280C796 204 878 162 970 162"/>
+    <path d="M130 1338C172 1262 252 1216 342 1216C432 1216 512 1262 554 1338"/>
+    <circle cx="816" cy="1468" r="5" fill="#efd7b4" stroke="none"/>
+    <circle cx="182" cy="1126" r="7" fill="#efd7b4" stroke="none"/>
+  </g>
+
+  <rect x="100" y="110" width="210" height="52" rx="26" fill="#ffffff" fill-opacity="0.8"/>
+  <text x="136" y="144" fill="#78685e" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="3">ANGEL VAULT</text>
+
+  <ellipse cx="340" cy="312" rx="120" ry="38" stroke="#5c5752" stroke-width="24"/>
+
+  <text x="112" y="540" fill="#5c5752" font-family="Fraunces, Georgia, serif" font-size="132" font-weight="700">angel vault</text>
+
+  <rect x="84" y="690" width="912" height="928" rx="48" fill="url(#cardGlow)" stroke="rgba(86,62,49,0.14)" stroke-width="2"/>
+  <rect x="128" y="752" width="824" height="360" rx="34" fill="#fffdf8" stroke="#ead9c8" stroke-width="2"/>
+  <rect x="160" y="808" width="176" height="22" rx="11" fill="#f4c8cf"/>
+  <rect x="362" y="808" width="148" height="22" rx="11" fill="#d8e3cf"/>
+  <rect x="536" y="808" width="160" height="22" rx="11" fill="#f0dca7"/>
+  <rect x="722" y="808" width="140" height="22" rx="11" fill="#f4c8cf" fill-opacity="0.62"/>
+  <rect x="160" y="876" width="176" height="182" rx="26" fill="#fff7ef" stroke="#ead9c8"/>
+  <rect x="358" y="876" width="176" height="182" rx="26" fill="#fff7ef" stroke="#ead9c8"/>
+  <rect x="556" y="876" width="176" height="182" rx="26" fill="#fff7ef" stroke="#ead9c8"/>
+  <rect x="754" y="876" width="108" height="182" rx="26" fill="#fff7ef" stroke="#ead9c8"/>
+  <circle cx="248" cy="940" r="42" fill="#f7cad2"/>
+  <circle cx="446" cy="940" r="42" fill="#cfe0c4"/>
+  <circle cx="644" cy="940" r="42" fill="#f1dfae"/>
+  <circle cx="808" cy="940" r="42" fill="#d8e3cf"/>
+
+  <text x="126" y="1238" fill="#78685e" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="3">FEATURE TOUR</text>
+  <text x="126" y="1350" fill="#35261e" font-family="Fraunces, Georgia, serif" font-size="136" font-weight="700">tracker</text>
+  <text x="126" y="1476" fill="#35261e" font-family="Fraunces, Georgia, serif" font-size="136" font-weight="700">features!</text>
+  <text x="132" y="1558" fill="#78685e" font-family="Manrope, Arial, sans-serif" font-size="34">search, sort, browse, and collect</text>
+</svg>

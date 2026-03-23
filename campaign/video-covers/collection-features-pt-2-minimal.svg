@@ -1,0 +1,24 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBase" x1="540" y1="0" x2="540" y2="1920" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffefc"/>
+      <stop offset="1" stop-color="#fffaf3"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 180) rotate(28) scale(340 250)">
+      <stop stop-color="#f4c8cf" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#f4c8cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sageGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(948 180) rotate(145) scale(300 240)">
+      <stop stop-color="#d8e3cf" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#d8e3cf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1080" height="1920" fill="url(#bgBase)"/>
+  <rect width="1080" height="1920" fill="url(#roseGlow)"/>
+  <rect width="1080" height="1920" fill="url(#sageGlow)"/>
+
+  <text x="92" y="790" fill="#35261e" font-family="Fraunces, Georgia, serif" font-size="164" font-weight="700">collection</text>
+  <text x="92" y="954" fill="#35261e" font-family="Fraunces, Georgia, serif" font-size="164" font-weight="700">features</text>
+  <text x="92" y="1108" fill="#35261e" font-family="Fraunces, Georgia, serif" font-size="136" font-weight="700">(pt. 2)!</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBase" x1="540" y1="0" x2="540" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffefc"/>
+      <stop offset="1" stop-color="#fffaf3"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 140) rotate(30) scale(340 260)">
+      <stop stop-color="#f4c8cf" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f4c8cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sageGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 120) rotate(145) scale(280 220)">
+      <stop stop-color="#d8e3cf" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#d8e3cf" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .brand { fill: #5C5752; font-size: 96px; font-weight: 700; font-family: Georgia; }
+    </style>
+  </defs>
+  <rect width="1080" height="1080" rx="48" fill="url(#bgBase)"/>
+  <rect width="1080" height="1080" rx="48" fill="url(#roseGlow)"/>
+  <rect width="1080" height="1080" rx="48" fill="url(#sageGlow)"/>
+  <ellipse cx="540" cy="430" rx="184" ry="56" stroke="#5C5752" stroke-width="36"/>
+  <text x="291" y="736" class="brand">angel vault</text>
+</svg>

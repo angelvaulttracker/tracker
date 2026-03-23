@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual Alpha Touch-Up</title>
+    <style>
+      :root {
+        --bg: #f6efe4;
+        --panel: rgba(255, 251, 245, 0.9);
+        --line: rgba(86, 62, 49, 0.14);
+        --ink: #35261e;
+        --muted: #78685e;
+        --accent: #d96f85;
+        --accent-2: #6c8c62;
+        --shadow: 0 18px 40px rgba(104, 78, 58, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(244, 200, 207, 0.45), transparent 25%),
+          radial-gradient(circle at top right, rgba(216, 227, 207, 0.45), transparent 24%),
+          linear-gradient(180deg, #fffefc 0%, var(--bg) 100%);
+      }
+
+      .shell {
+        max-width: 1480px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .header,
+      .controls,
+      .workspace,
+      .notes {
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .header {
+        padding: 28px;
+        margin-bottom: 18px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        font-weight: 800;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 3vw, 3.2rem);
+        line-height: 1;
+      }
+
+      .header p {
+        margin: 0;
+        max-width: 880px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 340px minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .controls {
+        padding: 20px;
+        position: sticky;
+        top: 20px;
+      }
+
+      .workspace {
+        padding: 18px;
+      }
+
+      .panel-title {
+        margin: 0 0 14px;
+        font-size: 1rem;
+      }
+
+      .control-group {
+        margin-bottom: 18px;
+      }
+
+      .control-group label,
+      .hint-label {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      input[type="file"],
+      input[type="range"],
+      select,
+      button {
+        width: 100%;
+      }
+
+      .button-row,
+      .mode-row,
+      .toggle-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      button {
+        appearance: none;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        color: var(--ink);
+        padding: 12px 14px;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      button:hover:not(:disabled) {
+        border-color: rgba(86, 62, 49, 0.28);
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+      }
+
+      .is-active {
+        background: var(--accent);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .is-secondary-active {
+        background: var(--accent-2);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .value {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .canvas-shell {
+        position: relative;
+        overflow: auto;
+        max-height: calc(100vh - 180px);
+        border-radius: 22px;
+        touch-action: none;
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(45deg, #2b2b2b 25%, transparent 25%),
+          linear-gradient(-45deg, #2b2b2b 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #2b2b2b 75%),
+          linear-gradient(-45deg, transparent 75%, #2b2b2b 75%);
+        background-size: 24px 24px;
+        background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+      }
+
+      .canvas-stage {
+        position: relative;
+        display: inline-block;
+        transform-origin: top left;
+        touch-action: none;
+      }
+
+      canvas {
+        display: block;
+        cursor: none;
+        touch-action: none;
+      }
+
+      .brush-cursor {
+        position: absolute;
+        border: 2px solid rgba(255, 255, 255, 0.95);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+        border-radius: 999px;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        display: none;
+      }
+
+      .notes {
+        margin-top: 18px;
+        padding: 18px 20px;
+      }
+
+      .notes p,
+      .notes li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .notes ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .status {
+        min-height: 24px;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 1080px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .controls {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <section class="header">
+        <p class="eyebrow">Manual Cleanup Tool</p>
+        <h1>Alpha Touch-Up Studio</h1>
+        <p>
+          Load a PNG, paint missing alpha back in or erase stray bits, preview it on a checkerboard,
+          then download the cleaned PNG when you are happy with it.
+        </p>
+      </section>
+
+      <div class="layout">
+        <aside class="controls">
+          <h2 class="panel-title">Controls</h2>
+
+          <div class="control-group">
+            <label for="file-input">PNG File</label>
+            <input id="file-input" type="file" accept="image/png,image/webp,image/*" />
+            <div class="status" id="file-name">No file loaded yet.</div>
+          </div>
+
+          <div class="control-group">
+            <span class="hint-label">Brush Mode</span>
+            <div class="mode-row" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+              <button id="mode-restore" class="is-active" type="button">Restore</button>
+              <button id="mode-white" type="button">White Paint</button>
+              <button id="mode-sample" type="button">Sample Color</button>
+              <button id="mode-erase" type="button">Erase</button>
+            </div>
+            <div class="value" id="sample-color-value">Sampled color: rgb(255, 255, 255)</div>
+          </div>
+
+          <div class="control-group">
+            <label for="brush-size">Brush Size</label>
+            <input id="brush-size" type="range" min="2" max="120" value="18" />
+            <div class="value" id="brush-size-value">18 px</div>
+          </div>
+
+          <div class="control-group">
+            <label for="zoom-level">Zoom</label>
+            <input id="zoom-level" type="range" min="25" max="400" value="100" />
+            <div class="value" id="zoom-level-value">100%</div>
+          </div>
+
+          <div class="control-group">
+            <label for="island-threshold">Island Cutoff</label>
+            <input id="island-threshold" type="range" min="1" max="2000" value="120" />
+            <div class="value" id="island-threshold-value">120 px</div>
+          </div>
+
+          <div class="control-group">
+            <span class="hint-label">View</span>
+            <div class="toggle-row">
+              <button id="view-normal" class="is-secondary-active" type="button">Artwork</button>
+              <button id="view-alpha" type="button">Alpha Mask</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="button-row">
+              <button id="undo-button" type="button" disabled>Undo</button>
+              <button id="redo-button" type="button" disabled>Redo</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <button id="remove-islands-button" type="button" disabled>Remove Islands</button>
+          </div>
+
+          <div class="control-group">
+            <div class="button-row">
+              <button id="reset-button" type="button" disabled>Reset</button>
+              <button id="download-button" type="button" disabled>Download PNG</button>
+            </div>
+          </div>
+
+          <div class="status" id="status-text">Load a PNG to start retouching.</div>
+        </aside>
+
+        <section class="workspace">
+          <div class="canvas-shell" id="canvas-shell">
+            <div class="canvas-stage" id="canvas-stage">
+              <canvas id="editor-canvas"></canvas>
+              <div class="brush-cursor" id="brush-cursor"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="notes">
+        <h2 class="panel-title">How To Use It</h2>
+        <ul>
+          <li>`Restore` paints alpha back in for clipped ears, eyes, and hat details.</li>
+          <li>`White Paint` restores opaque white pixels, which is handy for white hats, ears, and fur.</li>
+          <li>`Sample Color` paints with a picked color from the PNG. Hold `Option` on Mac or `Alt` on Windows to sample from the image without leaving the brush.</li>
+          <li>`Erase` removes little floating bits or fringe you do not want.</li>
+          <li>`Alpha Mask` lets you inspect the true cutout shape without color distraction.</li>
+          <li>`Download PNG` exports your cleaned result; after that, I can move it into place for you if you want.</li>
+        </ul>
+      </section>
+    </div>
+
+    <script src="./manual-alpha-touchup.js"></script>
+  </body>
+</html>
