@@ -228,8 +228,8 @@
               <label>
                 <span>Amount style</span>
                 <select id="fund-amount-mode" name="amount-mode">
-                  <option value="total">Total purchase amount</option>
-                  <option value="per-sonny">Amount per Sonny</option>
+                  <option value="total">One total for the whole purchase</option>
+                  <option value="per-sonny">Same amount for each Sonny</option>
                 </select>
               </label>
               <label>
@@ -257,10 +257,22 @@
                 <div class="fund-sonny-preview-list" id="fund-sonny-preview-list"></div>
               </label>
               <label>
-                <span>Price per Sonny</span>
+                <span>Amount for each Sonny</span>
                 <input
                   id="fund-figure-price"
                   name="figure-price"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.01"
+                  placeholder="0.00"
+                />
+              </label>
+              <label>
+                <span>Shipping</span>
+                <input
+                  id="fund-shipping"
+                  name="shipping"
                   type="number"
                   inputmode="decimal"
                   min="0"
@@ -590,8 +602,8 @@
             <label class="field fund-mode-field">
               <span>Amount style</span>
               <select class="fund-amount-mode-input">
-                <option value="total">Total purchase amount</option>
-                <option value="per-sonny">Amount per Sonny</option>
+                <option value="total">One total for the whole purchase</option>
+                <option value="per-sonny">Same amount for each Sonny</option>
               </select>
             </label>
             <label class="field fund-sonnies-field">
@@ -600,10 +612,17 @@
               <div class="fund-sonny-preview-list"></div>
             </label>
             <label class="field fund-figure-field">
-              <span class="fund-figure-price-label">Amount per Sonny</span>
+              <span class="fund-figure-price-label">Amount for each Sonny</span>
               <div class="price-input-wrap">
                 <span class="currency">$</span>
                 <input class="fund-figure-price-input" type="number" min="0" step="0.01" inputmode="decimal" />
+              </div>
+            </label>
+            <label class="field fund-shipping-field">
+              <span>Shipping</span>
+              <div class="price-input-wrap">
+                <span class="currency">$</span>
+                <input class="fund-shipping-input" type="number" min="0" step="0.01" inputmode="decimal" />
               </div>
             </label>
             <label class="field fund-person-field">
@@ -615,7 +634,7 @@
               <span class="fund-sent-to-real-fund-label">Sent to real fund?</span>
             </label>
             <label class="field fund-amount-field">
-              <span class="fund-amount-field-label">Total amount</span>
+              <span class="fund-amount-field-label">Purchase total</span>
               <div class="price-input-wrap">
                 <span class="currency">$</span>
                 <input class="fund-amount-input" type="number" min="0" step="0.01" inputmode="decimal" />
@@ -695,9 +714,11 @@
       </article>
     </template>
 
-    <script src="./app/data/sonnies.js"></script>
-    <script src="./app/data/sonny_image_map.js"></script>
-    <script src="./app/stock.js"></script>
+    <script src="./app/data/sonnies.js?v=20260326-cloud-auth"></script>
+    <script src="./app/data/sonny_image_map.js?v=20260326-cloud-auth"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./app/supabase-config.js?v=20260326-cloud-auth"></script>
+    <script src="./app/stock.js?v=20260326-cloud-auth"></script>
     <script>
       window.buildStockMessageDraftNow = function () {
         const textarea = document.querySelector("#stock-message-output");

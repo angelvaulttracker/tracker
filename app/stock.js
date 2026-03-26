@@ -89,23 +89,23 @@ const DEFAULT_STOCK = [
 ];
 
 const DEFAULT_FUND_TRANSACTIONS = [
-  { id: crypto.randomUUID(), label: "ebay lot (apple card)", amount: 96.76, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2025-10-20" },
-  { id: crypto.randomUUID(), label: "sonny chick", amount: 21.17, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2025-11-06" },
-  { id: crypto.randomUUID(), label: "robby", amount: 51.27, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2025-11-18" },
-  { id: crypto.randomUUID(), label: "fennec fox", amount: 42.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2025-12-02" },
-  { id: crypto.randomUUID(), label: "wasa + rabbit", amount: 310.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2025-12-14" },
-  { id: crypto.randomUUID(), label: "bofa", amount: 460.53, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2025-12-27" },
-  { id: crypto.randomUUID(), label: "apple card reponer rammen", amount: 102.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-01-05" },
-  { id: crypto.randomUUID(), label: "lo que no se ha vendido del otro lot (apple card)", amount: 266.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-01-18" },
-  { id: crypto.randomUUID(), label: "sonny angels nyc", amount: 315.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-02-03" },
-  { id: crypto.randomUUID(), label: "wire rameen", amount: 670.7, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-02-11" },
-  { id: crypto.randomUUID(), label: "rameen japan sonny angels", amount: 337.96, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-02-24" },
-  { id: crypto.randomUUID(), label: "jordana", amount: 36.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-01" },
-  { id: crypto.randomUUID(), label: "lot de sonnies con clown sheep", amount: 51.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-03" },
-  { id: crypto.randomUUID(), label: "cactus monkey", amount: 37.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-08" },
-  { id: crypto.randomUUID(), label: "hsh sheep", amount: 41.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-10" },
-  { id: crypto.randomUUID(), label: "i sold 300", amount: 300.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "in", date: "2026-03-12" },
-  { id: crypto.randomUUID(), label: "white ghost", amount: 38.0, amountMode: "total", sonnyIds: [], figurePrice: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-13" },
+  { id: crypto.randomUUID(), label: "ebay lot (apple card)", amount: 96.76, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2025-10-20" },
+  { id: crypto.randomUUID(), label: "sonny chick", amount: 21.17, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2025-11-06" },
+  { id: crypto.randomUUID(), label: "robby", amount: 51.27, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2025-11-18" },
+  { id: crypto.randomUUID(), label: "fennec fox", amount: 42.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2025-12-02" },
+  { id: crypto.randomUUID(), label: "wasa + rabbit", amount: 310.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2025-12-14" },
+  { id: crypto.randomUUID(), label: "bofa", amount: 460.53, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2025-12-27" },
+  { id: crypto.randomUUID(), label: "apple card reponer rammen", amount: 102.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-01-05" },
+  { id: crypto.randomUUID(), label: "lo que no se ha vendido del otro lot (apple card)", amount: 266.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-01-18" },
+  { id: crypto.randomUUID(), label: "sonny angels nyc", amount: 315.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-02-03" },
+  { id: crypto.randomUUID(), label: "wire rameen", amount: 670.7, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-02-11" },
+  { id: crypto.randomUUID(), label: "rameen japan sonny angels", amount: 337.96, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-02-24" },
+  { id: crypto.randomUUID(), label: "jordana", amount: 36.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-01" },
+  { id: crypto.randomUUID(), label: "lot de sonnies con clown sheep", amount: 51.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-03" },
+  { id: crypto.randomUUID(), label: "cactus monkey", amount: 37.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-08" },
+  { id: crypto.randomUUID(), label: "hsh sheep", amount: 41.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-10" },
+  { id: crypto.randomUUID(), label: "i sold 300", amount: 300.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "in", date: "2026-03-12" },
+  { id: crypto.randomUUID(), label: "white ghost", amount: 38.0, amountMode: "total", sonnyIds: [], figurePrice: 0, shipping: 0, person: "", sentToRealFund: false, type: "out", date: "2026-03-13" },
 ];
 
 const DEFAULT_SHIPMENTS = [
@@ -259,6 +259,7 @@ const fundAmountInput = document.querySelector("#fund-amount");
 const fundSonniesInput = document.querySelector("#fund-sonnies");
 const fundSonnyPreviewList = document.querySelector("#fund-sonny-preview-list");
 const fundFigurePriceInput = document.querySelector("#fund-figure-price");
+const fundShippingInput = document.querySelector("#fund-shipping");
 const fundPersonInput = document.querySelector("#fund-person");
 const fundTypeInput = document.querySelector("#fund-type");
 const fundDateInput = document.querySelector("#fund-date");
@@ -523,10 +524,20 @@ function fundTransactionTotal(item) {
   return (Number(item.figurePrice) || 0) * (item.sonnyIds?.length || 0);
 }
 
+function fundTransactionShipping(item) {
+  return Math.max(0, Number(item.shipping) || 0);
+}
+
+function fundTransactionNetContribution(item) {
+  const total = fundTransactionTotal(item);
+  const shipping = fundTransactionShipping(item);
+  return item.type === "out" ? -(total + shipping) : total - shipping;
+}
+
 function applyFundAmountModeUi(mode, amountLabelElement, amountInputElement, figureFieldElement, figureInputElement, sonnyCount = 0) {
   const normalizedMode = normalizeFundAmountMode(mode);
   if (amountLabelElement) {
-    amountLabelElement.textContent = normalizedMode === "per-sonny" ? "Computed total" : "Total amount";
+    amountLabelElement.textContent = normalizedMode === "per-sonny" ? "Total for selected Sonnies" : "Total amount";
   }
   if (amountInputElement) {
     amountInputElement.disabled = normalizedMode === "per-sonny";
@@ -537,7 +548,7 @@ function applyFundAmountModeUi(mode, amountLabelElement, amountInputElement, fig
   if (figureInputElement) {
     figureInputElement.disabled = normalizedMode !== "per-sonny";
     if (normalizedMode === "per-sonny") {
-      figureInputElement.placeholder = sonnyCount > 1 ? "Each Sonny amount" : "Single Sonny amount";
+      figureInputElement.placeholder = sonnyCount > 1 ? "Amount for each Sonny" : "Amount for this Sonny";
     }
   }
 }
@@ -848,6 +859,7 @@ function loadFundTransactions() {
         amountMode: normalizeFundAmountMode(item.amountMode),
         sonnyIds: Array.isArray(item.sonnyIds) ? Array.from(new Set(item.sonnyIds.filter(Boolean).map(String))) : [],
         figurePrice: Number(item.figurePrice) || 0,
+        shipping: Math.max(0, Number(item.shipping) || 0),
         person: String(item.person || item.personName || "").trim(),
         sentToRealFund: Boolean(item.sentToRealFund),
         type: item.type === "in" ? "in" : "out",
@@ -976,6 +988,7 @@ function buildFundRows() {
     amount_mode: normalizeFundAmountMode(item.amountMode),
     sonny_ids: Array.isArray(item.sonnyIds) ? item.sonnyIds : [],
     figure_price: Number(item.figurePrice) || 0,
+    shipping: Math.max(0, Number(item.shipping) || 0),
     person_name: item.person || "",
     sent_to_real_fund: Boolean(item.sentToRealFund),
     type: item.type === "in" ? "in" : "out",
@@ -1128,6 +1141,7 @@ async function hydrateStockAndFundFromCloud() {
         amountMode: normalizeFundAmountMode(item.amount_mode),
         sonnyIds: Array.isArray(item.sonny_ids) ? Array.from(new Set(item.sonny_ids.filter(Boolean).map(String))) : [],
         figurePrice: Number(item.figure_price) || 0,
+        shipping: Math.max(0, Number(item.shipping) || 0),
         person: String(item.person_name || "").trim(),
         sentToRealFund: Boolean(item.sent_to_real_fund),
         type: item.type === "in" ? "in" : "out",
@@ -1261,10 +1275,55 @@ async function stockSignUpWithPassword() {
 }
 
 async function initializeStockSupabaseAuth() {
-  stockAuthState.configured = false;
-  stockAuthState.client = null;
-  stockAuthState.user = null;
+  stockAuthState.configured = hasSupabaseConfig() && Boolean(window.supabase?.createClient);
   renderStockAuthState();
+
+  if (!stockAuthState.configured) {
+    return;
+  }
+
+  stockAuthState.client = window.supabase.createClient(supabaseConfig.url, supabaseConfig.anonKey, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  });
+
+  stockAuthState.client.auth.onAuthStateChange(async (event, session) => {
+    stockAuthState.user = session?.user || null;
+    renderStockAuthState();
+
+    if ((event === "SIGNED_IN" || event === "TOKEN_REFRESHED") && stockAuthState.user) {
+      await hydrateStockAndFundFromCloud();
+    }
+
+    if (event === "SIGNED_OUT") {
+      stockAuthState.syncing = false;
+      stockAuthState.hydrating = false;
+      setStockAuthFeedback("Signed out. Stock and fund changes are saved on this device until you sign in again.");
+      setStockSaveState("local", "Signed out. Stock and fund changes are now saved on this device.");
+      renderStockAuthState();
+    }
+  });
+
+  const {
+    data: { session },
+    error,
+  } = await stockAuthState.client.auth.getSession();
+
+  if (error) {
+    console.error("Failed to restore stock session", error);
+    setStockAuthFeedback("Could not restore your stock sign-in session yet.");
+    setStockSaveState("error", "Could not restore your stock sign-in session yet.");
+    return;
+  }
+
+  stockAuthState.user = session?.user || null;
+  renderStockAuthState();
+
+  if (stockAuthState.user) {
+    await hydrateStockAndFundFromCloud();
+  }
 }
 
 function loadShipments() {
@@ -1926,15 +1985,18 @@ function filteredStock() {
 function fundTotals() {
   const moneyIn = fundTransactions
     .filter((item) => item.type === "in")
-    .reduce((sum, item) => sum + item.amount, 0);
+    .reduce((sum, item) => sum + fundTransactionTotal(item), 0);
   const moneyOut = fundTransactions
     .filter((item) => item.type === "out")
-    .reduce((sum, item) => sum + item.amount, 0);
+    .reduce((sum, item) => sum + fundTransactionTotal(item), 0);
+  const shipping = fundTransactions.reduce((sum, item) => sum + fundTransactionShipping(item), 0);
+  const net = fundTransactions.reduce((sum, item) => sum + fundTransactionNetContribution(item), 0);
 
   return {
     moneyIn,
     moneyOut,
-    balance: FUND_STARTING_BALANCE + moneyIn - moneyOut,
+    shipping,
+    balance: FUND_STARTING_BALANCE + net,
   };
 }
 
@@ -1968,8 +2030,9 @@ function filteredFundTransactions() {
 function filteredFundTotals() {
   const visible = filteredFundTransactions();
   return {
-    moneyIn: visible.filter((item) => item.type === "in").reduce((sum, item) => sum + item.amount, 0),
-    moneyOut: visible.filter((item) => item.type === "out").reduce((sum, item) => sum + item.amount, 0),
+    moneyIn: visible.filter((item) => item.type === "in").reduce((sum, item) => sum + fundTransactionTotal(item), 0),
+    moneyOut: visible.filter((item) => item.type === "out").reduce((sum, item) => sum + fundTransactionTotal(item), 0),
+    shipping: visible.reduce((sum, item) => sum + fundTransactionShipping(item), 0),
   };
 }
 
@@ -2569,6 +2632,7 @@ function renderInventory() {
           amountMode: "per-sonny",
           sonnyIds: item.sonnyId ? [item.sonnyId] : [],
           figurePrice: Number(item.price) || 0,
+          shipping: 0,
           person: "",
           sentToRealFund: false,
           type: "in",
@@ -2602,7 +2666,7 @@ function renderFundList() {
   const balancesById = new Map();
   let runningBalance = FUND_STARTING_BALANCE;
   fundTransactions.forEach((item) => {
-    runningBalance += item.type === "in" ? item.amount : -item.amount;
+    runningBalance += fundTransactionNetContribution(item);
     balancesById.set(item.id, runningBalance);
   });
   let hasVisibleTransactions = false;
@@ -2619,6 +2683,7 @@ function renderFundList() {
     const sonniesInput = fragment.querySelector(".fund-sonnies-input");
     const sonnyPreviewList = fragment.querySelector(".fund-sonny-preview-list");
     const figureField = fragment.querySelector(".fund-figure-field");
+    const shippingInput = fragment.querySelector(".fund-shipping-input");
     const amountFieldLabel = fragment.querySelector(".fund-amount-field-label");
     const figureFieldLabel = fragment.querySelector(".fund-figure-price-label");
     const figurePriceInput = fragment.querySelector(".fund-figure-price-input");
@@ -2638,11 +2703,12 @@ function renderFundList() {
     sonniesInput.value = "";
     renderFundSonnyPreview(sonnyPreviewList, item.sonnyIds);
     figurePriceInput.value = item.figurePrice > 0 ? Number(item.figurePrice).toFixed(2) : "";
+    shippingInput.value = fundTransactionShipping(item) > 0 ? fundTransactionShipping(item).toFixed(2) : "";
     amountInput.value = Number(fundTransactionTotal(item)).toFixed(2);
     personInput.value = item.person || "";
     sentToRealFundInput.checked = Boolean(item.sentToRealFund);
     if (figureFieldLabel) {
-      figureFieldLabel.textContent = "Amount per Sonny";
+      figureFieldLabel.textContent = "Amount for each Sonny";
     }
     if (sentToRealFundLabel) {
       sentToRealFundLabel.textContent = fundRealToggleLabel(item.type);
@@ -2688,7 +2754,7 @@ function renderFundList() {
         amount: nextTotal,
       });
       if (previous && previous.amountMode !== nextMode) {
-        logActivity("fund", `Updated amount style`, `${item.label} now uses ${nextMode === "per-sonny" ? "amount per Sonny" : "total purchase amount"}.`);
+        logActivity("fund", `Updated amount style`, `${item.label} now uses ${nextMode === "per-sonny" ? "the same amount for each Sonny" : "one total for the whole purchase"}.`);
       }
       render();
     });
@@ -2736,7 +2802,18 @@ function renderFundList() {
         amountInput.value = Number(nextTotal).toFixed(2);
       }
       if (previous && previous.figurePrice !== safeAmount) {
-        logActivity("fund", `Updated Sonny price`, `${item.label} changed from ${formatCurrency(previous.figurePrice || 0)} to ${formatCurrency(safeAmount)} per Sonny.`);
+        logActivity("fund", `Updated Sonny amount`, `${item.label} changed from ${formatCurrency(previous.figurePrice || 0)} to ${formatCurrency(safeAmount)} for each Sonny.`);
+      }
+      render();
+    });
+    shippingInput.addEventListener("change", (event) => {
+      const nextAmount = event.target.value === "" ? 0 : Number.parseFloat(event.target.value);
+      const safeAmount = Number.isFinite(nextAmount) ? Math.max(0, nextAmount) : 0;
+      const previous = updateFundTransaction(item.id, {
+        shipping: safeAmount,
+      });
+      if (previous && fundTransactionShipping(previous) !== safeAmount) {
+        logActivity("fund", `Updated shipping`, `${item.label} shipping changed from ${formatCurrency(fundTransactionShipping(previous))} to ${formatCurrency(safeAmount)}.`);
       }
       render();
     });
@@ -3287,6 +3364,7 @@ addFundForm.addEventListener("submit", (event) => {
   const amountMode = normalizeFundAmountMode(fundAmountModeInput?.value);
   const amount = Number.parseFloat(fundAmountInput.value);
   const figurePrice = Number.parseFloat(fundFigurePriceInput.value);
+  const shipping = Number.parseFloat(fundShippingInput.value);
   const sonnyIds = getFundSonnyIds(fundSonniesInput);
   const person = fundPersonInput.value.trim();
   const type = fundTypeInput.value === "in" ? "in" : "out";
@@ -3306,6 +3384,7 @@ addFundForm.addEventListener("submit", (event) => {
     amountMode,
     sonnyIds,
     figurePrice: Number.isFinite(figurePrice) ? figurePrice : 0,
+    shipping: Number.isFinite(shipping) ? Math.max(0, shipping) : 0,
     person,
     sentToRealFund: Boolean(fundSentToRealFundInput.checked),
     type,
@@ -3324,6 +3403,9 @@ addFundForm.addEventListener("submit", (event) => {
   fundTypeInput.value = "in";
   fundDateInput.value = currentLocalDateInputValue();
   fundSentToRealFundInput.checked = false;
+  if (fundShippingInput) {
+    fundShippingInput.value = "";
+  }
   applyFundAmountModeUi("total", fundAmountLabel, fundAmountInput, fundFigurePriceInput?.closest("label"), fundFigurePriceInput, 0);
   fundNoteInput.focus();
   render();
@@ -3644,7 +3726,7 @@ stockAuthSignOutButton?.addEventListener("click", async () => {
     return;
   }
 
-  const { error } = await stockAuthState.client.auth.signOut();
+  const { error } = await stockAuthState.client.auth.signOut({ scope: "local" });
   if (error) {
     console.error("Failed to sign out of stock auth", error);
     setStockAuthFeedback(error.message || "Could not sign out right now.");
