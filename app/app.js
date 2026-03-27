@@ -117,7 +117,15 @@ const wishlistMakerFlow = document.querySelector("#wishlist-maker-flow");
 const openIsoMakerButton = document.querySelector("#open-iso-maker");
 const wishlistLanding = document.querySelector("#wishlist-landing");
 const wishlistLandingSummary = document.querySelector("#wishlist-landing-summary");
+const wishlistLandingStage = document.querySelector(".wishlist-landing-stage");
 const wishlistFloatingGrid = document.querySelector("#wishlist-floating-grid");
+const wishlistLayoutEditButton = document.querySelector("#wishlist-layout-edit");
+const wishlistLayoutResetButton = document.querySelector("#wishlist-layout-reset");
+const wishlistLegendEditButton = document.querySelector("#wishlist-legend-edit");
+const wishlistLandingLegend = document.querySelector("#wishlist-landing-legend");
+const wishlistLegendEditor = document.querySelector("#wishlist-legend-editor");
+const wishlistLegendEditorList = document.querySelector("#wishlist-legend-editor-list");
+const wishlistLegendAddButton = document.querySelector("#wishlist-legend-add");
 const wishlistSearch = document.querySelector("#wishlist-search");
 const wishlistStatusFilter = document.querySelector("#wishlist-status-filter");
 const wishlistSeriesFilter = document.querySelector("#wishlist-series-filter");
@@ -239,7 +247,51 @@ const DEFAULT_COLLECTION_FIELD_VISIBILITY = {
 
 let sonnies = [];
 let progress = loadProgress();
+
+const DEFAULT_WISHLIST_LEGEND_ITEMS = [
+  { id: "iso", emoji: "✦", label: "ISO", tone: "iso" },
+  { id: "diso", emoji: "♥", label: "DISO", tone: "diso" },
+  { id: "low-prio", emoji: "★", label: "Low prio", tone: "buy" },
+];
+
+function isLegacyWishlistLegend(items) {
+  if (!Array.isArray(items)) {
+    return false;
+  }
+
+  const normalized = items.map((item) => ({
+    emoji: typeof item?.emoji === "string" ? item.emoji.trim() : "",
+    label: typeof item?.label === "string" ? item.label.trim().toLowerCase() : "",
+    tone: String(item?.tone || ""),
+  }));
+
+  const joined = normalized
+    .map((item) => `${item.emoji}|${item.label}|${item.tone}`)
+    .join("||");
+
+  return (
+    joined === "✦|iso|iso||♥|diso|diso" ||
+    joined === "★|starred for buy|buy||♥|diso dreamies|diso||✦|iso floaters|iso"
+  );
+}
+
+function normalizeWishlistLegendItems(items) {
+  if (!Array.isArray(items) || !items.length || isLegacyWishlistLegend(items)) {
+    return DEFAULT_WISHLIST_LEGEND_ITEMS.map((item) => ({ ...item }));
+  }
+
+  return items
+    .filter((item) => item && typeof item === "object")
+    .map((item, index) => ({
+      id: typeof item.id === "string" && item.id ? item.id : `legend-${index + 1}`,
+      emoji: typeof item.emoji === "string" && item.emoji.trim() ? item.emoji.trim().slice(0, 2) : "✦",
+      label: typeof item.label === "string" && item.label.trim() ? item.label.trim() : `Label ${index + 1}`,
+      tone: ["iso", "diso", "buy", "custom"].includes(String(item.tone)) ? String(item.tone) : "custom",
+    }));
+}
+
 let settings = loadSettings();
+let activeWishlistDrag = null;
 let hideManagerView = "all";
 let makerDraftSelection = [];
 let makerAppliedSelection = [];
@@ -722,6 +774,17 @@ function loadSettings() {
         ["overview", "shelf"].includes(String(parsed.collectedArmiesView))
           ? String(parsed.collectedArmiesView)
           : "overview",
+      activeView:
+        ["tracker", "insights", "wishlist", "collected", "stock", "settings"].includes(String(parsed.activeView))
+          ? String(parsed.activeView)
+          : "tracker",
+      wishlistLandingEditMode: Boolean(parsed.wishlistLandingEditMode),
+      wishlistFloatingPositions:
+        parsed.wishlistFloatingPositions && typeof parsed.wishlistFloatingPositions === "object"
+          ? parsed.wishlistFloatingPositions
+          : {},
+      wishlistLegendItems: normalizeWishlistLegendItems(parsed.wishlistLegendItems),
+      wishlistLegendEditMode: Boolean(parsed.wishlistLegendEditMode),
       collectionFieldVisibility: {
         ...DEFAULT_COLLECTION_FIELD_VISIBILITY,
         ...(parsed.collectionFieldVisibility && typeof parsed.collectionFieldVisibility === "object"
@@ -750,6 +813,11 @@ function loadSettings() {
       collectedShelfDensity: "4",
       collectedArmyThreshold: "2",
       collectedArmiesView: "overview",
+      activeView: "tracker",
+      wishlistLandingEditMode: false,
+      wishlistFloatingPositions: {},
+      wishlistLegendItems: normalizeWishlistLegendItems([]),
+      wishlistLegendEditMode: false,
       collectionFieldVisibility: { ...DEFAULT_COLLECTION_FIELD_VISIBILITY },
       collectedSeriesSelection: [],
       collectedShowMultipleSeparate: false,
@@ -3064,27 +3132,23 @@ function renderWishlistCard(item, container) {
   container.append(fragment);
 }
 
-const WISHLIST_FLOATING_LAYOUTS = [
-  { x: "8%", y: "27%", rotate: -9, scale: 1.02 },
-  { x: "24%", y: "18%", rotate: 6, scale: 0.95 },
-  { x: "43%", y: "22%", rotate: -2, scale: 1.08 },
-  { x: "63%", y: "20%", rotate: 5, scale: 0.98 },
-  { x: "82%", y: "28%", rotate: -6, scale: 0.94 },
-  { x: "16%", y: "53%", rotate: -4, scale: 0.9 },
-  { x: "34%", y: "56%", rotate: 7, scale: 0.96 },
-  { x: "54%", y: "50%", rotate: -5, scale: 1.02 },
-  { x: "74%", y: "56%", rotate: 4, scale: 0.93 },
-  { x: "12%", y: "77%", rotate: -7, scale: 0.97 },
-  { x: "40%", y: "80%", rotate: 5, scale: 1.06 },
-  { x: "68%", y: "79%", rotate: -3, scale: 0.98 },
-];
-
 function renderWishlistLanding(items) {
   if (!wishlistLanding || !wishlistFloatingGrid) {
     return;
   }
 
   wishlistFloatingGrid.innerHTML = "";
+  wishlistLanding.classList.toggle("is-editing", Boolean(settings.wishlistLandingEditMode));
+  wishlistLanding.classList.toggle("is-editing-legend", Boolean(settings.wishlistLegendEditMode));
+  if (wishlistLayoutEditButton) {
+    wishlistLayoutEditButton.textContent = settings.wishlistLandingEditMode ? "Done editing" : "Edit layout";
+    wishlistLayoutEditButton.classList.toggle("is-active", Boolean(settings.wishlistLandingEditMode));
+  }
+  if (wishlistLegendEditButton) {
+    wishlistLegendEditButton.textContent = settings.wishlistLegendEditMode ? "Done legend" : "Edit legend";
+    wishlistLegendEditButton.classList.toggle("is-active", Boolean(settings.wishlistLegendEditMode));
+  }
+  renderWishlistLegend();
   if (!items.length) {
     wishlistLanding.hidden = true;
     return;
@@ -3105,17 +3169,42 @@ function renderWishlistLanding(items) {
         compareDateDesc(getCollectedAt(left.id), getCollectedAt(right.id)) ||
         compareText(displayName(left), displayName(right))
       );
-    })
-    .slice(0, WISHLIST_FLOATING_LAYOUTS.length);
+    });
+
+  const columns = Math.max(3, Math.min(6, Math.ceil(Math.sqrt(floatingItems.length / 1.35))));
+  const rowCount = Math.max(1, Math.ceil(floatingItems.length / columns));
+  const topPadding = 160;
+  const rowGap = 210;
+  const bottomPadding = 160;
+  const maxCustomY = floatingItems.reduce((maxValue, item) => {
+    const saved = settings.wishlistFloatingPositions?.[item.id];
+    const numeric = Number(saved?.y || 0);
+    return Number.isFinite(numeric) ? Math.max(maxValue, numeric) : maxValue;
+  }, 0);
+  const stageHeight = Math.max(topPadding + rowCount * rowGap + bottomPadding, maxCustomY + 220);
+  wishlistLandingStage?.style.setProperty("--wishlist-stage-height", `${stageHeight}px`);
+  wishlistFloatingGrid.style.setProperty("--wishlist-stage-height", `${stageHeight}px`);
 
   floatingItems.forEach((item, index) => {
-    const layout = WISHLIST_FLOATING_LAYOUTS[index % WISHLIST_FLOATING_LAYOUTS.length];
+    const row = Math.floor(index / columns);
+    const column = index % columns;
+    const xBase = ((column + 0.5) / columns) * 100;
+    const xOffsetPattern = [-4.5, 2.5, -1.5, 3.5, -3, 1.5];
+    const yOffsetPattern = [-18, 10, -8, 16, -12, 6];
+    const rotatePattern = [-8, 5, -3, 7, -6, 4, -5, 3];
+    const scalePattern = [1.02, 0.95, 1.06, 0.98, 0.93, 1.01, 0.97, 1.04];
+    const x = `${Math.max(8, Math.min(92, xBase + xOffsetPattern[(row + column) % xOffsetPattern.length]))}%`;
+    const y = `${topPadding + row * rowGap + yOffsetPattern[(index + row) % yOffsetPattern.length]}px`;
+    const rotate = `${rotatePattern[index % rotatePattern.length]}deg`;
+    const scale = String(scalePattern[index % scalePattern.length]);
+    const saved = settings.wishlistFloatingPositions?.[item.id] || null;
     const floating = document.createElement("article");
     floating.className = `wishlist-floating-item is-${getStatus(item.id)}`;
-    floating.style.setProperty("--float-x", layout.x);
-    floating.style.setProperty("--float-y", layout.y);
-    floating.style.setProperty("--float-rotate", `${layout.rotate}deg`);
-    floating.style.setProperty("--float-scale", String(layout.scale));
+    floating.dataset.sonnyId = item.id;
+    floating.style.setProperty("--float-x", saved?.x || x);
+    floating.style.setProperty("--float-y", saved?.y || y);
+    floating.style.setProperty("--float-rotate", saved?.rotate || rotate);
+    floating.style.setProperty("--float-scale", saved?.scale || scale);
 
     const art = document.createElement("div");
     art.className = "wishlist-floating-art";
@@ -3129,9 +3218,229 @@ function renderWishlistLanding(items) {
     chip.className = "wishlist-floating-name";
     chip.textContent = displayName(item);
 
+    if (settings.wishlistLandingEditMode) {
+      const controls = document.createElement("div");
+      controls.className = "wishlist-floating-rotate-controls";
+      controls.addEventListener("pointerdown", (event) => {
+        event.stopPropagation();
+      });
+
+      const rotateLeftButton = document.createElement("button");
+      rotateLeftButton.type = "button";
+      rotateLeftButton.className = "wishlist-rotate-button";
+      rotateLeftButton.textContent = "↺";
+      rotateLeftButton.addEventListener("pointerdown", (event) => {
+        event.stopPropagation();
+      });
+      rotateLeftButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        adjustWishlistFloatingRotation(item.id, -5);
+      });
+
+      const rotateValue = document.createElement("span");
+      rotateValue.className = "wishlist-rotate-value";
+      rotateValue.textContent = (saved?.rotate || rotate).replace("deg", "") + "°";
+
+      const rotateRightButton = document.createElement("button");
+      rotateRightButton.type = "button";
+      rotateRightButton.className = "wishlist-rotate-button";
+      rotateRightButton.textContent = "↻";
+      rotateRightButton.addEventListener("pointerdown", (event) => {
+        event.stopPropagation();
+      });
+      rotateRightButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        adjustWishlistFloatingRotation(item.id, 5);
+      });
+
+      controls.append(rotateLeftButton, rotateValue, rotateRightButton);
+      floating.append(controls);
+    }
+
     floating.append(art, badge, chip);
+    floating.addEventListener("pointerdown", startWishlistFloatingDrag);
     wishlistFloatingGrid.append(floating);
   });
+}
+
+function renderWishlistLegend() {
+  if (!wishlistLandingLegend || !wishlistLegendEditor || !wishlistLegendEditorList) {
+    return;
+  }
+
+  const items = normalizeWishlistLegendItems(settings.wishlistLegendItems);
+  settings.wishlistLegendItems = items;
+  wishlistLandingLegend.innerHTML = "";
+  items.forEach((item) => {
+    const chip = document.createElement("span");
+    chip.className = `wishlist-legend-chip wishlist-legend-chip-${item.tone}`;
+    chip.dataset.emoji = item.emoji;
+    chip.textContent = item.label;
+    wishlistLandingLegend.append(chip);
+  });
+
+  wishlistLegendEditor.hidden = !settings.wishlistLegendEditMode;
+  wishlistLegendEditorList.innerHTML = "";
+  items.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "wishlist-legend-editor-row";
+
+    const emojiInput = document.createElement("input");
+    emojiInput.className = "wishlist-legend-editor-emoji";
+    emojiInput.type = "text";
+    emojiInput.maxLength = 2;
+    emojiInput.value = item.emoji;
+    emojiInput.placeholder = "✦";
+    emojiInput.addEventListener("input", () => updateWishlistLegendItem(index, { emoji: emojiInput.value.trim() || "✦" }));
+
+    const labelInput = document.createElement("input");
+    labelInput.className = "wishlist-legend-editor-label";
+    labelInput.type = "text";
+    labelInput.value = item.label;
+    labelInput.placeholder = "Legend label";
+    labelInput.addEventListener("input", () => updateWishlistLegendItem(index, { label: labelInput.value.trim() || `Label ${index + 1}` }));
+
+    const toneSelect = document.createElement("select");
+    toneSelect.className = "wishlist-legend-editor-tone";
+    [
+      ["iso", "ISO tint"],
+      ["diso", "DISO tint"],
+      ["buy", "Buy tint"],
+      ["custom", "Neutral tint"],
+    ].forEach(([value, label]) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      option.selected = item.tone === value;
+      toneSelect.append(option);
+    });
+    toneSelect.addEventListener("change", () => updateWishlistLegendItem(index, { tone: toneSelect.value }));
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.className = "wishlist-legend-editor-remove";
+    removeButton.textContent = "Remove";
+    removeButton.disabled = items.length <= 1;
+    removeButton.addEventListener("click", () => removeWishlistLegendItem(index));
+
+    row.append(emojiInput, labelInput, toneSelect, removeButton);
+    wishlistLegendEditorList.append(row);
+  });
+}
+
+function updateWishlistLegendItem(index, patch) {
+  const items = normalizeWishlistLegendItems(settings.wishlistLegendItems);
+  items[index] = {
+    ...items[index],
+    ...patch,
+  };
+  settings.wishlistLegendItems = items;
+  saveSettings();
+  renderWishlistLegend();
+}
+
+function removeWishlistLegendItem(index) {
+  const items = normalizeWishlistLegendItems(settings.wishlistLegendItems);
+  items.splice(index, 1);
+  settings.wishlistLegendItems = normalizeWishlistLegendItems(items);
+  saveSettings();
+  renderWishlistLegend();
+}
+
+function adjustWishlistFloatingRotation(id, delta) {
+  const element = wishlistFloatingGrid?.querySelector(`[data-sonny-id="${id}"]`);
+  const currentRotate = element?.style.getPropertyValue("--float-rotate").trim() || settings.wishlistFloatingPositions?.[id]?.rotate || "0deg";
+  const currentValue = Number.parseFloat(currentRotate.replace("deg", "")) || 0;
+  const nextValue = Math.max(-30, Math.min(30, currentValue + delta));
+  const nextRotate = `${nextValue}deg`;
+  if (element) {
+    element.style.setProperty("--float-rotate", nextRotate);
+    const label = element.querySelector(".wishlist-rotate-value");
+    if (label) {
+      label.textContent = `${nextValue}°`;
+    }
+  }
+  settings.wishlistFloatingPositions = {
+    ...(settings.wishlistFloatingPositions || {}),
+    [id]: {
+      ...(settings.wishlistFloatingPositions?.[id] || {}),
+      x: element?.style.getPropertyValue("--float-x").trim() || settings.wishlistFloatingPositions?.[id]?.x || "50%",
+      y: element?.style.getPropertyValue("--float-y").trim() || settings.wishlistFloatingPositions?.[id]?.y || "200px",
+      rotate: nextRotate,
+      scale: element?.style.getPropertyValue("--float-scale").trim() || settings.wishlistFloatingPositions?.[id]?.scale || "1",
+    },
+  };
+  saveSettings();
+}
+
+function startWishlistFloatingDrag(event) {
+  if (!settings.wishlistLandingEditMode || !wishlistLandingStage) {
+    return;
+  }
+  if (event.target.closest(".wishlist-floating-rotate-controls")) {
+    return;
+  }
+  const floating = event.currentTarget;
+  const sonnyId = floating?.dataset?.sonnyId;
+  if (!floating || !sonnyId) {
+    return;
+  }
+  event.preventDefault();
+  const stageRect = wishlistLandingStage.getBoundingClientRect();
+  const currentXValue = floating.style.getPropertyValue("--float-x").trim() || settings.wishlistFloatingPositions?.[sonnyId]?.x || "50%";
+  const currentYValue = floating.style.getPropertyValue("--float-y").trim() || settings.wishlistFloatingPositions?.[sonnyId]?.y || "200px";
+  const currentCenterX = currentXValue.endsWith("%")
+    ? (Number.parseFloat(currentXValue) / 100) * stageRect.width
+    : Number.parseFloat(currentXValue) || stageRect.width / 2;
+  const currentCenterY = Number.parseFloat(currentYValue) || 200;
+  activeWishlistDrag = {
+    id: sonnyId,
+    element: floating,
+    stageRect,
+    pointerOffsetX: event.clientX - stageRect.left - currentCenterX,
+    pointerOffsetY: event.clientY - stageRect.top - currentCenterY,
+  };
+  floating.classList.add("is-dragging");
+  floating.setPointerCapture?.(event.pointerId);
+}
+
+function updateWishlistFloatingDragPosition(event) {
+  if (!activeWishlistDrag || !wishlistLandingStage) {
+    return;
+  }
+  const stageRect = wishlistLandingStage.getBoundingClientRect();
+  const rawX = event.clientX - stageRect.left - (activeWishlistDrag.pointerOffsetX || 0);
+  const rawY = event.clientY - stageRect.top - (activeWishlistDrag.pointerOffsetY || 0);
+  const clampedX = Math.max(24, Math.min(stageRect.width - 24, rawX));
+  const clampedY = Math.max(120, Math.min(stageRect.height - 70, rawY));
+  const xPercent = `${((clampedX / stageRect.width) * 100).toFixed(2)}%`;
+  const yPixels = `${clampedY.toFixed(0)}px`;
+  activeWishlistDrag.element.style.setProperty("--float-x", xPercent);
+  activeWishlistDrag.element.style.setProperty("--float-y", yPixels);
+  settings.wishlistFloatingPositions = {
+    ...(settings.wishlistFloatingPositions || {}),
+    [activeWishlistDrag.id]: {
+      ...(settings.wishlistFloatingPositions?.[activeWishlistDrag.id] || {}),
+      x: xPercent,
+      y: yPixels,
+      rotate: activeWishlistDrag.element.style.getPropertyValue("--float-rotate").trim() || "-2deg",
+      scale: activeWishlistDrag.element.style.getPropertyValue("--float-scale").trim() || "1",
+    },
+  };
+}
+
+function endWishlistFloatingDrag(event) {
+  if (!activeWishlistDrag) {
+    return;
+  }
+  activeWishlistDrag.element.classList.remove("is-dragging");
+  if (event) {
+    activeWishlistDrag.element.releasePointerCapture?.(event.pointerId);
+  }
+  activeWishlistDrag = null;
+  saveSettings();
 }
 
 function renderWishlist() {
@@ -3208,6 +3517,7 @@ function renderWishlist() {
   }
 
   reconcileMakerSelections();
+  updateWishlistImmersiveState();
 }
 
 function renderHideSeriesList(items, query) {
@@ -5742,9 +6052,14 @@ function renderCollectedArmiesShelf(items, threshold) {
 }
 
 function switchView(view) {
+  settings.activeView = view;
+  saveSettings();
   document.body.classList.toggle("settings-active", view === "settings");
   document.body.classList.toggle("stock-active", view === "stock");
   document.body.classList.toggle("wishlist-active", view === "wishlist");
+  if (view !== "wishlist") {
+    document.body.classList.remove("wishlist-immersed");
+  }
   viewTabs.forEach((tab) => {
     tab.classList.toggle("is-active", tab.dataset.view === view);
   });
@@ -5754,6 +6069,24 @@ function switchView(view) {
   if (view === "stock") {
     renderStockPanel();
   }
+  requestAnimationFrame(updateWishlistImmersiveState);
+}
+
+function updateWishlistImmersiveState() {
+  const isWishlistActive = document.body.classList.contains("wishlist-active");
+  if (!isWishlistActive || !wishlistLanding) {
+    document.body.classList.remove("wishlist-immersed");
+    return;
+  }
+
+  const landingRect = wishlistLanding.getBoundingClientRect();
+  const stageRect = wishlistLandingStage?.getBoundingClientRect();
+  const hasScrolledIntoDreamBoard = window.scrollY > 120 || landingRect.top < 24;
+  const stageIsStillVisible = !stageRect || stageRect.bottom > 120;
+  document.body.classList.toggle(
+    "wishlist-immersed",
+    hasScrolledIntoDreamBoard && stageIsStillVisible,
+  );
 }
 
 function switchSettingsView(view) {
@@ -5814,6 +6147,7 @@ function applyFilters() {
   updateCollectedSeriesFilter(sonnies);
   renderCollected(sonnies);
   renderSettings();
+  switchView(settings.activeView || "tracker");
 }
 
 function buildCropStyle(item) {
@@ -6114,6 +6448,43 @@ collectedShowMultipleSeparateToggle?.addEventListener("change", () => {
   renderCollected(sonnies);
 });
 collectedSortFilter.addEventListener("change", () => renderCollected(sonnies));
+wishlistLayoutEditButton?.addEventListener("click", () => {
+  settings.wishlistLandingEditMode = !settings.wishlistLandingEditMode;
+  saveSettings();
+  renderWishlist();
+});
+wishlistLayoutResetButton?.addEventListener("click", () => {
+  settings.wishlistFloatingPositions = {};
+  saveSettings();
+  renderWishlist();
+});
+wishlistLegendEditButton?.addEventListener("click", () => {
+  settings.wishlistLegendEditMode = !settings.wishlistLegendEditMode;
+  saveSettings();
+  renderWishlistLegend();
+  if (wishlistLanding) {
+    wishlistLanding.classList.toggle("is-editing-legend", Boolean(settings.wishlistLegendEditMode));
+  }
+});
+wishlistLegendAddButton?.addEventListener("click", () => {
+  const items = normalizeWishlistLegendItems(settings.wishlistLegendItems);
+  items.push({
+    id: `legend-${Date.now()}`,
+    emoji: "✧",
+    label: `New label ${items.length - 1}`,
+    tone: "custom",
+  });
+  settings.wishlistLegendItems = items;
+  saveSettings();
+  renderWishlistLegend();
+});
+wishlistLandingStage?.addEventListener("pointermove", updateWishlistFloatingDragPosition);
+wishlistLandingStage?.addEventListener("pointerup", endWishlistFloatingDrag);
+wishlistLandingStage?.addEventListener("pointercancel", endWishlistFloatingDrag);
+window.addEventListener("pointerup", endWishlistFloatingDrag);
+window.addEventListener("pointercancel", endWishlistFloatingDrag);
+window.addEventListener("scroll", updateWishlistImmersiveState, { passive: true });
+window.addEventListener("resize", updateWishlistImmersiveState);
 collectedDetailCloseButton?.addEventListener("click", closeCollectedDetailModal);
 collectedDetailBackdrop?.addEventListener("click", closeCollectedDetailModal);
 collectedDetailPhotoUploadButton?.addEventListener("click", () => {

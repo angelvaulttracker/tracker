@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="image/png" sizes="32x32" href="./app/brand-assets/png/favicons/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./app/brand-assets/png/favicons/apple-touch-icon-180.png" />
-    <link rel="stylesheet" href="./app/styles.css?v=20260323-wishlist-copy-bubble" />
+    <link rel="stylesheet" href="./app/styles.css?v=20260326-wishlist-immersive-menu" />
   </head>
   <body>
     <div class="page-shell">
@@ -328,58 +328,79 @@
                     <p class="wishlist-copy" id="wishlist-landing-summary">
                       Your most wanted Sonnies drift here first, so the tab opens like a dreamy trading page instead of a plain list.
                     </p>
-                    <div class="wishlist-landing-legend">
-                      <span class="wishlist-legend-chip wishlist-legend-chip-buy">Starred for buy</span>
-                      <span class="wishlist-legend-chip wishlist-legend-chip-diso">DISO dreamies</span>
-                      <span class="wishlist-legend-chip wishlist-legend-chip-iso">ISO floaters</span>
+                    <div class="wishlist-landing-actions">
+                      <button class="ghost-button wishlist-layout-button" id="wishlist-layout-edit" type="button">
+                        Edit layout
+                      </button>
+                      <button class="ghost-button wishlist-layout-button" id="wishlist-layout-reset" type="button">
+                        Reset layout
+                      </button>
+                      <button class="ghost-button wishlist-layout-button" id="wishlist-legend-edit" type="button">
+                        Edit legend
+                      </button>
+                    </div>
+                    <div class="wishlist-landing-legend" id="wishlist-landing-legend"></div>
+                    <div class="wishlist-legend-editor" id="wishlist-legend-editor" hidden>
+                      <div class="wishlist-legend-editor-list" id="wishlist-legend-editor-list"></div>
+                      <button class="ghost-button wishlist-layout-button" id="wishlist-legend-add" type="button">
+                        Add label
+                      </button>
                     </div>
                   </div>
                 </div>
+                <div class="wishlist-landing-stage-title">
+                  <strong>ISO / DISO</strong>
+                </div>
                 <div class="wishlist-landing-stage">
-                  <div class="wishlist-landing-stage-title">
-                    <span>Dreamy</span>
-                    <strong>ISO / DISO</strong>
-                  </div>
                   <div class="wishlist-floating-grid" id="wishlist-floating-grid"></div>
                 </div>
               </section>
               <section class="controls collected-controls wishlist-controls">
-                <label class="search-field">
-                  <span>Search wishlist</span>
-                  <input
-                    id="wishlist-search"
-                    type="search"
-                    autocomplete="off"
-                    autocapitalize="off"
-                    autocorrect="off"
-                    spellcheck="false"
-                    placeholder="Rabbit, cherry blossom, cat life..."
-                  />
-                </label>
-                <label class="select-field">
-                  <span>View</span>
-                  <select id="wishlist-status-filter">
-                    <option value="all">ISO + DISO</option>
-                    <option value="iso">ISO only</option>
-                    <option value="diso">DISO only</option>
-                  </select>
-                </label>
-                <label class="select-field">
-                  <span>Series</span>
-                  <select id="wishlist-series-filter">
-                    <option value="all">All series</option>
-                  </select>
-                </label>
-                <label class="select-field">
-                  <span>Sort</span>
-                  <select id="wishlist-sort-filter">
-                    <option value="wishlist-date-desc">Date added to ISO/DISO</option>
-                    <option value="name-asc">Name A-Z</option>
-                    <option value="name-desc">Name Z-A</option>
-                    <option value="rank-asc">Rank ascending</option>
-                    <option value="rank-desc">Rank descending</option>
-                  </select>
-                </label>
+                <div class="wishlist-controls-menu">
+                  <button class="wishlist-controls-trigger" type="button" aria-label="Open ISO and DISO menu">
+                    <span class="wishlist-controls-trigger-icon">Menu</span>
+                    <strong>ISO / DISO menu</strong>
+                    <span class="wishlist-controls-trigger-copy">Hover to open</span>
+                  </button>
+                  <div class="wishlist-controls-panel">
+                    <label class="search-field">
+                      <span>Search wishlist</span>
+                      <input
+                        id="wishlist-search"
+                        type="search"
+                        autocomplete="off"
+                        autocapitalize="off"
+                        autocorrect="off"
+                        spellcheck="false"
+                        placeholder="Rabbit, cherry blossom, cat life..."
+                      />
+                    </label>
+                    <label class="select-field">
+                      <span>View</span>
+                      <select id="wishlist-status-filter">
+                        <option value="all">ISO + DISO</option>
+                        <option value="iso">ISO only</option>
+                        <option value="diso">DISO only</option>
+                      </select>
+                    </label>
+                    <label class="select-field">
+                      <span>Series</span>
+                      <select id="wishlist-series-filter">
+                        <option value="all">All series</option>
+                      </select>
+                    </label>
+                    <label class="select-field">
+                      <span>Sort</span>
+                      <select id="wishlist-sort-filter">
+                        <option value="wishlist-date-desc">Date added to ISO/DISO</option>
+                        <option value="name-asc">Name A-Z</option>
+                        <option value="name-desc">Name Z-A</option>
+                        <option value="rank-asc">Rank ascending</option>
+                        <option value="rank-desc">Rank descending</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
               </section>
               <div class="wishlist-columns">
                 <section class="wishlist-column" id="iso-column">
@@ -1348,6 +1369,6 @@
     <script src="./app/data/manual_overrides.js?v=20260317-manual-art-4"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./app/supabase-config.js?v=20260323-auth-redirect"></script>
-    <script src="./app/app.js?v=20260323-auth-redirect"></script>
+    <script src="./app/app.js?v=20260326-wishlist-immersive-menu"></script>
   </body>
 </html>
