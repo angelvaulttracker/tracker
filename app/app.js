@@ -2182,11 +2182,32 @@ async function setPasswordForCurrentUser() {
   setAuthFeedback("Saving your password for this account...");
   setSaveState("syncing", "Saving your password for this account...");
 
-  const { error } = await authState.client.auth.updateUser({ password });
-  if (error) {
-    console.error("Failed to set password for existing user", error);
-    setAuthFeedback(error.message || "Could not save a password for this account yet.");
-    setSaveState("error", "Could not save a password for this account yet.");
+  const timeoutMs = 12000;
+  try {
+    const result = await Promise.race([
+      authState.client.auth.updateUser({ password }),
+      new Promise((_, reject) => {
+        window.setTimeout(() => reject(new Error("timeout")), timeoutMs);
+      }),
+    ]);
+
+    const { error } = result || {};
+    if (error) {
+      console.error("Failed to set password for existing user", error);
+      setAuthFeedback(error.message || "Could not save a password for this account yet.");
+      setSaveState("error", "Could not save a password for this account yet.");
+      if (authSetPasswordButton) {
+        authSetPasswordButton.disabled = false;
+      }
+      return;
+    }
+  } catch (error) {
+    console.error("Timed out saving password", error);
+    setAuthFeedback("Saving your password took too long. Please try again.");
+    setSaveState(
+      "error",
+      "Saving your password took too long. If you opened the magic link in an in-app browser, open it directly in Safari/Chrome and try again.",
+    );
     if (authSetPasswordButton) {
       authSetPasswordButton.disabled = false;
     }
