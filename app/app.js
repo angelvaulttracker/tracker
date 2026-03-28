@@ -728,6 +728,7 @@ function isSessionError(error) {
 
 async function handleExpiredSession(contextLabel = "session") {
   window.clearTimeout(authState.syncTimer);
+  window.clearTimeout(authState.sessionCheckTimer);
   authState.syncing = false;
   authState.sessionExpired = true;
 
@@ -749,6 +750,33 @@ async function handleExpiredSession(contextLabel = "session") {
   setAuthFeedback(`Your account session expired while ${contextLabel}. Your latest tracker changes were kept on this device, so please log in again to keep syncing.`);
   setSaveState("error", "Your session expired. Recent tracker changes were kept on this device until you log in again.");
   openAccountModal();
+}
+
+async function verifySessionActive(contextLabel = "checking your session") {
+  if (!authState.client || !authState.user || authState.isSigningOut || authState.sessionExpired) {
+    return;
+  }
+
+  try {
+    const {
+      data: { session },
+      error,
+    } = await authState.client.auth.getSession();
+
+    if (error) {
+      throw error;
+    }
+
+    if (!session?.user) {
+      await handleExpiredSession(contextLabel);
+    }
+  } catch (error) {
+    if (isSessionError(error)) {
+      await handleExpiredSession(contextLabel);
+    } else {
+      console.warn("Session verification failed", error);
+    }
+  }
 }
 
 function loadSettings() {
@@ -1984,10 +2012,12 @@ async function initializeSupabaseAuth() {
       if (authState.user) {
         closeAccountModal();
         await hydrateProgressFromCloud();
+        scheduleSessionChecks();
       }
     }
 
     if (event === "SIGNED_OUT") {
+      window.clearTimeout(authState.sessionCheckTimer);
       if (authState.sessionExpired) {
         const recoveryProgress = loadRecoveryProgress();
         if (hasMeaningfulProgress(recoveryProgress)) {
@@ -2035,6 +2065,7 @@ async function initializeSupabaseAuth() {
 
   if (authState.user) {
     await hydrateProgressFromCloud();
+    scheduleSessionChecks();
   } else {
     const recoveryProgress = loadRecoveryProgress();
     if (hasMeaningfulProgress(recoveryProgress)) {
@@ -2044,6 +2075,18 @@ async function initializeSupabaseAuth() {
       setAuthFeedback("Recent tracker changes were recovered from this device. Log in again if you want to resume cloud sync.");
     }
   }
+}
+
+function scheduleSessionChecks() {
+  window.clearTimeout(authState.sessionCheckTimer);
+  if (!authState.user || !authState.client) {
+    return;
+  }
+
+  authState.sessionCheckTimer = window.setTimeout(async () => {
+    await verifySessionActive("checking your session");
+    scheduleSessionChecks();
+  }, 60_000);
 }
 
 function authRedirectUrl() {
@@ -7019,6 +7062,14 @@ document.addEventListener("keydown", (event) => {
     }
     closeAccountMenu();
     closeAccountModal();
+  }
+});
+window.addEventListener("focus", () => {
+  verifySessionActive("checking your session");
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    verifySessionActive("checking your session");
   }
 });
 openIsoMakerButton?.addEventListener("click", openWishlistMaker);

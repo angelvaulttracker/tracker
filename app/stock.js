@@ -253,7 +253,6 @@ const stockCatalogPreviewCopy = document.querySelector(".catalog-preview-copy");
 const newPriceInput = document.querySelector("#new-price");
 const newQuantityInput = document.querySelector("#new-quantity");
 const fundNoteInput = document.querySelector("#fund-note");
-const fundAmountModeInput = document.querySelector("#fund-amount-mode");
 const fundAmountLabel = document.querySelector("#fund-amount-label");
 const fundAmountInput = document.querySelector("#fund-amount");
 const fundSonniesInput = document.querySelector("#fund-sonnies");
@@ -321,6 +320,7 @@ const stockAuthState = {
   hydrating: false,
   stockTimer: null,
   fundTimer: null,
+  sessionCheckTimer: null,
 };
 
 function displayNameForId(sonnyId, fallbackName = "") {
@@ -501,6 +501,58 @@ function setFundSonnyIds(inputElement, sonnyIds) {
   inputElement.dataset.selectedSonnyIds = JSON.stringify(Array.from(new Set((sonnyIds || []).filter(Boolean).map(String))));
 }
 
+function normalizeFundSonnyPriceMap(priceMap, sonnyIds = [], fallbackPrice = 0) {
+  const allowedIds = new Set((sonnyIds || []).filter(Boolean).map(String));
+  const normalized = {};
+  if (priceMap && typeof priceMap === "object") {
+    Object.entries(priceMap).forEach(([sonnyId, value]) => {
+      if (!allowedIds.has(String(sonnyId))) {
+        return;
+      }
+      const amount = Number(value);
+      if (Number.isFinite(amount) && amount > 0) {
+        normalized[String(sonnyId)] = amount;
+      }
+    });
+  }
+  const safeFallback = Number(fallbackPrice);
+  if (Object.keys(normalized).length === 0 && Number.isFinite(safeFallback) && safeFallback > 0) {
+    allowedIds.forEach((sonnyId) => {
+      normalized[sonnyId] = safeFallback;
+    });
+  }
+  return normalized;
+}
+
+function getFundSonnyPriceMap(inputElement) {
+  if (!inputElement?.dataset.selectedSonnyPrices) {
+    return {};
+  }
+  try {
+    const saved = JSON.parse(inputElement.dataset.selectedSonnyPrices);
+    return saved && typeof saved === "object" ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+function setFundSonnyPriceMap(inputElement, priceMap) {
+  if (!inputElement) {
+    return;
+  }
+  inputElement.dataset.selectedSonnyPrices = JSON.stringify(priceMap && typeof priceMap === "object" ? priceMap : {});
+}
+
+function commonFundSonnyPrice(sonnyIds = [], priceMap = {}) {
+  const prices = sonnyIds
+    .map((sonnyId) => Number(priceMap?.[sonnyId]))
+    .filter((amount) => Number.isFinite(amount) && amount > 0);
+  if (!prices.length || prices.length !== sonnyIds.length) {
+    return null;
+  }
+  return prices.every((amount) => amount === prices[0]) ? prices[0] : null;
+}
+
 function formatFundSonnySelection(sonnyIds = []) {
   return sonnyIds
     .map((sonnyId) => stockCatalog.find((item) => item.id === sonnyId))
@@ -513,15 +565,12 @@ function fundRealToggleLabel(type) {
   return type === "out" ? "Removed from real fund?" : "Sent to real fund?";
 }
 
-function normalizeFundAmountMode(mode) {
-  return mode === "per-sonny" ? "per-sonny" : "total";
+function normalizeFundAmountMode() {
+  return "total";
 }
 
 function fundTransactionTotal(item) {
-  if (normalizeFundAmountMode(item.amountMode) !== "per-sonny") {
-    return Number(item.amount) || 0;
-  }
-  return (Number(item.figurePrice) || 0) * (item.sonnyIds?.length || 0);
+  return Number(item.amount) || 0;
 }
 
 function fundTransactionShipping(item) {
@@ -534,26 +583,7 @@ function fundTransactionNetContribution(item) {
   return item.type === "out" ? -(total + shipping) : total - shipping;
 }
 
-function applyFundAmountModeUi(mode, amountLabelElement, amountInputElement, figureFieldElement, figureInputElement, sonnyCount = 0) {
-  const normalizedMode = normalizeFundAmountMode(mode);
-  if (amountLabelElement) {
-    amountLabelElement.textContent = normalizedMode === "per-sonny" ? "Total for selected Sonnies" : "Total amount";
-  }
-  if (amountInputElement) {
-    amountInputElement.disabled = normalizedMode === "per-sonny";
-  }
-  if (figureFieldElement) {
-    figureFieldElement.hidden = normalizedMode !== "per-sonny";
-  }
-  if (figureInputElement) {
-    figureInputElement.disabled = normalizedMode !== "per-sonny";
-    if (normalizedMode === "per-sonny") {
-      figureInputElement.placeholder = sonnyCount > 1 ? "Amount for each Sonny" : "Amount for this Sonny";
-    }
-  }
-}
-
-function renderFundSonnyPreview(previewElement, sonnyIds = []) {
+function renderFundSonnyPreview(previewElement, sonnyIds = [], priceMap = {}) {
   if (!previewElement) {
     return;
   }
@@ -570,10 +600,17 @@ function renderFundSonnyPreview(previewElement, sonnyIds = []) {
   previewElement.innerHTML = matchedItems
     .map((item) => {
       const imagePath = item.imagePath || "";
+      const salePrice = Number(priceMap?.[item.id]);
       return `
         <span class="fund-sonny-chip" title="${item.name} - ${item.series}">
           <span class="fund-sonny-chip-thumb${imagePath ? "" : " is-empty"}"${imagePath ? ` style="background-image: url('${imagePath}');"` : ""}></span>
-          <span class="fund-sonny-chip-name">${item.name}</span>
+          <span class="fund-sonny-chip-body">
+            <span class="fund-sonny-chip-name">${item.name}</span>
+            <label class="fund-sonny-chip-price">
+              <span class="fund-sonny-chip-price-currency">$</span>
+              <input class="fund-sonny-chip-price-input" type="number" min="0" step="0.01" inputmode="decimal" data-sonny-id="${item.id}" value="${Number.isFinite(salePrice) && salePrice > 0 ? salePrice.toFixed(2) : ""}" placeholder="0.00" />
+            </label>
+          </span>
           <button class="fund-sonny-chip-remove" type="button" data-sonny-id="${item.id}" aria-label="Remove ${item.name}">x</button>
         </span>
       `;
@@ -587,8 +624,10 @@ function appendFundSonnyFromInput(inputElement, previewElement) {
     return getFundSonnyIds(inputElement);
   }
   const nextIds = Array.from(new Set([...getFundSonnyIds(inputElement), selected.id]));
+  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(inputElement), nextIds);
   setFundSonnyIds(inputElement, nextIds);
-  renderFundSonnyPreview(previewElement, nextIds);
+  setFundSonnyPriceMap(inputElement, nextPriceMap);
+  renderFundSonnyPreview(previewElement, nextIds, nextPriceMap);
   inputElement.value = "";
   return nextIds;
 }
@@ -859,6 +898,7 @@ function loadFundTransactions() {
         amountMode: normalizeFundAmountMode(item.amountMode),
         sonnyIds: Array.isArray(item.sonnyIds) ? Array.from(new Set(item.sonnyIds.filter(Boolean).map(String))) : [],
         figurePrice: Number(item.figurePrice) || 0,
+        figurePricesById: normalizeFundSonnyPriceMap(item.figurePricesById, item.sonnyIds, item.figurePrice),
         shipping: Math.max(0, Number(item.shipping) || 0),
         person: String(item.person || item.personName || "").trim(),
         sentToRealFund: Boolean(item.sentToRealFund),
@@ -988,6 +1028,7 @@ function buildFundRows() {
     amount_mode: normalizeFundAmountMode(item.amountMode),
     sonny_ids: Array.isArray(item.sonnyIds) ? item.sonnyIds : [],
     figure_price: Number(item.figurePrice) || 0,
+    figure_prices_by_id: normalizeFundSonnyPriceMap(item.figurePricesById, item.sonnyIds, item.figurePrice),
     shipping: Math.max(0, Number(item.shipping) || 0),
     person_name: item.person || "",
     sent_to_real_fund: Boolean(item.sentToRealFund),
@@ -1141,6 +1182,7 @@ async function hydrateStockAndFundFromCloud() {
         amountMode: normalizeFundAmountMode(item.amount_mode),
         sonnyIds: Array.isArray(item.sonny_ids) ? Array.from(new Set(item.sonny_ids.filter(Boolean).map(String))) : [],
         figurePrice: Number(item.figure_price) || 0,
+        figurePricesById: normalizeFundSonnyPriceMap(item.figure_prices_by_id, item.sonny_ids, item.figure_price),
         shipping: Math.max(0, Number(item.shipping) || 0),
         person: String(item.person_name || "").trim(),
         sentToRealFund: Boolean(item.sent_to_real_fund),
@@ -1295,9 +1337,11 @@ async function initializeStockSupabaseAuth() {
 
     if ((event === "SIGNED_IN" || event === "TOKEN_REFRESHED") && stockAuthState.user) {
       await hydrateStockAndFundFromCloud();
+      scheduleStockSessionChecks();
     }
 
     if (event === "SIGNED_OUT") {
+      window.clearTimeout(stockAuthState.sessionCheckTimer);
       stockAuthState.syncing = false;
       stockAuthState.hydrating = false;
       setStockAuthFeedback("Signed out. Stock and fund changes are saved on this device until you sign in again.");
@@ -1323,7 +1367,46 @@ async function initializeStockSupabaseAuth() {
 
   if (stockAuthState.user) {
     await hydrateStockAndFundFromCloud();
+    scheduleStockSessionChecks();
   }
+}
+
+async function verifyStockSessionActive(contextLabel = "checking your session") {
+  if (!stockAuthState.client || !stockAuthState.user) {
+    return;
+  }
+
+  try {
+    const {
+      data: { session },
+      error,
+    } = await stockAuthState.client.auth.getSession();
+
+    if (error) {
+      throw error;
+    }
+
+    if (!session?.user) {
+      stockAuthState.user = null;
+      renderStockAuthState();
+      setStockAuthFeedback(`Your account session expired while ${contextLabel}. Please sign in again to keep syncing.`);
+      setStockSaveState("error", "Your session expired. Stock and fund changes are saved on this device until you sign in again.");
+    }
+  } catch (error) {
+    console.warn("Stock session verification failed", error);
+  }
+}
+
+function scheduleStockSessionChecks() {
+  window.clearTimeout(stockAuthState.sessionCheckTimer);
+  if (!stockAuthState.user || !stockAuthState.client) {
+    return;
+  }
+
+  stockAuthState.sessionCheckTimer = window.setTimeout(async () => {
+    await verifyStockSessionActive("checking your session");
+    scheduleStockSessionChecks();
+  }, 60_000);
 }
 
 function loadShipments() {
@@ -2629,9 +2712,10 @@ function renderInventory() {
           id: crypto.randomUUID(),
           label: `Sold ${item.quantity}x ${item.name}`,
           amount: totalSale,
-          amountMode: "per-sonny",
+          amountMode: "total",
           sonnyIds: item.sonnyId ? [item.sonnyId] : [],
           figurePrice: Number(item.price) || 0,
+          figurePricesById: item.sonnyId ? { [item.sonnyId]: Number(item.price) || 0 } : {},
           shipping: 0,
           person: "",
           sentToRealFund: false,
@@ -2679,7 +2763,6 @@ function renderFundList() {
     const labelInput = fragment.querySelector(".fund-label-input");
     const dateInput = fragment.querySelector(".fund-date-input");
     const typeInput = fragment.querySelector(".fund-type-input");
-    const amountModeInput = fragment.querySelector(".fund-amount-mode-input");
     const sonniesInput = fragment.querySelector(".fund-sonnies-input");
     const sonnyPreviewList = fragment.querySelector(".fund-sonny-preview-list");
     const figureField = fragment.querySelector(".fund-figure-field");
@@ -2698,22 +2781,28 @@ function renderFundList() {
     labelInput.value = item.label;
     dateInput.value = item.date;
     typeInput.value = item.type;
-    amountModeInput.value = normalizeFundAmountMode(item.amountMode);
     setFundSonnyIds(sonniesInput, item.sonnyIds);
+    setFundSonnyPriceMap(sonniesInput, normalizeFundSonnyPriceMap(item.figurePricesById, item.sonnyIds, item.figurePrice));
     sonniesInput.value = "";
-    renderFundSonnyPreview(sonnyPreviewList, item.sonnyIds);
-    figurePriceInput.value = item.figurePrice > 0 ? Number(item.figurePrice).toFixed(2) : "";
+    renderFundSonnyPreview(sonnyPreviewList, item.sonnyIds, getFundSonnyPriceMap(sonniesInput));
+    const sharedFigurePrice = commonFundSonnyPrice(item.sonnyIds, getFundSonnyPriceMap(sonniesInput));
+    figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
     shippingInput.value = fundTransactionShipping(item) > 0 ? fundTransactionShipping(item).toFixed(2) : "";
     amountInput.value = Number(fundTransactionTotal(item)).toFixed(2);
     personInput.value = item.person || "";
     sentToRealFundInput.checked = Boolean(item.sentToRealFund);
     if (figureFieldLabel) {
-      figureFieldLabel.textContent = "Amount for each Sonny";
+      figureFieldLabel.textContent = "Sold for all selected (optional)";
+    }
+    if (amountFieldLabel) {
+      amountFieldLabel.textContent = "Purchase total";
+    }
+    if (figureField) {
+      figureField.hidden = false;
     }
     if (sentToRealFundLabel) {
       sentToRealFundLabel.textContent = fundRealToggleLabel(item.type);
     }
-    applyFundAmountModeUi(amountModeInput.value, amountFieldLabel, amountInput, figureField, figurePriceInput, item.sonnyIds.length);
     balance.textContent = `Balance after movement: ${formatCurrency(balancesById.get(item.id) || FUND_STARTING_BALANCE)}`;
 
     labelInput.addEventListener("change", (event) => {
@@ -2741,33 +2830,21 @@ function renderFundList() {
       }
       render();
     });
-    amountModeInput.addEventListener("change", (event) => {
-      const nextMode = normalizeFundAmountMode(event.target.value);
-      const sonnyIds = getFundSonnyIds(sonniesInput);
-      const nextTotal = nextMode === "per-sonny"
-        ? (Number.parseFloat(figurePriceInput.value) || 0) * (sonnyIds.length || 0)
-        : Number.parseFloat(amountInput.value) || 0;
-      applyFundAmountModeUi(nextMode, amountFieldLabel, amountInput, figureField, figurePriceInput, sonnyIds.length);
-      amountInput.value = Number(nextTotal || 0).toFixed(2);
-      const previous = updateFundTransaction(item.id, {
-        amountMode: nextMode,
-        amount: nextTotal,
-      });
-      if (previous && previous.amountMode !== nextMode) {
-        logActivity("fund", `Updated amount style`, `${item.label} now uses ${nextMode === "per-sonny" ? "the same amount for each Sonny" : "one total for the whole purchase"}.`);
-      }
-      render();
-    });
     sonniesInput.addEventListener("change", (event) => {
       const sonnyIds = appendFundSonnyFromInput(sonniesInput, sonnyPreviewList);
-      if (normalizeFundAmountMode(amountModeInput.value) === "per-sonny") {
-        amountInput.value = Number((Number.parseFloat(figurePriceInput.value) || 0) * (sonnyIds.length || 0)).toFixed(2);
-      }
-      applyFundAmountModeUi(amountModeInput.value, amountFieldLabel, amountInput, figureField, figurePriceInput, sonnyIds.length);
+      const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(sonniesInput), sonnyIds);
+      setFundSonnyPriceMap(sonniesInput, nextPriceMap);
+      renderFundSonnyPreview(sonnyPreviewList, sonnyIds, nextPriceMap);
+      const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
+      figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
       const previous = updateFundTransaction(item.id, { sonnyIds });
       if (previous && JSON.stringify(previous.sonnyIds || []) !== JSON.stringify(sonnyIds)) {
         logActivity("fund", `Updated transaction Sonnies`, `${item.label} now tracks ${sonnyIds.length} ${sonnyIds.length === 1 ? "Sonny" : "Sonnies"}.`);
       }
+      updateFundTransaction(item.id, {
+        figurePricesById: nextPriceMap,
+        figurePrice: Number.isFinite(sharedFigurePrice) ? sharedFigurePrice : 0,
+      });
       render();
     });
     sonnyPreviewList.addEventListener("click", (event) => {
@@ -2777,32 +2854,64 @@ function renderFundList() {
       }
       const nextIds = getFundSonnyIds(sonniesInput).filter((sonnyId) => sonnyId !== removeButton.dataset.sonnyId);
       setFundSonnyIds(sonniesInput, nextIds);
-      renderFundSonnyPreview(sonnyPreviewList, nextIds);
-      if (normalizeFundAmountMode(amountModeInput.value) === "per-sonny") {
-        amountInput.value = Number((Number.parseFloat(figurePriceInput.value) || 0) * (nextIds.length || 0)).toFixed(2);
-      }
-      applyFundAmountModeUi(amountModeInput.value, amountFieldLabel, amountInput, figureField, figurePriceInput, nextIds.length);
-      const previous = updateFundTransaction(item.id, { sonnyIds: nextIds });
+      const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(sonniesInput), nextIds);
+      setFundSonnyPriceMap(sonniesInput, nextPriceMap);
+      renderFundSonnyPreview(sonnyPreviewList, nextIds, nextPriceMap);
+      const sharedFigurePrice = commonFundSonnyPrice(nextIds, nextPriceMap);
+      figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
+      const previous = updateFundTransaction(item.id, {
+        sonnyIds: nextIds,
+        figurePricesById: nextPriceMap,
+        figurePrice: Number.isFinite(sharedFigurePrice) ? sharedFigurePrice : 0,
+      });
       if (previous && JSON.stringify(previous.sonnyIds || []) !== JSON.stringify(nextIds)) {
         logActivity("fund", `Updated transaction Sonnies`, `${item.label} now tracks ${nextIds.length} ${nextIds.length === 1 ? "Sonny" : "Sonnies"}.`);
       }
       render();
     });
+    sonnyPreviewList.addEventListener("input", (event) => {
+      const priceInput = event.target.closest(".fund-sonny-chip-price-input");
+      if (!priceInput) {
+        return;
+      }
+      const sonnyIds = getFundSonnyIds(sonniesInput);
+      const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(sonniesInput), sonnyIds);
+      const rawValue = priceInput.value === "" ? null : Number.parseFloat(priceInput.value);
+      if (Number.isFinite(rawValue) && rawValue > 0) {
+        nextPriceMap[priceInput.dataset.sonnyId] = rawValue;
+      } else {
+        delete nextPriceMap[priceInput.dataset.sonnyId];
+      }
+      setFundSonnyPriceMap(sonniesInput, nextPriceMap);
+      const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
+      figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
+      updateFundTransaction(item.id, {
+        figurePricesById: nextPriceMap,
+        figurePrice: Number.isFinite(sharedFigurePrice) ? sharedFigurePrice : 0,
+      });
+    });
     figurePriceInput.addEventListener("change", (event) => {
       const nextAmount = event.target.value === "" ? 0 : Number.parseFloat(event.target.value);
       const safeAmount = Number.isFinite(nextAmount) ? nextAmount : 0;
-      const nextTotal = normalizeFundAmountMode(amountModeInput.value) === "per-sonny"
-        ? safeAmount * (getFundSonnyIds(sonniesInput).length || 0)
-        : Number(item.amount || 0);
+      const sonnyIds = getFundSonnyIds(sonniesInput);
+      const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(sonniesInput), sonnyIds);
+      if (safeAmount > 0) {
+        sonnyIds.forEach((sonnyId) => {
+          nextPriceMap[sonnyId] = safeAmount;
+        });
+      } else {
+        sonnyIds.forEach((sonnyId) => {
+          delete nextPriceMap[sonnyId];
+        });
+      }
+      setFundSonnyPriceMap(sonniesInput, nextPriceMap);
+      renderFundSonnyPreview(sonnyPreviewList, sonnyIds, nextPriceMap);
       const previous = updateFundTransaction(item.id, {
         figurePrice: safeAmount,
-        amount: nextTotal,
+        figurePricesById: nextPriceMap,
       });
-      if (normalizeFundAmountMode(amountModeInput.value) === "per-sonny") {
-        amountInput.value = Number(nextTotal).toFixed(2);
-      }
       if (previous && previous.figurePrice !== safeAmount) {
-        logActivity("fund", `Updated Sonny amount`, `${item.label} changed from ${formatCurrency(previous.figurePrice || 0)} to ${formatCurrency(safeAmount)} for each Sonny.`);
+        logActivity("fund", `Updated sold amount`, `${item.label} sold amount changed from ${formatCurrency(previous.figurePrice || 0)} to ${formatCurrency(safeAmount)}.`);
       }
       render();
     });
@@ -3275,18 +3384,14 @@ function render() {
   if (!fundDateInput.value) {
     fundDateInput.value = currentLocalDateInputValue();
   }
-  if (fundAmountModeInput) {
-    fundAmountModeInput.value = fundAmountModeInput.value || "total";
+  if (fundAmountLabel) {
+    fundAmountLabel.textContent = "Total amount";
   }
-  applyFundAmountModeUi(
-    fundAmountModeInput?.value || "total",
-    fundAmountLabel,
-    fundAmountInput,
-    fundFigurePriceInput?.closest("label"),
-    fundFigurePriceInput,
-    getFundSonnyIds(fundSonniesInput).length,
-  );
-  renderFundSonnyPreview(fundSonnyPreviewList, getFundSonnyIds(fundSonniesInput));
+  if (fundFigurePriceInput) {
+    fundFigurePriceInput.placeholder = "0.00";
+  }
+  setFundSonnyPriceMap(fundSonniesInput, normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), getFundSonnyIds(fundSonniesInput)));
+  renderFundSonnyPreview(fundSonnyPreviewList, getFundSonnyIds(fundSonniesInput), getFundSonnyPriceMap(fundSonniesInput));
   fundRangeFilter.value = fundFilter;
   if (fundSortSelect) {
     fundSortSelect.value = fundSort;
@@ -3361,11 +3466,11 @@ addFundForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const label = fundNoteInput.value.trim();
-  const amountMode = normalizeFundAmountMode(fundAmountModeInput?.value);
   const amount = Number.parseFloat(fundAmountInput.value);
   const figurePrice = Number.parseFloat(fundFigurePriceInput.value);
   const shipping = Number.parseFloat(fundShippingInput.value);
   const sonnyIds = getFundSonnyIds(fundSonniesInput);
+  const figurePricesById = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds, figurePrice);
   const person = fundPersonInput.value.trim();
   const type = fundTypeInput.value === "in" ? "in" : "out";
   const date = fundDateInput.value;
@@ -3378,12 +3483,11 @@ addFundForm.addEventListener("submit", (event) => {
   const transaction = {
     id: crypto.randomUUID(),
     label,
-    amount: amountMode === "per-sonny"
-      ? (Number.isFinite(figurePrice) ? figurePrice : 0) * (sonnyIds.length || 0)
-      : Number.isFinite(amount) ? amount : 0,
-    amountMode,
+    amount: Number.isFinite(amount) ? amount : 0,
+    amountMode: "total",
     sonnyIds,
-    figurePrice: Number.isFinite(figurePrice) ? figurePrice : 0,
+    figurePrice: Number.isFinite(commonFundSonnyPrice(sonnyIds, figurePricesById)) ? commonFundSonnyPrice(sonnyIds, figurePricesById) : 0,
+    figurePricesById,
     shipping: Number.isFinite(shipping) ? Math.max(0, shipping) : 0,
     person,
     sentToRealFund: Boolean(fundSentToRealFundInput.checked),
@@ -3396,17 +3500,14 @@ addFundForm.addEventListener("submit", (event) => {
   logActivity("fund", `Added fund movement`, `${label} was logged as ${type === "in" ? "money in" : "money out"} for ${formatCurrency(transaction.amount)}.`);
   addFundForm.reset();
   setFundSonnyIds(fundSonniesInput, []);
-  renderFundSonnyPreview(fundSonnyPreviewList, []);
-  if (fundAmountModeInput) {
-    fundAmountModeInput.value = "total";
-  }
+  setFundSonnyPriceMap(fundSonniesInput, {});
+  renderFundSonnyPreview(fundSonnyPreviewList, [], {});
   fundTypeInput.value = "in";
   fundDateInput.value = currentLocalDateInputValue();
   fundSentToRealFundInput.checked = false;
   if (fundShippingInput) {
     fundShippingInput.value = "";
   }
-  applyFundAmountModeUi("total", fundAmountLabel, fundAmountInput, fundFigurePriceInput?.closest("label"), fundFigurePriceInput, 0);
   fundNoteInput.focus();
   render();
 });
@@ -3510,27 +3611,21 @@ fundTypeInput?.addEventListener("change", (event) => {
   }
 });
 
-fundAmountModeInput?.addEventListener("change", (event) => {
-  const mode = normalizeFundAmountMode(event.target.value);
-  const sonnyCount = getFundSonnyIds(fundSonniesInput).length;
-  applyFundAmountModeUi(mode, fundAmountLabel, fundAmountInput, fundFigurePriceInput?.closest("label"), fundFigurePriceInput, sonnyCount);
-  if (mode === "per-sonny") {
-    fundAmountInput.value = String((Number.parseFloat(fundFigurePriceInput.value) || 0) * (sonnyCount || 0));
-  }
-});
-
 fundSonniesInput?.addEventListener("input", (event) => {
   if (!event.target.value.trim()) {
-    renderFundSonnyPreview(fundSonnyPreviewList, getFundSonnyIds(fundSonniesInput));
+    renderFundSonnyPreview(fundSonnyPreviewList, getFundSonnyIds(fundSonniesInput), getFundSonnyPriceMap(fundSonniesInput));
   }
 });
 
 fundSonniesInput?.addEventListener("change", (event) => {
   const sonnyIds = appendFundSonnyFromInput(fundSonniesInput, fundSonnyPreviewList);
-  if (normalizeFundAmountMode(fundAmountModeInput?.value) === "per-sonny") {
-    fundAmountInput.value = String((Number.parseFloat(fundFigurePriceInput.value) || 0) * (sonnyIds.length || 0));
+  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds, Number.parseFloat(fundFigurePriceInput?.value));
+  setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
+  renderFundSonnyPreview(fundSonnyPreviewList, sonnyIds, nextPriceMap);
+  const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
+  if (fundFigurePriceInput) {
+    fundFigurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
   }
-  applyFundAmountModeUi(fundAmountModeInput?.value || "total", fundAmountLabel, fundAmountInput, fundFigurePriceInput?.closest("label"), fundFigurePriceInput, sonnyIds.length);
 });
 
 fundSonnyPreviewList?.addEventListener("click", (event) => {
@@ -3540,19 +3635,50 @@ fundSonnyPreviewList?.addEventListener("click", (event) => {
   }
   const nextIds = getFundSonnyIds(fundSonniesInput).filter((sonnyId) => sonnyId !== removeButton.dataset.sonnyId);
   setFundSonnyIds(fundSonniesInput, nextIds);
-  renderFundSonnyPreview(fundSonnyPreviewList, nextIds);
-  if (normalizeFundAmountMode(fundAmountModeInput?.value) === "per-sonny") {
-    fundAmountInput.value = String((Number.parseFloat(fundFigurePriceInput.value) || 0) * (nextIds.length || 0));
+  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), nextIds);
+  setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
+  renderFundSonnyPreview(fundSonnyPreviewList, nextIds, nextPriceMap);
+  const sharedFigurePrice = commonFundSonnyPrice(nextIds, nextPriceMap);
+  if (fundFigurePriceInput) {
+    fundFigurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
   }
-  applyFundAmountModeUi(fundAmountModeInput?.value || "total", fundAmountLabel, fundAmountInput, fundFigurePriceInput?.closest("label"), fundFigurePriceInput, nextIds.length);
+});
+
+fundSonnyPreviewList?.addEventListener("input", (event) => {
+  const priceInput = event.target.closest(".fund-sonny-chip-price-input");
+  if (!priceInput) {
+    return;
+  }
+  const sonnyIds = getFundSonnyIds(fundSonniesInput);
+  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds);
+  const rawValue = priceInput.value === "" ? null : Number.parseFloat(priceInput.value);
+  if (Number.isFinite(rawValue) && rawValue > 0) {
+    nextPriceMap[priceInput.dataset.sonnyId] = rawValue;
+  } else {
+    delete nextPriceMap[priceInput.dataset.sonnyId];
+  }
+  setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
+  const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
+  if (fundFigurePriceInput) {
+    fundFigurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
+  }
 });
 
 fundFigurePriceInput?.addEventListener("input", (event) => {
-  if (normalizeFundAmountMode(fundAmountModeInput?.value) !== "per-sonny") {
-    return;
+  const sonnyIds = getFundSonnyIds(fundSonniesInput);
+  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds);
+  const safeAmount = Number.parseFloat(event.target.value);
+  if (Number.isFinite(safeAmount) && safeAmount > 0) {
+    sonnyIds.forEach((sonnyId) => {
+      nextPriceMap[sonnyId] = safeAmount;
+    });
+  } else {
+    sonnyIds.forEach((sonnyId) => {
+      delete nextPriceMap[sonnyId];
+    });
   }
-  const nextTotal = (Number.parseFloat(event.target.value) || 0) * (getFundSonnyIds(fundSonniesInput).length || 0);
-  fundAmountInput.value = String(nextTotal);
+  setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
+  renderFundSonnyPreview(fundSonnyPreviewList, sonnyIds, nextPriceMap);
 });
 
 stockSearchInput.addEventListener("input", (event) => {
@@ -3784,6 +3910,14 @@ window.addEventListener("storage", (event) => {
     stock = loadStock();
     syncPriceHistoryFromCurrentStock();
     render();
+  }
+});
+window.addEventListener("focus", () => {
+  verifyStockSessionActive("checking your session");
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    verifyStockSessionActive("checking your session");
   }
 });
 render();
