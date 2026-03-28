@@ -12,8 +12,8 @@
   --gold-deep: #9c8352;
   --shadow: 0 18px 40px rgba(104, 78, 58, 0.12);
   --sticky-header-top: 12px;
-  --sticky-primary-top: 104px;
-  --sticky-secondary-top: 192px;
+  --sticky-primary-top: 126px;
+  --sticky-secondary-top: 214px;
 }
 
 * {
@@ -388,8 +388,8 @@ h1 {
   display: grid;
   grid-template-columns: 1.5fr repeat(4, minmax(150px, 0.7fr)) auto;
   gap: 16px;
-  padding: 18px;
-  margin-bottom: 18px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
   position: sticky;
   top: var(--sticky-primary-top);
   z-index: 24;
@@ -697,7 +697,7 @@ h1 {
 .search-field input,
 .select-field select {
   width: 100%;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-radius: 16px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.88);
@@ -710,9 +710,7 @@ h1 {
   align-items: center;
   padding: 14px 18px;
   margin-bottom: 20px;
-  position: sticky;
-  top: var(--sticky-secondary-top);
-  z-index: 22;
+  position: static;
 }
 
 .wishlist-board {
@@ -1076,16 +1074,19 @@ body.wishlist-active .wishlist-board {
 .wishlist-header,
 .series-browser-header,
 .settings-subtabs {
-  position: sticky;
-  top: var(--sticky-primary-top);
-  z-index: 24;
+  position: static;
+  top: auto;
+  z-index: auto;
   backdrop-filter: blur(10px);
 }
 
 .wishlist-header,
 .series-browser-header {
-  padding: 10px 0 14px;
+  padding: 18px 22px;
+  border-radius: 28px;
   background: rgba(255, 248, 241, 0.94);
+  border: 1px solid rgba(123, 91, 72, 0.1);
+  box-shadow: 0 14px 26px rgba(104, 78, 58, 0.06);
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
@@ -2343,7 +2344,9 @@ body.wishlist-active .wishlist-landing {
 }
 
 .wishlist-landing-legend {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
   margin-top: 6px;
 }
@@ -2491,6 +2494,7 @@ body.wishlist-active .wishlist-landing {
 
 .wishlist-landing-stage-title {
   display: grid;
+  gap: 12px;
   justify-items: center;
   margin: 10px 0 18px;
   text-align: center;
@@ -2503,6 +2507,37 @@ body.wishlist-active .wishlist-landing {
   font-weight: 500;
   font-size: clamp(2.1rem, 5vw, 4.5rem);
   letter-spacing: 0.1em;
+}
+
+.wishlist-landing-toolbar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(123, 91, 72, 0.14);
+  background: rgba(255, 251, 247, 0.9);
+  box-shadow: 0 18px 30px rgba(104, 78, 58, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.wishlist-landing-toolbar .wishlist-layout-button {
+  border: 0;
+  background: transparent;
+  padding: 8px 16px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #4b433d;
+  cursor: pointer;
+}
+
+.wishlist-landing-toolbar .wishlist-layout-button + .wishlist-layout-button {
+  border-left: 1px solid rgba(123, 91, 72, 0.18);
+}
+
+.wishlist-landing-toolbar .wishlist-layout-button.is-active {
+  color: #1f2a24;
 }
 
 .wishlist-floating-grid {
@@ -2728,7 +2763,7 @@ body.wishlist-active .wishlist-landing {
   text-align: left;
   box-shadow: 0 16px 30px rgba(104, 78, 58, 0.1);
   backdrop-filter: blur(14px);
-  cursor: default;
+  cursor: pointer;
 }
 
 .wishlist-controls-trigger:focus-visible {
@@ -2774,7 +2809,7 @@ body.wishlist-active .wishlist-landing {
     visibility 180ms ease;
 }
 
-.wishlist-controls-menu:hover .wishlist-controls-panel,
+.wishlist-controls-menu.is-open .wishlist-controls-panel,
 .wishlist-controls-menu:focus-within .wishlist-controls-panel {
   opacity: 1;
   visibility: visible;
@@ -3635,8 +3670,8 @@ body.wishlist-active.wishlist-immersed .wishlist-landing {
 
 .card-art {
   position: relative;
-  height: 250px;
-  padding: 14px;
+  height: 210px;
+  padding: 12px;
   background: linear-gradient(180deg, rgba(252, 247, 241, 0.98), rgba(244, 233, 219, 0.85));
 }
 
@@ -3671,7 +3706,9 @@ body.wishlist-active.wishlist-immersed .wishlist-landing {
 }
 
 .card-body {
-  padding: 16px;
+  display: grid;
+  gap: 10px;
+  padding: 14px;
 }
 
 .collected-body {
@@ -3685,15 +3722,16 @@ body.wishlist-active.wishlist-immersed .wishlist-landing {
 }
 
 .series-name {
-  margin: 0 0 8px;
+  margin: 0 0 4px;
 }
 
 .sonny-name {
-  font-size: 1.35rem;
+  font-size: 1.18rem;
+  line-height: 1.02;
 }
 
 .source-note {
-  margin: 10px 0 16px;
+  margin: 0 0 6px;
 }
 
 .mobile-card-actions {
@@ -4307,13 +4345,14 @@ body.wishlist-active.wishlist-immersed .wishlist-landing {
 
 .status-button {
   width: 100%;
-  min-height: 58px;
-  padding: 10px 8px;
+  min-height: 50px;
+  padding: 8px 6px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.88);
   cursor: pointer;
   font-weight: 700;
+  font-size: 0.92rem;
 }
 
 .status-button[data-status="have"] {

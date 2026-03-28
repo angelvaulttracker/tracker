@@ -118,6 +118,8 @@ const openIsoMakerButton = document.querySelector("#open-iso-maker");
 const wishlistLanding = document.querySelector("#wishlist-landing");
 const wishlistLandingSummary = document.querySelector("#wishlist-landing-summary");
 const wishlistLandingStage = document.querySelector(".wishlist-landing-stage");
+const wishlistControlsMenu = document.querySelector(".wishlist-controls-menu");
+const wishlistControlsTrigger = document.querySelector(".wishlist-controls-trigger");
 const wishlistFloatingGrid = document.querySelector("#wishlist-floating-grid");
 const wishlistLayoutEditButton = document.querySelector("#wishlist-layout-edit");
 const wishlistLayoutResetButton = document.querySelector("#wishlist-layout-reset");
@@ -230,6 +232,8 @@ const bugReportContactInput = document.querySelector("#bug-report-contact");
 const bugReportDescriptionInput = document.querySelector("#bug-report-description");
 const bugReportImagesInput = document.querySelector("#bug-report-images");
 const bugUploadList = document.querySelector("#bug-upload-list");
+const bugReportSubmitButton = document.querySelector("#submit-bug-report");
+const bugReportFeedback = document.querySelector("#bug-report-feedback");
 const settingsSubtabs = document.querySelectorAll(".settings-subtab");
 const settingsSubpanels = document.querySelectorAll(".settings-subpanel");
 const collectionFieldToggles = document.querySelectorAll("[id^='field-toggle-']");
@@ -296,6 +300,7 @@ function normalizeWishlistLegendItems(items) {
 }
 
 let settings = loadSettings();
+let wishlistImmersedForced = false;
 let activeWishlistDrag = null;
 let hideManagerView = "all";
 let makerDraftSelection = [];
@@ -2872,6 +2877,9 @@ function setHideManagerView(view) {
 
 function openBugReportPanel() {
   bugReportPanel.hidden = false;
+  if (bugReportFeedback) {
+    bugReportFeedback.textContent = `Bug reports send to ${BUG_REPORT_EMAIL} through Supabase. Screenshots upload automatically when configured.`;
+  }
 }
 
 function closeBugReportPanel() {
@@ -2899,38 +2907,70 @@ function renderBugUploadList() {
   });
 }
 
-function buildBugReportMailtoUrl() {
+function setBugReportSubmitting(isSubmitting, message = "") {
+  if (bugReportSubmitButton) {
+    bugReportSubmitButton.disabled = isSubmitting;
+    bugReportSubmitButton.textContent = isSubmitting ? "Sending..." : "Send bug report";
+  }
+
+  if (bugReportFeedback && message) {
+    bugReportFeedback.textContent = message;
+  }
+}
+
+function buildBugReportFormData() {
   const name = bugReportNameInput?.value.trim() || "";
   const contact = bugReportContactInput?.value.trim() || "";
   const description = bugReportDescriptionInput?.value.trim() || "";
   const files = [...(bugReportImagesInput?.files || [])];
+  const activeView =
+    document.querySelector(".view-tab.is-active")?.textContent?.trim() || "";
 
-  const subjectParts = ["Bug report"];
-  if (name) {
-    subjectParts.push(`from ${name}`);
+  const formData = new FormData();
+  formData.set("name", name);
+  formData.set("contact", contact);
+  formData.set("description", description);
+  formData.set("page_url", window.location.href);
+  formData.set("user_agent", window.navigator.userAgent || "");
+  formData.set("active_view", activeView);
+  formData.set("site_url", window.SONNY_SUPABASE_CONFIG?.siteUrl?.trim() || window.location.origin);
+  formData.set("reporter_email", authState.user?.email || "");
+  formData.set("reporter_user_id", authState.user?.id || "");
+
+  files.forEach((file) => {
+    formData.append("screenshots", file);
+  });
+
+  return { formData, description };
+}
+
+async function submitBugReport() {
+  if (!hasSupabaseConfig()) {
+    throw new Error("Bug reporting is not configured yet. Add your Supabase project config first.");
   }
 
-  const bodySections = [
-    "Bug report details",
-    "",
-    `Name: ${name || "Not provided"}`,
-    `Contact: ${contact || "Not provided"}`,
-    "",
-    "What happened:",
-    description || "No description provided.",
-  ];
-
-  if (files.length) {
-    bodySections.push(
-      "",
-      "Selected screenshots:",
-      ...files.map((file) => `- ${file.name} (${Math.max(1, Math.round(file.size / 1024))} KB)`),
-      "",
-      "Please attach these screenshots manually before sending.",
-    );
+  const { formData, description } = buildBugReportFormData();
+  if (!description) {
+    bugReportDescriptionInput?.focus();
+    throw new Error("Add a short description of the bug first so the report has enough context.");
   }
 
-  return `mailto:${BUG_REPORT_EMAIL}?subject=${encodeURIComponent(subjectParts.join(" "))}&body=${encodeURIComponent(bodySections.join("\n"))}`;
+  const accessToken = authState.session?.access_token || supabaseConfig.anonKey;
+  const response = await fetch(`${supabaseConfig.url}/functions/v1/bug-report`, {
+    method: "POST",
+    headers: {
+      apikey: supabaseConfig.anonKey,
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: formData,
+  });
+
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(payload?.error || "Could not send the bug report yet. Please try again.");
+  }
+
+  return payload;
 }
 
 function unhideVisibleSeries(items, query) {
@@ -3200,7 +3240,10 @@ function renderStats(items) {
 }
 
 function syncTrackerColumnsPreference() {
-  const trackerColumns = settings.trackerColumns || "4";
+  const trackerColumns = String(
+    Math.min(8, Math.max(4, Number.parseInt(settings.trackerColumns || "4", 10) || 4)),
+  );
+  settings.trackerColumns = trackerColumns;
   if (trackerColumnsSelect) {
     trackerColumnsSelect.value = trackerColumns;
   }
@@ -6177,6 +6220,8 @@ function switchView(view) {
   document.body.classList.toggle("wishlist-active", view === "wishlist");
   if (view !== "wishlist") {
     document.body.classList.remove("wishlist-immersed");
+    wishlistImmersedForced = false;
+    setWishlistControlsOpen(false);
   }
   viewTabs.forEach((tab) => {
     tab.classList.toggle("is-active", tab.dataset.view === view);
@@ -6184,6 +6229,15 @@ function switchView(view) {
   viewPanels.forEach((panel) => {
     panel.classList.toggle("is-active", panel.dataset.panel === view);
   });
+  if (view === "wishlist") {
+    wishlistImmersedForced = true;
+    setWishlistControlsOpen(true);
+    wishlistLandingStage?.scrollIntoView({ behavior: "auto", block: "start" });
+    window.setTimeout(() => {
+      wishlistImmersedForced = false;
+      updateWishlistImmersiveState();
+    }, 1200);
+  }
   if (view === "stock") {
     renderStockPanel();
   }
@@ -6197,6 +6251,11 @@ function updateWishlistImmersiveState() {
     return;
   }
 
+  if (wishlistImmersedForced) {
+    document.body.classList.add("wishlist-immersed");
+    return;
+  }
+
   const landingRect = wishlistLanding.getBoundingClientRect();
   const stageRect = wishlistLandingStage?.getBoundingClientRect();
   const hasScrolledIntoDreamBoard = window.scrollY > 120 || landingRect.top < 24;
@@ -6205,6 +6264,15 @@ function updateWishlistImmersiveState() {
     "wishlist-immersed",
     hasScrolledIntoDreamBoard && stageIsStillVisible,
   );
+}
+
+function setWishlistControlsOpen(isOpen) {
+  if (!wishlistControlsMenu || !wishlistControlsTrigger) {
+    return;
+  }
+
+  wishlistControlsMenu.classList.toggle("is-open", isOpen);
+  wishlistControlsTrigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
 }
 
 function switchSettingsView(view) {
@@ -6254,9 +6322,11 @@ function applyFilters() {
   const sorted = sortItems(filtered, sortMode);
 
   syncTrackerColumnsPreference();
-  resultsCount.textContent = `${sorted.length} Sonny${
-    sorted.length === 1 ? "" : "s"
-  } showing`;
+  if (resultsCount) {
+    resultsCount.textContent = `${sorted.length} Sonny${
+      sorted.length === 1 ? "" : "s"
+    } showing`;
+  }
   renderGrid(sorted);
   renderStats(trackerItems);
   renderInsights(trackerItems);
@@ -6498,7 +6568,11 @@ statusFilter.addEventListener("change", applyFilters);
 seriesFilter.addEventListener("change", applyFilters);
 sortFilter.addEventListener("change", applyFilters);
 trackerColumnsSelect?.addEventListener("change", () => {
-  settings.trackerColumns = trackerColumnsSelect.value;
+  const nextColumns = String(
+    Math.min(8, Math.max(4, Number.parseInt(trackerColumnsSelect.value, 10) || 4)),
+  );
+  trackerColumnsSelect.value = nextColumns;
+  settings.trackerColumns = nextColumns;
   saveSettings();
   syncTrackerColumnsPreference();
 });
@@ -6985,19 +7059,26 @@ openBugReportButton?.addEventListener("click", openBugReportPanel);
 closeBugReportButton?.addEventListener("click", closeBugReportPanel);
 cancelBugReportButton?.addEventListener("click", closeBugReportPanel);
 bugReportImagesInput?.addEventListener("change", renderBugUploadList);
-bugReportForm?.addEventListener("submit", (event) => {
+bugReportForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
   renderBugUploadList();
-  const description = bugReportDescriptionInput?.value.trim() || "";
-  if (!description) {
-    window.alert("Add a short description of the bug first so the email draft has enough context.");
-    bugReportDescriptionInput?.focus();
-    return;
+  setBugReportSubmitting(true, "Uploading screenshots and sending your bug report...");
+
+  try {
+    const payload = await submitBugReport();
+    const attachmentCount = Number(payload?.attachments || 0);
+    bugReportForm.reset();
+    renderBugUploadList();
+    setBugReportSubmitting(false, `Bug report sent to ${BUG_REPORT_EMAIL}${attachmentCount ? ` with ${attachmentCount} screenshot${attachmentCount === 1 ? "" : "s"}.` : "."}`);
+    window.setTimeout(() => {
+      closeBugReportPanel();
+    }, 500);
+  } catch (error) {
+    setBugReportSubmitting(
+      false,
+      error?.message || "Could not send the bug report yet. Please try again.",
+    );
   }
-  window.location.href = buildBugReportMailtoUrl();
-  bugReportForm.reset();
-  renderBugUploadList();
-  closeBugReportPanel();
 });
 settingsSubtabs.forEach((tab) => {
   tab.addEventListener("click", () => switchSettingsView(tab.dataset.settingsView));
@@ -7032,6 +7113,12 @@ accountMenuSignOutButton?.addEventListener("click", (event) => {
   event.stopPropagation();
   signOutOfCloudSync();
 });
+wishlistControlsTrigger?.addEventListener("click", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const isOpen = wishlistControlsMenu?.classList.contains("is-open");
+  setWishlistControlsOpen(!isOpen);
+});
 document.addEventListener("click", (event) => {
   const signOutTrigger = event.target.closest("#auth-sign-out, #account-menu-sign-out");
   if (signOutTrigger) {
@@ -7053,6 +7140,10 @@ document.addEventListener("click", (event) => {
   if (!accountMenuWrap?.contains(event.target)) {
     closeAccountMenu();
   }
+
+  if (wishlistControlsMenu && !wishlistControlsMenu.contains(event.target)) {
+    setWishlistControlsOpen(false);
+  }
 });
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
@@ -7062,6 +7153,7 @@ document.addEventListener("keydown", (event) => {
     }
     closeAccountMenu();
     closeAccountModal();
+    setWishlistControlsOpen(false);
   }
 });
 window.addEventListener("focus", () => {
