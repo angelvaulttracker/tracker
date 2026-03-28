@@ -2540,6 +2540,11 @@ body.wishlist-active .wishlist-landing {
   color: #1f2a24;
 }
 
+.wishlist-landing-stage-title .wishlist-landing-legend {
+  margin-top: 6px;
+  justify-content: center;
+}
+
 .wishlist-floating-grid {
   position: absolute;
   inset: 0;
