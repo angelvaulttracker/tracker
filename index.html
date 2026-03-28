@@ -144,13 +144,16 @@
                 <option value="wanted">Most wanted first</option>
               </select>
             </label>
-            <label class="select-field">
+            <label class="search-field">
               <span>Cards per row</span>
-              <select id="tracker-columns">
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-              </select>
+              <input
+                id="tracker-columns"
+                type="number"
+                min="4"
+                max="8"
+                step="1"
+                inputmode="numeric"
+              />
             </label>
             <label class="toggle-field" for="show-only-favorites">
               <input id="show-only-favorites" type="checkbox" />
@@ -158,7 +161,7 @@
             </label>
           </section>
 
-          <section class="shelf-meta">
+          <section class="shelf-meta" hidden>
             <p id="results-count"></p>
             <div class="legend">
               <span class="pill pill-have">Owned</span>
@@ -308,7 +311,6 @@
             <div id="wishlist-board-view">
               <div class="wishlist-header">
                 <div>
-                  <p class="eyebrow">Looking For</p>
                   <h2>Your ISO + DISO board</h2>
                 </div>
                 <div class="wishlist-header-actions">
@@ -324,7 +326,6 @@
                 <div class="wishlist-landing-copy-bubble">
                   <div class="wishlist-landing-copy">
                     <p class="eyebrow">Dream board</p>
-                    <h3>Float through your current ISO / DISO world</h3>
                     <p class="wishlist-copy" id="wishlist-landing-summary">
                       Your most wanted Sonnies drift here first, so the tab opens like a dreamy trading page instead of a plain list.
                     </p>
@@ -1247,7 +1248,7 @@
             <span class="eyebrow">Add screenshots</span>
             <input id="bug-report-images" type="file" accept="image/*" multiple />
             <strong>Choose images</strong>
-            <p>You can add one or more screenshots here. This is UI-only for now.</p>
+            <p>You can add one or more screenshots here. They will upload with the report.</p>
           </label>
 
           <div class="bug-upload-list" id="bug-upload-list"></div>
@@ -1256,12 +1257,12 @@
             <button class="ghost-button" id="cancel-bug-report" type="button">
               Cancel
             </button>
-            <button class="ghost-button maker-toolbar-button-primary" type="submit">
-              Open email draft
+            <button class="ghost-button maker-toolbar-button-primary" id="submit-bug-report" type="submit">
+              Send bug report
             </button>
           </div>
-          <p class="source-note">
-            This opens an email draft to `angelvaulttracker@gmail.com`. Screenshots still need to be attached manually from your email app.
+          <p class="source-note" id="bug-report-feedback">
+            Bug reports send to angelvaulttracker@gmail.com through Supabase. Screenshots upload automatically when configured.
           </p>
         </form>
           </div>
@@ -1368,7 +1369,7 @@
     <script src="./app/data/sonny_image_map.js?v=20260317-manual-art-4"></script>
     <script src="./app/data/manual_overrides.js?v=20260317-manual-art-4"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./app/supabase-config.js?v=20260328-session-check"></script>
+    <script src="./app/supabase-config.js?v=20260328-wishlist-copy-trim"></script>
     <script src="./app/app.js?v=20260328-session-check"></script>
   </body>
 </html>
