@@ -225,6 +225,9 @@ const closeBugReportButton = document.querySelector("#close-bug-report");
 const cancelBugReportButton = document.querySelector("#cancel-bug-report");
 const bugReportPanel = document.querySelector("#bug-report-panel");
 const bugReportForm = document.querySelector("#bug-report-form");
+const bugReportNameInput = document.querySelector("#bug-report-name");
+const bugReportContactInput = document.querySelector("#bug-report-contact");
+const bugReportDescriptionInput = document.querySelector("#bug-report-description");
 const bugReportImagesInput = document.querySelector("#bug-report-images");
 const bugUploadList = document.querySelector("#bug-upload-list");
 const settingsSubtabs = document.querySelectorAll(".settings-subtab");
@@ -244,6 +247,8 @@ const DEFAULT_COLLECTION_FIELD_VISIBILITY = {
   notes: true,
   photo: true,
 };
+
+const BUG_REPORT_EMAIL = "angelvaulttracker@gmail.com";
 
 let sonnies = [];
 let progress = loadProgress();
@@ -2158,6 +2163,8 @@ async function signUpWithPassword() {
 
 async function setPasswordForCurrentUser() {
   if (!authState.client || !authState.user) {
+    setAuthFeedback("Log in with a magic link first, then you can save a password here.");
+    setSaveState("error", "Log in first to save a password for this account.");
     return;
   }
 
@@ -2168,16 +2175,29 @@ async function setPasswordForCurrentUser() {
     return;
   }
 
+  if (authSetPasswordButton) {
+    authSetPasswordButton.disabled = true;
+  }
+
+  setAuthFeedback("Saving your password for this account...");
+  setSaveState("syncing", "Saving your password for this account...");
+
   const { error } = await authState.client.auth.updateUser({ password });
   if (error) {
     console.error("Failed to set password for existing user", error);
     setAuthFeedback(error.message || "Could not save a password for this account yet.");
     setSaveState("error", "Could not save a password for this account yet.");
+    if (authSetPasswordButton) {
+      authSetPasswordButton.disabled = false;
+    }
     return;
   }
 
   if (authNewPasswordInput) {
     authNewPasswordInput.value = "";
+  }
+  if (authSetPasswordButton) {
+    authSetPasswordButton.disabled = false;
   }
   setAuthFeedback(`Password saved for ${authState.user.email || "this account"}. You can use password sign-in next time if you want.`);
   setSaveState("saved", "Password saved for this account.");
@@ -2813,6 +2833,40 @@ function renderBugUploadList() {
     `;
     bugUploadList.append(item);
   });
+}
+
+function buildBugReportMailtoUrl() {
+  const name = bugReportNameInput?.value.trim() || "";
+  const contact = bugReportContactInput?.value.trim() || "";
+  const description = bugReportDescriptionInput?.value.trim() || "";
+  const files = [...(bugReportImagesInput?.files || [])];
+
+  const subjectParts = ["Bug report"];
+  if (name) {
+    subjectParts.push(`from ${name}`);
+  }
+
+  const bodySections = [
+    "Bug report details",
+    "",
+    `Name: ${name || "Not provided"}`,
+    `Contact: ${contact || "Not provided"}`,
+    "",
+    "What happened:",
+    description || "No description provided.",
+  ];
+
+  if (files.length) {
+    bodySections.push(
+      "",
+      "Selected screenshots:",
+      ...files.map((file) => `- ${file.name} (${Math.max(1, Math.round(file.size / 1024))} KB)`),
+      "",
+      "Please attach these screenshots manually before sending.",
+    );
+  }
+
+  return `mailto:${BUG_REPORT_EMAIL}?subject=${encodeURIComponent(subjectParts.join(" "))}&body=${encodeURIComponent(bodySections.join("\n"))}`;
 }
 
 function unhideVisibleSeries(items, query) {
@@ -6870,7 +6924,13 @@ bugReportImagesInput?.addEventListener("change", renderBugUploadList);
 bugReportForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   renderBugUploadList();
-  window.alert("Bug ticket captured in the UI for now. Email hookup can come next.");
+  const description = bugReportDescriptionInput?.value.trim() || "";
+  if (!description) {
+    window.alert("Add a short description of the bug first so the email draft has enough context.");
+    bugReportDescriptionInput?.focus();
+    return;
+  }
+  window.location.href = buildBugReportMailtoUrl();
   bugReportForm.reset();
   renderBugUploadList();
   closeBugReportPanel();
