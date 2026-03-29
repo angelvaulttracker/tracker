@@ -3055,6 +3055,19 @@
     }
   },
   {
+    "id": "page-22-11b-sunflower-lion-rainbow",
+    "name": "Sunflower Lion Rainbow",
+    "series": "Flower Gift",
+    "page": 22,
+    "image": {
+      "page": "./assets/pages/page-022.png",
+      "pageWidth": 1338,
+      "pageHeight": 986,
+      "x": 225,
+      "y": 686
+    }
+  },
+  {
     "id": "page-22-12-rainbow-sunflower-lion-robby-angel",
     "name": "Rainbow Sunflower Lion Robby Angel",
     "series": "Flower Gift",
@@ -4591,7 +4604,7 @@
   {
     "id": "page-30-11-sonny-angel-wooden-christmas-tree",
     "name": "Sonny Angel Wooden Christmas Tree",
-    "series": "Winter Wonderland Series",
+    "series": "Sonny Items",
     "page": 30,
     "image": {
       "page": "./assets/pages/page-030.png",
@@ -4758,6 +4771,84 @@
     }
   },
   {
+    "id": "page-31-16-wool-reindeer",
+    "name": "Wool Reindeer",
+    "series": "Christmas Series 2019",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 40,
+      "y": 520
+    }
+  },
+  {
+    "id": "page-31-17-wool-penguin",
+    "name": "Wool Penguin",
+    "series": "Christmas Series 2019",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 165,
+      "y": 520
+    }
+  },
+  {
+    "id": "page-31-18-wool-bear",
+    "name": "Wool Bear",
+    "series": "Christmas Series 2019",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 295,
+      "y": 520
+    }
+  },
+  {
+    "id": "page-31-19-wool-sheep",
+    "name": "Wool Sheep",
+    "series": "Christmas Series 2019",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 425,
+      "y": 520
+    }
+  },
+  {
+    "id": "page-31-20-wool-snowman",
+    "name": "Wool Snowman",
+    "series": "Christmas Series 2019",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 555,
+      "y": 520
+    }
+  },
+  {
+    "id": "page-31-21-wool-robby-angel",
+    "name": "Wool Robby Angel",
+    "series": "Christmas Series 2019",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 685,
+      "y": 520
+    }
+  },
+  {
     "id": "page-31-09-classic-santa",
     "name": "Classic Santa",
     "series": "Christmas Series 2018",
@@ -4846,84 +4937,6 @@
       "pageHeight": 980,
       "x": 1158,
       "y": 150
-    }
-  },
-  {
-    "id": "page-31-16-wool-reindeer",
-    "name": "Wool Reindeer",
-    "series": "Christmas Series 2019",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 40,
-      "y": 520
-    }
-  },
-  {
-    "id": "page-31-17-wool-penguin",
-    "name": "Wool Penguin",
-    "series": "Christmas Series 2019",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 165,
-      "y": 520
-    }
-  },
-  {
-    "id": "page-31-18-wool-bear",
-    "name": "Wool Bear",
-    "series": "Christmas Series 2019",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 295,
-      "y": 520
-    }
-  },
-  {
-    "id": "page-31-19-wool-sheep",
-    "name": "Wool Sheep",
-    "series": "Christmas Series 2019",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 425,
-      "y": 520
-    }
-  },
-  {
-    "id": "page-31-20-wool-snowman",
-    "name": "Wool Snowman",
-    "series": "Christmas Series 2019",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 555,
-      "y": 520
-    }
-  },
-  {
-    "id": "page-31-21-wool-robby-angel",
-    "name": "Wool Robby Angel",
-    "series": "Christmas Series 2019",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 685,
-      "y": 520
     }
   },
   {
@@ -5434,97 +5447,6 @@
     }
   },
   {
-    "id": "page-33-21-blue-snow-robby-angel",
-    "name": "Blue Snow Robby Angel",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
-    "id": "page-33-17-chocolate-cake",
-    "name": "Chocolate Cake",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
-    "id": "page-33-18-poinsettia",
-    "name": "Poinsettia",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
-    "id": "page-33-16-reindeer",
-    "name": "Reindeer",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
-    "id": "page-33-20-reindeer",
-    "name": "Reindeer",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
-    "id": "page-33-15-santa-claus",
-    "name": "Santa Claus",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
-    "id": "page-33-19-santa-claus",
-    "name": "Santa Claus",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
     "id": "page-33-08-santa-claus",
     "name": "Santa Claus",
     "series": "Christmas Series 2015",
@@ -5616,6 +5538,97 @@
     }
   },
   {
+    "id": "page-33-21-blue-snow-robby-angel",
+    "name": "Blue Snow Robby Angel",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
+    "id": "page-33-17-chocolate-cake",
+    "name": "Chocolate Cake",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
+    "id": "page-33-18-poinsettia",
+    "name": "Poinsettia",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
+    "id": "page-33-16-reindeer",
+    "name": "Reindeer",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
+    "id": "page-33-20-reindeer",
+    "name": "Reindeer",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
+    "id": "page-33-15-santa-claus",
+    "name": "Santa Claus",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
+    "id": "page-33-19-santa-claus",
+    "name": "Santa Claus",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
     "id": "page-33-25-gingerbread-man",
     "name": "Gingerbread Man",
     "series": "Christmas Series 2013",
@@ -5691,110 +5704,6 @@
       "pageHeight": 977,
       "x": 1152,
       "y": 677
-    }
-  },
-  {
-    "id": "page-34-01-santa-claus",
-    "name": "Santa Claus",
-    "series": "Christmas Series 2008 Sample",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 160,
-      "y": 205
-    }
-  },
-  {
-    "id": "page-34-02-snowman",
-    "name": "Snowman",
-    "series": "Christmas Series 2008 Sample",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 360,
-      "y": 205
-    }
-  },
-  {
-    "id": "page-34-03-christmas-cone",
-    "name": "Christmas Cone",
-    "series": "Christmas Series 2008 Sample",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 560,
-      "y": 205
-    }
-  },
-  {
-    "id": "page-34-04-bell",
-    "name": "Bell",
-    "series": "Christmas Series 2008 Sample",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 760,
-      "y": 205
-    }
-  },
-  {
-    "id": "page-34-11-koala",
-    "name": "Koala",
-    "series": "Christmas Ornament 2023",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 1161,
-      "y": 320
-    }
-  },
-  {
-    "id": "page-34-12-reindeer",
-    "name": "Reindeer",
-    "series": "Christmas Ornament 2023",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 1161,
-      "y": 320
-    }
-  },
-  {
-    "id": "page-34-14-sheep",
-    "name": "Sheep",
-    "series": "Christmas Ornament 2023",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 1161,
-      "y": 320
-    }
-  },
-  {
-    "id": "page-34-13-sloth",
-    "name": "Sloth",
-    "series": "Christmas Ornament 2023",
-    "page": 34,
-    "image": {
-      "page": "./assets/pages/page-034.png",
-      "pageWidth": 1341,
-      "pageHeight": 978,
-      "x": 1161,
-      "y": 320
     }
   },
   {
@@ -5876,8 +5785,8 @@
     }
   },
   {
-    "id": "page-34-15-cheetah",
-    "name": "Cheetah",
+    "id": "page-34-11-koala",
+    "name": "Koala",
     "series": "Christmas Ornament 2023",
     "page": 34,
     "image": {
@@ -5885,12 +5794,51 @@
       "pageWidth": 1341,
       "pageHeight": 978,
       "x": 1161,
-      "y": 678
+      "y": 320
     }
   },
   {
-    "id": "page-34-17-lop-ear-rabbit",
-    "name": "Lop Ear Rabbit",
+    "id": "page-34-12-reindeer",
+    "name": "Reindeer",
+    "series": "Christmas Ornament 2023",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 1161,
+      "y": 320
+    }
+  },
+  {
+    "id": "page-34-13-sloth",
+    "name": "Sloth",
+    "series": "Christmas Ornament 2023",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 1161,
+      "y": 320
+    }
+  },
+  {
+    "id": "page-34-14-sheep",
+    "name": "Sheep",
+    "series": "Christmas Ornament 2023",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 1161,
+      "y": 320
+    }
+  },
+  {
+    "id": "page-34-15-cheetah",
+    "name": "Cheetah",
     "series": "Christmas Ornament 2023",
     "page": 34,
     "image": {
@@ -5915,9 +5863,22 @@
     }
   },
   {
+    "id": "page-34-17-lop-ear-rabbit",
+    "name": "Lop Ear Rabbit",
+    "series": "Christmas Ornament 2023",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 1161,
+      "y": 678
+    }
+  },
+  {
     "id": "page-34-18-wooden-christmas-tree-ornament-type",
     "name": "Wooden Christmas Tree Ornament Type",
-    "series": "Christmas Ornament 2023",
+    "series": "Sonny Items",
     "page": 34,
     "image": {
       "page": "./assets/pages/page-034.png",
@@ -6136,6 +6097,58 @@
     }
   },
   {
+    "id": "page-34-01-santa-claus",
+    "name": "Santa Claus",
+    "series": "Christmas Series 2008 Sample",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 160,
+      "y": 205
+    }
+  },
+  {
+    "id": "page-34-02-snowman",
+    "name": "Snowman",
+    "series": "Christmas Series 2008 Sample",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 360,
+      "y": 205
+    }
+  },
+  {
+    "id": "page-34-03-christmas-cone",
+    "name": "Christmas Cone",
+    "series": "Christmas Series 2008 Sample",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 560,
+      "y": 205
+    }
+  },
+  {
+    "id": "page-34-04-bell",
+    "name": "Bell",
+    "series": "Christmas Series 2008 Sample",
+    "page": 34,
+    "image": {
+      "page": "./assets/pages/page-034.png",
+      "pageWidth": 1341,
+      "pageHeight": 978,
+      "x": 760,
+      "y": 205
+    }
+  },
+  {
     "id": "page-36-01-cuddly-bear",
     "name": "Cuddly Bear",
     "series": "Gifts of Love Series",
@@ -6266,84 +6279,6 @@
     }
   },
   {
-    "id": "page-37-12-chocolate-cat",
-    "name": "Chocolate Cat",
-    "series": "Valentine Series (2020)",
-    "page": 37,
-    "image": {
-      "page": "./assets/pages/page-037.png",
-      "pageWidth": 1339,
-      "pageHeight": 986,
-      "x": 1159,
-      "y": 275
-    }
-  },
-  {
-    "id": "page-37-11-chocolate-elephant",
-    "name": "Chocolate Elephant",
-    "series": "Valentine Series (2020)",
-    "page": 37,
-    "image": {
-      "page": "./assets/pages/page-037.png",
-      "pageWidth": 1339,
-      "pageHeight": 986,
-      "x": 1159,
-      "y": 275
-    }
-  },
-  {
-    "id": "page-37-09-chocolate-french-bulldog",
-    "name": "Chocolate French Bulldog",
-    "series": "Valentine Series (2020)",
-    "page": 37,
-    "image": {
-      "page": "./assets/pages/page-037.png",
-      "pageWidth": 1339,
-      "pageHeight": 986,
-      "x": 1159,
-      "y": 275
-    }
-  },
-  {
-    "id": "page-37-10-chocolate-rabbit",
-    "name": "Chocolate Rabbit",
-    "series": "Valentine Series (2020)",
-    "page": 37,
-    "image": {
-      "page": "./assets/pages/page-037.png",
-      "pageWidth": 1339,
-      "pageHeight": 986,
-      "x": 1159,
-      "y": 275
-    }
-  },
-  {
-    "id": "page-37-14-chocolate-robby-angel",
-    "name": "Chocolate Robby Angel",
-    "series": "Valentine Series (2020)",
-    "page": 37,
-    "image": {
-      "page": "./assets/pages/page-037.png",
-      "pageWidth": 1339,
-      "pageHeight": 986,
-      "x": 1159,
-      "y": 275
-    }
-  },
-  {
-    "id": "page-37-13-chocolate-toy-poodle",
-    "name": "Chocolate Toy Poodle",
-    "series": "Valentine Series (2020)",
-    "page": 37,
-    "image": {
-      "page": "./assets/pages/page-037.png",
-      "pageWidth": 1339,
-      "pageHeight": 986,
-      "x": 1159,
-      "y": 275
-    }
-  },
-  {
     "id": "page-37-01-dalmation",
     "name": "Dalmatian",
     "series": "Message of Love (2022)",
@@ -6445,6 +6380,84 @@
       "pageHeight": 986,
       "x": 745,
       "y": 686
+    }
+  },
+  {
+    "id": "page-37-09-chocolate-french-bulldog",
+    "name": "Chocolate French Bulldog",
+    "series": "Valentine Series (2020)",
+    "page": 37,
+    "image": {
+      "page": "./assets/pages/page-037.png",
+      "pageWidth": 1339,
+      "pageHeight": 986,
+      "x": 1159,
+      "y": 275
+    }
+  },
+  {
+    "id": "page-37-10-chocolate-rabbit",
+    "name": "Chocolate Rabbit",
+    "series": "Valentine Series (2020)",
+    "page": 37,
+    "image": {
+      "page": "./assets/pages/page-037.png",
+      "pageWidth": 1339,
+      "pageHeight": 986,
+      "x": 1159,
+      "y": 275
+    }
+  },
+  {
+    "id": "page-37-11-chocolate-elephant",
+    "name": "Chocolate Elephant",
+    "series": "Valentine Series (2020)",
+    "page": 37,
+    "image": {
+      "page": "./assets/pages/page-037.png",
+      "pageWidth": 1339,
+      "pageHeight": 986,
+      "x": 1159,
+      "y": 275
+    }
+  },
+  {
+    "id": "page-37-12-chocolate-cat",
+    "name": "Chocolate Cat",
+    "series": "Valentine Series (2020)",
+    "page": 37,
+    "image": {
+      "page": "./assets/pages/page-037.png",
+      "pageWidth": 1339,
+      "pageHeight": 986,
+      "x": 1159,
+      "y": 275
+    }
+  },
+  {
+    "id": "page-37-13-chocolate-toy-poodle",
+    "name": "Chocolate Toy Poodle",
+    "series": "Valentine Series (2020)",
+    "page": 37,
+    "image": {
+      "page": "./assets/pages/page-037.png",
+      "pageWidth": 1339,
+      "pageHeight": 986,
+      "x": 1159,
+      "y": 275
+    }
+  },
+  {
+    "id": "page-37-14-chocolate-robby-angel",
+    "name": "Chocolate Robby Angel",
+    "series": "Valentine Series (2020)",
+    "page": 37,
+    "image": {
+      "page": "./assets/pages/page-037.png",
+      "pageWidth": 1339,
+      "pageHeight": 986,
+      "x": 1159,
+      "y": 275
     }
   },
   {
@@ -12885,7 +12898,7 @@
   {
     "id": "page-66-01-cloudy",
     "name": "Cloudy",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",
@@ -12898,7 +12911,7 @@
   {
     "id": "page-66-02-rainbow",
     "name": "Rainbow",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",
@@ -12911,7 +12924,7 @@
   {
     "id": "page-66-03-rainy",
     "name": "Rainy",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",
@@ -12924,7 +12937,7 @@
   {
     "id": "page-66-04-thunder",
     "name": "Thunder",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",
@@ -12937,7 +12950,7 @@
   {
     "id": "page-66-05-snowy",
     "name": "Snowy",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",
@@ -12950,7 +12963,7 @@
   {
     "id": "page-66-06-sunny",
     "name": "Sunny",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",
@@ -12963,7 +12976,7 @@
   {
     "id": "page-66-07-aurora",
     "name": "Aurora",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",
@@ -12976,7 +12989,7 @@
   {
     "id": "page-66-08-shooting-star-robby-angel",
     "name": "Shooting Star Robby Angel",
-    "series": "Sky Color Series",
+    "series": "Sky Color Series Special Edition",
     "page": 66,
     "image": {
       "page": "./assets/pages/page-066.png",

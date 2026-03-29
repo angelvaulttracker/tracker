@@ -277,6 +277,10 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-22-11b-sunflower-lion-rainbow", {
+    isSecret: true,
+  });
+
   assign("page-10-14-robby-angel", {
     artPath: "./app/assets/manual/animal-series-1-robby.png",
     artSource: "manual-upload",
@@ -321,6 +325,209 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     assign(id, {
       displaySeries: "Birthday Gift Bear (2021)",
     });
+  });
+
+  assign("page-22-14-aurora-balloon-bear", {
+    isSecret: true,
+  });
+
+  assign("page-23-11-special-cake", {
+    isSecret: true,
+  });
+
+  assign("page-23-14-aurora", {
+    isSecret: true,
+  });
+
+  assign("page-66-07-aurora", {
+    isSecret: true,
+  });
+
+  assign("page-24-20-laurel-crown", {
+    isSecret: true,
+  });
+
+  assign("page-24-25-chu", {
+    isSecret: true,
+  });
+
+  assign("page-25-11-chipmunk", {
+    isSecret: true,
+    catalogSortSlot: 13.5,
+  });
+
+  assign("page-26-13-unicorn", {
+    isSecret: true,
+  });
+
+  assign("page-27-13-seed-leaf", {
+    isSecret: true,
+  });
+
+  assign("page-28-13-unicorn", {
+    isSecret: true,
+  });
+
+  assign("page-29-08-dinner-rabbit", {
+    isSecret: true,
+    catalogSortSlot: 7.5,
+  });
+
+  assign("page-29-06-dinner-robby-angel", {
+    catalogSortSlot: 8.5,
+  });
+
+  assign("page-30-07-snow-fairy-fox", {
+    isSecret: true,
+  });
+
+  assign("page-30-08-snow-fairy-lop-ear-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-30-09-snow-fairy-mouse", {
+    isSecret: true,
+  });
+
+  assign("page-30-18-santa-s-helper-mouse", {
+    isSecret: true,
+  });
+
+  assign("page-31-01-stuffed-robby", {
+    isRobby: false,
+  });
+
+  assign("page-31-07-angel", {
+    isSecret: true,
+  });
+
+  assign("page-31-13-classic-santa", {
+    isSecret: true,
+  });
+
+  assign("page-31-14-classic-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-31-20-wool-snowman", {
+    isSecret: true,
+  });
+
+  assign("page-33-05-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-33-06-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-33-12-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-33-13-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-33-19-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-33-20-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-33-26-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-33-27-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-32-05-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-32-06-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-32-10-star-pendant", {
+    isSecret: true,
+  });
+
+  assign("page-32-11-cross-pendant", {
+    isSecret: true,
+  });
+
+  assign("page-32-12-snowflake-pendant", {
+    isSecret: true,
+  });
+
+  assign("page-32-20-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-32-25-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-34-07-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-34-08-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-34-17-lop-ear-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-35-07-pink-bear", {
+    isSecret: true,
+  });
+
+  assign("page-35-08-blue-bear", {
+    isSecret: true,
+  });
+
+  assign("page-35-09-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-36-06-love-lop-ear-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-36-07-love-red-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-36-08-chocolate-robby-angel", {
+    isSecret: true,
+    catalogSortSlot: 10.5,
+  });
+
+  assign("page-36-09-love-pink-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-36-10-balloon", {
+    catalogSortSlot: 5.5,
+  });
+
+  assign("page-31-26-wood-doll-santa", {
+    isSecret: true,
+  });
+
+  assign("page-31-27-reindeer-plushie", {
+    isSecret: true,
+  });
+
+  assign("page-31-28-pierrot-angel", {
+    name: "Pierrot Robby Angel",
   });
 
   [

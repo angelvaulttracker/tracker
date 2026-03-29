@@ -3017,7 +3017,8 @@ function getBadges(item) {
   if (override.isSecret || name.includes("secret") || likelySecretIds.has(item.id)) {
     badges.push("S");
   }
-  if (override.isRobby || name.includes("robby")) {
+  const suppressRobby = override.isRobby === false || override.suppressRobby;
+  if (!suppressRobby && (override.isRobby || name.includes("robby"))) {
     badges.push("R");
   }
   return badges;
@@ -4661,11 +4662,15 @@ function compareDateDesc(left, right) {
 }
 
 function getCatalogSortParts(item) {
-  const match = String(item?.id || "").match(/^page-(\d+)-(\d+)-/);
+  const match = String(item?.id || "").match(/^page-(\d+)-(\d+)([a-z]?)-/i);
   if (match) {
+    const override = getManualItemOverride(item);
+    const suffix = (match[3] || "").toLowerCase();
+    const slotOffset = suffix ? (suffix.charCodeAt(0) - 96) / 100 : 0;
+    const manualSlot = Number(override.catalogSortSlot);
     return {
       page: Number(match[1]),
-      slot: Number(match[2]),
+      slot: Number.isFinite(manualSlot) ? manualSlot : Number(match[2]) + slotOffset,
       y: Number(item?.image?.y || 0),
       x: Number(item?.image?.x || 0),
     };
