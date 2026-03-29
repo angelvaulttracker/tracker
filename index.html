@@ -12,13 +12,12 @@
     />
     <link rel="icon" type="image/png" sizes="32x32" href="./app/brand-assets/png/favicons/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./app/brand-assets/png/favicons/apple-touch-icon-180.png" />
-    <link rel="stylesheet" href="./app/styles.css?v=20260328-iso-legend-row" />
+    <link rel="stylesheet" href="./app/styles.css?v=20260329-mobile-nav-stable" />
   </head>
   <body>
     <div class="page-shell">
       <header class="app-header">
         <a class="app-brand" href="./index.html" aria-label="Angel Vault home">
-          <span class="app-brand-badge">Collection Tracker</span>
           <img
             class="app-brand-logo"
             src="./app/brand-assets/png/logos/angel-vault-wordmark-1024w.png"
@@ -28,26 +27,43 @@
           />
         </a>
 
-        <section class="view-switcher app-nav" aria-label="Pages">
-          <button class="view-tab is-active" data-view="tracker" type="button">
-            Tracker
+        <div class="mobile-nav-wrap" id="mobile-nav-wrap">
+          <button
+            class="mobile-nav-trigger"
+            id="mobile-nav-trigger"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="app-nav"
+            aria-label="Open pages menu"
+          >
+            <span class="mobile-nav-bars" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </button>
-          <button class="view-tab" data-view="insights" type="button">
-            Insights
-          </button>
-          <button class="view-tab" data-view="wishlist" type="button">
-            ISO / DISO
-          </button>
-          <button class="view-tab" data-view="collected" type="button">
-            Collected
-          </button>
-          <button class="view-tab" data-view="stock" type="button">
-            UFS / UFT
-          </button>
-          <button class="view-tab" data-view="settings" type="button">
-            Settings
-          </button>
-        </section>
+          <section class="view-switcher app-nav" id="app-nav" aria-label="Pages">
+            <button class="view-tab is-active" data-view="tracker" type="button">
+              Tracker
+            </button>
+            <button class="view-tab" data-view="insights" type="button">
+              Insights
+            </button>
+            <button class="view-tab" data-view="wishlist" type="button">
+              ISO / DISO
+            </button>
+            <button class="view-tab" data-view="collected" type="button">
+              Collected
+            </button>
+            <button class="view-tab" data-view="stock" type="button">
+              UFS / UFT
+            </button>
+            <button class="view-tab" data-view="settings" type="button">
+              Settings
+            </button>
+          </section>
+        </div>
 
         <div class="account-menu-wrap app-account" id="account-menu-wrap">
           <button
@@ -341,6 +357,9 @@
                     <button class="wishlist-layout-button" id="wishlist-legend-edit" type="button">
                       Legend
                     </button>
+                    <button class="wishlist-layout-button" id="wishlist-grid-view" type="button">
+                      Grid view
+                    </button>
                   </div>
                   <div class="wishlist-landing-legend" id="wishlist-landing-legend"></div>
                 </div>
@@ -392,23 +411,30 @@
                         <option value="rank-desc">Rank descending</option>
                       </select>
                     </label>
+                    <label class="select-field">
+                      <span>Grid layout</span>
+                      <select id="wishlist-grid-layout">
+                        <option value="split">Side by side</option>
+                        <option value="stacked">Stacked</option>
+                      </select>
+                    </label>
                   </div>
                 </div>
               </section>
-              <div class="wishlist-columns">
-                <section class="wishlist-column" id="iso-column">
-                  <div class="wishlist-label-row">
-                    <span class="pill pill-iso">ISO</span>
-                    <strong id="iso-count">0</strong>
-                  </div>
-                  <div class="wishlist-grid" id="iso-grid"></div>
-                </section>
+              <div class="wishlist-columns" id="wishlist-grid-view-section">
                 <section class="wishlist-column wishlist-column-diso" id="diso-column">
                   <div class="wishlist-label-row">
                     <span class="pill pill-diso">DISO</span>
                     <strong id="diso-count">0</strong>
                   </div>
                   <div class="wishlist-grid" id="diso-grid"></div>
+                </section>
+                <section class="wishlist-column" id="iso-column">
+                  <div class="wishlist-label-row">
+                    <span class="pill pill-iso">ISO</span>
+                    <strong id="iso-count">0</strong>
+                  </div>
+                  <div class="wishlist-grid" id="iso-grid"></div>
                 </section>
               </div>
             </div>
@@ -1357,11 +1383,11 @@
       </article>
     </template>
 
-    <script src="./app/data/sonnies.js?v=20260317-manual-art-4"></script>
+    <script src="./app/data/sonnies.js?v=20260329-christmas-ornament-order-fix"></script>
     <script src="./app/data/sonny_image_map.js?v=20260317-manual-art-4"></script>
-    <script src="./app/data/manual_overrides.js?v=20260317-manual-art-4"></script>
+    <script src="./app/data/manual_overrides.js?v=20260329-gifts-of-love-fix"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./app/supabase-config.js?v=20260328-wishlist-copy-trim"></script>
-    <script src="./app/app.js?v=20260328-iso-menu"></script>
+    <script src="./app/app.js?v=20260329-tracker-default-six"></script>
   </body>
 </html>
