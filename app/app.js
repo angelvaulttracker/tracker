@@ -36,6 +36,8 @@ const statGrid = document.querySelector("#stat-grid");
 const saveStatusPill = document.querySelector("#save-status-pill");
 const saveStatusCopy = document.querySelector("#save-status-copy");
 const accountMenuWrap = document.querySelector("#account-menu-wrap");
+const mobileNavWrap = document.querySelector("#mobile-nav-wrap");
+const mobileNavTrigger = document.querySelector("#mobile-nav-trigger");
 const accountTrigger = document.querySelector("#account-trigger");
 const accountTriggerAvatar = document.querySelector("#account-trigger-avatar");
 const accountTriggerLabel = document.querySelector("#account-trigger-label");
@@ -128,10 +130,13 @@ const wishlistLandingLegend = document.querySelector("#wishlist-landing-legend")
 const wishlistLegendEditor = document.querySelector("#wishlist-legend-editor");
 const wishlistLegendEditorList = document.querySelector("#wishlist-legend-editor-list");
 const wishlistLegendAddButton = document.querySelector("#wishlist-legend-add");
+const wishlistGridViewButton = document.querySelector("#wishlist-grid-view");
 const wishlistSearch = document.querySelector("#wishlist-search");
 const wishlistStatusFilter = document.querySelector("#wishlist-status-filter");
 const wishlistSeriesFilter = document.querySelector("#wishlist-series-filter");
 const wishlistSortFilter = document.querySelector("#wishlist-sort-filter");
+const wishlistGridLayout = document.querySelector("#wishlist-grid-layout");
+const wishlistGridViewSection = document.querySelector("#wishlist-grid-view-section");
 const isoColumn = document.querySelector("#iso-column");
 const disoColumn = document.querySelector("#diso-column");
 const makerSelectionStep = document.querySelector("#maker-selection-step");
@@ -299,6 +304,21 @@ function normalizeWishlistLegendItems(items) {
       label: typeof item.label === "string" && item.label.trim() ? item.label.trim() : `Label ${index + 1}`,
       tone: ["iso", "diso", "buy", "custom"].includes(String(item.tone)) ? String(item.tone) : "custom",
     }));
+}
+
+function getWishlistLegendItem(id) {
+  const items = normalizeWishlistLegendItems(settings.wishlistLegendItems);
+  return items.find((item) => item.id === id) || DEFAULT_WISHLIST_LEGEND_ITEMS.find((item) => item.id === id) || null;
+}
+
+function getWishlistBadgeEmoji(status) {
+  if (status === "diso") {
+    return getWishlistLegendItem("diso")?.emoji || "♥";
+  }
+  if (status === "iso") {
+    return getWishlistLegendItem("iso")?.emoji || "✦";
+  }
+  return getWishlistLegendItem("low-prio")?.emoji || "★";
 }
 
 let settings = loadSettings();
@@ -795,7 +815,7 @@ function loadSettings() {
       trackerColumns:
         ["4", "5", "6"].includes(String(parsed.trackerColumns))
           ? String(parsed.trackerColumns)
-          : "4",
+          : "6",
       collectedShelfGrouping:
         ["all", "series"].includes(String(parsed.collectedShelfGrouping))
           ? String(parsed.collectedShelfGrouping)
@@ -825,6 +845,14 @@ function loadSettings() {
           : {},
       wishlistLegendItems: normalizeWishlistLegendItems(parsed.wishlistLegendItems),
       wishlistLegendEditMode: Boolean(parsed.wishlistLegendEditMode),
+      wishlistBoardMode:
+        ["immersive", "grid"].includes(String(parsed.wishlistBoardMode))
+          ? String(parsed.wishlistBoardMode)
+          : "immersive",
+      wishlistGridLayout:
+        ["split", "stacked"].includes(String(parsed.wishlistGridLayout))
+          ? String(parsed.wishlistGridLayout)
+          : "split",
       collectionFieldVisibility: {
         ...DEFAULT_COLLECTION_FIELD_VISIBILITY,
         ...(parsed.collectionFieldVisibility && typeof parsed.collectionFieldVisibility === "object"
@@ -848,7 +876,7 @@ function loadSettings() {
     return {
       hiddenSeries: [],
       hiddenSonnies: [],
-      trackerColumns: "4",
+      trackerColumns: "6",
       collectedShelfGrouping: "all",
       collectedShelfDensity: "4",
       collectedArmyThreshold: "2",
@@ -858,6 +886,8 @@ function loadSettings() {
       wishlistFloatingPositions: {},
       wishlistLegendItems: normalizeWishlistLegendItems([]),
       wishlistLegendEditMode: false,
+      wishlistBoardMode: "immersive",
+      wishlistGridLayout: "split",
       collectionFieldVisibility: { ...DEFAULT_COLLECTION_FIELD_VISIBILITY },
       collectedSeriesSelection: [],
       collectedShowMultipleSeparate: false,
@@ -1559,6 +1589,10 @@ function openCollectedDetailModal(item, copyIndex = getActiveCollectedCopyIndex(
   updateCollectedConditionUi(detail.condition || "");
   applyCollectedFieldVisibility();
   updateCollectedDetailModeUi(detail.acquiredBy || "purchased");
+}
+
+function shouldUseCollectedMobileDetailModal() {
+  return window.matchMedia("(max-width: 640px)").matches;
 }
 
 function isCollectedEntryExpanded(item, key = item.id) {
@@ -3271,7 +3305,7 @@ function renderStats(items) {
 
 function syncTrackerColumnsPreference() {
   const trackerColumns = String(
-    Math.min(8, Math.max(4, Number.parseInt(settings.trackerColumns || "4", 10) || 4)),
+    Math.min(8, Math.max(4, Number.parseInt(settings.trackerColumns || "6", 10) || 6)),
   );
   settings.trackerColumns = trackerColumns;
   if (trackerColumnsSelect) {
@@ -3299,6 +3333,14 @@ function renderWishlistCard(item, container) {
   name.textContent = displayName(item);
   renderBadges(badges, item);
 
+  const removeButton = document.createElement("button");
+  removeButton.type = "button";
+  removeButton.className = "wishlist-remove-button";
+  removeButton.textContent = "Remove";
+  removeButton.addEventListener("click", () => {
+    removeFromWishlist(item.id);
+  });
+
   const rankField = document.createElement("label");
   rankField.className = "wishlist-rank-field";
 
@@ -3319,8 +3361,13 @@ function renderWishlistCard(item, container) {
   });
 
   rankField.append(rankLabel, rankInput);
-  details.append(rankField);
+  details.append(removeButton, rankField);
   container.append(fragment);
+}
+
+function removeFromWishlist(id) {
+  saveStatusChange(id, "missing");
+  applyFilters();
 }
 
 function renderWishlistLanding(items) {
@@ -3403,7 +3450,21 @@ function renderWishlistLanding(items) {
 
     const badge = document.createElement("span");
     badge.className = "wishlist-floating-badge";
-    badge.textContent = getStatus(item.id) === "diso" ? "♥" : "★";
+    badge.textContent = getWishlistBadgeEmoji(getStatus(item.id));
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.className = "wishlist-floating-remove";
+    removeButton.textContent = "×";
+    removeButton.setAttribute("aria-label", `Remove ${displayName(item)} from ISO / DISO`);
+    removeButton.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+    });
+    removeButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      removeFromWishlist(item.id);
+    });
 
     const chip = document.createElement("span");
     chip.className = "wishlist-floating-name";
@@ -3450,7 +3511,7 @@ function renderWishlistLanding(items) {
       floating.append(controls);
     }
 
-    floating.append(art, badge, chip);
+    floating.append(art, badge, chip, removeButton);
     floating.addEventListener("pointerdown", startWishlistFloatingDrag);
     wishlistFloatingGrid.append(floating);
   });
@@ -3684,6 +3745,22 @@ function renderWishlist() {
 
   renderWishlistLanding(filteredWishlistItems);
 
+  const boardMode = settings.wishlistBoardMode || "immersive";
+  if (wishlistBoardView) {
+    wishlistBoardView.classList.toggle("is-grid-view", boardMode === "grid");
+    wishlistBoardView.classList.toggle("is-immersive-view", boardMode !== "grid");
+  }
+  if (wishlistLanding) {
+    wishlistLanding.hidden = boardMode === "grid";
+  }
+  if (wishlistGridViewSection) {
+    wishlistGridViewSection.hidden = boardMode !== "grid";
+  }
+  if (wishlistGridViewButton) {
+    wishlistGridViewButton.textContent = boardMode === "grid" ? "Dream board" : "Grid view";
+    wishlistGridViewButton.classList.toggle("is-active", boardMode === "grid");
+  }
+
   isoGrid.innerHTML = "";
   disoGrid.innerHTML = "";
   isoCount.textContent = isoItems.length;
@@ -3705,6 +3782,16 @@ function renderWishlist() {
     disoGrid.innerHTML = '<p class="wishlist-empty">No DISOs yet.</p>';
   } else {
     disoItems.forEach((item) => renderWishlistCard(item, disoGrid));
+  }
+
+  if (wishlistGridLayout && wishlistGridLayout.value !== settings.wishlistGridLayout) {
+    wishlistGridLayout.value = settings.wishlistGridLayout || "split";
+  }
+  if (wishlistGridViewSection) {
+    wishlistGridViewSection.classList.toggle(
+      "is-stacked",
+      (settings.wishlistGridLayout || "split") === "stacked",
+    );
   }
 
   reconcileMakerSelections();
@@ -4033,7 +4120,7 @@ function renderMakerPicker() {
 
     const name = document.createElement("h4");
     name.className = "maker-picker-name";
-    name.textContent = getCollectedCopyName(item, copyIndex);
+    name.textContent = displayName(item);
 
     const statusPill = document.createElement("span");
     statusPill.className = `pill maker-picker-status pill-${getStatus(item.id)}`;
@@ -5430,6 +5517,7 @@ function renderCollected(items) {
   const shelfDensity = settings.collectedShelfDensity || "4";
   const armyThreshold = Math.max(2, Number(settings.collectedArmyThreshold || "2"));
   const showMultipleSeparate = Boolean(settings.collectedShowMultipleSeparate);
+  const useCollectedMobileModal = shouldUseCollectedMobileDetailModal();
   const collected = items.filter((item) => getStatus(item.id) === "have");
   const filtered = collected.filter((item) => {
     const matchesSearch = !search || getCollectedSearchText(item).includes(search);
@@ -5534,6 +5622,11 @@ function renderCollected(items) {
   }
   if (!showMultipleSeparate) {
     expandedCollectedKey = null;
+  }
+  if (useCollectedMobileModal) {
+    expandedCollectedId = null;
+    expandedCollectedKey = null;
+    pendingCollectedCenterKey = null;
   }
 
   collectedGrid.classList.toggle("is-shelf-view", viewMode === "shelf-series" || (viewMode === "armies" && armiesViewMode === "shelf"));
@@ -5842,6 +5935,10 @@ function renderCollectedCompact(entries) {
       if (event.target.closest(".collected-notes") || event.target.closest("button")) {
         return;
       }
+      if (shouldUseCollectedMobileDetailModal()) {
+        openCollectedDetailModal(item, copyIndex);
+        return;
+      }
       toggleCollectedEntryExpansion(item, key);
     });
 
@@ -5882,11 +5979,19 @@ function renderCollectedCompact(entries) {
     const toggle = document.createElement("button");
     toggle.className = "collected-open-button";
     toggle.type = "button";
-    toggle.textContent = isCollectedEntryExpanded(item, key) ? "Hide details" : "Open details";
-    toggle.addEventListener("click", (event) => {
-      event.stopPropagation();
-      toggleCollectedEntryExpansion(item, key);
-    });
+    if (shouldUseCollectedMobileDetailModal()) {
+      toggle.textContent = "Open details";
+      toggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        openCollectedDetailModal(item, copyIndex);
+      });
+    } else {
+      toggle.textContent = isCollectedEntryExpanded(item, key) ? "Hide details" : "Open details";
+      toggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        toggleCollectedEntryExpansion(item, key);
+      });
+    }
 
     const actionRow = document.createElement("div");
     actionRow.className = "collected-action-row";
@@ -5972,6 +6077,10 @@ function renderCollectedShelfBySeries(entries) {
         if (event.target.closest(".collected-notes") || event.target.closest("button")) {
           return;
         }
+        if (shouldUseCollectedMobileDetailModal()) {
+          openCollectedDetailModal(item, copyIndex);
+          return;
+        }
         toggleCollectedEntryExpansion(item, key);
       });
 
@@ -6042,6 +6151,10 @@ function renderCollectedMinimalist(entries) {
     }
     tile.addEventListener("click", (event) => {
       if (event.target.closest(".collected-notes") || event.target.closest("button")) {
+        return;
+      }
+      if (shouldUseCollectedMobileDetailModal()) {
+        openCollectedDetailModal(item, copyIndex);
         return;
       }
       toggleCollectedEntryExpansion(item, key);
@@ -6134,6 +6247,10 @@ function renderCollectedArmies(items, threshold) {
           if (event.target.closest(".collected-notes") || event.target.closest("button")) {
             return;
           }
+          if (shouldUseCollectedMobileDetailModal()) {
+            openCollectedDetailModal(currentItem, copyIndex);
+            return;
+          }
           setActiveCollectedCopyIndex(currentItem.id, copyIndex);
           toggleCollectedEntryExpansion(currentItem, key);
         });
@@ -6215,6 +6332,10 @@ function renderCollectedArmiesShelf(items, threshold) {
           if (event.target.closest(".collected-notes") || event.target.closest("button")) {
             return;
           }
+          if (shouldUseCollectedMobileDetailModal()) {
+            openCollectedDetailModal(currentItem, copyIndex);
+            return;
+          }
           setActiveCollectedCopyIndex(currentItem.id, copyIndex);
           toggleCollectedEntryExpansion(currentItem, key);
         });
@@ -6265,6 +6386,7 @@ function renderCollectedArmiesShelf(items, threshold) {
 function switchView(view) {
   settings.activeView = view;
   saveSettings();
+  setMobileNavOpen(false);
   document.body.classList.toggle("settings-active", view === "settings");
   document.body.classList.toggle("stock-active", view === "stock");
   document.body.classList.toggle("wishlist-active", view === "wishlist");
@@ -6280,13 +6402,20 @@ function switchView(view) {
     panel.classList.toggle("is-active", panel.dataset.panel === view);
   });
   if (view === "wishlist") {
-    wishlistImmersedForced = true;
-    setWishlistControlsOpen(true);
-    wishlistLandingStage?.scrollIntoView({ behavior: "auto", block: "start" });
-    window.setTimeout(() => {
+    if ((settings.wishlistBoardMode || "immersive") === "immersive") {
+      wishlistImmersedForced = true;
+      setWishlistControlsOpen(true);
+      wishlistLandingStage?.scrollIntoView({ behavior: "auto", block: "start" });
+      window.setTimeout(() => {
+        wishlistImmersedForced = false;
+        updateWishlistImmersiveState();
+      }, 1200);
+    } else {
       wishlistImmersedForced = false;
-      updateWishlistImmersiveState();
-    }, 1200);
+      document.body.classList.remove("wishlist-immersed");
+      setWishlistControlsOpen(false);
+      wishlistBoardView?.scrollIntoView({ behavior: "auto", block: "start" });
+    }
   }
   if (view === "stock") {
     renderStockPanel();
@@ -6294,9 +6423,17 @@ function switchView(view) {
   requestAnimationFrame(updateWishlistImmersiveState);
 }
 
+function setMobileNavOpen(isOpen) {
+  if (!mobileNavWrap || !mobileNavTrigger) {
+    return;
+  }
+  mobileNavWrap.classList.toggle("is-open", isOpen);
+  mobileNavTrigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
 function updateWishlistImmersiveState() {
   const isWishlistActive = document.body.classList.contains("wishlist-active");
-  if (!isWishlistActive || !wishlistLanding) {
+  if (!isWishlistActive || !wishlistLanding || (settings.wishlistBoardMode || "immersive") !== "immersive" || wishlistLanding.hidden) {
     document.body.classList.remove("wishlist-immersed");
     return;
   }
@@ -6314,6 +6451,27 @@ function updateWishlistImmersiveState() {
     "wishlist-immersed",
     hasScrolledIntoDreamBoard && stageIsStillVisible,
   );
+}
+
+function switchWishlistBoardMode(mode) {
+  const nextMode = mode === "grid" ? "grid" : "immersive";
+  settings.wishlistBoardMode = nextMode;
+  saveSettings();
+  renderWishlist();
+  if (nextMode === "grid") {
+    wishlistImmersedForced = false;
+    document.body.classList.remove("wishlist-immersed");
+    setWishlistControlsOpen(false);
+    wishlistBoardView?.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    wishlistImmersedForced = true;
+    setWishlistControlsOpen(true);
+    wishlistLandingStage?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => {
+      wishlistImmersedForced = false;
+      updateWishlistImmersiveState();
+    }, 900);
+  }
 }
 
 function setWishlistControlsOpen(isOpen) {
@@ -6385,7 +6543,6 @@ function applyFilters() {
   updateCollectedSeriesFilter(sonnies);
   renderCollected(sonnies);
   renderSettings();
-  switchView(settings.activeView || "tracker");
 }
 
 function buildCropStyle(item) {
@@ -6625,6 +6782,7 @@ async function init() {
   renderBugUploadList();
   renderAuthState();
   applyFilters();
+  switchView(settings.activeView || "tracker");
   renderStockPanel();
   await initializeSupabaseAuth();
 }
@@ -6635,7 +6793,7 @@ seriesFilter.addEventListener("change", applyFilters);
 sortFilter.addEventListener("change", applyFilters);
 trackerColumnsSelect?.addEventListener("change", () => {
   const nextColumns = String(
-    Math.min(8, Math.max(4, Number.parseInt(trackerColumnsSelect.value, 10) || 4)),
+    Math.min(8, Math.max(4, Number.parseInt(trackerColumnsSelect.value, 10) || 6)),
   );
   trackerColumnsSelect.value = nextColumns;
   settings.trackerColumns = nextColumns;
@@ -6647,6 +6805,11 @@ wishlistSearch?.addEventListener("input", renderWishlist);
 wishlistStatusFilter?.addEventListener("change", renderWishlist);
 wishlistSeriesFilter?.addEventListener("change", renderWishlist);
 wishlistSortFilter?.addEventListener("change", renderWishlist);
+wishlistGridLayout?.addEventListener("change", () => {
+  settings.wishlistGridLayout = wishlistGridLayout.value;
+  saveSettings();
+  renderWishlist();
+});
 collectedSearch.addEventListener("input", () => renderCollected(sonnies));
 collectedSeriesFilterButton?.addEventListener("click", () => {
   const isOpen = !collectedSeriesFilterPanel?.hidden;
@@ -6735,6 +6898,9 @@ wishlistLegendAddButton?.addEventListener("click", () => {
   settings.wishlistLegendItems = items;
   saveSettings();
   renderWishlistLegend();
+});
+wishlistGridViewButton?.addEventListener("click", () => {
+  switchWishlistBoardMode((settings.wishlistBoardMode || "immersive") === "grid" ? "immersive" : "grid");
 });
 wishlistLandingStage?.addEventListener("pointermove", updateWishlistFloatingDragPosition);
 wishlistLandingStage?.addEventListener("pointerup", endWishlistFloatingDrag);
@@ -7179,6 +7345,12 @@ accountMenuSignOutButton?.addEventListener("click", (event) => {
   event.stopPropagation();
   signOutOfCloudSync();
 });
+mobileNavTrigger?.addEventListener("click", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const isOpen = mobileNavWrap?.classList.contains("is-open");
+  setMobileNavOpen(!isOpen);
+});
 wishlistControlsTrigger?.addEventListener("click", (event) => {
   event.preventDefault();
   event.stopPropagation();
@@ -7207,6 +7379,10 @@ document.addEventListener("click", (event) => {
     closeAccountMenu();
   }
 
+  if (mobileNavWrap && !mobileNavWrap.contains(event.target)) {
+    setMobileNavOpen(false);
+  }
+
   if (wishlistControlsMenu && !wishlistControlsMenu.contains(event.target)) {
     setWishlistControlsOpen(false);
   }
@@ -7219,6 +7395,7 @@ document.addEventListener("keydown", (event) => {
     }
     closeAccountMenu();
     closeAccountModal();
+    setMobileNavOpen(false);
     setWishlistControlsOpen(false);
   }
 });
