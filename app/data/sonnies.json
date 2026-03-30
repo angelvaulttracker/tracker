@@ -6721,6 +6721,97 @@
     }
   },
   {
+    "id": "page-38-18-berrys-chocolate",
+    "name": "Berrys Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-21-cherry-chocolate-robby-angel",
+    "name": "Cherry Chocolate Robby Angel",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-17-kiwi-chocolate",
+    "name": "Kiwi Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-20-kiwi-chocolate",
+    "name": "Kiwi Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-15-orange-chocolate",
+    "name": "Orange Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-19-orange-chocolate",
+    "name": "Orange Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-16-strawberry-chocolate",
+    "name": "Strawberry Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
     "id": "page-38-24-bitter-chocolate",
     "name": "Bitter Chocolate",
     "series": "Valentine's Day Series 2015",
@@ -7030,97 +7121,6 @@
       "pageHeight": 964,
       "x": 782,
       "y": 564
-    }
-  },
-  {
-    "id": "page-38-18-berrys-chocolate",
-    "name": "Berrys Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-21-cherry-chocolate-robby-angel",
-    "name": "Cherry Chocolate Robby Angel",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-17-kiwi-chocolate",
-    "name": "Kiwi Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-20-kiwi-chocolate",
-    "name": "Kiwi Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-15-orange-chocolate",
-    "name": "Orange Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-19-orange-chocolate",
-    "name": "Orange Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-16-strawberry-chocolate",
-    "name": "Strawberry Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
     }
   },
   {
