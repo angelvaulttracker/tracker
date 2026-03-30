@@ -6539,97 +6539,6 @@
     }
   },
   {
-    "id": "page-38-18-berrys-chocolate",
-    "name": "Berrys Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-21-cherry-chocolate-robby-angel",
-    "name": "Cherry Chocolate Robby Angel",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-17-kiwi-chocolate",
-    "name": "Kiwi Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-20-kiwi-chocolate",
-    "name": "Kiwi Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-15-orange-chocolate",
-    "name": "Orange Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-19-orange-chocolate",
-    "name": "Orange Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
-    "id": "page-38-16-strawberry-chocolate",
-    "name": "Strawberry Chocolate",
-    "series": "Chocolate Series 2016",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 175
-    }
-  },
-  {
     "id": "page-38-01-single-rose",
     "name": "Single Rose",
     "series": "Valentine's Day Series 2018",
@@ -6799,6 +6708,19 @@
     }
   },
   {
+    "id": "page-38-14-plushie-angel-robby-angel",
+    "name": "Plushie Angel Robby Angel",
+    "series": "Valentine's Day Series 2017",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 671
+    }
+  },
+  {
     "id": "page-38-24-bitter-chocolate",
     "name": "Bitter Chocolate",
     "series": "Valentine's Day Series 2015",
@@ -6864,19 +6786,6 @@
     }
   },
   {
-    "id": "page-38-14-plushie-angel-robby-angel",
-    "name": "Plushie Angel Robby Angel",
-    "series": "Valentine's Day Series 2017",
-    "page": 38,
-    "image": {
-      "page": "./assets/pages/page-038.png",
-      "pageWidth": 1350,
-      "pageHeight": 971,
-      "x": 1170,
-      "y": 671
-    }
-  },
-  {
     "id": "page-38-22-strawberry-chocolate",
     "name": "Strawberry Chocolate",
     "series": "Valentine's Day Series 2015",
@@ -6905,7 +6814,7 @@
   {
     "id": "page-39-01-panda",
     "name": "Panda",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -6918,7 +6827,7 @@
   {
     "id": "page-39-04-choceiata",
     "name": "Choceiata",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -6931,7 +6840,7 @@
   {
     "id": "page-39-02-mocha-porakest",
     "name": "Mocha Porakest",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -6944,7 +6853,7 @@
   {
     "id": "page-39-06-checelate",
     "name": "Checelate",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -6957,7 +6866,7 @@
   {
     "id": "page-39-05-lon",
     "name": "Lon",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -6970,7 +6879,7 @@
   {
     "id": "page-39-11-easter-lamb",
     "name": "Easter Lamb",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -6983,7 +6892,7 @@
   {
     "id": "page-39-10-easter-cow",
     "name": "Easter Cow",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -6996,7 +6905,7 @@
   {
     "id": "page-39-09-hoiched-eada",
     "name": "Hoiched Eada",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7009,7 +6918,7 @@
   {
     "id": "page-39-08-easter-bunny",
     "name": "Easter Bunny",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7022,7 +6931,7 @@
   {
     "id": "page-39-13-cats",
     "name": "Cats",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7035,7 +6944,7 @@
   {
     "id": "page-39-20-strawherry",
     "name": "Strawherry",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7048,7 +6957,7 @@
   {
     "id": "page-39-19-py-cupeake",
     "name": "Py Cupeake",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7061,7 +6970,7 @@
   {
     "id": "page-39-17-love",
     "name": "Love",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7074,7 +6983,7 @@
   {
     "id": "page-39-18-ea-fe",
     "name": "Ea Fe",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7087,7 +6996,7 @@
   {
     "id": "page-39-23-point",
     "name": "Point",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7100,7 +7009,7 @@
   {
     "id": "page-39-22-hatched-egg",
     "name": "Hatched Egg",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7113,7 +7022,7 @@
   {
     "id": "page-39-21-easter-bunny",
     "name": "Easter Bunny",
-    "series": "Valentine's Day Series",
+    "series": "Valentine's Day Series 2013",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7121,6 +7030,97 @@
       "pageHeight": 964,
       "x": 782,
       "y": 564
+    }
+  },
+  {
+    "id": "page-38-18-berrys-chocolate",
+    "name": "Berrys Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-21-cherry-chocolate-robby-angel",
+    "name": "Cherry Chocolate Robby Angel",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-17-kiwi-chocolate",
+    "name": "Kiwi Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-20-kiwi-chocolate",
+    "name": "Kiwi Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-15-orange-chocolate",
+    "name": "Orange Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-19-orange-chocolate",
+    "name": "Orange Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
+    }
+  },
+  {
+    "id": "page-38-16-strawberry-chocolate",
+    "name": "Strawberry Chocolate",
+    "series": "Chocolate Series 2016",
+    "page": 38,
+    "image": {
+      "page": "./assets/pages/page-038.png",
+      "pageWidth": 1350,
+      "pageHeight": 971,
+      "x": 1170,
+      "y": 175
     }
   },
   {
@@ -13560,8 +13560,8 @@
   },
   {
     "id": "page-71-01-saint-honore-rose-framboise",
-    "name": "Saint-Honoré Rose Framboise",
-    "series": "Ladurée Pâtisserie Collection",
+    "name": "Saint-Honor\u00e9 Rose Framboise",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13574,7 +13574,7 @@
   {
     "id": "page-71-02-ispahan",
     "name": "Ispahan",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13587,7 +13587,7 @@
   {
     "id": "page-71-03-tarte-passion-framboise",
     "name": "Tarte Passion Framboise",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13639,7 +13639,7 @@
   {
     "id": "page-71-04-corolle-rose-framboise",
     "name": "Corolle Rose Framboise",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13652,7 +13652,7 @@
   {
     "id": "page-71-05-religieuse-pistache",
     "name": "Religieuse Pistache",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13665,7 +13665,7 @@
   {
     "id": "page-71-06-religieuse-cassis-violette",
     "name": "Religieuse Cassis Violette",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13678,7 +13678,7 @@
   {
     "id": "page-71-07-macaron-fruits-rouges",
     "name": "Macaron Fruits Rouges",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13691,7 +13691,7 @@
   {
     "id": "page-71-08-macaron-pistache",
     "name": "Macaron Pistache",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13742,7 +13742,7 @@
   },
   {
     "id": "page-71-18-saint-honore-violette",
-    "name": "Saint Honoré Violette",
+    "name": "Saint Honor\u00e9 Violette",
     "series": "Christmas Ornament Laduree Patisseries Collection",
     "page": 71,
     "image": {
@@ -13756,7 +13756,7 @@
   {
     "id": "page-71-09-macaron-rose",
     "name": "Macaron Rose",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13769,7 +13769,7 @@
   {
     "id": "page-71-10-macaron-menthe-glaciale",
     "name": "Macaron Menthe Glaciale",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13782,7 +13782,7 @@
   {
     "id": "page-71-11-macaron-citron",
     "name": "Macaron Citron",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13795,7 +13795,7 @@
   {
     "id": "page-71-12-macaron-chocolat",
     "name": "Macaron Chocolat",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13808,7 +13808,7 @@
   {
     "id": "page-71-13-mini-marie-antoinette",
     "name": "Mini Marie-Antoinette",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13820,8 +13820,8 @@
   },
   {
     "id": "page-71-21-snow-globe-laduree-patisseries-collection",
-    "name": "Snow Globe Ladurée Pâtisserie Collection",
-    "series": "Snow Globe Ladurée Pâtisserie Collection",
+    "name": "Snow Globe Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Snow Globe Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
