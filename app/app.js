@@ -6554,6 +6554,21 @@ async function init() {
   collectedSeriesSelection = Array.isArray(settings.collectedSeriesSelection)
     ? [...settings.collectedSeriesSelection]
     : [];
+  if (searchInput) {
+    searchInput.value = "";
+  }
+  if (statusFilter) {
+    statusFilter.value = "all";
+  }
+  if (seriesFilter) {
+    seriesFilter.value = "all";
+  }
+  if (sortFilter) {
+    sortFilter.value = "catalog";
+  }
+  if (showOnlyFavorites) {
+    showOnlyFavorites.checked = false;
+  }
   syncTrackerColumnsPreference();
   inferredSeriesYearHints = buildInferredSeriesYearHints(sonnies);
   displaySeriesCache = new Map();
