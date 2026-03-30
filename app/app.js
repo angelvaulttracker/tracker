@@ -256,6 +256,8 @@ const BUG_REPORT_EMAIL = "angelvaulttracker@gmail.com";
 
 let sonnies = [];
 let progress = loadProgress();
+let catalogSeriesOrder = new Map();
+let catalogItemOrder = new Map();
 
 const DEFAULT_WISHLIST_LEGEND_ITEMS = [
   { id: "iso", emoji: "✦", label: "ISO", tone: "iso" },
@@ -3106,6 +3108,27 @@ function renderBadges(container, item) {
   });
 }
 
+function buildCatalogOrderMaps(items) {
+  const seriesOrder = new Map();
+  const itemOrder = new Map();
+  const nextItemOrderBySeries = new Map();
+
+  items.forEach((item) => {
+    const seriesLabel = displaySeries(item);
+    const seriesKey = canonicalSeriesKey(seriesLabel);
+
+    if (!seriesOrder.has(seriesKey)) {
+      seriesOrder.set(seriesKey, seriesOrder.size);
+    }
+
+    const nextOrder = nextItemOrderBySeries.get(seriesKey) || 0;
+    itemOrder.set(item.id, nextOrder);
+    nextItemOrderBySeries.set(seriesKey, nextOrder + 1);
+  });
+
+  return { seriesOrder, itemOrder };
+}
+
 function uniqueSeries(items) {
   const labelsByKey = new Map();
   items.forEach((item) => {
@@ -3117,7 +3140,13 @@ function uniqueSeries(items) {
     }
   });
 
-  return [...labelsByKey.values()].sort((a, b) => compareSeriesLabels(a, b));
+  return [...labelsByKey.values()].sort((left, right) => {
+    const leftKey = canonicalSeriesKey(left);
+    const rightKey = canonicalSeriesKey(right);
+    const leftOrder = catalogSeriesOrder.get(leftKey) ?? Number.MAX_SAFE_INTEGER;
+    const rightOrder = catalogSeriesOrder.get(rightKey) ?? Number.MAX_SAFE_INTEGER;
+    return (leftOrder - rightOrder) || compareSeriesLabels(left, right);
+  });
 }
 
 function updateSeriesFilter(items) {
@@ -4685,6 +4714,22 @@ function getCatalogSortParts(item) {
 }
 
 function compareCatalogOrder(left, right) {
+  const leftSeriesKey = canonicalSeriesKey(displaySeries(left));
+  const rightSeriesKey = canonicalSeriesKey(displaySeries(right));
+  const leftSeriesOrder = catalogSeriesOrder.get(leftSeriesKey) ?? Number.MAX_SAFE_INTEGER;
+  const rightSeriesOrder = catalogSeriesOrder.get(rightSeriesKey) ?? Number.MAX_SAFE_INTEGER;
+  const seriesDiff = leftSeriesOrder - rightSeriesOrder;
+  if (seriesDiff) {
+    return seriesDiff;
+  }
+
+  const leftItemOrder = catalogItemOrder.get(left?.id) ?? Number.MAX_SAFE_INTEGER;
+  const rightItemOrder = catalogItemOrder.get(right?.id) ?? Number.MAX_SAFE_INTEGER;
+  const itemDiff = leftItemOrder - rightItemOrder;
+  if (itemDiff) {
+    return itemDiff;
+  }
+
   const leftParts = getCatalogSortParts(left);
   const rightParts = getCatalogSortParts(right);
 
@@ -6572,6 +6617,7 @@ async function init() {
   syncTrackerColumnsPreference();
   inferredSeriesYearHints = buildInferredSeriesYearHints(sonnies);
   displaySeriesCache = new Map();
+  ({ seriesOrder: catalogSeriesOrder, itemOrder: catalogItemOrder } = buildCatalogOrderMaps(sonnies));
   likelySecretIds = buildLikelySecretIds(sonnies);
   updateMakerLayoutControls();
   updateSeriesFilter(sonnies);
