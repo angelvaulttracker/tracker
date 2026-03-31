@@ -2,4 +2,5 @@ window.SONNY_SUPABASE_CONFIG = {
   url: "https://your-project-ref.supabase.co",
   anonKey: "your-anon-public-key",
   siteUrl: "https://your-live-site.pages.dev",
+  turnstileSiteKey: "your-cloudflare-turnstile-site-key",
 };

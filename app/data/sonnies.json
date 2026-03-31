@@ -910,6 +910,188 @@
     }
   },
   {
+    "id": "page-105-01-raspberry",
+    "name": "Raspberry",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/01__raspberry.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-02-peach",
+    "name": "Peach",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/02__peach.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-03-orange",
+    "name": "Orange",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/03__orange.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-04-pear",
+    "name": "Pear",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/04__pear.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-05-strawberry",
+    "name": "Strawberry",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/05__strawberry.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-06-grape",
+    "name": "Grape",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/06__grape.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-07-watermelon",
+    "name": "Watermelon",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/07__watermelon.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-08-melon",
+    "name": "Melon",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/08__melon.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-09-durian",
+    "name": "Durian",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/09__durian.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-10-dragonfruit",
+    "name": "DragonFruit",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/10__dragonfruit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-11-pineapple",
+    "name": "Pineapple",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/11__pineapple.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-12-apple",
+    "name": "Apple",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/12__apple.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-13-seed-leaf",
+    "name": "Seed Leaf",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/13__seed-leaf.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-105-14-robby-angel",
+    "name": "Robby Angel",
+    "series": "Fruit Series",
+    "page": 105,
+    "image": {
+      "page": "./sonny_png_library/regulars/fruit-collections/fruit-series/14__robby-angel.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-15-01-rose",
     "name": "Rose",
     "series": "Flower Series",
@@ -14964,7 +15146,7 @@
   },
   {
     "id": "page-76-09-shiso",
-    "name": "Shiso",
+    "name": "Shisa",
     "series": "Sonny Angel Terrace Ishigaki",
     "page": 76,
     "image": {
@@ -14977,7 +15159,7 @@
   },
   {
     "id": "page-76-10-shiso",
-    "name": "Shiso",
+    "name": "Shisa",
     "series": "Sonny Angel Terrace Ishigaki",
     "page": 76,
     "image": {
@@ -15561,87 +15743,9 @@
     }
   },
   {
-    "id": "page-79-10-rabbit",
-    "name": "Rabbit",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1060,
-      "y": 215
-    }
-  },
-  {
-    "id": "page-79-14-apple",
-    "name": "Apple",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 215
-    }
-  },
-  {
-    "id": "page-79-13-cactus",
-    "name": "Cactus",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 215
-    }
-  },
-  {
-    "id": "page-79-15-cow",
-    "name": "Cow",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 215
-    }
-  },
-  {
-    "id": "page-79-11-elephant",
-    "name": "Elephant",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 215
-    }
-  },
-  {
-    "id": "page-79-12-lop-ear-rabbit",
-    "name": "Lop Ear Rabbit",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 215
-    }
-  },
-  {
     "id": "page-79-01-strawberry-cake-toy-poodle",
-    "name": "Strawberry Cake Poodle",
-    "series": "15th Anniversary Cake",
+    "name": "Strawberry Cake Toy Poodle",
+    "series": "15th Anniversary",
     "page": 79,
     "image": {
       "page": "./assets/pages/page-079.png",
@@ -15654,7 +15758,7 @@
   {
     "id": "page-79-02-lemon-cake-cat",
     "name": "Lemon Cake Cat",
-    "series": "15th Anniversary Cake",
+    "series": "15th Anniversary",
     "page": 79,
     "image": {
       "page": "./assets/pages/page-079.png",
@@ -15667,7 +15771,7 @@
   {
     "id": "page-79-03-blueberry-cake-sheep",
     "name": "Blueberry Cake Sheep",
-    "series": "15th Anniversary Cake",
+    "series": "15th Anniversary",
     "page": 79,
     "image": {
       "page": "./assets/pages/page-079.png",
@@ -15680,7 +15784,7 @@
   {
     "id": "page-79-04-mint-chocolate-cake-dalmatian",
     "name": "Mint Chocolate Cake Dalmatian",
-    "series": "15th Anniversary Cake",
+    "series": "15th Anniversary",
     "page": 79,
     "image": {
       "page": "./assets/pages/page-079.png",
@@ -15693,7 +15797,7 @@
   {
     "id": "page-79-05-colorful-cake-rabbit",
     "name": "Colorful Cake Rabbit",
-    "series": "15th Anniversary Cake",
+    "series": "15th Anniversary",
     "page": 79,
     "image": {
       "page": "./assets/pages/page-079.png",
@@ -15701,58 +15805,6 @@
       "pageHeight": 978,
       "x": 770,
       "y": 255
-    }
-  },
-  {
-    "id": "page-79-16-fawn",
-    "name": "Fawn",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1060,
-      "y": 565
-    }
-  },
-  {
-    "id": "page-79-17-monkey",
-    "name": "Monkey",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 565
-    }
-  },
-  {
-    "id": "page-79-18-mouse",
-    "name": "Mouse",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 565
-    }
-  },
-  {
-    "id": "page-79-19-rose",
-    "name": "Rose",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 565
     }
   },
   {
@@ -15808,6 +15860,136 @@
     }
   },
   {
+    "id": "page-79-10-rabbit",
+    "name": "Rabbit",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1060,
+      "y": 215
+    }
+  },
+  {
+    "id": "page-79-11-elephant",
+    "name": "Elephant",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 215
+    }
+  },
+  {
+    "id": "page-79-12-lop-ear-rabbit",
+    "name": "Lop Ear Rabbit",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 215
+    }
+  },
+  {
+    "id": "page-79-13-cactus",
+    "name": "Cactus",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 215
+    }
+  },
+  {
+    "id": "page-79-14-apple",
+    "name": "Apple",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 215
+    }
+  },
+  {
+    "id": "page-79-15-cow",
+    "name": "Cow",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 215
+    }
+  },
+  {
+    "id": "page-79-16-fawn",
+    "name": "Fawn",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1060,
+      "y": 565
+    }
+  },
+  {
+    "id": "page-79-17-monkey",
+    "name": "Monkey",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 565
+    }
+  },
+  {
+    "id": "page-79-18-mouse",
+    "name": "Mouse",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 565
+    }
+  },
+  {
+    "id": "page-79-19-rose",
+    "name": "Rose",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
+      "y": 565
+    }
+  },
+  {
     "id": "page-79-20-cabbage",
     "name": "Cabbage",
     "series": "12th Anniversary Series",
@@ -15817,6 +15999,19 @@
       "pageWidth": 1343,
       "pageHeight": 978,
       "x": 1060,
+      "y": 678
+    }
+  },
+  {
+    "id": "page-79-21-shark",
+    "name": "Shark",
+    "series": "12th Anniversary Series",
+    "page": 79,
+    "image": {
+      "page": "./assets/pages/page-079.png",
+      "pageWidth": 1343,
+      "pageHeight": 978,
+      "x": 1163,
       "y": 678
     }
   },
@@ -15836,19 +16031,6 @@
   {
     "id": "page-79-23-12th-anniversary-robby-angel",
     "name": "12th Anniversary Robby Angel",
-    "series": "12th Anniversary Series",
-    "page": 79,
-    "image": {
-      "page": "./assets/pages/page-079.png",
-      "pageWidth": 1343,
-      "pageHeight": 978,
-      "x": 1163,
-      "y": 678
-    }
-  },
-  {
-    "id": "page-79-21-shark",
-    "name": "Shark",
     "series": "12th Anniversary Series",
     "page": 79,
     "image": {
@@ -15926,7 +16108,7 @@
   },
   {
     "id": "page-80-17-kiss-mark-leopard-rabbit",
-    "name": "Kiss Mark Leopard Rabbit",
+    "name": "Sonny Angel 15th Anniversary Limited Edition Robby Angel",
     "series": "Complete Guide Book Exclusive Figures",
     "page": 80,
     "image": {
@@ -15939,7 +16121,7 @@
   },
   {
     "id": "page-80-16-rabbit",
-    "name": "Rabbit",
+    "name": "Sonny Angel 15th Anniversary Limited Edition Rabbit",
     "series": "Complete Guide Book Exclusive Figures",
     "page": 80,
     "image": {
@@ -15952,7 +16134,7 @@
   },
   {
     "id": "page-80-15-robby-angel",
-    "name": "Robby Angel",
+    "name": "10th Anniversary Limited Edition Kiss Mark Leopard Rabbit",
     "series": "Complete Guide Book Exclusive Figures",
     "page": 80,
     "image": {
@@ -16077,32 +16259,6 @@
       "pageWidth": 1340,
       "pageHeight": 978,
       "x": 700,
-      "y": 678
-    }
-  },
-  {
-    "id": "page-80-19-10th-anniversary-limited-edition",
-    "name": "10th Anniversary Limited Edition",
-    "series": "Complete Guide Book Exclusive Figures",
-    "page": 80,
-    "image": {
-      "page": "./assets/pages/page-080.png",
-      "pageWidth": 1340,
-      "pageHeight": 978,
-      "x": 1160,
-      "y": 678
-    }
-  },
-  {
-    "id": "page-80-18-sonny-angel-15th-anniversary-limited-edition",
-    "name": "Sonny Angel 15th Anniversary Limited Edition",
-    "series": "Complete Guide Book Exclusive Figures",
-    "page": 80,
-    "image": {
-      "page": "./assets/pages/page-080.png",
-      "pageWidth": 1340,
-      "pageHeight": 978,
-      "x": 1160,
       "y": 678
     }
   },
@@ -16445,113 +16601,321 @@
     }
   },
   {
-    "id": "page-84-07-brave-as-me",
-    "name": "Brave as me",
-    "series": "Collaboration with Cai",
-    "page": 84,
+    "id": "page-85-23-rabbit",
+    "name": "Rabbit",
+    "series": "Kiss Mark Leopard",
+    "page": 85,
     "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 1168,
-      "y": 250
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
     }
   },
   {
-    "id": "page-84-06-elephant",
+    "id": "page-85-24-elephant",
     "name": "Elephant",
-    "series": "Angel in The Bird Garden",
-    "page": 84,
+    "series": "Kiss Mark Leopard",
+    "page": 85,
     "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 1168,
-      "y": 355
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
     }
   },
   {
-    "id": "page-84-05-rabbit",
+    "id": "page-85-21-rabbit",
     "name": "Rabbit",
-    "series": "Angel in The Bird Garden",
-    "page": 84,
+    "series": "Heart Chocolate",
+    "page": 85,
     "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 1168,
-      "y": 355
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1100,
+      "y": 659
     }
   },
   {
-    "id": "page-84-08-best-of-you",
-    "name": "Best of you",
-    "series": "Collaboration with Cai",
-    "page": 84,
-    "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 1168,
-      "y": 470
-    }
-  },
-  {
-    "id": "page-84-01-rabbit",
-    "name": "Rabbit",
-    "series": "Keme Life -Everything Have Souls-",
-    "page": 84,
-    "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 90,
-      "y": 667
-    }
-  },
-  {
-    "id": "page-84-02-tiger",
-    "name": "Tiger",
-    "series": "Keme Life -Everything Have Souls-",
-    "page": 84,
-    "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 310,
-      "y": 667
-    }
-  },
-  {
-    "id": "page-84-03-rabbit",
-    "name": "Rabbit",
-    "series": "JIMMY LIAO -A Garden in My Heart-",
-    "page": 84,
-    "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 595,
-      "y": 667
-    }
-  },
-  {
-    "id": "page-84-04-elephant",
+    "id": "page-85-22-elephant",
     "name": "Elephant",
-    "series": "JIMMY LIAO -A Garden in My Heart-",
-    "page": 84,
+    "series": "Heart Chocolate",
+    "page": 85,
     "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 825,
-      "y": 667
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
     }
   },
   {
-    "id": "page-84-09-brave-as-me-limited-color",
-    "name": "Brave as me Limited Color",
-    "series": "Collaboration with Cai",
+    "id": "page-85-19-rabbit",
+    "name": "Rabbit",
+    "series": "Birthday Ribbon",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-20-elephant",
+    "name": "Elephant",
+    "series": "Birthday Ribbon",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-17-rabbit",
+    "name": "Rabbit",
+    "series": "Marguerite",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1110,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-18-elephant",
+    "name": "Elephant",
+    "series": "Marguerite",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-07-rabbit",
+    "name": "Rabbit",
+    "series": "Happiness Snow",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-85-08-sheep",
+    "name": "Sheep",
+    "series": "Happiness Snow",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-85-05-rabbit",
+    "name": "Rabbit",
+    "series": "Tropical Marine",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1125,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-85-06-elephant",
+    "name": "Elephant",
+    "series": "Tropical Marine",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-85-15-rabbit",
+    "name": "Rabbit",
+    "series": "Halloween Night",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-16-sheep",
+    "name": "Sheep",
+    "series": "Halloween Night",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-13-rabbit",
+    "name": "Rabbit",
+    "series": "My Happy Snack",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1150,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-14-monkey",
+    "name": "Monkey",
+    "series": "My Happy Snack",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 1160,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-11-rabbit",
+    "name": "Rabbit",
+    "series": "Nippon Asagao",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 620,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-12-elephant",
+    "name": "Elephant",
+    "series": "Nippon Asagao",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 840,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-09-rabbit",
+    "name": "Rabbit",
+    "series": "Lucky Galo",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 105,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-10-cockerel",
+    "name": "Cockerel",
+    "series": "Lucky Galo",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 325,
+      "y": 659
+    }
+  },
+  {
+    "id": "page-85-03-rabbit",
+    "name": "Rabbit",
+    "series": "Halloween Pumpkin",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 620,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-85-04-elephant",
+    "name": "Elephant",
+    "series": "Halloween Pumpkin",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 820,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-85-01-rabbit",
+    "name": "Rabbit",
+    "series": "Joyful Garden",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 125,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-85-02-shiba-inu",
+    "name": "Shiba Inu",
+    "series": "Joyful Garden",
+    "page": 85,
+    "image": {
+      "page": "./assets/pages/page-085.png",
+      "pageWidth": 1340,
+      "pageHeight": 959,
+      "x": 330,
+      "y": 200
+    }
+  },
+  {
+    "id": "page-84-12-rabbit",
+    "name": "Rabbit",
+    "series": "My Sweet Honey",
     "page": 84,
     "image": {
       "page": "./assets/pages/page-084.png",
@@ -16588,19 +16952,6 @@
     }
   },
   {
-    "id": "page-84-12-rabbit",
-    "name": "Rabbit",
-    "series": "My Sweet Honey",
-    "page": 84,
-    "image": {
-      "page": "./assets/pages/page-084.png",
-      "pageWidth": 1348,
-      "pageHeight": 967,
-      "x": 1168,
-      "y": 667
-    }
-  },
-  {
     "id": "page-84-11-uribou",
     "name": "Uribou",
     "series": "Painted by Robby",
@@ -16614,315 +16965,120 @@
     }
   },
   {
-    "id": "page-85-01-rabbit",
+    "id": "page-84-07-brave-as-me",
+    "name": "Brave as me",
+    "series": "Collaboration with Kangyong Cai",
+    "page": 84,
+    "image": {
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 1168,
+      "y": 250
+    }
+  },
+  {
+    "id": "page-84-08-best-of-you",
+    "name": "Best of you",
+    "series": "Collaboration with Kangyong Cai",
+    "page": 84,
+    "image": {
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 1168,
+      "y": 470
+    }
+  },
+  {
+    "id": "page-84-09-brave-as-me-limited-color",
+    "name": "Brave as me Limited Color",
+    "series": "Collaboration with Kangyong Cai",
+    "page": 84,
+    "image": {
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 1168,
+      "y": 667
+    }
+  },
+  {
+    "id": "page-84-05-rabbit",
     "name": "Rabbit",
-    "series": "Joyful Garden",
-    "page": 85,
+    "series": "Angel In The Bird Garden",
+    "page": 84,
     "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 125,
-      "y": 200
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 1168,
+      "y": 355
     }
   },
   {
-    "id": "page-85-02-shiba-inu",
-    "name": "Shiba Inu",
-    "series": "Joyful Garden",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 330,
-      "y": 200
-    }
-  },
-  {
-    "id": "page-85-03-rabbit",
-    "name": "Rabbit",
-    "series": "Halloween Pumpkin",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 620,
-      "y": 200
-    }
-  },
-  {
-    "id": "page-85-04-elephant",
+    "id": "page-84-06-elephant",
     "name": "Elephant",
-    "series": "Halloween Pumpkin",
-    "page": 85,
+    "series": "Angel In The Bird Garden",
+    "page": 84,
     "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 820,
-      "y": 200
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 1168,
+      "y": 355
     }
   },
   {
-    "id": "page-85-05-rabbit",
+    "id": "page-84-03-rabbit",
     "name": "Rabbit",
-    "series": "Tropical Marine",
-    "page": 85,
+    "series": "JIMMY LIAO -A Garden in My Heart-",
+    "page": 84,
     "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1125,
-      "y": 200
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 595,
+      "y": 667
     }
   },
   {
-    "id": "page-85-06-elephant",
+    "id": "page-84-04-elephant",
     "name": "Elephant",
-    "series": "Tropical Marine",
-    "page": 85,
+    "series": "JIMMY LIAO -A Garden in My Heart-",
+    "page": 84,
     "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 200
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 825,
+      "y": 667
     }
   },
   {
-    "id": "page-85-07-rabbit",
+    "id": "page-84-01-rabbit",
     "name": "Rabbit",
-    "series": "Happiness Snow",
-    "page": 85,
+    "series": "KEME Life -Everything Have Souls-",
+    "page": 84,
     "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 200
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 90,
+      "y": 667
     }
   },
   {
-    "id": "page-85-08-sheep",
-    "name": "Sheep",
-    "series": "Happiness Snow",
-    "page": 85,
+    "id": "page-84-02-tiger",
+    "name": "Tiger",
+    "series": "KEME Life -Everything Have Souls-",
+    "page": 84,
     "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 200
-    }
-  },
-  {
-    "id": "page-85-09-rabbit",
-    "name": "Rabbit",
-    "series": "Lucky Galo",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 105,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-10-cockerel",
-    "name": "Cockerel",
-    "series": "Lucky Galo",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 325,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-11-rabbit",
-    "name": "Rabbit",
-    "series": "Nippon Asagao",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 620,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-12-elephant",
-    "name": "Elephant",
-    "series": "Nippon Asagao",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 840,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-21-rabbit",
-    "name": "Rabbit",
-    "series": "Heart Chocolate",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1100,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-17-rabbit",
-    "name": "Rabbit",
-    "series": "Marguerite",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1110,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-13-rabbit",
-    "name": "Rabbit",
-    "series": "My Happy Snack",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1150,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-18-elephant",
-    "name": "Elephant",
-    "series": "Marguerite",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-20-elephant",
-    "name": "Elephant",
-    "series": "Birthday Ribbon",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-22-elephant",
-    "name": "Elephant",
-    "series": "Heart Chocolate",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-24-elephant",
-    "name": "Elephant",
-    "series": "Kiss Mark Leopard",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-14-monkey",
-    "name": "Monkey",
-    "series": "My Happy Snack",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-15-rabbit",
-    "name": "Rabbit",
-    "series": "Halloween Night",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-19-rabbit",
-    "name": "Rabbit",
-    "series": "Birthday Ribbon",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-23-rabbit",
-    "name": "Rabbit",
-    "series": "Kiss Mark Leopard",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
-    }
-  },
-  {
-    "id": "page-85-16-sheep",
-    "name": "Sheep",
-    "series": "Halloween Night",
-    "page": 85,
-    "image": {
-      "page": "./assets/pages/page-085.png",
-      "pageWidth": 1340,
-      "pageHeight": 959,
-      "x": 1160,
-      "y": 659
+      "page": "./assets/pages/page-084.png",
+      "pageWidth": 1348,
+      "pageHeight": 967,
+      "x": 310,
+      "y": 667
     }
   },
   {
@@ -18150,7 +18306,7 @@
   {
     "id": "page-91-21-wagen-bus-type-ii-key-light",
     "name": "Wagen Bus Type II Key Light",
-    "series": "Wagen Bus Type II Key Light",
+    "series": "Sonny Items",
     "page": 91,
     "image": {
       "page": "./assets/pages/page-091.png",
@@ -18171,19 +18327,6 @@
       "pageHeight": 981,
       "x": 1161,
       "y": 681
-    }
-  },
-  {
-    "id": "page-92-14-tiger",
-    "name": "Tiger",
-    "series": "Mini Figure Strap Animal Version",
-    "page": 92,
-    "image": {
-      "page": "./assets/pages/page-092.png",
-      "pageWidth": 1350,
-      "pageHeight": 978,
-      "x": 1170,
-      "y": 200
     }
   },
   {
@@ -18353,6 +18496,19 @@
       "pageHeight": 978,
       "x": 1015,
       "y": 678
+    }
+  },
+  {
+    "id": "page-92-14-tiger",
+    "name": "Tiger",
+    "series": "Mini Figure Strap Animal Version",
+    "page": 92,
+    "image": {
+      "page": "./assets/pages/page-092.png",
+      "pageWidth": 1350,
+      "pageHeight": 978,
+      "x": 1170,
+      "y": 200
     }
   },
   {
@@ -18925,6 +19081,916 @@
       "pageHeight": 983,
       "x": 142,
       "y": 543
+    }
+  },
+  {
+    "id": "page-96-01-rabbit",
+    "name": "Rabbit",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/strawberry-love-series/01__rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-96-02-lop-ear-rabbit",
+    "name": "Lop Ear Rabbit",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/strawberry-love-series/02__lop-ear-rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-96-03-mouse",
+    "name": "Mouse",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/strawberry-love-series/03__mouse.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-96-04-monkey",
+    "name": "Monkey",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/strawberry-love-series/04__monkey.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-96-05-fawn",
+    "name": "Fawn",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/strawberry-love-series/05__fawn.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-96-06-strawberry",
+    "name": "Strawberry",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/strawberry-love-series/06__strawberry.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-01-fawn",
+    "name": "Fawn",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/01__fawn.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-02-dalmatian",
+    "name": "Dalmatian",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/02__dalmatian.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-03-peacock",
+    "name": "Peacock",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/03__peacock.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-04-monkey",
+    "name": "Monkey",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/04__monkey.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-05-rabbit",
+    "name": "Rabbit",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/05__rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-06-shiba-inu",
+    "name": "Shiba Inu",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/06__shiba-inu.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-07-duck",
+    "name": "Duck",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/07__duck.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-08-reindeer",
+    "name": "Reindeer",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/08__reindeer.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-09-frog",
+    "name": "Frog",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/09__frog.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-10-sheep",
+    "name": "Sheep",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/10__sheep.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-11-goat",
+    "name": "Goat",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/11__goat.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-97-12-cat",
+    "name": "Cat",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/hippers-collections/hippers-cherry-blossom-series/12__cat.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-01-rabbit",
+    "name": "Rabbit",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/01__rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-02-lion",
+    "name": "Lion",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/02__lion.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-03-penguin",
+    "name": "Penguin",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/03__penguin.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-04-starfish",
+    "name": "Starfish",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/04__starfish.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-05-rose",
+    "name": "Rose",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/05__rose.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-06-candy",
+    "name": "Candy",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/06__candy.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-07-carrot",
+    "name": "Carrot",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/07__carrot.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-08-fawn",
+    "name": "Fawn",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/08__fawn.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-09-french-bulldog",
+    "name": "French Bulldog",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/09__french-bulldog.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-10-reindeer",
+    "name": "Reindeer",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/10__reindeer.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-11-sunflower",
+    "name": "Sunflower",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "./sonny_png_library_web/limited/christmas-collections/advent-calendar-2025/11__sunflower.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-99-01-elephant",
+    "name": "Elephant",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/01__elephant.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-99-02-dalmatian",
+    "name": "Dalmatian",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/02__dalmatian.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-99-03-pig",
+    "name": "Pig",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/03__pig.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-99-04-lop-ear-rabbit",
+    "name": "Lop Ear Rabbit",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/04__lop-ear-rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-99-05-duck",
+    "name": "Duck",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/05__duck.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-99-06-sloth",
+    "name": "Sloth",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/06__sloth.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-01-cat",
+    "name": "Cat",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/pumpkin-patch-series/01__cat.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-02-panda",
+    "name": "Panda",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/pumpkin-patch-series/02__panda.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-03-mouse",
+    "name": "Mouse",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/pumpkin-patch-series/03__mouse.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-04-lop-ear-rabbit",
+    "name": "Lop Ear Rabbit",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/pumpkin-patch-series/04__lop-ear-rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-05-elephant",
+    "name": "Elephant",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/pumpkin-patch-series/05__elephant.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-06-frog",
+    "name": "Frog",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "./sonny_png_library_web/limited/special-collections/pumpkin-patch-series/06__frog.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-01-hamburger",
+    "name": "Hamburger",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/01__hamburger.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-02-sandwich",
+    "name": "Sandwich",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/02__sandwich.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-03-french-fries",
+    "name": "French Fries",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/03__french-fries.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-04-ketchup",
+    "name": "Ketchup",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/04__ketchup.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-05-mustard",
+    "name": "Mustard",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/05__mustard.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-06-milkshake",
+    "name": "Milkshake",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/06__milkshake.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-07-coffee",
+    "name": "Coffee",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/07__coffee.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-08-sugar",
+    "name": "Sugar",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/08__sugar.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-09-donut",
+    "name": "Donut",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/09__donut.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-10-hot-dog",
+    "name": "Hot Dog",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/10__hot-dog.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-11-fried-chicken",
+    "name": "Fried Chicken",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/11__fried-chicken.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-12-fried-chicken-sandwich",
+    "name": "Fried Chicken Sandwich",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "./sonny_png_library_web/regulars/cafe-collections/snack-series/12__fried-chicken-sandwich.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-01-frog",
+    "name": "Frog",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/i-love-rainy-day-series/01__frog.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-02-duck",
+    "name": "Duck",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/i-love-rainy-day-series/02__duck.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-03-goldfish",
+    "name": "Goldfish",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/i-love-rainy-day-series/03__goldfish.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-04-hippopotamus",
+    "name": "Hippopotamus",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/i-love-rainy-day-series/04__hippopotamus.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-05-axolotl",
+    "name": "Axolotl",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/i-love-rainy-day-series/05__axolotl.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-06-elephant",
+    "name": "Elephant",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/i-love-rainy-day-series/06__elephant.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-103-01-rabbit",
+    "name": "Rabbit",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "./sonny_png_library_web/limited/cherry-blossom-collections/cherry-blossom-series-hanami-edition/01__rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-103-02-fawn",
+    "name": "Fawn",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "./sonny_png_library_web/limited/cherry-blossom-collections/cherry-blossom-series-hanami-edition/02__fawn.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-103-03-sheep",
+    "name": "Sheep",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "./sonny_png_library_web/limited/cherry-blossom-collections/cherry-blossom-series-hanami-edition/03__sheep.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-103-04-parrot",
+    "name": "Parrot",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "./sonny_png_library_web/limited/cherry-blossom-collections/cherry-blossom-series-hanami-edition/04__parrot.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-103-05-calico-cat",
+    "name": "Calico Cat",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "./sonny_png_library_web/limited/cherry-blossom-collections/cherry-blossom-series-hanami-edition/05__calico-cat.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-103-06-goat",
+    "name": "Goat",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "./sonny_png_library_web/limited/cherry-blossom-collections/cherry-blossom-series-hanami-edition/06__goat.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-104-01-rabbit",
+    "name": "Rabbit",
+    "series": "Kiss Kiss(2025)",
+    "page": 104,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/kiss-kiss-2025/01__rabbit.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-104-02-fennec",
+    "name": "Fennec",
+    "series": "Kiss Kiss(2025)",
+    "page": 104,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/kiss-kiss-2025/02__fennec.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-104-03-elephant",
+    "name": "Elephant",
+    "series": "Kiss Kiss(2025)",
+    "page": 104,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/kiss-kiss-2025/03__elephant.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-104-04-cat",
+    "name": "Cat",
+    "series": "Kiss Kiss(2025)",
+    "page": 104,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/kiss-kiss-2025/04__cat.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-104-05-mouse",
+    "name": "Mouse",
+    "series": "Kiss Kiss(2025)",
+    "page": 104,
+    "image": {
+      "page": "./sonny_png_library_web/limited/valentines-collections/kiss-kiss-2025/05__mouse.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
     }
   }
 ]

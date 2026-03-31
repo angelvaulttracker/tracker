@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="image/png" sizes="32x32" href="./app/brand-assets/png/favicons/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./app/brand-assets/png/favicons/apple-touch-icon-180.png" />
-    <link rel="stylesheet" href="./app/styles.css?v=20260330-tracker-back-to-top" />
+    <link rel="stylesheet" href="./app/styles.css?v=20260331-support-panel-jump" />
   </head>
   <body>
     <div class="page-shell">
@@ -107,9 +107,6 @@
           <p class="hero-text">
             Mark the Sonnies you already have, spotlight your DISOs, and keep
             your progress saved on this device or synced to your account.
-          </p>
-          <p class="hero-text">
-            Need your selling inventory too? Open the Stock shelf tab to manage it separately from your collection.
           </p>
         </div>
         <div class="hero-panel">
@@ -508,6 +505,9 @@
                     <p class="wishlist-copy">
                       Keep choosing between pairs and the app will build your ISO / DISO order for you.
                     </p>
+                    <button class="ghost-button maker-toolbar-button" id="wishlist-ranker-rerank" type="button">
+                      Rerank
+                    </button>
                     <button class="ghost-button maker-toolbar-button" id="wishlist-ranker-close" type="button">
                       Back to board
                     </button>
@@ -1233,6 +1233,9 @@
                 <button class="ghost-button" id="collected-detail-photo-remove" type="button" hidden>
                   Remove photo
                 </button>
+                <button class="ghost-button collected-detail-request-button" id="collected-detail-request-image" type="button">
+                  Request Sonny picture
+                </button>
               </div>
               <div class="collected-detail-uploaded-photo" id="collected-detail-uploaded-photo" hidden>
                 <img id="collected-detail-uploaded-photo-image" alt="Uploaded Sonny photo" />
@@ -1373,6 +1376,9 @@
           <div>
             <p class="eyebrow">Bug Ticket</p>
             <h2 id="bug-report-title">Tell me what broke</h2>
+            <p class="source-note support-panel-copy" id="bug-report-panel-copy">
+              Bug reports send to angelvaulttracker@gmail.com through Supabase. Screenshots upload automatically when configured.
+            </p>
           </div>
           <button class="ghost-button bug-report-close" id="close-bug-report" type="button">
             Close
@@ -1380,6 +1386,41 @@
         </div>
 
         <form class="bug-report-form" id="bug-report-form">
+          <section class="support-request-summary" id="support-request-summary" hidden>
+            <p class="eyebrow">Sonny picture</p>
+            <h3 id="support-request-item-name"></h3>
+            <p class="source-note" id="support-request-item-series"></p>
+          </section>
+
+          <section class="support-request-chooser" id="support-request-chooser" hidden>
+            <button
+              class="support-request-choice"
+              data-support-image-kind="request_only"
+              type="button"
+            >
+              <strong>Request Sonny picture</strong>
+              <p>Send a quick note so I know this Sonny still needs artwork added.</p>
+            </button>
+            <button
+              class="support-request-choice"
+              data-support-image-kind="photo_submission"
+              type="button"
+            >
+              <strong>Help Sonny Tracker by sending my own photo</strong>
+              <p>Share your own Sonny photo so I can use it to improve the website art.</p>
+            </button>
+          </section>
+
+          <section class="support-photo-consent" id="support-photo-consent" hidden>
+            <label class="toggle-field support-photo-consent-field">
+              <input id="support-photo-consent-input" type="checkbox" />
+              <span>I agree that my Sonny photo can be used on Sonny Tracker / the website.</span>
+            </label>
+            <p class="source-note" id="support-photo-consent-copy">
+              If you say yes, you can upload your photo below and it will be sent along with this request.
+            </p>
+          </section>
+
           <div class="bug-report-grid">
             <label class="search-field">
               <span>Name</span>
@@ -1396,7 +1437,7 @@
           </div>
 
           <label class="search-field">
-            <span>What happened?</span>
+            <span id="bug-report-description-label">What happened?</span>
             <textarea
               class="bug-report-textarea"
               id="bug-report-description"
@@ -1405,14 +1446,21 @@
             ></textarea>
           </label>
 
-          <label class="bug-upload">
-            <span class="eyebrow">Add screenshots</span>
+          <label class="bug-upload" id="bug-report-upload-field">
+            <span class="eyebrow" id="bug-report-upload-eyebrow">Add screenshots</span>
             <input id="bug-report-images" type="file" accept="image/*" multiple />
-            <strong>Choose images</strong>
-            <p>You can add one or more screenshots here. They will upload with the report.</p>
+            <strong id="bug-report-upload-title">Choose images</strong>
+            <p id="bug-report-upload-copy">You can add one or more screenshots here. They will upload with the report.</p>
           </label>
 
           <div class="bug-upload-list" id="bug-upload-list"></div>
+
+          <section class="support-captcha-block" id="support-captcha-block" hidden>
+            <div class="support-captcha-widget" id="support-captcha-widget"></div>
+            <p class="source-note" id="support-captcha-copy">
+              A quick captcha helps keep the request inbox human.
+            </p>
+          </section>
 
           <div class="bug-report-actions">
             <button class="ghost-button" id="cancel-bug-report" type="button">
@@ -1443,6 +1491,9 @@
             <span class="name-badges"></span>
           </h2>
           <p class="source-note"></p>
+          <button class="card-request-button" data-request-image type="button">
+            Request Sonny picture
+          </button>
           <div class="mobile-card-actions">
             <label class="mobile-status-field">
               <span class="mobile-status-label">Status</span>
@@ -1526,11 +1577,11 @@
       </article>
     </template>
 
-    <script src="./app/data/sonnies.js?v=20260330-page76-78-order-fix"></script>
-    <script src="./app/data/sonny_image_map.js?v=20260317-manual-art-4"></script>
-    <script src="./app/data/manual_overrides.js?v=20260330-francfranc-christmas-secret-fix"></script>
+    <script src="./app/data/sonnies.js?v=20260330-website-series-block-fix"></script>
+    <script src="./app/data/sonny_image_map.js?v=20260330-website-series-block-fix"></script>
+    <script src="./app/data/manual_overrides.js?v=20260330-fruit-series-secret-fix"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./app/supabase-config.js?v=20260328-wishlist-copy-trim"></script>
-    <script src="./app/app.js?v=20260330-tracker-back-to-top" ></script>
+    <script src="./app/app.js?v=20260331-mobile-tracker-default-4" ></script>
   </body>
 </html>

@@ -928,6 +928,22 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-79-05-colorful-cake-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-79-22-12th-anniversary-cake", {
+    isSecret: true,
+  });
+
+  assign("page-80-13-11th-anniversary-cake", {
+    isSecret: true,
+  });
+
+  assign("page-105-13-seed-leaf", {
+    isSecret: true,
+  });
+
   assign("page-31-26-wood-doll-santa", {
     isSecret: true,
   });

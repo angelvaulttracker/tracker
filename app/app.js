@@ -65,6 +65,7 @@ const collectedDetailPhotoInput = document.querySelector("#collected-detail-phot
 const collectedDetailPhotoUploadButton = document.querySelector("#collected-detail-photo-upload");
 const collectedDetailPhotoReplaceButton = document.querySelector("#collected-detail-photo-replace");
 const collectedDetailPhotoRemoveButton = document.querySelector("#collected-detail-photo-remove");
+const collectedDetailRequestImageButton = document.querySelector("#collected-detail-request-image");
 const collectedDetailUploadedPhoto = document.querySelector("#collected-detail-uploaded-photo");
 const collectedDetailUploadedPhotoImage = document.querySelector("#collected-detail-uploaded-photo-image");
 const collectedDetailCustomName = document.querySelector("#collected-detail-custom-name");
@@ -159,6 +160,7 @@ const wishlistGridViewSection = document.querySelector("#wishlist-grid-view-sect
 const isoColumn = document.querySelector("#iso-column");
 const disoColumn = document.querySelector("#diso-column");
 const wishlistRankerCloseButton = document.querySelector("#wishlist-ranker-close");
+const wishlistRankerRerankButton = document.querySelector("#wishlist-ranker-rerank");
 const wishlistRankerSummary = document.querySelector("#wishlist-ranker-summary");
 const wishlistRankerStage = document.querySelector("#wishlist-ranker-stage");
 const wishlistRankerLeftButton = document.querySelector("#wishlist-ranker-left");
@@ -275,11 +277,27 @@ const closeBugReportButton = document.querySelector("#close-bug-report");
 const cancelBugReportButton = document.querySelector("#cancel-bug-report");
 const bugReportPanel = document.querySelector("#bug-report-panel");
 const bugReportForm = document.querySelector("#bug-report-form");
+const bugReportTitle = document.querySelector("#bug-report-title");
+const bugReportPanelCopy = document.querySelector("#bug-report-panel-copy");
 const bugReportNameInput = document.querySelector("#bug-report-name");
 const bugReportContactInput = document.querySelector("#bug-report-contact");
+const bugReportDescriptionLabel = document.querySelector("#bug-report-description-label");
 const bugReportDescriptionInput = document.querySelector("#bug-report-description");
 const bugReportImagesInput = document.querySelector("#bug-report-images");
+const bugReportUploadField = document.querySelector("#bug-report-upload-field");
+const bugReportUploadEyebrow = document.querySelector("#bug-report-upload-eyebrow");
+const bugReportUploadTitle = document.querySelector("#bug-report-upload-title");
+const bugReportUploadCopy = document.querySelector("#bug-report-upload-copy");
 const bugUploadList = document.querySelector("#bug-upload-list");
+const supportRequestSummary = document.querySelector("#support-request-summary");
+const supportRequestItemName = document.querySelector("#support-request-item-name");
+const supportRequestItemSeries = document.querySelector("#support-request-item-series");
+const supportRequestChooser = document.querySelector("#support-request-chooser");
+const supportRequestChoiceButtons = document.querySelectorAll("[data-support-image-kind]");
+const supportPhotoConsent = document.querySelector("#support-photo-consent");
+const supportPhotoConsentInput = document.querySelector("#support-photo-consent-input");
+const supportCaptchaBlock = document.querySelector("#support-captcha-block");
+const supportCaptchaWidget = document.querySelector("#support-captcha-widget");
 const bugReportSubmitButton = document.querySelector("#submit-bug-report");
 const bugReportFeedback = document.querySelector("#bug-report-feedback");
 const settingsSubtabs = document.querySelectorAll(".settings-subtab");
@@ -300,7 +318,7 @@ const DEFAULT_COLLECTION_FIELD_VISIBILITY = {
   photo: true,
 };
 
-const BUG_REPORT_EMAIL = "angelvaulttracker@gmail.com";
+const SUPPORT_EMAIL = "angelvaulttracker@gmail.com";
 
 let sonnies = [];
 let progress = loadProgress();
@@ -560,6 +578,8 @@ let settings = loadSettings();
 let wishlistImmersedForced = false;
 let currentWishlistRankerPair = [];
 let activeWishlistDrag = null;
+let activeWishlistRotateDrag = null;
+let activeWishlistSubview = "board";
 let hideManagerView = "all";
 let makerDraftSelection = [];
 let makerAppliedSelection = [];
@@ -592,6 +612,12 @@ let activeOwnedCounterId = null;
 let expandedInsightLists = new Set();
 let activeCollectedDetailId = null;
 let activeCollectedCopyIndexes = {};
+let supportPanelMode = "bug_report";
+let supportPanelRequestedItem = null;
+let supportImageRequestKind = "request_only";
+let supportCaptchaToken = "";
+let supportCaptchaWidgetId = null;
+let supportCaptchaLoader = null;
 let trackerStockSearchValue = localStorage.getItem(TRACKER_STOCK_SEARCH_KEY) || "";
 let trackerStockStatusValue = localStorage.getItem(TRACKER_STOCK_STATUS_KEY) || "all";
 let trackerStockSortValue = localStorage.getItem(TRACKER_STOCK_SORT_KEY) || "newest";
@@ -1049,110 +1075,172 @@ async function verifySessionActive(contextLabel = "checking your session") {
 
 function loadSettings() {
   try {
-    const parsed = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || "{}");
-    return {
-      hiddenSeries: Array.isArray(parsed.hiddenSeries) ? parsed.hiddenSeries : [],
-      hiddenSonnies: Array.isArray(parsed.hiddenSonnies) ? parsed.hiddenSonnies : [],
-      trackerColumns:
-        ["4", "5", "6"].includes(String(parsed.trackerColumns))
-          ? String(parsed.trackerColumns)
-          : "6",
-      collectedShelfGrouping:
-        ["all", "series"].includes(String(parsed.collectedShelfGrouping))
-          ? String(parsed.collectedShelfGrouping)
-          : "all",
-      collectedShelfDensity:
-        Number.isFinite(Number(parsed.collectedShelfDensity)) &&
-        Number(parsed.collectedShelfDensity) >= 1 &&
-        Number(parsed.collectedShelfDensity) <= 8
-          ? String(Math.round(Number(parsed.collectedShelfDensity)))
-          : "4",
-      collectedArmyThreshold:
-        Number.isFinite(Number(parsed.collectedArmyThreshold)) && Number(parsed.collectedArmyThreshold) >= 2
-          ? String(Math.round(Number(parsed.collectedArmyThreshold)))
-          : "2",
-      collectedArmiesView:
-        ["overview", "shelf"].includes(String(parsed.collectedArmiesView))
-          ? String(parsed.collectedArmiesView)
-          : "overview",
-      activeView:
-        ["tracker", "insights", "wishlist", "collected", "stock", "settings"].includes(String(parsed.activeView))
-          ? String(parsed.activeView)
-          : "tracker",
-      wishlistLandingEditMode: Boolean(parsed.wishlistLandingEditMode),
-      wishlistFloatingPositions:
-        parsed.wishlistFloatingPositions && typeof parsed.wishlistFloatingPositions === "object"
-          ? parsed.wishlistFloatingPositions
-          : {},
-      wishlistBoardItemStates: normalizeWishlistBoardItemStates(parsed.wishlistBoardItemStates),
-      wishlistLegendItems: normalizeWishlistLegendItems(parsed.wishlistLegendItems),
-      wishlistRankerScores: normalizeWishlistRankerScores(parsed.wishlistRankerScores),
-      wishlistRankerPairCounts: normalizeWishlistRankerPairCounts(parsed.wishlistRankerPairCounts),
-      wishlistMakerLayouts: normalizeWishlistMakerLayouts(parsed.wishlistMakerLayouts),
-      wishlistLandingTitleText: normalizeWishlistTitleText(parsed.wishlistLandingTitleText),
-      wishlistLandingTitleFont: normalizeWishlistTitleFont(parsed.wishlistLandingTitleFont),
-      wishlistLegendEditMode: Boolean(parsed.wishlistLegendEditMode),
-      wishlistTitleEditMode: Boolean(parsed.wishlistTitleEditMode),
-      wishlistBoardMode:
-        ["immersive", "grid"].includes(String(parsed.wishlistBoardMode))
-          ? String(parsed.wishlistBoardMode)
-          : "immersive",
-      wishlistGridLayout:
-        ["split", "stacked"].includes(String(parsed.wishlistGridLayout))
-          ? String(parsed.wishlistGridLayout)
-          : "split",
-      collectionFieldVisibility: {
-        ...DEFAULT_COLLECTION_FIELD_VISIBILITY,
-        ...(parsed.collectionFieldVisibility && typeof parsed.collectionFieldVisibility === "object"
-          ? parsed.collectionFieldVisibility
-          : {}),
-      },
-      collectedSeriesSelection:
-        Array.isArray(parsed.collectedSeriesSelection)
-          ? parsed.collectedSeriesSelection.filter((entry) => typeof entry === "string")
-          : [],
-      collectedShowMultipleSeparate:
-        parsed.collectedShowMultipleSeparate === undefined
-          ? false
-          : Boolean(parsed.collectedShowMultipleSeparate),
-      insightsColorCodeMode:
-        parsed.insightsColorCodeMode === undefined
-          ? true
-          : Boolean(parsed.insightsColorCodeMode),
-    };
+    return normalizeSettingsSnapshot(JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || "{}"));
   } catch {
-    return {
-      hiddenSeries: [],
-      hiddenSonnies: [],
-      trackerColumns: "6",
-      collectedShelfGrouping: "all",
-      collectedShelfDensity: "4",
-      collectedArmyThreshold: "2",
-      collectedArmiesView: "overview",
-      activeView: "tracker",
-      wishlistLandingEditMode: false,
-      wishlistFloatingPositions: {},
-      wishlistBoardItemStates: {},
-      wishlistLegendItems: normalizeWishlistLegendItems([]),
-      wishlistRankerScores: {},
-      wishlistRankerPairCounts: {},
-      wishlistMakerLayouts: [],
-      wishlistLandingTitleText: DEFAULT_WISHLIST_TITLE_TEXT,
-      wishlistLandingTitleFont: DEFAULT_WISHLIST_TITLE_FONT,
-      wishlistLegendEditMode: false,
-      wishlistTitleEditMode: false,
-      wishlistBoardMode: "immersive",
-      wishlistGridLayout: "split",
-      collectionFieldVisibility: { ...DEFAULT_COLLECTION_FIELD_VISIBILITY },
-      collectedSeriesSelection: [],
-      collectedShowMultipleSeparate: false,
-      insightsColorCodeMode: true,
-    };
+    return normalizeSettingsSnapshot({});
   }
 }
 
+function getDefaultTrackerColumns() {
+  return window.matchMedia("(max-width: 980px)").matches ? "4" : "6";
+}
+
+function normalizeSettingsSnapshot(parsed = {}) {
+  const defaultTrackerColumns = getDefaultTrackerColumns();
+  return {
+    hiddenSeries: Array.isArray(parsed.hiddenSeries) ? parsed.hiddenSeries : [],
+    hiddenSonnies: Array.isArray(parsed.hiddenSonnies) ? parsed.hiddenSonnies : [],
+    trackerColumns:
+      Number.isFinite(Number(parsed.trackerColumns)) &&
+      Number(parsed.trackerColumns) >= 4 &&
+      Number(parsed.trackerColumns) <= 8
+        ? String(parsed.trackerColumns)
+        : defaultTrackerColumns,
+    collectedShelfGrouping:
+      ["all", "series"].includes(String(parsed.collectedShelfGrouping))
+        ? String(parsed.collectedShelfGrouping)
+        : "all",
+    collectedShelfDensity:
+      Number.isFinite(Number(parsed.collectedShelfDensity)) &&
+      Number(parsed.collectedShelfDensity) >= 1 &&
+      Number(parsed.collectedShelfDensity) <= 8
+        ? String(Math.round(Number(parsed.collectedShelfDensity)))
+        : "4",
+    collectedArmyThreshold:
+      Number.isFinite(Number(parsed.collectedArmyThreshold)) && Number(parsed.collectedArmyThreshold) >= 2
+        ? String(Math.round(Number(parsed.collectedArmyThreshold)))
+        : "2",
+    collectedArmiesView:
+      ["overview", "shelf"].includes(String(parsed.collectedArmiesView))
+        ? String(parsed.collectedArmiesView)
+        : "overview",
+    activeView:
+      ["tracker", "insights", "wishlist", "collected", "stock", "settings"].includes(String(parsed.activeView))
+        ? String(parsed.activeView)
+        : "tracker",
+    wishlistLandingEditMode: Boolean(parsed.wishlistLandingEditMode),
+    wishlistFloatingPositions:
+      parsed.wishlistFloatingPositions && typeof parsed.wishlistFloatingPositions === "object"
+        ? parsed.wishlistFloatingPositions
+        : {},
+    wishlistBoardItemStates: normalizeWishlistBoardItemStates(parsed.wishlistBoardItemStates),
+    wishlistLegendItems: normalizeWishlistLegendItems(parsed.wishlistLegendItems),
+    wishlistRankerScores: normalizeWishlistRankerScores(parsed.wishlistRankerScores),
+    wishlistRankerPairCounts: normalizeWishlistRankerPairCounts(parsed.wishlistRankerPairCounts),
+    wishlistMakerLayouts: normalizeWishlistMakerLayouts(parsed.wishlistMakerLayouts),
+    wishlistLandingTitleText: normalizeWishlistTitleText(parsed.wishlistLandingTitleText),
+    wishlistLandingTitleFont: normalizeWishlistTitleFont(parsed.wishlistLandingTitleFont),
+    wishlistLegendEditMode: Boolean(parsed.wishlistLegendEditMode),
+    wishlistTitleEditMode: Boolean(parsed.wishlistTitleEditMode),
+    wishlistBoardMode:
+      ["immersive", "grid"].includes(String(parsed.wishlistBoardMode))
+        ? String(parsed.wishlistBoardMode)
+        : "immersive",
+    wishlistGridLayout:
+      ["split", "stacked"].includes(String(parsed.wishlistGridLayout))
+        ? String(parsed.wishlistGridLayout)
+        : "split",
+    collectionFieldVisibility: {
+      ...DEFAULT_COLLECTION_FIELD_VISIBILITY,
+      ...(parsed.collectionFieldVisibility && typeof parsed.collectionFieldVisibility === "object"
+        ? parsed.collectionFieldVisibility
+        : {}),
+    },
+    collectedSeriesSelection:
+      Array.isArray(parsed.collectedSeriesSelection)
+        ? parsed.collectedSeriesSelection.filter((entry) => typeof entry === "string")
+        : [],
+    collectedShowMultipleSeparate:
+      parsed.collectedShowMultipleSeparate === undefined
+        ? false
+        : Boolean(parsed.collectedShowMultipleSeparate),
+    insightsColorCodeMode:
+      parsed.insightsColorCodeMode === undefined
+        ? true
+        : Boolean(parsed.insightsColorCodeMode),
+  };
+}
+
 function saveSettings() {
+  settings = normalizeSettingsSnapshot(settings);
   localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+  scheduleCloudProgressSync();
+}
+
+function buildCloudSettingsPayload(sourceSettings = settings) {
+  return normalizeSettingsSnapshot(sourceSettings);
+}
+
+function hasMeaningfulCloudSettings(rawSettings) {
+  return Boolean(
+    rawSettings &&
+      typeof rawSettings === "object" &&
+      Object.keys(rawSettings).length,
+  );
+}
+
+function isMissingProfileStateColumnError(error) {
+  const message = String(error?.message || "").toLowerCase();
+  return (
+    message.includes("tracker_settings") ||
+    message.includes("stock_state") ||
+    message.includes("could not find the 'tracker_settings' column") ||
+    message.includes("could not find the 'stock_state' column") ||
+    message.includes("column") && message.includes("does not exist")
+  );
+}
+
+function hasMeaningfulStockState(stockItems) {
+  return Array.isArray(stockItems) && stockItems.length > 0;
+}
+
+async function syncProfileStateToCloud(options = {}) {
+  const { allowMissingColumns = false } = options;
+  if (!authState.client || !authState.user) {
+    return;
+  }
+
+  const { error } = await authState.client.from("profiles").upsert({
+    id: authState.user.id,
+    email: authState.user.email || null,
+    tracker_settings: buildCloudSettingsPayload(),
+    stock_state: loadLocalStockItems(),
+    updated_at: new Date().toISOString(),
+  });
+
+  if (error) {
+    if (allowMissingColumns && isMissingProfileStateColumnError(error)) {
+      console.warn("Supabase profiles table is missing tracker_settings/stock_state columns; skipping profile state sync.", error);
+      return;
+    }
+    throw error;
+  }
+}
+
+async function loadProfileStateFromCloud(options = {}) {
+  const { allowMissingColumns = false } = options;
+  if (!authState.client || !authState.user) {
+    return { trackerSettings: null, stockState: null };
+  }
+
+  const { data, error } = await authState.client
+    .from("profiles")
+    .select("tracker_settings,stock_state")
+    .eq("id", authState.user.id)
+    .maybeSingle();
+
+  if (error) {
+    if (allowMissingColumns && isMissingProfileStateColumnError(error)) {
+      console.warn("Supabase profiles table is missing tracker_settings/stock_state columns; skipping profile state hydrate.", error);
+      return { trackerSettings: null, stockState: null };
+    }
+    throw error;
+  }
+
+  return {
+    trackerSettings: data?.tracker_settings || null,
+    stockState: Array.isArray(data?.stock_state) ? data.stock_state : null,
+  };
 }
 
 function loadLocalStockItems() {
@@ -1171,6 +1259,15 @@ function loadLocalStockItems() {
       status: ["available", "pending", "sold", "traded"].includes(item.status) ? item.status : "available",
       justTrading: Boolean(item.justTrading),
       price: Number(item.price) || 0,
+      priceHistory: Array.isArray(item.priceHistory)
+        ? item.priceHistory
+            .map((entry) => ({
+              id: entry?.id || crypto.randomUUID(),
+              price: Number(entry?.price) || 0,
+              changedAt: entry?.changedAt || item.createdAt || new Date().toISOString(),
+            }))
+            .filter((entry) => entry.price > 0)
+        : [],
       createdAt: item.createdAt || new Date().toISOString(),
     }));
   } catch {
@@ -1178,8 +1275,28 @@ function loadLocalStockItems() {
   }
 }
 
+function normalizeStockItemsSnapshot(items) {
+  return Array.isArray(items)
+    ? items.map((item) => ({
+        ...item,
+        price: Number(item.price) || 0,
+        priceHistory: Array.isArray(item.priceHistory)
+          ? item.priceHistory
+              .map((entry) => ({
+                id: entry?.id || crypto.randomUUID(),
+                price: Number(entry?.price) || 0,
+                changedAt: entry?.changedAt || new Date().toISOString(),
+              }))
+              .filter((entry) => entry.price > 0)
+          : [],
+      }))
+    : [];
+}
+
 function saveLocalStockItems(items) {
-  localStorage.setItem(STOCK_STORAGE_KEY, JSON.stringify(items));
+  const normalized = normalizeStockItemsSnapshot(items);
+  localStorage.setItem(STOCK_STORAGE_KEY, JSON.stringify(normalized));
+  scheduleCloudProgressSync();
 }
 
 function stockNameForItem(stockItem) {
@@ -1221,6 +1338,184 @@ function formatStockPrice(stockItem) {
     style: "currency",
     currency: "USD",
   }).format(Number(stockItem.price || 0));
+}
+
+function formatStockPriceInputValue(stockItem) {
+  const value = Number(stockItem.price || 0);
+  return value > 0 ? value.toFixed(2) : "";
+}
+
+function formatStockHistoryDate(value) {
+  if (!value) {
+    return "Unknown date";
+  }
+  return new Intl.DateTimeFormat(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(value));
+}
+
+function updateStockItemPrice(stockItemId, nextValue) {
+  const stockItems = loadLocalStockItems();
+  let updatedItem = null;
+  const parsedNext = Math.max(0, Math.round((Number(nextValue) || 0) * 100) / 100);
+
+  const nextItems = stockItems.map((item) => {
+    if (item.id !== stockItemId) {
+      return item;
+    }
+
+    const previousPrice = Math.max(0, Math.round((Number(item.price) || 0) * 100) / 100);
+    const nextPrice = parsedNext;
+    const nextHistory = Array.isArray(item.priceHistory) ? [...item.priceHistory] : [];
+
+    if (nextPrice !== previousPrice && nextPrice > 0) {
+      nextHistory.push({
+        id: crypto.randomUUID(),
+        price: nextPrice,
+        changedAt: new Date().toISOString(),
+      });
+    }
+
+    updatedItem = {
+      ...item,
+      price: nextPrice,
+      priceHistory: nextHistory,
+    };
+    return updatedItem;
+  });
+
+  if (!updatedItem) {
+    return;
+  }
+
+  saveLocalStockItems(nextItems);
+  renderStockPanel();
+  setSaveState("saved", `${stockNameForItem(updatedItem)} price updated.`);
+}
+
+function removeStockPriceHistoryEntry(stockItemId, historyId) {
+  const stockItems = loadLocalStockItems();
+  let updatedItem = null;
+  const nextItems = stockItems.map((item) => {
+    if (item.id !== stockItemId) {
+      return item;
+    }
+
+    updatedItem = {
+      ...item,
+      priceHistory: Array.isArray(item.priceHistory)
+        ? item.priceHistory.filter((entry) => entry.id !== historyId)
+        : [],
+    };
+    return updatedItem;
+  });
+
+  if (!updatedItem) {
+    return;
+  }
+
+  saveLocalStockItems(nextItems);
+  renderStockPanel();
+  setSaveState("saved", `${stockNameForItem(updatedItem)} price history updated.`);
+}
+
+function buildStockPriceEditor(stockItem, options = {}) {
+  const { compact = false } = options;
+  const wrapper = document.createElement("label");
+  wrapper.className = `tracker-stock-price-editor${compact ? " is-compact" : ""}`;
+
+  const label = document.createElement("span");
+  label.className = "tracker-stock-price-editor-label";
+  label.textContent = stockItem.justTrading ? "Trade only" : "Current price";
+
+  const input = document.createElement("input");
+  input.className = "tracker-stock-price-input";
+  input.type = "number";
+  input.min = "0";
+  input.step = "0.01";
+  input.inputMode = "decimal";
+  input.placeholder = "0.00";
+  input.value = formatStockPriceInputValue(stockItem);
+  input.disabled = Boolean(stockItem.justTrading);
+
+  const commit = () => {
+    if (stockItem.justTrading) {
+      return;
+    }
+    const rawValue = input.value.trim();
+    const normalizedValue = rawValue ? String(Math.max(0, Math.round((Number(rawValue) || 0) * 100) / 100)) : "0";
+    if (input.dataset.lastCommitted === normalizedValue) {
+      return;
+    }
+    input.dataset.lastCommitted = normalizedValue;
+    updateStockItemPrice(stockItem.id, normalizedValue);
+  };
+
+  input.dataset.lastCommitted = String(Math.max(0, Math.round((Number(stockItem.price) || 0) * 100) / 100));
+  input.addEventListener("change", commit);
+  input.addEventListener("blur", commit);
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      input.blur();
+    }
+  });
+
+  wrapper.append(label, input);
+  return wrapper;
+}
+
+function buildStockPriceHistory(stockItem, options = {}) {
+  const { compact = false } = options;
+  const details = document.createElement("details");
+  details.className = `tracker-stock-price-history${compact ? " is-compact" : ""}`;
+
+  const summary = document.createElement("summary");
+  summary.textContent = `Price history (${Array.isArray(stockItem.priceHistory) ? stockItem.priceHistory.length : 0})`;
+
+  const body = document.createElement("div");
+  body.className = "tracker-stock-price-history-body";
+
+  const entries = Array.isArray(stockItem.priceHistory) ? [...stockItem.priceHistory].reverse() : [];
+  if (!entries.length) {
+    const empty = document.createElement("p");
+    empty.className = "tracker-stock-price-history-empty";
+    empty.textContent = "The first non-zero price you set will start the history here.";
+    body.append(empty);
+  } else {
+    entries.forEach((entry) => {
+      const row = document.createElement("div");
+      row.className = "tracker-stock-price-history-row";
+
+      const info = document.createElement("div");
+      info.className = "tracker-stock-price-history-info";
+
+      const price = document.createElement("strong");
+      price.textContent = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "USD",
+      }).format(Number(entry.price || 0));
+
+      const date = document.createElement("span");
+      date.textContent = formatStockHistoryDate(entry.changedAt);
+
+      info.append(price, date);
+
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.className = "tracker-stock-history-remove";
+      removeButton.textContent = "Remove";
+      removeButton.addEventListener("click", () => removeStockPriceHistoryEntry(stockItem.id, entry.id));
+
+      row.append(info, removeButton);
+      body.append(row);
+    });
+  }
+
+  details.append(summary, body);
+  return details;
 }
 
 function saveTrackerStockUiPrefs() {
@@ -2117,6 +2412,8 @@ async function syncProgressToCloud() {
       }
     }
 
+    await syncProfileStateToCloud({ allowMissingColumns: true });
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     clearRecoveryProgress();
     authState.cloudItemCount = rows.length;
@@ -2173,8 +2470,13 @@ async function hydrateProgressFromCloud() {
       throw error;
     }
 
+    const { trackerSettings: cloudTrackerSettings, stockState: cloudStockState } =
+      await loadProfileStateFromCloud({ allowMissingColumns: true });
+
     const cloudProgress = buildProgressFromCloudRows(data || []);
     const hasCloudProgress = Object.keys(cloudProgress).length > 0;
+    const hasCloudSettings = hasMeaningfulCloudSettings(cloudTrackerSettings);
+    const hasCloudStock = hasMeaningfulStockState(cloudStockState);
     authState.cloudItemCount = (data || []).length;
     authState.cloudLoadState = hasCloudProgress ? "loaded" : "empty";
     authState.lastSuccessfulSyncAt = new Date().toISOString();
@@ -2186,10 +2488,21 @@ async function hydrateProgressFromCloud() {
           ? inMemoryProgress
           : {};
     const hasFallbackProgress = hasMeaningfulProgress(fallbackProgress);
+    const localSettings = loadSettings();
+    const localStockState = loadLocalStockItems();
 
     if (!hasCloudProgress && hasFallbackProgress) {
       progress = fallbackProgress;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      settings = hasCloudSettings
+        ? normalizeSettingsSnapshot({ ...localSettings, ...cloudTrackerSettings })
+        : normalizeSettingsSnapshot(localSettings);
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+      if (hasCloudStock) {
+        localStorage.setItem(STOCK_STORAGE_KEY, JSON.stringify(normalizeStockItemsSnapshot(cloudStockState)));
+      } else if (hasMeaningfulStockState(localStockState)) {
+        localStorage.setItem(STOCK_STORAGE_KEY, JSON.stringify(normalizeStockItemsSnapshot(localStockState)));
+      }
       applyFilters();
       setAuthFeedback("Your cloud tracker was empty, so this device's saved progress was restored and is being saved back to your account now.");
       setSaveState("syncing", "Restoring this device's tracker progress to your cloud account.");
@@ -2200,6 +2513,13 @@ async function hydrateProgressFromCloud() {
     }
 
     progress = cloudProgress;
+    settings = hasCloudSettings
+      ? normalizeSettingsSnapshot({ ...localSettings, ...cloudTrackerSettings })
+      : normalizeSettingsSnapshot(localSettings);
+    localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+    if (hasCloudStock) {
+      localStorage.setItem(STOCK_STORAGE_KEY, JSON.stringify(normalizeStockItemsSnapshot(cloudStockState)));
+    }
     if (hasCloudProgress) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
       clearRecoveryProgress();
@@ -3166,15 +3486,305 @@ function setHideManagerView(view) {
   renderSettings();
 }
 
-function openBugReportPanel() {
-  bugReportPanel.hidden = false;
+function supportTurnstileSiteKey() {
+  return typeof supabaseConfig.turnstileSiteKey === "string"
+    ? supabaseConfig.turnstileSiteKey.trim()
+    : "";
+}
+
+function isImageRequestMode() {
+  return supportPanelMode === "image_request";
+}
+
+function isPhotoSubmissionMode() {
+  return isImageRequestMode() && supportImageRequestKind === "photo_submission";
+}
+
+function supportUploadEnabled() {
+  return !isImageRequestMode() || (isPhotoSubmissionMode() && Boolean(supportPhotoConsentInput?.checked));
+}
+
+function currentSupportTitle() {
+  return isImageRequestMode() ? "Request a Sonny picture" : "Tell me what broke";
+}
+
+function currentSupportSubmitLabel() {
+  if (!isImageRequestMode()) {
+    return "Send bug report";
+  }
+  return isPhotoSubmissionMode() ? "Send my photo" : "Send picture request";
+}
+
+function currentSupportProgressLabel() {
+  if (!isImageRequestMode()) {
+    return "Uploading screenshots and sending your bug report...";
+  }
+  return isPhotoSubmissionMode()
+    ? "Uploading your Sonny photo and sending the request..."
+    : "Sending your picture request...";
+}
+
+function currentSupportPanelCopy() {
+  if (!isImageRequestMode()) {
+    return `Bug reports send to ${SUPPORT_EMAIL} through Supabase. Screenshots upload automatically when configured.`;
+  }
+  return isPhotoSubmissionMode()
+    ? `Share a Sonny photo and, if you consent, I can use it to help improve the website artwork. The upload goes to ${SUPPORT_EMAIL} through Supabase.`
+    : `Picture requests send to ${SUPPORT_EMAIL} through Supabase. Add a quick note if there is a specific version or series art you want.`;
+}
+
+function currentSupportDescriptionPlaceholder() {
+  if (!isImageRequestMode()) {
+    return "Describe the bug, what you expected, and what page/tab you were on.";
+  }
+  return isPhotoSubmissionMode()
+    ? "Optional note: what version this is, any special details, or anything I should know about your photo..."
+    : "Optional note: special version, series mismatch, missing art details...";
+}
+
+function currentSupportUploadMeta() {
+  if (!isImageRequestMode()) {
+    return {
+      eyebrow: "Add screenshots",
+      title: "Choose images",
+      copy: "You can add one or more screenshots here. They will upload with the report.",
+    };
+  }
+  return {
+    eyebrow: "Add your Sonny photo",
+    title: "Choose photo",
+    copy: "Upload one clear photo of your Sonny if you want to help fill the image library.",
+  };
+}
+
+function syncSupportPanelUi() {
+  const imageRequest = isImageRequestMode();
+  const photoSubmission = isPhotoSubmissionMode();
+  const uploadMeta = currentSupportUploadMeta();
+
+  if (bugReportPanelCopy) {
+    bugReportPanelCopy.textContent = currentSupportPanelCopy();
+  }
+  if (bugReportTitle) {
+    bugReportTitle.textContent = currentSupportTitle();
+  }
+  if (bugReportDescriptionLabel) {
+    bugReportDescriptionLabel.textContent = imageRequest
+      ? (photoSubmission ? "Anything I should know about your photo? (optional)" : "Anything I should know? (optional)")
+      : "What happened?";
+  }
+  if (bugReportDescriptionInput) {
+    bugReportDescriptionInput.placeholder = currentSupportDescriptionPlaceholder();
+  }
+  if (bugReportSubmitButton) {
+    bugReportSubmitButton.textContent = currentSupportSubmitLabel();
+  }
+  if (bugReportUploadField) {
+    bugReportUploadField.hidden = !supportUploadEnabled();
+  }
+  if (bugReportUploadEyebrow) {
+    bugReportUploadEyebrow.textContent = uploadMeta.eyebrow;
+  }
+  if (bugReportUploadTitle) {
+    bugReportUploadTitle.textContent = uploadMeta.title;
+  }
+  if (bugReportUploadCopy) {
+    bugReportUploadCopy.textContent = uploadMeta.copy;
+  }
+  if (bugUploadList) {
+    bugUploadList.hidden = !supportUploadEnabled();
+  }
+  if (supportRequestSummary) {
+    supportRequestSummary.hidden = !imageRequest || !supportPanelRequestedItem;
+  }
+  if (supportRequestItemName) {
+    supportRequestItemName.textContent = supportPanelRequestedItem
+      ? displayName(supportPanelRequestedItem)
+      : "";
+  }
+  if (supportRequestItemSeries) {
+    supportRequestItemSeries.textContent = supportPanelRequestedItem
+      ? displaySeries(supportPanelRequestedItem)
+      : "";
+  }
+  if (supportRequestChooser) {
+    supportRequestChooser.hidden = !imageRequest;
+  }
+  supportRequestChoiceButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.supportImageKind === supportImageRequestKind);
+  });
+  if (supportPhotoConsent) {
+    supportPhotoConsent.hidden = !photoSubmission;
+  }
+  if (bugReportImagesInput) {
+    bugReportImagesInput.multiple = !imageRequest;
+  }
   if (bugReportFeedback) {
-    bugReportFeedback.textContent = `Bug reports send to ${BUG_REPORT_EMAIL} through Supabase. Screenshots upload automatically when configured.`;
+    bugReportFeedback.textContent = currentSupportPanelCopy();
   }
 }
 
+function resetSupportCaptcha() {
+  supportCaptchaToken = "";
+  if (window.turnstile && supportCaptchaWidgetId !== null) {
+    window.turnstile.reset(supportCaptchaWidgetId);
+  }
+}
+
+function loadSupportCaptchaScript() {
+  if (!supportTurnstileSiteKey()) {
+    return Promise.resolve(null);
+  }
+  if (window.turnstile) {
+    return Promise.resolve(window.turnstile);
+  }
+  if (supportCaptchaLoader) {
+    return supportCaptchaLoader;
+  }
+
+  supportCaptchaLoader = new Promise((resolve, reject) => {
+    const existing = document.querySelector('script[data-support-turnstile="true"]');
+    if (existing) {
+      existing.addEventListener("load", () => resolve(window.turnstile), { once: true });
+      existing.addEventListener("error", reject, { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.defer = true;
+    script.dataset.supportTurnstile = "true";
+    script.addEventListener("load", () => resolve(window.turnstile), { once: true });
+    script.addEventListener("error", reject, { once: true });
+    document.head.append(script);
+  });
+
+  return supportCaptchaLoader;
+}
+
+async function ensureSupportCaptchaReady() {
+  if (!supportCaptchaBlock || !supportCaptchaWidget || !supportTurnstileSiteKey()) {
+    if (supportCaptchaBlock) {
+      supportCaptchaBlock.hidden = true;
+    }
+    supportCaptchaToken = "";
+    return;
+  }
+
+  supportCaptchaBlock.hidden = false;
+  await loadSupportCaptchaScript();
+
+  if (!window.turnstile) {
+    return;
+  }
+
+  if (supportCaptchaWidgetId === null) {
+    supportCaptchaWidgetId = window.turnstile.render("#support-captcha-widget", {
+      sitekey: supportTurnstileSiteKey(),
+      theme: "auto",
+      callback(token) {
+        supportCaptchaToken = token;
+      },
+      "expired-callback"() {
+        supportCaptchaToken = "";
+      },
+      "error-callback"() {
+        supportCaptchaToken = "";
+      },
+    });
+    return;
+  }
+
+  resetSupportCaptcha();
+}
+
+function getSupportPanelPrimaryFocusTarget() {
+  if (isImageRequestMode()) {
+    if (supportRequestChoiceButtons?.length) {
+      return supportRequestChoiceButtons[0];
+    }
+    return bugReportDescriptionInput || bugReportNameInput || closeBugReportButton || null;
+  }
+
+  return bugReportDescriptionInput || bugReportNameInput || closeBugReportButton || null;
+}
+
+function scrollSupportPanelIntoView() {
+  if (!bugReportPanel) {
+    return;
+  }
+
+  const headerHeight = appHeader?.getBoundingClientRect().height || 0;
+  const rect = bugReportPanel.getBoundingClientRect();
+  const targetTop = Math.max(0, window.scrollY + rect.top - headerHeight - 20);
+
+  window.scrollTo({
+    top: targetTop,
+    behavior: "smooth",
+  });
+}
+
+function focusSupportPanelPrimaryControl() {
+  const target = getSupportPanelPrimaryFocusTarget();
+  if (!target || typeof target.focus !== "function") {
+    return;
+  }
+
+  target.focus({ preventScroll: true });
+}
+
+function openSupportPanel(mode = "bug_report", item = null) {
+  if (!bugReportPanel) {
+    return;
+  }
+
+  if (!collectedDetailModalShell?.hidden) {
+    closeCollectedDetailModal();
+  }
+  if (!accountModalShell?.hidden) {
+    closeAccountModal();
+  }
+  setMobileNavOpen(false);
+  setWishlistControlsOpen(false);
+
+  supportPanelMode = mode;
+  supportPanelRequestedItem = item || null;
+  supportImageRequestKind = "request_only";
+  bugReportForm?.reset();
+  renderBugUploadList();
+  resetSupportCaptcha();
+  bugReportPanel.hidden = false;
+  bugReportPanel.classList.add("is-open");
+  syncSupportPanelUi();
+  ensureSupportCaptchaReady().catch((error) => {
+    console.error("Could not load captcha", error);
+  });
+  window.requestAnimationFrame(() => {
+    scrollSupportPanelIntoView();
+    window.setTimeout(() => {
+      scrollSupportPanelIntoView();
+      focusSupportPanelPrimaryControl();
+    }, 220);
+  });
+}
+
+function openBugReportPanel() {
+  openSupportPanel("bug_report");
+}
+
+function openImageRequestPanel(item) {
+  openSupportPanel("image_request", item);
+}
+
 function closeBugReportPanel() {
-  bugReportPanel.hidden = true;
+  if (bugReportPanel) {
+    bugReportPanel.hidden = true;
+    bugReportPanel.classList.remove("is-open");
+  }
+  supportImageRequestKind = "request_only";
+  bugReportForm?.reset();
+  renderBugUploadList();
+  resetSupportCaptcha();
 }
 
 function renderBugUploadList() {
@@ -3183,7 +3793,7 @@ function renderBugUploadList() {
 
   if (!files.length) {
     bugUploadList.innerHTML =
-      '<p class="wishlist-empty">No screenshots added yet.</p>';
+      `<p class="wishlist-empty">${isPhotoSubmissionMode() ? "No Sonny photo added yet." : "No screenshots added yet."}</p>`;
     return;
   }
 
@@ -3201,7 +3811,7 @@ function renderBugUploadList() {
 function setBugReportSubmitting(isSubmitting, message = "") {
   if (bugReportSubmitButton) {
     bugReportSubmitButton.disabled = isSubmitting;
-    bugReportSubmitButton.textContent = isSubmitting ? "Sending..." : "Send bug report";
+    bugReportSubmitButton.textContent = isSubmitting ? "Sending..." : currentSupportSubmitLabel();
   }
 
   if (bugReportFeedback && message) {
@@ -3212,12 +3822,26 @@ function setBugReportSubmitting(isSubmitting, message = "") {
 function buildBugReportFormData() {
   const name = bugReportNameInput?.value.trim() || "";
   const contact = bugReportContactInput?.value.trim() || "";
-  const description = bugReportDescriptionInput?.value.trim() || "";
-  const files = [...(bugReportImagesInput?.files || [])];
+  const rawDescription = bugReportDescriptionInput?.value.trim() || "";
+  const files = supportUploadEnabled() ? [...(bugReportImagesInput?.files || [])] : [];
   const activeView =
     document.querySelector(".view-tab.is-active")?.textContent?.trim() || "";
+  const hasPhotoConsent = Boolean(supportPhotoConsentInput?.checked);
+  const description = isPhotoSubmissionMode()
+    ? [
+        rawDescription,
+        rawDescription ? "" : null,
+        "Submission type: User supplied Sonny photo",
+        `Consent to use on Sonny Tracker: ${hasPhotoConsent ? "Yes" : "No"}`,
+      ]
+        .filter(Boolean)
+        .join("\n")
+    : rawDescription;
 
   const formData = new FormData();
+  formData.set("report_type", supportPanelMode);
+  formData.set("image_request_kind", supportImageRequestKind);
+  formData.set("image_usage_consent", hasPhotoConsent ? "yes" : "no");
   formData.set("name", name);
   formData.set("contact", contact);
   formData.set("description", description);
@@ -3227,12 +3851,19 @@ function buildBugReportFormData() {
   formData.set("site_url", window.SONNY_SUPABASE_CONFIG?.siteUrl?.trim() || window.location.origin);
   formData.set("reporter_email", authState.user?.email || "");
   formData.set("reporter_user_id", authState.user?.id || "");
+  formData.set("requested_item_id", supportPanelRequestedItem?.id || "");
+  formData.set("requested_item_name", supportPanelRequestedItem ? displayName(supportPanelRequestedItem) : "");
+  formData.set("requested_item_series", supportPanelRequestedItem ? displaySeries(supportPanelRequestedItem) : "");
+
+  if (supportCaptchaToken) {
+    formData.set("captcha_token", supportCaptchaToken);
+  }
 
   files.forEach((file) => {
     formData.append("screenshots", file);
   });
 
-  return { formData, description };
+  return { formData, description, rawDescription, files, hasPhotoConsent };
 }
 
 async function submitBugReport() {
@@ -3240,25 +3871,38 @@ async function submitBugReport() {
     throw new Error("Bug reporting is not configured yet. Add your Supabase project config first.");
   }
 
-  const { formData, description } = buildBugReportFormData();
-  if (!description) {
+  const { formData, description, files, hasPhotoConsent } = buildBugReportFormData();
+  if (!description && !isImageRequestMode()) {
     bugReportDescriptionInput?.focus();
     throw new Error("Add a short description of the bug first so the report has enough context.");
   }
+  if (isImageRequestMode() && !supportPanelRequestedItem) {
+    throw new Error("Pick a Sonny first so I know which PNG image you want requested.");
+  }
+  if (isPhotoSubmissionMode() && !hasPhotoConsent) {
+    supportPhotoConsentInput?.focus();
+    throw new Error("Please confirm that your Sonny photo can be used on Sonny Tracker before uploading it.");
+  }
+  if (isPhotoSubmissionMode() && !files.length) {
+    bugReportImagesInput?.focus();
+    throw new Error("Add your Sonny photo first so I can send it along with the request.");
+  }
+  if (supportTurnstileSiteKey() && !supportCaptchaToken) {
+    throw new Error("Please finish the captcha first so I know the request is from a real person.");
+  }
 
-  const accessToken = authState.session?.access_token || supabaseConfig.anonKey;
   const response = await fetch(`${supabaseConfig.url}/functions/v1/bug-report`, {
     method: "POST",
     headers: {
       apikey: supabaseConfig.anonKey,
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${supabaseConfig.anonKey}`,
     },
     body: formData,
   });
 
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
-    throw new Error(payload?.error || "Could not send the bug report yet. Please try again.");
+    throw new Error(payload?.error || "Could not send this request yet. Please try again.");
   }
 
   return payload;
@@ -3567,8 +4211,16 @@ function renderStats(items) {
 }
 
 function syncTrackerColumnsPreference() {
+  const defaultTrackerColumns = getDefaultTrackerColumns();
   const trackerColumns = String(
-    Math.min(8, Math.max(4, Number.parseInt(settings.trackerColumns || "6", 10) || 6)),
+    Math.min(
+      8,
+      Math.max(
+        4,
+        Number.parseInt(settings.trackerColumns || defaultTrackerColumns, 10) ||
+          Number(defaultTrackerColumns),
+      ),
+    ),
   );
   settings.trackerColumns = trackerColumns;
   if (trackerColumnsSelect) {
@@ -3768,8 +4420,38 @@ function renderWishlistLanding(items) {
   const topPadding = 160;
   const rowGap = 210;
   const bottomPadding = 160;
+  const persistedPositions = {
+    ...(settings.wishlistFloatingPositions || {}),
+  };
+  let persistedPositionsChanged = false;
+
+  orderedFloatingItems.forEach((item, index) => {
+    if (persistedPositions[item.id]) {
+      return;
+    }
+    const row = Math.floor(index / columns);
+    const column = index % columns;
+    const xBase = ((column + 0.5) / columns) * 100;
+    const xOffsetPattern = [-4.5, 2.5, -1.5, 3.5, -3, 1.5];
+    const yOffsetPattern = [-18, 10, -8, 16, -12, 6];
+    const rotatePattern = [-8, 5, -3, 7, -6, 4, -5, 3];
+    const scalePattern = [1.02, 0.95, 1.06, 0.98, 0.93, 1.01, 0.97, 1.04];
+    persistedPositions[item.id] = {
+      x: `${Math.max(8, Math.min(92, xBase + xOffsetPattern[(row + column) % xOffsetPattern.length]))}%`,
+      y: `${topPadding + row * rowGap + yOffsetPattern[(index + row) % yOffsetPattern.length]}px`,
+      rotate: `${rotatePattern[index % rotatePattern.length]}deg`,
+      scale: String(scalePattern[index % scalePattern.length]),
+    };
+    persistedPositionsChanged = true;
+  });
+
+  if (persistedPositionsChanged) {
+    settings.wishlistFloatingPositions = persistedPositions;
+    saveSettings();
+  }
+
   const maxCustomY = orderedFloatingItems.reduce((maxValue, item) => {
-    const saved = settings.wishlistFloatingPositions?.[item.id];
+    const saved = persistedPositions[item.id];
     const numeric = Number(saved?.y || 0);
     return Number.isFinite(numeric) ? Math.max(maxValue, numeric) : maxValue;
   }, 0);
@@ -3778,27 +4460,16 @@ function renderWishlistLanding(items) {
   wishlistFloatingGrid.style.setProperty("--wishlist-stage-height", `${stageHeight}px`);
 
   orderedFloatingItems.forEach((item, index) => {
-    const row = Math.floor(index / columns);
-    const column = index % columns;
-    const xBase = ((column + 0.5) / columns) * 100;
-    const xOffsetPattern = [-4.5, 2.5, -1.5, 3.5, -3, 1.5];
-    const yOffsetPattern = [-18, 10, -8, 16, -12, 6];
-    const rotatePattern = [-8, 5, -3, 7, -6, 4, -5, 3];
-    const scalePattern = [1.02, 0.95, 1.06, 0.98, 0.93, 1.01, 0.97, 1.04];
-    const x = `${Math.max(8, Math.min(92, xBase + xOffsetPattern[(row + column) % xOffsetPattern.length]))}%`;
-    const y = `${topPadding + row * rowGap + yOffsetPattern[(index + row) % yOffsetPattern.length]}px`;
-    const rotate = `${rotatePattern[index % rotatePattern.length]}deg`;
-    const scale = String(scalePattern[index % scalePattern.length]);
-    const saved = settings.wishlistFloatingPositions?.[item.id] || null;
+    const saved = persistedPositions[item.id] || null;
     const boardLegend = getWishlistBoardLegend(item.id);
     const floating = document.createElement("article");
     floating.className = "wishlist-floating-item";
     floating.dataset.legendTone = boardLegend?.tone || "custom";
     floating.dataset.sonnyId = item.id;
-    floating.style.setProperty("--float-x", saved?.x || x);
-    floating.style.setProperty("--float-y", saved?.y || y);
-    floating.style.setProperty("--float-rotate", saved?.rotate || rotate);
-    floating.style.setProperty("--float-scale", saved?.scale || scale);
+    floating.style.setProperty("--float-x", saved?.x || "50%");
+    floating.style.setProperty("--float-y", saved?.y || `${topPadding}px`);
+    floating.style.setProperty("--float-rotate", saved?.rotate || "0deg");
+    floating.style.setProperty("--float-scale", saved?.scale || "1");
 
     const art = document.createElement("div");
     art.className = "wishlist-floating-art";
@@ -3866,44 +4537,28 @@ function renderWishlistLanding(items) {
     controlsRow.append(legendPicker, removeButton);
 
     if (settings.wishlistLandingEditMode) {
-      const controls = document.createElement("div");
-      controls.className = "wishlist-floating-rotate-controls";
-      controls.addEventListener("pointerdown", (event) => {
-        event.stopPropagation();
-      });
+      const rotateHandle = document.createElement("button");
+      rotateHandle.type = "button";
+      rotateHandle.className = "wishlist-floating-rotate-handle";
+      rotateHandle.setAttribute("aria-label", `Rotate ${displayName(item)}`);
 
-      const rotateLeftButton = document.createElement("button");
-      rotateLeftButton.type = "button";
-      rotateLeftButton.className = "wishlist-rotate-button";
-      rotateLeftButton.textContent = "↺";
-      rotateLeftButton.addEventListener("pointerdown", (event) => {
-        event.stopPropagation();
-      });
-      rotateLeftButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        event.preventDefault();
-        adjustWishlistFloatingRotation(item.id, -5);
-      });
+      const rotateHandleLabel = document.createElement("span");
+      rotateHandleLabel.className = "wishlist-rotate-handle-label";
+      rotateHandleLabel.textContent = "Rotate";
 
       const rotateValue = document.createElement("span");
       rotateValue.className = "wishlist-rotate-value";
-      rotateValue.textContent = (saved?.rotate || rotate).replace("deg", "") + "°";
+      rotateValue.textContent = `${Math.round(Number.parseFloat((saved?.rotate || rotate).replace("deg", "")) || 0)}°`;
 
-      const rotateRightButton = document.createElement("button");
-      rotateRightButton.type = "button";
-      rotateRightButton.className = "wishlist-rotate-button";
-      rotateRightButton.textContent = "↻";
-      rotateRightButton.addEventListener("pointerdown", (event) => {
-        event.stopPropagation();
-      });
-      rotateRightButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        event.preventDefault();
-        adjustWishlistFloatingRotation(item.id, 5);
+      const rotateTrack = document.createElement("span");
+      rotateTrack.className = "wishlist-rotate-handle-track";
+
+      rotateHandle.append(rotateHandleLabel, rotateValue, rotateTrack);
+      rotateHandle.addEventListener("pointerdown", (event) => {
+        startWishlistRotateDrag(event, item.id, floating, rotateHandle);
       });
 
-      controls.append(rotateLeftButton, rotateValue, rotateRightButton);
-      floating.append(controls);
+      floating.append(rotateHandle);
     }
 
     floating.append(art, badge, chip, controlsRow);
@@ -4026,7 +4681,7 @@ function adjustWishlistFloatingRotation(id, delta) {
   const element = wishlistFloatingGrid?.querySelector(`[data-sonny-id="${id}"]`);
   const currentRotate = element?.style.getPropertyValue("--float-rotate").trim() || settings.wishlistFloatingPositions?.[id]?.rotate || "0deg";
   const currentValue = Number.parseFloat(currentRotate.replace("deg", "")) || 0;
-  const nextValue = Math.max(-30, Math.min(30, currentValue + delta));
+  const nextValue = Math.max(-45, Math.min(45, currentValue + delta));
   const nextRotate = `${nextValue}deg`;
   if (element) {
     element.style.setProperty("--float-rotate", nextRotate);
@@ -4048,11 +4703,69 @@ function adjustWishlistFloatingRotation(id, delta) {
   saveSettings();
 }
 
+function startWishlistRotateDrag(event, id, element, handle) {
+  if (!settings.wishlistLandingEditMode) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  activeWishlistRotateDrag = {
+    id,
+    element,
+    handle,
+    startClientX: event.clientX,
+    startRotate: Number.parseFloat(
+      (element?.style.getPropertyValue("--float-rotate").trim() || settings.wishlistFloatingPositions?.[id]?.rotate || "0deg").replace("deg", ""),
+    ) || 0,
+  };
+  element?.classList.add("is-rotating");
+  handle?.setPointerCapture?.(event.pointerId);
+}
+
+function updateWishlistRotateDragPosition(event) {
+  if (!activeWishlistRotateDrag) {
+    return;
+  }
+  const deltaX = event.clientX - activeWishlistRotateDrag.startClientX;
+  const nextValue = Math.max(-45, Math.min(45, activeWishlistRotateDrag.startRotate + deltaX * 0.35));
+  const nextRotate = `${Math.round(nextValue)}deg`;
+  const { element, id } = activeWishlistRotateDrag;
+  if (element) {
+    element.style.setProperty("--float-rotate", nextRotate);
+    const label = element.querySelector(".wishlist-rotate-value");
+    if (label) {
+      label.textContent = `${Math.round(nextValue)}°`;
+    }
+  }
+  settings.wishlistFloatingPositions = {
+    ...(settings.wishlistFloatingPositions || {}),
+    [id]: {
+      ...(settings.wishlistFloatingPositions?.[id] || {}),
+      x: element?.style.getPropertyValue("--float-x").trim() || settings.wishlistFloatingPositions?.[id]?.x || "50%",
+      y: element?.style.getPropertyValue("--float-y").trim() || settings.wishlistFloatingPositions?.[id]?.y || "200px",
+      rotate: nextRotate,
+      scale: element?.style.getPropertyValue("--float-scale").trim() || settings.wishlistFloatingPositions?.[id]?.scale || "1",
+    },
+  };
+}
+
+function endWishlistRotateDrag(event) {
+  if (!activeWishlistRotateDrag) {
+    return;
+  }
+  activeWishlistRotateDrag.element?.classList.remove("is-rotating");
+  if (event) {
+    activeWishlistRotateDrag.handle?.releasePointerCapture?.(event.pointerId);
+  }
+  activeWishlistRotateDrag = null;
+  saveSettings();
+}
+
 function startWishlistFloatingDrag(event) {
   if (!settings.wishlistLandingEditMode || !wishlistLandingStage) {
     return;
   }
-  if (event.target.closest(".wishlist-floating-rotate-controls")) {
+  if (activeWishlistRotateDrag || event.target.closest(".wishlist-floating-rotate-handle")) {
     return;
   }
   const floating = event.currentTarget;
@@ -4167,6 +4880,8 @@ function renderWishlist() {
     sortMode,
   );
 
+  syncWishlistSubview();
+
   renderWishlistLanding(filteredWishlistItems);
   renderWishlistBench(sortItems(benchedFilteredItems, sortMode));
 
@@ -4222,6 +4937,18 @@ function renderWishlist() {
   reconcileMakerSelections();
   updateWishlistImmersiveState();
   renderWishlistRanker();
+}
+
+function syncWishlistSubview() {
+  if (wishlistBoardView) {
+    wishlistBoardView.hidden = activeWishlistSubview !== "board";
+  }
+  if (wishlistRankerFlow) {
+    wishlistRankerFlow.hidden = activeWishlistSubview !== "ranker";
+  }
+  if (wishlistMakerFlow) {
+    wishlistMakerFlow.hidden = activeWishlistSubview !== "maker";
+  }
 }
 
 function renderHideSeriesList(items, query) {
@@ -4407,6 +5134,46 @@ function getWishlistRankerComparisonTotal(items = getWishlistRankerItems()) {
   }, 0);
 }
 
+function getWishlistRankerCandidatePairTotal(items = getWishlistRankerItems()) {
+  if (items.length < 2) {
+    return 0;
+  }
+
+  const ordered = getWishlistRankerOrderedItems(items);
+  const neighborWindow = ordered.length <= 8 ? ordered.length - 1 : 5;
+  let total = 0;
+
+  ordered.forEach((_, index) => {
+    total += Math.min(neighborWindow, Math.max(0, ordered.length - index - 1));
+  });
+
+  return total;
+}
+
+function getWishlistRankerTargetComparisons(items = getWishlistRankerItems()) {
+  const candidateTotal = getWishlistRankerCandidatePairTotal(items);
+  if (candidateTotal <= 0) {
+    return 0;
+  }
+  if (items.length <= 2) {
+    return 1;
+  }
+  if (items.length <= 4) {
+    return Math.min(candidateTotal, items.length * 2);
+  }
+
+  const softTarget = Math.max(8, Math.min(40, Math.ceil(items.length * 0.5)));
+  return Math.min(candidateTotal, softTarget);
+}
+
+function isWishlistRankerComplete(items = getWishlistRankerItems()) {
+  const target = getWishlistRankerTargetComparisons(items);
+  if (!target) {
+    return false;
+  }
+  return getWishlistRankerComparisonTotal(items) >= target;
+}
+
 function getWishlistRankerOrderedItems(items = getWishlistRankerItems()) {
   const scores = ensureWishlistRankerState(items);
   return [...items].sort((left, right) => {
@@ -4519,12 +5286,16 @@ function renderWishlistRanker() {
 
   const items = getWishlistRankerItems();
   const ordered = getWishlistRankerOrderedItems(items);
+  const comparisonTotal = getWishlistRankerComparisonTotal(items);
+  const comparisonTarget = getWishlistRankerTargetComparisons(items);
+  const isComplete = isWishlistRankerComplete(items);
   const [leftItem, rightItem] =
+    !isComplete &&
     currentWishlistRankerPair.length === 2 &&
     items.some((item) => item.id === currentWishlistRankerPair[0]?.id) &&
     items.some((item) => item.id === currentWishlistRankerPair[1]?.id)
       ? currentWishlistRankerPair
-      : pickNextWishlistRankerPair(items);
+      : (isComplete ? [] : pickNextWishlistRankerPair(items));
 
   currentWishlistRankerPair = leftItem && rightItem ? [leftItem, rightItem] : [];
 
@@ -4533,23 +5304,28 @@ function renderWishlistRanker() {
       wishlistRankerSummary.textContent = items.length === 1
         ? "Add at least one more ISO or DISO to start comparing pairs."
         : "Add some ISO or DISO Sonnies first, then the ranker can start building your order.";
+    } else if (isComplete) {
+      wishlistRankerSummary.textContent = `Ranking pass complete · ${comparisonTotal} of ${comparisonTarget} comparisons done. Use Rerank anytime to start a fresh pass.`;
     } else {
-      wishlistRankerSummary.textContent = `${items.length} Sonnies in the ranking pool · ${getWishlistRankerComparisonTotal(items)} pair decisions saved`;
+      wishlistRankerSummary.textContent = `${items.length} Sonnies in the ranking pool · ${comparisonTotal} of ${comparisonTarget} comparisons done`;
     }
   }
 
   if (wishlistRankerStage) {
-    wishlistRankerStage.classList.toggle("is-empty", items.length < 2);
+    wishlistRankerStage.classList.toggle("is-empty", items.length < 2 || isComplete);
   }
 
   renderWishlistRankerChoice(wishlistRankerLeftButton, leftItem);
   renderWishlistRankerChoice(wishlistRankerRightButton, rightItem);
 
   if (wishlistRankerSkipButton) {
-    wishlistRankerSkipButton.disabled = items.length < 2;
+    wishlistRankerSkipButton.disabled = items.length < 2 || isComplete;
   }
   if (wishlistRankerTooToughButton) {
-    wishlistRankerTooToughButton.disabled = items.length < 2;
+    wishlistRankerTooToughButton.disabled = items.length < 2 || isComplete;
+  }
+  if (wishlistRankerRerankButton) {
+    wishlistRankerRerankButton.disabled = items.length < 2;
   }
 
   if (wishlistRankerPreviewMeta) {
@@ -4629,17 +5405,37 @@ function advanceWishlistRanker(outcome) {
   renderWishlistRanker();
 }
 
+function resetWishlistRanker() {
+  const items = getWishlistRankerItems();
+  settings.wishlistRankerScores = {};
+  settings.wishlistRankerPairCounts = {};
+
+  items.forEach((item) => {
+    const current = progress[item.id] && typeof progress[item.id] === "object" ? progress[item.id] : null;
+    if (!current) {
+      return;
+    }
+    const next = { ...current };
+    delete next.wishlistRank;
+    progress[item.id] = next;
+  });
+
+  saveProgress();
+  saveSettings();
+  currentWishlistRankerPair = [];
+  renderWishlist();
+  renderWishlistRanker();
+}
+
 function openWishlistRanker() {
   if (!wishlistBoardView || !wishlistRankerFlow) {
     return;
   }
 
-  wishlistBoardView.hidden = true;
-  wishlistMakerFlow.hidden = true;
-  wishlistRankerFlow.hidden = false;
+  activeWishlistSubview = "ranker";
+  syncWishlistSubview();
   currentWishlistRankerPair = [];
   renderWishlistRanker();
-  wishlistRankerFlow.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function closeWishlistRanker() {
@@ -4647,12 +5443,10 @@ function closeWishlistRanker() {
     return;
   }
 
-  wishlistRankerFlow.hidden = true;
-  wishlistMakerFlow.hidden = true;
-  wishlistBoardView.hidden = false;
+  activeWishlistSubview = "board";
+  syncWishlistSubview();
   currentWishlistRankerPair = [];
   renderWishlist();
-  wishlistBoardView.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function getMakerItemsById() {
@@ -5120,11 +5914,8 @@ function openWishlistMaker() {
   makerLayoutName = getNextMakerLayoutName();
   makerOrderSelect.value = makerOrderMode;
   updateMakerLayoutControls();
-  wishlistBoardView.hidden = true;
-  if (wishlistRankerFlow) {
-    wishlistRankerFlow.hidden = true;
-  }
-  wishlistMakerFlow.hidden = false;
+  activeWishlistSubview = "maker";
+  syncWishlistSubview();
   makerSelectionStep.hidden = false;
   makerCanvasStep.hidden = true;
   renderMakerSavedLayouts();
@@ -5133,8 +5924,8 @@ function openWishlistMaker() {
 }
 
 function closeWishlistMaker() {
-  wishlistBoardView.hidden = false;
-  wishlistMakerFlow.hidden = true;
+  activeWishlistSubview = "board";
+  syncWishlistSubview();
   makerSelectionStep.hidden = false;
   makerCanvasStep.hidden = true;
 }
@@ -5707,6 +6498,7 @@ function moveCollectedItemToStock(item, copyIndex = getActiveCollectedCopyIndex(
       status: "available",
       justTrading: false,
       price: 0,
+      priceHistory: [],
       createdAt: new Date().toISOString(),
     });
   }
@@ -5832,7 +6624,10 @@ function buildTrackerStockCard(stockItem) {
 
   const meta = document.createElement("p");
   meta.className = "collected-meta";
-  meta.textContent = `${stockStatusLabel(stockItem.status)} • ${formatStockPrice(stockItem)} • Qty ${Math.max(1, Number(stockItem.quantity || 1))}`;
+  meta.textContent = `${stockStatusLabel(stockItem.status)} • Qty ${Math.max(1, Number(stockItem.quantity || 1))}`;
+
+  const priceEditor = buildStockPriceEditor(stockItem);
+  const priceHistory = buildStockPriceHistory(stockItem);
 
   const actions = document.createElement("div");
   actions.className = "collected-action-row";
@@ -5851,7 +6646,7 @@ function buildTrackerStockCard(stockItem) {
   removeButton.addEventListener("click", () => removeStockItemFromTracker(stockItem.id));
 
   actions.append(backButton, removeButton);
-  body.append(series, name, meta, actions);
+  body.append(series, name, meta, priceEditor, priceHistory, actions);
   card.append(art, body);
   return card;
 }
@@ -5884,6 +6679,9 @@ function buildTrackerStockShelfTile(stockItem) {
   name.className = "tracker-stock-shelf-name";
   name.textContent = `${stockNameForItem(stockItem)}${Number(stockItem.quantity || 1) > 1 ? ` x${Math.max(1, Number(stockItem.quantity || 1))}` : ""}`;
 
+  const priceEditor = buildStockPriceEditor(stockItem, { compact: true });
+  const priceHistory = buildStockPriceHistory(stockItem, { compact: true });
+
   const actions = document.createElement("div");
   actions.className = "tracker-stock-shelf-actions";
 
@@ -5901,7 +6699,7 @@ function buildTrackerStockShelfTile(stockItem) {
   removeButton.addEventListener("click", () => removeStockItemFromTracker(stockItem.id));
 
   actions.append(backButton, removeButton);
-  tile.append(figure, price, name, actions);
+  tile.append(figure, price, name, priceEditor, priceHistory, actions);
   return tile;
 }
 
@@ -6989,6 +7787,18 @@ function buildCollectedOpenDetailsButton(item, copyIndex = getActiveCollectedCop
   return button;
 }
 
+function buildCollectedRequestImageButton(item) {
+  const button = document.createElement("button");
+  button.className = "collected-open-button collected-request-button";
+  button.type = "button";
+  button.textContent = "Request Sonny picture";
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    openImageRequestPanel(item);
+  });
+  return button;
+}
+
 function buildCollectedCountBadge(item) {
   const ownedCount = getOwnedCount(item.id);
   if (settings.collectedShowMultipleSeparate || ownedCount <= 1) {
@@ -7203,7 +8013,7 @@ function renderCollectedCompact(entries) {
 
     const actionRow = document.createElement("div");
     actionRow.className = "collected-action-row";
-    actionRow.append(toggle);
+    actionRow.append(toggle, buildCollectedRequestImageButton(item));
 
     body.append(seriesName, nameRow, meta, actionRow);
 
@@ -7220,6 +8030,7 @@ function renderCollectedCompact(entries) {
         buildCollectedQuantityControl(item),
         buildCollectedNotes(item, copyIndex),
         buildCollectedOpenDetailsButton(item, copyIndex),
+        buildCollectedRequestImageButton(item),
         buildCollectedTransferButton(item, copyIndex),
       );
     }
@@ -7334,6 +8145,7 @@ function renderCollectedShelfBySeries(entries) {
           buildCollectedQuantityControl(item),
           buildCollectedNotes(item, copyIndex),
           buildCollectedOpenDetailsButton(item, copyIndex),
+          buildCollectedRequestImageButton(item),
           buildCollectedTransferButton(item, copyIndex),
         );
         tile.append(details);
@@ -7412,6 +8224,7 @@ function renderCollectedMinimalist(entries) {
         buildCollectedQuantityControl(item),
         buildCollectedNotes(item, copyIndex),
         buildCollectedOpenDetailsButton(item, copyIndex),
+        buildCollectedRequestImageButton(item),
         buildCollectedTransferButton(item, copyIndex),
       );
       tile.append(details);
@@ -7493,6 +8306,7 @@ function renderCollectedArmies(items, threshold) {
             date,
             buildCollectedNotes(currentItem, copyIndex),
             buildCollectedOpenDetailsButton(currentItem, copyIndex),
+            buildCollectedRequestImageButton(currentItem),
             buildCollectedTransferButton(currentItem, copyIndex),
           );
           tile.append(details);
@@ -7578,6 +8392,7 @@ function renderCollectedArmiesShelf(items, threshold) {
             date,
             buildCollectedNotes(currentItem, copyIndex),
             buildCollectedOpenDetailsButton(currentItem, copyIndex),
+            buildCollectedRequestImageButton(currentItem),
             buildCollectedTransferButton(currentItem, copyIndex),
           );
           tile.append(details);
@@ -7592,9 +8407,14 @@ function renderCollectedArmiesShelf(items, threshold) {
 }
 
 function switchView(view) {
+  const previousView = settings.activeView || "tracker";
   settings.activeView = view;
   saveSettings();
   setMobileNavOpen(false);
+  if (previousView === "tracker" && view !== "tracker" && searchInput?.value) {
+    searchInput.value = "";
+    applyFilters();
+  }
   document.body.classList.toggle("settings-active", view === "settings");
   document.body.classList.toggle("stock-active", view === "stock");
   document.body.classList.toggle("wishlist-active", view === "wishlist");
@@ -7922,6 +8742,7 @@ function renderGrid(items) {
     const sonnyName = fragment.querySelector(".sonny-name");
     const badges = fragment.querySelector(".name-badges");
     const sourceNote = fragment.querySelector(".source-note");
+    const requestImageButton = fragment.querySelector("[data-request-image]");
     const buttons = fragment.querySelectorAll(".status-button");
     const mobileStatusSelect = fragment.querySelector(".mobile-status-select");
     const mobileOwnedCounter = fragment.querySelector(".mobile-owned-counter");
@@ -7941,7 +8762,14 @@ function renderGrid(items) {
     renderSeriesLabel(seriesName, item);
     sonnyName.textContent = displayName(item);
     renderBadges(badges, item);
-    sourceNote.textContent = sourceLabel(item);
+    if (sourceNote) {
+      sourceNote.hidden = true;
+      sourceNote.textContent = "";
+    }
+    requestImageButton?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      openImageRequestPanel(item);
+    });
 
     buttons.forEach((button) => {
       const isActive = button.dataset.status === getStatus(item.id);
@@ -7953,6 +8781,7 @@ function renderGrid(items) {
     const ownedCount = getOwnedCount(item.id);
     card.dataset.status = currentStatus;
     if (ownedSlot) {
+      ownedSlot.dataset.itemId = item.id;
       ownedSlot.classList.toggle("is-active", isOwned);
       ownedSlot.classList.toggle("is-peek-open", isOwned && activeOwnedCounterId === item.id);
     }
@@ -8029,8 +8858,15 @@ statusFilter.addEventListener("change", applyFilters);
 seriesFilter.addEventListener("change", applyFilters);
 sortFilter.addEventListener("change", applyFilters);
 trackerColumnsSelect?.addEventListener("change", () => {
+  const defaultTrackerColumns = getDefaultTrackerColumns();
   const nextColumns = String(
-    Math.min(8, Math.max(4, Number.parseInt(trackerColumnsSelect.value, 10) || 6)),
+    Math.min(
+      8,
+      Math.max(
+        4,
+        Number.parseInt(trackerColumnsSelect.value, 10) || Number(defaultTrackerColumns),
+      ),
+    ),
   );
   trackerColumnsSelect.value = nextColumns;
   settings.trackerColumns = nextColumns;
@@ -8158,6 +8994,7 @@ wishlistLegendAddButton?.addEventListener("click", () => {
 openWishlistRankerButton?.addEventListener("click", openWishlistRanker);
 wishlistRankerOpenButton?.addEventListener("click", openWishlistRanker);
 wishlistRankerCloseButton?.addEventListener("click", closeWishlistRanker);
+wishlistRankerRerankButton?.addEventListener("click", resetWishlistRanker);
 wishlistRankerLeftButton?.addEventListener("click", () => advanceWishlistRanker("left"));
 wishlistRankerRightButton?.addEventListener("click", () => advanceWishlistRanker("right"));
 wishlistRankerSkipButton?.addEventListener("click", () => advanceWishlistRanker("skip"));
@@ -8188,8 +9025,14 @@ makerBackgroundUploadInput?.addEventListener("change", () => {
 wishlistLandingStage?.addEventListener("pointermove", updateWishlistFloatingDragPosition);
 wishlistLandingStage?.addEventListener("pointerup", endWishlistFloatingDrag);
 wishlistLandingStage?.addEventListener("pointercancel", endWishlistFloatingDrag);
+wishlistLandingStage?.addEventListener("pointermove", updateWishlistRotateDragPosition);
+wishlistLandingStage?.addEventListener("pointerup", endWishlistRotateDrag);
+wishlistLandingStage?.addEventListener("pointercancel", endWishlistRotateDrag);
 window.addEventListener("pointerup", endWishlistFloatingDrag);
 window.addEventListener("pointercancel", endWishlistFloatingDrag);
+window.addEventListener("pointermove", updateWishlistRotateDragPosition);
+window.addEventListener("pointerup", endWishlistRotateDrag);
+window.addEventListener("pointercancel", endWishlistRotateDrag);
 window.addEventListener("scroll", updateWishlistImmersiveState, { passive: true });
 window.addEventListener("resize", updateWishlistImmersiveState);
 collectedDetailCloseButton?.addEventListener("click", closeCollectedDetailModal);
@@ -8212,6 +9055,16 @@ collectedDetailPhotoRemoveButton?.addEventListener("click", () => {
     getActiveCollectedDetailCopyIndex(activeCollectedDetailId),
   ));
   refreshCollectedAfterDetailEdit();
+});
+collectedDetailRequestImageButton?.addEventListener("click", () => {
+  if (!activeCollectedDetailId) {
+    return;
+  }
+  const item = sonnies.find((entry) => entry.id === activeCollectedDetailId);
+  if (!item) {
+    return;
+  }
+  openImageRequestPanel(item);
 });
 collectedDetailCustomName?.addEventListener("input", () => {
   if (!activeCollectedDetailId) {
@@ -8558,6 +9411,19 @@ grid.addEventListener("mouseleave", () => {
   activeOwnedCounterId = null;
   applyFilters();
 });
+grid.addEventListener("pointermove", (event) => {
+  if (!activeOwnedCounterId) {
+    return;
+  }
+
+  const activeOwnedSlot = event.target.closest(".status-slot-owned");
+  if (activeOwnedSlot?.dataset.itemId === activeOwnedCounterId) {
+    return;
+  }
+
+  activeOwnedCounterId = null;
+  applyFilters();
+});
 viewTabs.forEach((tab) => {
   tab.addEventListener("click", () => switchView(tab.dataset.view));
 });
@@ -8575,18 +9441,46 @@ unhideVisibleSonniesButton?.addEventListener("click", () => {
 openBugReportButton?.addEventListener("click", openBugReportPanel);
 closeBugReportButton?.addEventListener("click", closeBugReportPanel);
 cancelBugReportButton?.addEventListener("click", closeBugReportPanel);
+supportRequestChoiceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    supportImageRequestKind = button.dataset.supportImageKind || "request_only";
+    if (supportImageRequestKind !== "photo_submission" && supportPhotoConsentInput) {
+      supportPhotoConsentInput.checked = false;
+      if (bugReportImagesInput) {
+        bugReportImagesInput.value = "";
+      }
+      renderBugUploadList();
+    }
+    syncSupportPanelUi();
+  });
+});
+supportPhotoConsentInput?.addEventListener("change", () => {
+  if (!supportPhotoConsentInput.checked && bugReportImagesInput) {
+    bugReportImagesInput.value = "";
+    renderBugUploadList();
+  }
+  syncSupportPanelUi();
+});
 bugReportImagesInput?.addEventListener("change", renderBugUploadList);
 bugReportForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
   renderBugUploadList();
-  setBugReportSubmitting(true, "Uploading screenshots and sending your bug report...");
+  setBugReportSubmitting(true, currentSupportProgressLabel());
 
   try {
     const payload = await submitBugReport();
     const attachmentCount = Number(payload?.attachments || 0);
     bugReportForm.reset();
     renderBugUploadList();
-    setBugReportSubmitting(false, `Bug report sent to ${BUG_REPORT_EMAIL}${attachmentCount ? ` with ${attachmentCount} screenshot${attachmentCount === 1 ? "" : "s"}.` : "."}`);
+    resetSupportCaptcha();
+    setBugReportSubmitting(
+      false,
+      isImageRequestMode()
+        ? (isPhotoSubmissionMode()
+            ? `Photo request sent to ${SUPPORT_EMAIL}${attachmentCount ? ` with ${attachmentCount} photo${attachmentCount === 1 ? "" : "s"}.` : "."}`
+            : `Picture request sent to ${SUPPORT_EMAIL}.`)
+        : `Bug report sent to ${SUPPORT_EMAIL}${attachmentCount ? ` with ${attachmentCount} screenshot${attachmentCount === 1 ? "" : "s"}.` : "."}`,
+    );
     window.setTimeout(() => {
       closeBugReportPanel();
     }, 500);

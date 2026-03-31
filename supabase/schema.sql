@@ -1,9 +1,17 @@
 create table if not exists public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   email text,
+  tracker_settings jsonb not null default '{}'::jsonb,
+  stock_state jsonb not null default '[]'::jsonb,
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now())
 );
+
+alter table public.profiles
+  add column if not exists tracker_settings jsonb not null default '{}'::jsonb;
+
+alter table public.profiles
+  add column if not exists stock_state jsonb not null default '[]'::jsonb;
 
 create table if not exists public.collection_progress (
   user_id uuid not null references auth.users (id) on delete cascade,
