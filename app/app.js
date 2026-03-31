@@ -9443,7 +9443,26 @@ closeBugReportButton?.addEventListener("click", closeBugReportPanel);
 cancelBugReportButton?.addEventListener("click", closeBugReportPanel);
 supportRequestChoiceButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    supportImageRequestKind = button.dataset.supportImageKind || "request_only";
+    const selectedKind = button.dataset.supportImageKind || "request_only";
+
+    if (selectedKind === "bug_report") {
+      supportPanelMode = "bug_report";
+      supportPanelRequestedItem = null;
+      supportImageRequestKind = "request_only";
+      if (supportPhotoConsentInput) {
+        supportPhotoConsentInput.checked = false;
+      }
+      if (bugReportImagesInput) {
+        bugReportImagesInput.value = "";
+      }
+      renderBugUploadList();
+      syncSupportPanelUi();
+      focusSupportPanelPrimaryControl();
+      return;
+    }
+
+    supportPanelMode = "image_request";
+    supportImageRequestKind = selectedKind;
     if (supportImageRequestKind !== "photo_submission" && supportPhotoConsentInput) {
       supportPhotoConsentInput.checked = false;
       if (bugReportImagesInput) {
