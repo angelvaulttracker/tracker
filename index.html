@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="image/png" sizes="32x32" href="./app/brand-assets/png/favicons/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./app/brand-assets/png/favicons/apple-touch-icon-180.png" />
-    <link rel="stylesheet" href="./app/styles.css?v=20260329-mobile-shelf-align" />
+    <link rel="stylesheet" href="./app/styles.css?v=20260330-tracker-back-to-top" />
   </head>
   <body>
     <div class="page-shell">
@@ -325,20 +325,48 @@
         <section class="view-panel" data-panel="wishlist">
           <section class="wishlist-board">
             <div id="wishlist-board-view">
-              <div class="wishlist-header">
-                <div>
-                  <h2>Your ISO + DISO board</h2>
+                <div class="wishlist-header">
+                  <div>
+                    <h2>Your ISO + DISO board</h2>
+                  </div>
+                  <div class="wishlist-header-actions">
+                    <p class="wishlist-copy">
+                      A dedicated shelf for the Sonnies you are actively hunting.
+                    </p>
+                    <p class="wishlist-board-note">
+                      Benching a Sonny here only removes it from this board, not from your real ISO / DISO list. Changing a board tag to ISO or DISO updates that Sonny's real tag. Any other board tag is just for this board.
+                    </p>
+                    <button class="ghost-button wishlist-maker-trigger" id="open-wishlist-ranker" type="button">
+                      Rank Sonnies
+                    </button>
+                    <button class="ghost-button wishlist-maker-trigger" id="open-iso-maker" type="button">
+                      ISO maker
+                    </button>
+                  </div>
                 </div>
-                <div class="wishlist-header-actions">
-                  <p class="wishlist-copy">
-                    A dedicated shelf for the Sonnies you are actively hunting.
-                  </p>
-                  <button class="ghost-button wishlist-maker-trigger" id="open-iso-maker" type="button">
-                    ISO maker
-                  </button>
-                </div>
-              </div>
               <section class="wishlist-landing" id="wishlist-landing">
+                <div class="wishlist-title-editor" id="wishlist-title-editor" hidden>
+                  <div class="wishlist-title-editor-grid">
+                    <label class="search-field wishlist-title-editor-field">
+                      <span>Top text</span>
+                      <input
+                        id="wishlist-title-text"
+                        type="text"
+                        maxlength="120"
+                        placeholder="Isa's ISO / DISO list"
+                      />
+                    </label>
+                    <label class="select-field wishlist-title-editor-field">
+                      <span>Font</span>
+                      <select id="wishlist-title-font">
+                        <option value="fraunces">Fraunces serif</option>
+                        <option value="manrope">Manrope sans</option>
+                        <option value="georgia">Georgia serif</option>
+                        <option value="didot">Classic editorial</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
                 <div class="wishlist-legend-editor" id="wishlist-legend-editor" hidden>
                   <div class="wishlist-legend-editor-list" id="wishlist-legend-editor-list"></div>
                   <button class="ghost-button wishlist-layout-button" id="wishlist-legend-add" type="button">
@@ -346,24 +374,43 @@
                   </button>
                 </div>
                 <div class="wishlist-landing-stage-title">
-                  <strong>ISO / DISO</strong>
-                  <div class="wishlist-landing-toolbar" role="group" aria-label="ISO and DISO layout controls">
-                    <button class="wishlist-layout-button" id="wishlist-layout-edit" type="button">
-                      Edit layout
-                    </button>
-                    <button class="wishlist-layout-button" id="wishlist-layout-reset" type="button">
-                      Reset layout
-                    </button>
-                    <button class="wishlist-layout-button" id="wishlist-legend-edit" type="button">
-                      Legend
-                    </button>
-                    <button class="wishlist-layout-button" id="wishlist-grid-view" type="button">
-                      Grid view
-                    </button>
-                  </div>
+                  <strong id="wishlist-landing-title">ISO / DISO</strong>
                   <div class="wishlist-landing-legend" id="wishlist-landing-legend"></div>
                 </div>
                 <div class="wishlist-landing-stage">
+                  <details class="wishlist-stage-menu">
+                    <summary class="wishlist-stage-menu-trigger" aria-label="Open ISO and DISO board menu">
+                      <span class="wishlist-stage-menu-icon" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                      <span>Board menu</span>
+                    </summary>
+                    <div class="wishlist-stage-menu-panel" role="group" aria-label="ISO and DISO layout controls">
+                      <button class="wishlist-layout-button" id="wishlist-layout-edit" type="button">
+                        Edit layout
+                      </button>
+                      <button class="wishlist-layout-button" id="wishlist-layout-reset" type="button">
+                        Reset layout
+                      </button>
+                      <button class="wishlist-layout-button" id="wishlist-title-edit" type="button">
+                        Title
+                      </button>
+                      <button class="wishlist-layout-button" id="wishlist-legend-edit" type="button">
+                        Edit legend
+                      </button>
+                      <button class="wishlist-layout-button" id="wishlist-ranker-open" type="button">
+                        Rank Sonnies
+                      </button>
+                      <button class="wishlist-layout-button" id="wishlist-grid-view" type="button">
+                        Grid view
+                      </button>
+                      <button class="wishlist-stage-menu-close" id="wishlist-stage-menu-close" type="button">
+                        Close
+                      </button>
+                    </div>
+                  </details>
                   <div class="wishlist-floating-grid" id="wishlist-floating-grid"></div>
                 </div>
               </section>
@@ -437,7 +484,72 @@
                   <div class="wishlist-grid" id="iso-grid"></div>
                 </section>
               </div>
+              <section class="wishlist-bench" id="wishlist-bench" hidden>
+                <div class="wishlist-bench-header">
+                  <div>
+                    <p class="eyebrow">Bench</p>
+                    <h3>Saved off this board for later</h3>
+                  </div>
+                  <p class="wishlist-copy" id="wishlist-bench-copy">
+                    These Sonnies still stay in your ISO / DISO list.
+                  </p>
+                </div>
+                <div class="wishlist-bench-grid" id="wishlist-bench-grid"></div>
+              </section>
             </div>
+            <section class="ranker-flow" id="wishlist-ranker-flow" hidden>
+              <div class="ranker-shell">
+                <div class="maker-header ranker-header">
+                  <div>
+                    <p class="eyebrow">Wishlist ranker</p>
+                    <h3>Choose the Sonny you would rank higher</h3>
+                  </div>
+                  <div class="ranker-header-actions">
+                    <p class="wishlist-copy">
+                      Keep choosing between pairs and the app will build your ISO / DISO order for you.
+                    </p>
+                    <button class="ghost-button maker-toolbar-button" id="wishlist-ranker-close" type="button">
+                      Back to board
+                    </button>
+                  </div>
+                </div>
+                <div class="ranker-summary" id="wishlist-ranker-summary"></div>
+                <div class="ranker-stage" id="wishlist-ranker-stage">
+                  <button class="ranker-choice-card" id="wishlist-ranker-left" type="button">
+                    <div class="ranker-choice-art" id="wishlist-ranker-left-art"></div>
+                    <p class="ranker-choice-series" id="wishlist-ranker-left-series"></p>
+                    <h4 class="ranker-choice-name" id="wishlist-ranker-left-name"></h4>
+                    <span class="ranker-choice-status" id="wishlist-ranker-left-status"></span>
+                    <span class="ranker-choice-cta">Pick this Sonny</span>
+                  </button>
+                  <div class="ranker-center-actions">
+                    <button class="ghost-button ranker-action-button" id="wishlist-ranker-skip" type="button">
+                      Skip
+                    </button>
+                    <button class="ghost-button ranker-action-button" id="wishlist-ranker-too-tough" type="button">
+                      Too tough
+                    </button>
+                  </div>
+                  <button class="ranker-choice-card" id="wishlist-ranker-right" type="button">
+                    <div class="ranker-choice-art" id="wishlist-ranker-right-art"></div>
+                    <p class="ranker-choice-series" id="wishlist-ranker-right-series"></p>
+                    <h4 class="ranker-choice-name" id="wishlist-ranker-right-name"></h4>
+                    <span class="ranker-choice-status" id="wishlist-ranker-right-status"></span>
+                    <span class="ranker-choice-cta">Pick this Sonny</span>
+                  </button>
+                </div>
+                <section class="ranker-preview-card">
+                  <div class="ranker-preview-header">
+                    <div>
+                      <p class="eyebrow">Current order</p>
+                      <h4>Your ranking so far</h4>
+                    </div>
+                    <p class="ranker-preview-meta" id="wishlist-ranker-preview-meta"></p>
+                  </div>
+                  <ol class="ranker-preview-list" id="wishlist-ranker-preview"></ol>
+                </section>
+              </div>
+            </section>
             <section class="maker-flow" id="wishlist-maker-flow" hidden>
               <div class="maker-step" id="maker-selection-step">
                 <div class="maker-header">
@@ -487,6 +599,33 @@
                 <div class="maker-canvas-meta">
                   <p class="maker-selection-count" id="maker-canvas-count">0 Sonnies in layout</p>
                 </div>
+                <section class="maker-design-card maker-saved-card">
+                  <div class="maker-design-card-header">
+                    <div>
+                      <p class="eyebrow">Saved designs</p>
+                      <h4>Keep layouts and come back later</h4>
+                    </div>
+                    <p class="maker-design-copy">Save multiple ISO / DISO designs, reopen one later, and keep editing without losing the others.</p>
+                  </div>
+                  <div class="maker-saved-controls">
+                    <label class="search-field maker-layout-name-field">
+                      <span>Layout name</span>
+                      <input id="maker-layout-name" type="text" placeholder="Dream board 1" />
+                    </label>
+                    <div class="maker-toolbar-actions maker-saved-actions">
+                      <button class="ghost-button maker-toolbar-button" id="maker-save-new" type="button">
+                        Save as new
+                      </button>
+                      <button class="ghost-button maker-toolbar-button" id="maker-save-current" type="button">
+                        Update saved
+                      </button>
+                      <button class="ghost-button maker-toolbar-button" id="maker-new-draft" type="button">
+                        New draft
+                      </button>
+                    </div>
+                  </div>
+                  <div class="maker-saved-list" id="maker-saved-list"></div>
+                </section>
                 <div class="maker-design-grid">
                   <section class="maker-design-card">
                     <div class="maker-design-card-header">
@@ -494,8 +633,8 @@
                         <p class="eyebrow">Background</p>
                         <h4>Choose the mood</h4>
                       </div>
-                      <p class="maker-design-copy">Placeholder scenes for now. We can swap these for custom backgrounds next.</p>
                     </div>
+                    <input id="maker-background-upload" type="file" accept="image/*" hidden />
                     <div class="maker-background-grid" id="maker-background-grid"></div>
                   </section>
 
@@ -713,14 +852,14 @@
             <div class="settings-header">
               <div>
                 <p class="eyebrow">Settings</p>
-                <h2>Tidy up your tracker view</h2>
+                <h2>Shape your tracker your way</h2>
               </div>
               <p class="wishlist-copy">
-                Hide series or individual Sonnies from the tracker without deleting any of your saved statuses.
+                Keep your account, collection details, and hidden items in one calm place.
               </p>
             </div>
 
-            <section class="settings-account-card" id="settings-account-card">
+            <section class="settings-account-card settings-surface settings-surface-feature" id="settings-account-card">
               <div class="settings-account-header">
                 <div>
                   <p class="eyebrow">Account Sync</p>
@@ -774,7 +913,7 @@
               </button>
             </section>
 
-            <section class="settings-subpanel is-active" data-settings-panel="hide">
+            <section class="settings-subpanel settings-surface is-active" data-settings-panel="hide">
               <div class="hide-manager">
                 <div class="hide-manager-controls">
                   <label class="search-field">
@@ -850,7 +989,7 @@
               </div>
             </section>
 
-            <section class="settings-subpanel" data-settings-panel="collection-fields">
+            <section class="settings-subpanel settings-surface" data-settings-panel="collection-fields">
               <div class="settings-fields-card">
                 <div class="hide-column-header">
                   <div>
@@ -902,7 +1041,7 @@
               </div>
             </section>
 
-            <section class="settings-danger-zone">
+            <section class="settings-danger-zone settings-surface">
               <div>
                 <p class="eyebrow">Saved Data</p>
                 <h3>Reset tracker progress</h3>
@@ -917,6 +1056,10 @@
           </section>
         </section>
       </main>
+
+      <button class="tracker-back-to-top" id="tracker-back-to-top" type="button" hidden>
+        Scroll back to top
+      </button>
 
       <section class="account-modal-shell" id="account-modal-shell" hidden>
         <div class="account-modal-backdrop" id="account-modal-backdrop"></div>
@@ -1383,11 +1526,11 @@
       </article>
     </template>
 
-    <script src="./app/data/sonnies.js?v=20260329-valentine-2015-order-fix"></script>
+    <script src="./app/data/sonnies.js?v=20260330-page76-78-order-fix"></script>
     <script src="./app/data/sonny_image_map.js?v=20260317-manual-art-4"></script>
-    <script src="./app/data/manual_overrides.js?v=20260329-valentine-2015-fix"></script>
+    <script src="./app/data/manual_overrides.js?v=20260330-francfranc-christmas-secret-fix"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./app/supabase-config.js?v=20260328-wishlist-copy-trim"></script>
-    <script src="./app/app.js?v=20260329-tracker-default-six-desktop"></script>
+    <script src="./app/app.js?v=20260330-tracker-back-to-top" ></script>
   </body>
 </html>

@@ -15,6 +15,11 @@ const STATUS_RANK = {
   missing: 3,
 };
 
+const WISHLIST_RANKER_BASE_SCORE = 1000;
+const WISHLIST_RANKER_DISO_BONUS = 36;
+const WISHLIST_RANKER_ELO_K = 28;
+const WISHLIST_RANKER_TIE_K = 14;
+
 const SPECIAL_TRACKER_SERIES_FILTERS = [
   { value: "__secrets__", label: "Secrets only" },
   { value: "__robbys__", label: "Robbys only" },
@@ -38,6 +43,7 @@ const saveStatusCopy = document.querySelector("#save-status-copy");
 const accountMenuWrap = document.querySelector("#account-menu-wrap");
 const mobileNavWrap = document.querySelector("#mobile-nav-wrap");
 const mobileNavTrigger = document.querySelector("#mobile-nav-trigger");
+const appHeader = document.querySelector(".app-header");
 const accountTrigger = document.querySelector("#account-trigger");
 const accountTriggerAvatar = document.querySelector("#account-trigger-avatar");
 const accountTriggerLabel = document.querySelector("#account-trigger-label");
@@ -115,22 +121,35 @@ const disoGrid = document.querySelector("#diso-grid");
 const isoCount = document.querySelector("#iso-count");
 const disoCount = document.querySelector("#diso-count");
 const wishlistBoardView = document.querySelector("#wishlist-board-view");
+const wishlistRankerFlow = document.querySelector("#wishlist-ranker-flow");
 const wishlistMakerFlow = document.querySelector("#wishlist-maker-flow");
+const openWishlistRankerButton = document.querySelector("#open-wishlist-ranker");
 const openIsoMakerButton = document.querySelector("#open-iso-maker");
 const wishlistLanding = document.querySelector("#wishlist-landing");
 const wishlistLandingSummary = document.querySelector("#wishlist-landing-summary");
 const wishlistLandingStage = document.querySelector(".wishlist-landing-stage");
+const wishlistStageMenu = document.querySelector(".wishlist-stage-menu");
+const wishlistStageMenuClose = document.querySelector("#wishlist-stage-menu-close");
 const wishlistControlsMenu = document.querySelector(".wishlist-controls-menu");
 const wishlistControlsTrigger = document.querySelector(".wishlist-controls-trigger");
 const wishlistFloatingGrid = document.querySelector("#wishlist-floating-grid");
+const wishlistTitleEditor = document.querySelector("#wishlist-title-editor");
+const wishlistLandingTitle = document.querySelector("#wishlist-landing-title");
+const wishlistTitleEditButton = document.querySelector("#wishlist-title-edit");
+const wishlistTitleTextInput = document.querySelector("#wishlist-title-text");
+const wishlistTitleFontSelect = document.querySelector("#wishlist-title-font");
 const wishlistLayoutEditButton = document.querySelector("#wishlist-layout-edit");
 const wishlistLayoutResetButton = document.querySelector("#wishlist-layout-reset");
 const wishlistLegendEditButton = document.querySelector("#wishlist-legend-edit");
+const wishlistRankerOpenButton = document.querySelector("#wishlist-ranker-open");
 const wishlistLandingLegend = document.querySelector("#wishlist-landing-legend");
 const wishlistLegendEditor = document.querySelector("#wishlist-legend-editor");
 const wishlistLegendEditorList = document.querySelector("#wishlist-legend-editor-list");
 const wishlistLegendAddButton = document.querySelector("#wishlist-legend-add");
 const wishlistGridViewButton = document.querySelector("#wishlist-grid-view");
+const wishlistBench = document.querySelector("#wishlist-bench");
+const wishlistBenchGrid = document.querySelector("#wishlist-bench-grid");
+const wishlistBenchCopy = document.querySelector("#wishlist-bench-copy");
 const wishlistSearch = document.querySelector("#wishlist-search");
 const wishlistStatusFilter = document.querySelector("#wishlist-status-filter");
 const wishlistSeriesFilter = document.querySelector("#wishlist-series-filter");
@@ -139,6 +158,23 @@ const wishlistGridLayout = document.querySelector("#wishlist-grid-layout");
 const wishlistGridViewSection = document.querySelector("#wishlist-grid-view-section");
 const isoColumn = document.querySelector("#iso-column");
 const disoColumn = document.querySelector("#diso-column");
+const wishlistRankerCloseButton = document.querySelector("#wishlist-ranker-close");
+const wishlistRankerSummary = document.querySelector("#wishlist-ranker-summary");
+const wishlistRankerStage = document.querySelector("#wishlist-ranker-stage");
+const wishlistRankerLeftButton = document.querySelector("#wishlist-ranker-left");
+const wishlistRankerLeftArt = document.querySelector("#wishlist-ranker-left-art");
+const wishlistRankerLeftSeries = document.querySelector("#wishlist-ranker-left-series");
+const wishlistRankerLeftName = document.querySelector("#wishlist-ranker-left-name");
+const wishlistRankerLeftStatus = document.querySelector("#wishlist-ranker-left-status");
+const wishlistRankerRightButton = document.querySelector("#wishlist-ranker-right");
+const wishlistRankerRightArt = document.querySelector("#wishlist-ranker-right-art");
+const wishlistRankerRightSeries = document.querySelector("#wishlist-ranker-right-series");
+const wishlistRankerRightName = document.querySelector("#wishlist-ranker-right-name");
+const wishlistRankerRightStatus = document.querySelector("#wishlist-ranker-right-status");
+const wishlistRankerSkipButton = document.querySelector("#wishlist-ranker-skip");
+const wishlistRankerTooToughButton = document.querySelector("#wishlist-ranker-too-tough");
+const wishlistRankerPreviewMeta = document.querySelector("#wishlist-ranker-preview-meta");
+const wishlistRankerPreview = document.querySelector("#wishlist-ranker-preview");
 const makerSelectionStep = document.querySelector("#maker-selection-step");
 const makerCanvasStep = document.querySelector("#maker-canvas-step");
 const makerPickerGrid = document.querySelector("#maker-picker-grid");
@@ -146,6 +182,7 @@ const makerSelectionCount = document.querySelector("#maker-selection-count");
 const makerCanvasCount = document.querySelector("#maker-canvas-count");
 const makerCanvas = document.querySelector("#maker-canvas");
 const makerBackgroundGrid = document.querySelector("#maker-background-grid");
+const makerBackgroundUploadInput = document.querySelector("#maker-background-upload");
 const makerColumnsDownButton = document.querySelector("#maker-columns-down");
 const makerColumnsUpButton = document.querySelector("#maker-columns-up");
 const makerColumnsValue = document.querySelector("#maker-columns-value");
@@ -166,6 +203,11 @@ const makerCustomLabelNameInput = document.querySelector("#maker-custom-label-na
 const makerCustomEmojiInput = document.querySelector("#maker-custom-emoji");
 const makerOrderNote = document.querySelector("#maker-order-note");
 const makerArrangementList = document.querySelector("#maker-arrangement-list");
+const makerLayoutNameInput = document.querySelector("#maker-layout-name");
+const makerSaveNewButton = document.querySelector("#maker-save-new");
+const makerSaveCurrentButton = document.querySelector("#maker-save-current");
+const makerNewDraftButton = document.querySelector("#maker-new-draft");
+const makerSavedList = document.querySelector("#maker-saved-list");
 const makerSelectAllButton = document.querySelector("#maker-select-all");
 const makerClearAllButton = document.querySelector("#maker-clear-all");
 const makerBuildButton = document.querySelector("#maker-build");
@@ -200,6 +242,7 @@ const trackerStockDisplayMode = document.querySelector("#tracker-stock-display-m
 const trackerStockCardDensity = document.querySelector("#tracker-stock-card-density");
 const trackerStockResultsCount = document.querySelector("#tracker-stock-results-count");
 const trackerStockGrid = document.querySelector("#tracker-stock-grid");
+const trackerBackToTopButton = document.querySelector("#tracker-back-to-top");
 const hideSearchInput = document.querySelector("#hide-search-input");
 const hideSeriesList = document.querySelector("#hide-series-list");
 const hideSonniesList = document.querySelector("#hide-sonnies-list");
@@ -270,6 +313,18 @@ const DEFAULT_WISHLIST_LEGEND_ITEMS = [
   { id: "low-prio", emoji: "★", label: "Low prio", tone: "buy" },
 ];
 
+const DEFAULT_WISHLIST_TITLE_TEXT = "ISO / DISO";
+const DEFAULT_WISHLIST_TITLE_FONT = "fraunces";
+const WISHLIST_TITLE_FONTS = ["fraunces", "manrope", "georgia", "didot"];
+
+const MAKER_CANVAS_PADDING_PX = 36;
+const MAKER_CANVAS_GAP_PX = 12;
+const MAKER_CANVAS_MIN_CARD_WIDTH_PX = 76;
+const MAKER_CANVAS_MIN_CARD_HEIGHT_PX = 94;
+const MAKER_CANVAS_EMOJI_LEGEND_PX = 58;
+const MAKER_CANVAS_SECTION_TITLE_PX = 72;
+const MAKER_CANVAS_SECTION_BREAK_PX = 48;
+
 function isLegacyWishlistLegend(items) {
   if (!Array.isArray(items)) {
     return false;
@@ -306,28 +361,212 @@ function normalizeWishlistLegendItems(items) {
     }));
 }
 
+function normalizeWishlistBoardItemStates(states) {
+  if (!states || typeof states !== "object") {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(states)
+      .filter(([id, value]) => typeof id === "string" && value && typeof value === "object")
+      .map(([id, value]) => [
+        id,
+        {
+          benched: Boolean(value.benched),
+          legendId:
+            typeof value.legendId === "string" && value.legendId.trim()
+              ? value.legendId.trim()
+              : "",
+        },
+      ]),
+  );
+}
+
+function normalizeWishlistTitleText(value) {
+  if (typeof value !== "string") {
+    return DEFAULT_WISHLIST_TITLE_TEXT;
+  }
+
+  const trimmed = value.trim();
+  return trimmed || DEFAULT_WISHLIST_TITLE_TEXT;
+}
+
+function normalizeWishlistTitleFont(value) {
+  return WISHLIST_TITLE_FONTS.includes(String(value)) ? String(value) : DEFAULT_WISHLIST_TITLE_FONT;
+}
+
+function normalizeWishlistMakerLayouts(layouts) {
+  if (!Array.isArray(layouts)) {
+    return [];
+  }
+
+  return layouts
+    .filter((layout) => layout && typeof layout === "object")
+    .map((layout, index) => ({
+      id:
+        typeof layout.id === "string" && layout.id
+          ? layout.id
+          : `maker-layout-${index + 1}`,
+      name:
+        typeof layout.name === "string" && layout.name.trim()
+          ? layout.name.trim()
+          : `Dream board ${index + 1}`,
+      savedAt:
+        typeof layout.savedAt === "string" && layout.savedAt
+          ? layout.savedAt
+          : new Date().toISOString(),
+      draftSelection: Array.isArray(layout.draftSelection)
+        ? layout.draftSelection.filter((entry) => typeof entry === "string")
+        : [],
+      appliedSelection: Array.isArray(layout.appliedSelection)
+        ? layout.appliedSelection.filter((entry) => typeof entry === "string")
+        : [],
+      background:
+        typeof layout.background === "string" &&
+        (MAKER_BACKGROUNDS.some((background) => background.id === layout.background) ||
+          layout.background === "custom")
+          ? layout.background
+          : "blush",
+      customBackgroundDataUrl:
+        typeof layout.customBackgroundDataUrl === "string" ? layout.customBackgroundDataUrl : "",
+      customBackgroundName:
+        typeof layout.customBackgroundName === "string" ? layout.customBackgroundName : "",
+      columns:
+        Number.isFinite(Number(layout.columns)) &&
+        Number(layout.columns) >= 1 &&
+        Number(layout.columns) <= 10
+          ? Math.round(Number(layout.columns))
+          : 4,
+      orderMode:
+        ["custom", "rank-asc", "iso-first", "wanted", "name-asc", "series-asc"].includes(String(layout.orderMode))
+          ? String(layout.orderMode)
+          : "custom",
+      canvasWidthInches:
+        Number.isFinite(Number(layout.canvasWidthInches)) &&
+        Number(layout.canvasWidthInches) >= 1 &&
+        Number(layout.canvasWidthInches) <= 20
+          ? Math.round(Number(layout.canvasWidthInches))
+          : 8,
+      canvasHeightInches:
+        Number.isFinite(Number(layout.canvasHeightInches)) &&
+        Number(layout.canvasHeightInches) >= 1 &&
+        Number(layout.canvasHeightInches) <= 20
+          ? Math.round(Number(layout.canvasHeightInches))
+          : 10,
+      labelStyle:
+        ["none", "section-labels", "emoji-code"].includes(String(layout.labelStyle))
+          ? String(layout.labelStyle)
+          : "none",
+      isoEmoji:
+        typeof layout.isoEmoji === "string" && layout.isoEmoji.trim() ? layout.isoEmoji.trim().slice(0, 4) : "💙",
+      disoEmoji:
+        typeof layout.disoEmoji === "string" && layout.disoEmoji.trim() ? layout.disoEmoji.trim().slice(0, 4) : "💗",
+      customCodeEnabled: Boolean(layout.customCodeEnabled),
+      customLabelName:
+        typeof layout.customLabelName === "string" && layout.customLabelName.trim()
+          ? layout.customLabelName.trim()
+          : "On the way",
+      customEmoji:
+        typeof layout.customEmoji === "string" && layout.customEmoji.trim()
+          ? layout.customEmoji.trim().slice(0, 4)
+          : "✨",
+      customEmojiIds: Array.isArray(layout.customEmojiIds)
+        ? layout.customEmojiIds.filter((entry) => typeof entry === "string")
+        : [],
+    }));
+}
+
 function getWishlistLegendItem(id) {
   const items = normalizeWishlistLegendItems(settings.wishlistLegendItems);
   return items.find((item) => item.id === id) || DEFAULT_WISHLIST_LEGEND_ITEMS.find((item) => item.id === id) || null;
 }
 
+function getWishlistDefaultLegendId(id) {
+  return getStatus(id) === "diso" ? "diso" : "iso";
+}
+
+function getWishlistBoardItemState(id) {
+  return settings.wishlistBoardItemStates?.[id] || { benched: false, legendId: "" };
+}
+
+function getWishlistBoardLegendId(id) {
+  const state = getWishlistBoardItemState(id);
+  return getWishlistLegendItem(state.legendId)?.id || getWishlistDefaultLegendId(id);
+}
+
+function getWishlistBoardLegend(id) {
+  return getWishlistLegendItem(getWishlistBoardLegendId(id)) || getWishlistLegendItem(getWishlistDefaultLegendId(id));
+}
+
+function isWishlistBoardBenched(id) {
+  return Boolean(getWishlistBoardItemState(id).benched);
+}
+
+function saveWishlistBoardItemState(id, patch) {
+  settings.wishlistBoardItemStates = normalizeWishlistBoardItemStates({
+    ...(settings.wishlistBoardItemStates || {}),
+    [id]: {
+      ...getWishlistBoardItemState(id),
+      ...patch,
+    },
+  });
+  saveSettings();
+}
+
+function benchWishlistItem(id) {
+  saveWishlistBoardItemState(id, { benched: true });
+}
+
+function restoreWishlistBoardItem(id) {
+  saveWishlistBoardItemState(id, { benched: false });
+}
+
+function updateWishlistBoardLegend(id, legendId) {
+  saveWishlistBoardItemState(id, { legendId, benched: false });
+  if (legendId === "iso" || legendId === "diso") {
+    saveStatusChange(id, legendId);
+  }
+}
+
+function normalizeWishlistRankerScores(scores) {
+  if (!scores || typeof scores !== "object") {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(scores)
+      .filter(([id, value]) => typeof id === "string" && Number.isFinite(Number(value)))
+      .map(([id, value]) => [id, Number(value)]),
+  );
+}
+
+function normalizeWishlistRankerPairCounts(counts) {
+  if (!counts || typeof counts !== "object") {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(counts)
+      .filter(([key, value]) => typeof key === "string" && Number.isFinite(Number(value)) && Number(value) >= 0)
+      .map(([key, value]) => [key, Math.round(Number(value))]),
+  );
+}
+
 function getWishlistBadgeEmoji(status) {
-  if (status === "diso") {
-    return getWishlistLegendItem("diso")?.emoji || "♥";
-  }
-  if (status === "iso") {
-    return getWishlistLegendItem("iso")?.emoji || "✦";
-  }
-  return getWishlistLegendItem("low-prio")?.emoji || "★";
+  return getWishlistLegendItem(status)?.emoji || "✦";
 }
 
 let settings = loadSettings();
 let wishlistImmersedForced = false;
+let currentWishlistRankerPair = [];
 let activeWishlistDrag = null;
 let hideManagerView = "all";
 let makerDraftSelection = [];
 let makerAppliedSelection = [];
 let makerBackground = "blush";
+let makerCustomBackgroundDataUrl = "";
+let makerCustomBackgroundName = "";
+let makerCustomBackgroundJustUploaded = false;
 let makerColumns = 4;
 let makerOrderMode = "custom";
 let makerCanvasWidthInches = 8;
@@ -339,6 +578,8 @@ let makerCustomCodeEnabled = false;
 let makerCustomLabelName = "On the way";
 let makerCustomEmoji = "✨";
 let makerCustomEmojiIds = [];
+let makerActiveSavedLayoutId = "";
+let makerLayoutName = "Dream board 1";
 let expandedCollectedId = null;
 let expandedCollectedKey = null;
 let pendingCollectedCenterKey = null;
@@ -843,8 +1084,15 @@ function loadSettings() {
         parsed.wishlistFloatingPositions && typeof parsed.wishlistFloatingPositions === "object"
           ? parsed.wishlistFloatingPositions
           : {},
+      wishlistBoardItemStates: normalizeWishlistBoardItemStates(parsed.wishlistBoardItemStates),
       wishlistLegendItems: normalizeWishlistLegendItems(parsed.wishlistLegendItems),
+      wishlistRankerScores: normalizeWishlistRankerScores(parsed.wishlistRankerScores),
+      wishlistRankerPairCounts: normalizeWishlistRankerPairCounts(parsed.wishlistRankerPairCounts),
+      wishlistMakerLayouts: normalizeWishlistMakerLayouts(parsed.wishlistMakerLayouts),
+      wishlistLandingTitleText: normalizeWishlistTitleText(parsed.wishlistLandingTitleText),
+      wishlistLandingTitleFont: normalizeWishlistTitleFont(parsed.wishlistLandingTitleFont),
       wishlistLegendEditMode: Boolean(parsed.wishlistLegendEditMode),
+      wishlistTitleEditMode: Boolean(parsed.wishlistTitleEditMode),
       wishlistBoardMode:
         ["immersive", "grid"].includes(String(parsed.wishlistBoardMode))
           ? String(parsed.wishlistBoardMode)
@@ -884,8 +1132,15 @@ function loadSettings() {
       activeView: "tracker",
       wishlistLandingEditMode: false,
       wishlistFloatingPositions: {},
+      wishlistBoardItemStates: {},
       wishlistLegendItems: normalizeWishlistLegendItems([]),
+      wishlistRankerScores: {},
+      wishlistRankerPairCounts: {},
+      wishlistMakerLayouts: [],
+      wishlistLandingTitleText: DEFAULT_WISHLIST_TITLE_TEXT,
+      wishlistLandingTitleFont: DEFAULT_WISHLIST_TITLE_FONT,
       wishlistLegendEditMode: false,
+      wishlistTitleEditMode: false,
       wishlistBoardMode: "immersive",
       wishlistGridLayout: "split",
       collectionFieldVisibility: { ...DEFAULT_COLLECTION_FIELD_VISIBILITY },
@@ -3050,6 +3305,9 @@ function getBadges(item) {
   const override = getManualItemOverride(item);
   const name = (getCatalogName(item) || "").toLowerCase();
   const badges = [];
+  const customBadges = Array.isArray(override.badges)
+    ? override.badges.filter((badge) => typeof badge === "string" && badge.trim())
+    : [];
   if (override.isSecret || name.includes("secret") || likelySecretIds.has(item.id)) {
     badges.push("S");
   }
@@ -3057,6 +3315,7 @@ function getBadges(item) {
   if (!suppressRobby && (override.isRobby || name.includes("robby"))) {
     badges.push("R");
   }
+  badges.push(...customBadges);
   return badges;
 }
 
@@ -3136,7 +3395,11 @@ function renderBadges(container, item) {
   container.innerHTML = "";
   getBadges(item).forEach((badge) => {
     const chip = document.createElement("span");
-    chip.className = `mini-badge mini-badge-${badge.toLowerCase()}`;
+    const badgeKey = String(badge)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    chip.className = `mini-badge mini-badge-${badgeKey || "custom"}`;
     chip.textContent = badge;
     container.append(chip);
   });
@@ -3332,14 +3595,37 @@ function renderWishlistCard(item, container) {
   renderSeriesLabel(seriesName, item);
   name.textContent = displayName(item);
   renderBadges(badges, item);
+  const boardLegend = getWishlistBoardLegend(item.id);
 
   const removeButton = document.createElement("button");
   removeButton.type = "button";
   removeButton.className = "wishlist-remove-button";
-  removeButton.textContent = "Remove";
+  removeButton.textContent = "Bench";
   removeButton.addEventListener("click", () => {
-    removeFromWishlist(item.id);
+    benchWishlistItem(item.id);
+    renderWishlist();
   });
+
+  const boardTagField = document.createElement("label");
+  boardTagField.className = "wishlist-rank-field wishlist-board-tag-field";
+
+  const boardTagLabel = document.createElement("span");
+  boardTagLabel.textContent = "Board tag";
+
+  const boardTagSelect = document.createElement("select");
+  normalizeWishlistLegendItems(settings.wishlistLegendItems).forEach((legendItem) => {
+    const option = document.createElement("option");
+    option.value = legendItem.id;
+    option.textContent = legendItem.label;
+    option.selected = legendItem.id === boardLegend?.id;
+    boardTagSelect.append(option);
+  });
+  boardTagSelect.addEventListener("change", () => {
+    updateWishlistBoardLegend(item.id, boardTagSelect.value);
+    renderWishlist();
+  });
+
+  boardTagField.append(boardTagLabel, boardTagSelect);
 
   const rankField = document.createElement("label");
   rankField.className = "wishlist-rank-field";
@@ -3361,13 +3647,79 @@ function renderWishlistCard(item, container) {
   });
 
   rankField.append(rankLabel, rankInput);
-  details.append(removeButton, rankField);
+  details.append(boardTagField, removeButton, rankField);
   container.append(fragment);
 }
 
 function removeFromWishlist(id) {
   saveStatusChange(id, "missing");
   applyFilters();
+}
+
+function renderWishlistBench(items) {
+  if (!wishlistBench || !wishlistBenchGrid || !wishlistBenchCopy) {
+    return;
+  }
+
+  wishlistBenchGrid.innerHTML = "";
+  wishlistBench.hidden = !items.length;
+
+  if (!items.length) {
+    return;
+  }
+
+  wishlistBenchCopy.textContent = `${items.length} Sonny${items.length === 1 ? "" : "s"} are resting off this board right now.`;
+
+  items.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "wishlist-bench-card";
+
+    const art = document.createElement("div");
+    art.className = "wishlist-bench-art";
+    art.setAttribute("style", buildArtworkStyle(item));
+
+    const copy = document.createElement("div");
+    copy.className = "wishlist-bench-copy-card";
+
+    const title = document.createElement("strong");
+    title.textContent = displayName(item);
+
+    const meta = document.createElement("span");
+    meta.textContent = formatSeriesUiLabel(displaySeries(item));
+
+    copy.append(title, meta);
+
+    const controls = document.createElement("div");
+    controls.className = "wishlist-bench-controls";
+
+    const tagSelect = document.createElement("select");
+    tagSelect.className = "wishlist-bench-tag-select";
+    const currentLegendId = getWishlistBoardLegendId(item.id);
+    normalizeWishlistLegendItems(settings.wishlistLegendItems).forEach((legendItem) => {
+      const option = document.createElement("option");
+      option.value = legendItem.id;
+      option.textContent = legendItem.label;
+      option.selected = legendItem.id === currentLegendId;
+      tagSelect.append(option);
+    });
+    tagSelect.addEventListener("change", () => {
+      updateWishlistBoardLegend(item.id, tagSelect.value);
+      renderWishlist();
+    });
+
+    const restoreButton = document.createElement("button");
+    restoreButton.type = "button";
+    restoreButton.className = "ghost-button";
+    restoreButton.textContent = "Add back";
+    restoreButton.addEventListener("click", () => {
+      restoreWishlistBoardItem(item.id);
+      renderWishlist();
+    });
+
+    controls.append(tagSelect, restoreButton);
+    card.append(art, copy, controls);
+    wishlistBenchGrid.append(card);
+  });
 }
 
 function renderWishlistLanding(items) {
@@ -3378,10 +3730,12 @@ function renderWishlistLanding(items) {
   wishlistFloatingGrid.innerHTML = "";
   wishlistLanding.classList.toggle("is-editing", Boolean(settings.wishlistLandingEditMode));
   wishlistLanding.classList.toggle("is-editing-legend", Boolean(settings.wishlistLegendEditMode));
+  wishlistLanding.classList.toggle("is-editing-title", Boolean(settings.wishlistTitleEditMode));
   if (wishlistLayoutEditButton) {
     wishlistLayoutEditButton.textContent = settings.wishlistLandingEditMode ? "Done editing" : "Edit layout";
     wishlistLayoutEditButton.classList.toggle("is-active", Boolean(settings.wishlistLandingEditMode));
   }
+  renderWishlistLandingTitleEditor();
   if (wishlistLegendEditButton) {
     wishlistLegendEditButton.textContent = settings.wishlistLegendEditMode ? "Done legend" : "Edit legend";
     wishlistLegendEditButton.classList.toggle("is-active", Boolean(settings.wishlistLegendEditMode));
@@ -3393,14 +3747,14 @@ function renderWishlistLanding(items) {
   }
 
   wishlistLanding.hidden = false;
-  const isoCountValue = items.filter((item) => getStatus(item.id) === "iso").length;
-  const disoCountValue = items.filter((item) => getStatus(item.id) === "diso").length;
+  const benchedItems = items.filter((item) => isWishlistBoardBenched(item.id));
+  const floatingItems = items.filter((item) => !isWishlistBoardBenched(item.id));
 
   if (wishlistLandingSummary) {
-    wishlistLandingSummary.textContent = `${isoCountValue} ISO and ${disoCountValue} DISO Sonny${items.length === 1 ? "" : "s"} are floating here right now.`;
+    wishlistLandingSummary.textContent = `${floatingItems.length} Sonny${floatingItems.length === 1 ? "" : "s"} are floating here right now.`;
   }
 
-  const floatingItems = [...items]
+  const orderedFloatingItems = [...floatingItems]
     .sort((left, right) => {
       return (
         compareDateDesc(getWishlistAddedAt(left.id), getWishlistAddedAt(right.id)) ||
@@ -3409,12 +3763,12 @@ function renderWishlistLanding(items) {
       );
     });
 
-  const columns = Math.max(3, Math.min(6, Math.ceil(Math.sqrt(floatingItems.length / 1.35))));
-  const rowCount = Math.max(1, Math.ceil(floatingItems.length / columns));
+  const columns = Math.max(3, Math.min(6, Math.ceil(Math.sqrt(Math.max(orderedFloatingItems.length, 1) / 1.35))));
+  const rowCount = Math.max(1, Math.ceil(Math.max(orderedFloatingItems.length, 1) / columns));
   const topPadding = 160;
   const rowGap = 210;
   const bottomPadding = 160;
-  const maxCustomY = floatingItems.reduce((maxValue, item) => {
+  const maxCustomY = orderedFloatingItems.reduce((maxValue, item) => {
     const saved = settings.wishlistFloatingPositions?.[item.id];
     const numeric = Number(saved?.y || 0);
     return Number.isFinite(numeric) ? Math.max(maxValue, numeric) : maxValue;
@@ -3423,7 +3777,7 @@ function renderWishlistLanding(items) {
   wishlistLandingStage?.style.setProperty("--wishlist-stage-height", `${stageHeight}px`);
   wishlistFloatingGrid.style.setProperty("--wishlist-stage-height", `${stageHeight}px`);
 
-  floatingItems.forEach((item, index) => {
+  orderedFloatingItems.forEach((item, index) => {
     const row = Math.floor(index / columns);
     const column = index % columns;
     const xBase = ((column + 0.5) / columns) * 100;
@@ -3436,8 +3790,10 @@ function renderWishlistLanding(items) {
     const rotate = `${rotatePattern[index % rotatePattern.length]}deg`;
     const scale = String(scalePattern[index % scalePattern.length]);
     const saved = settings.wishlistFloatingPositions?.[item.id] || null;
+    const boardLegend = getWishlistBoardLegend(item.id);
     const floating = document.createElement("article");
-    floating.className = `wishlist-floating-item is-${getStatus(item.id)}`;
+    floating.className = "wishlist-floating-item";
+    floating.dataset.legendTone = boardLegend?.tone || "custom";
     floating.dataset.sonnyId = item.id;
     floating.style.setProperty("--float-x", saved?.x || x);
     floating.style.setProperty("--float-y", saved?.y || y);
@@ -3448,27 +3804,66 @@ function renderWishlistLanding(items) {
     art.className = "wishlist-floating-art";
     art.setAttribute("style", buildArtworkStyle(item));
 
-    const badge = document.createElement("span");
+    const badge = document.createElement("button");
+    badge.type = "button";
     badge.className = "wishlist-floating-badge";
-    badge.textContent = getWishlistBadgeEmoji(getStatus(item.id));
+    badge.textContent = boardLegend?.emoji || "✦";
+    badge.setAttribute("aria-label", `Change board tag for ${displayName(item)}`);
+    badge.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+    });
+    badge.addEventListener("click", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      floating.classList.toggle("is-controls-open");
+    });
 
     const removeButton = document.createElement("button");
     removeButton.type = "button";
     removeButton.className = "wishlist-floating-remove";
     removeButton.textContent = "×";
-    removeButton.setAttribute("aria-label", `Remove ${displayName(item)} from ISO / DISO`);
+    removeButton.setAttribute("aria-label", `Bench ${displayName(item)} from this board`);
     removeButton.addEventListener("pointerdown", (event) => {
       event.stopPropagation();
     });
     removeButton.addEventListener("click", (event) => {
       event.stopPropagation();
       event.preventDefault();
-      removeFromWishlist(item.id);
+      benchWishlistItem(item.id);
+      renderWishlist();
     });
 
     const chip = document.createElement("span");
     chip.className = "wishlist-floating-name";
     chip.textContent = displayName(item);
+
+    const controlsRow = document.createElement("div");
+    controlsRow.className = "wishlist-floating-controls";
+
+    const legendPicker = document.createElement("div");
+    legendPicker.className = "wishlist-floating-legend-picker";
+    normalizeWishlistLegendItems(settings.wishlistLegendItems).forEach((legendItem) => {
+      const legendButton = document.createElement("button");
+      legendButton.type = "button";
+      legendButton.className = `wishlist-floating-legend-option wishlist-floating-legend-option-${legendItem.tone}`;
+      if (legendItem.id === boardLegend?.id) {
+        legendButton.classList.add("is-active");
+      }
+      legendButton.textContent = legendItem.emoji;
+      legendButton.title = legendItem.label;
+      legendButton.setAttribute("aria-label", `Set ${displayName(item)} to ${legendItem.label}`);
+      legendButton.addEventListener("pointerdown", (event) => {
+        event.stopPropagation();
+      });
+      legendButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        updateWishlistBoardLegend(item.id, legendItem.id);
+        renderWishlist();
+      });
+      legendPicker.append(legendButton);
+    });
+    controlsRow.append(legendPicker, removeButton);
 
     if (settings.wishlistLandingEditMode) {
       const controls = document.createElement("div");
@@ -3511,7 +3906,7 @@ function renderWishlistLanding(items) {
       floating.append(controls);
     }
 
-    floating.append(art, badge, chip, removeButton);
+    floating.append(art, badge, chip, controlsRow);
     floating.addEventListener("pointerdown", startWishlistFloatingDrag);
     wishlistFloatingGrid.append(floating);
   });
@@ -3580,6 +3975,32 @@ function renderWishlistLegend() {
     row.append(emojiInput, labelInput, toneSelect, removeButton);
     wishlistLegendEditorList.append(row);
   });
+}
+
+function renderWishlistLandingTitleEditor() {
+  if (!wishlistLandingTitle || !wishlistTitleEditor || !wishlistTitleTextInput || !wishlistTitleFontSelect) {
+    return;
+  }
+
+  const titleText = normalizeWishlistTitleText(settings.wishlistLandingTitleText);
+  const titleFont = normalizeWishlistTitleFont(settings.wishlistLandingTitleFont);
+  settings.wishlistLandingTitleText = titleText;
+  settings.wishlistLandingTitleFont = titleFont;
+
+  wishlistLandingTitle.textContent = titleText;
+  wishlistLandingTitle.dataset.font = titleFont;
+  wishlistTitleEditor.hidden = !settings.wishlistTitleEditMode;
+
+  if (wishlistTitleTextInput.value !== titleText) {
+    wishlistTitleTextInput.value = titleText;
+  }
+  if (wishlistTitleFontSelect.value !== titleFont) {
+    wishlistTitleFontSelect.value = titleFont;
+  }
+  if (wishlistTitleEditButton) {
+    wishlistTitleEditButton.textContent = settings.wishlistTitleEditMode ? "Done title" : "Title";
+    wishlistTitleEditButton.classList.toggle("is-active", Boolean(settings.wishlistTitleEditMode));
+  }
 }
 
 function updateWishlistLegendItem(index, patch) {
@@ -3734,16 +4155,20 @@ function renderWishlist() {
     return matchesSearch && matchesSeries && matchesStatus;
   });
 
+  const benchedFilteredItems = filteredWishlistItems.filter((item) => isWishlistBoardBenched(item.id));
+  const activeFilteredWishlistItems = filteredWishlistItems.filter((item) => !isWishlistBoardBenched(item.id));
+
   const isoItems = sortItems(
-    filteredWishlistItems.filter((item) => getStatus(item.id) === "iso"),
+    activeFilteredWishlistItems.filter((item) => getStatus(item.id) === "iso"),
     sortMode,
   );
   const disoItems = sortItems(
-    filteredWishlistItems.filter((item) => getStatus(item.id) === "diso"),
+    activeFilteredWishlistItems.filter((item) => getStatus(item.id) === "diso"),
     sortMode,
   );
 
   renderWishlistLanding(filteredWishlistItems);
+  renderWishlistBench(sortItems(benchedFilteredItems, sortMode));
 
   const boardMode = settings.wishlistBoardMode || "immersive";
   if (wishlistBoardView) {
@@ -3796,6 +4221,7 @@ function renderWishlist() {
 
   reconcileMakerSelections();
   updateWishlistImmersiveState();
+  renderWishlistRanker();
 }
 
 function renderHideSeriesList(items, query) {
@@ -3928,8 +4354,495 @@ function getWishlistMakerItems() {
   );
 }
 
+function getWishlistRankerItems() {
+  return getWishlistMakerItems();
+}
+
+function buildWishlistRankerPairKey(leftId, rightId) {
+  return [leftId, rightId].sort().join("::");
+}
+
+function estimateWishlistRankerScore(item) {
+  const existingRank = getWishlistRank(item.id);
+  if (existingRank != null) {
+    return 1600 - existingRank * 16;
+  }
+
+  return WISHLIST_RANKER_BASE_SCORE + (getStatus(item.id) === "diso" ? WISHLIST_RANKER_DISO_BONUS : 0);
+}
+
+function ensureWishlistRankerState(items = getWishlistRankerItems()) {
+  const nextScores = normalizeWishlistRankerScores(settings.wishlistRankerScores);
+  let changed = false;
+
+  items.forEach((item) => {
+    if (!Number.isFinite(nextScores[item.id])) {
+      nextScores[item.id] = estimateWishlistRankerScore(item);
+      changed = true;
+    }
+  });
+
+  if (changed) {
+    settings.wishlistRankerScores = nextScores;
+    saveSettings();
+  }
+
+  return nextScores;
+}
+
+function getWishlistRankerScore(id) {
+  const scores = normalizeWishlistRankerScores(settings.wishlistRankerScores);
+  return Number.isFinite(scores[id]) ? scores[id] : null;
+}
+
+function getWishlistRankerComparisonTotal(items = getWishlistRankerItems()) {
+  const ids = new Set(items.map((item) => item.id));
+  const counts = normalizeWishlistRankerPairCounts(settings.wishlistRankerPairCounts);
+  return Object.entries(counts).reduce((sum, [key, value]) => {
+    const [leftId, rightId] = key.split("::");
+    if (!ids.has(leftId) || !ids.has(rightId)) {
+      return sum;
+    }
+    return sum + Number(value || 0);
+  }, 0);
+}
+
+function getWishlistRankerOrderedItems(items = getWishlistRankerItems()) {
+  const scores = ensureWishlistRankerState(items);
+  return [...items].sort((left, right) => {
+    const scoreDiff = (scores[right.id] || 0) - (scores[left.id] || 0);
+    return (
+      scoreDiff ||
+      compareText(labelForWishlistStatus(getStatus(left.id)), labelForWishlistStatus(getStatus(right.id))) ||
+      compareCatalogOrder(left, right) ||
+      compareText(displayName(left), displayName(right))
+    );
+  });
+}
+
+function applyWishlistRanksFromRanker(items = getWishlistRankerItems()) {
+  const ordered = getWishlistRankerOrderedItems(items);
+  const now = new Date().toISOString();
+
+  ordered.forEach((item, index) => {
+    const current = progress[item.id] && typeof progress[item.id] === "object" ? progress[item.id] : {};
+    progress[item.id] = {
+      ...current,
+      status: getStatus(item.id),
+      wishlistRank: String(index + 1),
+      wishlistAddedAt: current.wishlistAddedAt || now,
+    };
+  });
+
+  saveProgress();
+}
+
+function pickNextWishlistRankerPair(items = getWishlistRankerItems()) {
+  if (items.length < 2) {
+    return [];
+  }
+
+  const scores = ensureWishlistRankerState(items);
+  const counts = normalizeWishlistRankerPairCounts(settings.wishlistRankerPairCounts);
+  const ordered = getWishlistRankerOrderedItems(items);
+  const candidates = [];
+  const neighborWindow = ordered.length <= 8 ? ordered.length - 1 : 5;
+
+  ordered.forEach((leftItem, index) => {
+    for (let offset = 1; offset <= neighborWindow; offset += 1) {
+      const rightItem = ordered[index + offset];
+      if (!rightItem) {
+        break;
+      }
+      const pairKey = buildWishlistRankerPairKey(leftItem.id, rightItem.id);
+      const pairCount = counts[pairKey] || 0;
+      const scoreGap = Math.abs((scores[leftItem.id] || 0) - (scores[rightItem.id] || 0));
+      const candidateWeight =
+        pairCount * 1000 +
+        scoreGap +
+        offset * 14 +
+        Math.random() * 8;
+      candidates.push({
+        pairKey,
+        pairCount,
+        weight: candidateWeight,
+        items: [leftItem, rightItem],
+      });
+    }
+  });
+
+  if (!candidates.length) {
+    return ordered.slice(0, 2);
+  }
+
+  candidates.sort((left, right) => left.weight - right.weight);
+  return candidates[0].items;
+}
+
+function renderWishlistRankerChoice(button, item) {
+  if (!button) {
+    return;
+  }
+
+  const art = button.querySelector(".ranker-choice-art");
+  const series = button.querySelector(".ranker-choice-series");
+  const name = button.querySelector(".ranker-choice-name");
+  const status = button.querySelector(".ranker-choice-status");
+
+  if (!item) {
+    button.disabled = true;
+    button.hidden = true;
+    return;
+  }
+
+  button.hidden = false;
+  button.disabled = false;
+  if (art) {
+    art.setAttribute("style", buildArtworkStyle(item));
+  }
+  if (series) {
+    series.textContent = formatSeriesUiLabel(displaySeries(item));
+  }
+  if (name) {
+    name.textContent = displayName(item);
+  }
+  if (status) {
+    status.textContent = labelForWishlistStatus(getStatus(item.id));
+    status.dataset.status = getStatus(item.id);
+  }
+}
+
+function renderWishlistRanker() {
+  if (!wishlistRankerFlow || wishlistRankerFlow.hidden) {
+    return;
+  }
+
+  const items = getWishlistRankerItems();
+  const ordered = getWishlistRankerOrderedItems(items);
+  const [leftItem, rightItem] =
+    currentWishlistRankerPair.length === 2 &&
+    items.some((item) => item.id === currentWishlistRankerPair[0]?.id) &&
+    items.some((item) => item.id === currentWishlistRankerPair[1]?.id)
+      ? currentWishlistRankerPair
+      : pickNextWishlistRankerPair(items);
+
+  currentWishlistRankerPair = leftItem && rightItem ? [leftItem, rightItem] : [];
+
+  if (wishlistRankerSummary) {
+    if (items.length < 2) {
+      wishlistRankerSummary.textContent = items.length === 1
+        ? "Add at least one more ISO or DISO to start comparing pairs."
+        : "Add some ISO or DISO Sonnies first, then the ranker can start building your order.";
+    } else {
+      wishlistRankerSummary.textContent = `${items.length} Sonnies in the ranking pool · ${getWishlistRankerComparisonTotal(items)} pair decisions saved`;
+    }
+  }
+
+  if (wishlistRankerStage) {
+    wishlistRankerStage.classList.toggle("is-empty", items.length < 2);
+  }
+
+  renderWishlistRankerChoice(wishlistRankerLeftButton, leftItem);
+  renderWishlistRankerChoice(wishlistRankerRightButton, rightItem);
+
+  if (wishlistRankerSkipButton) {
+    wishlistRankerSkipButton.disabled = items.length < 2;
+  }
+  if (wishlistRankerTooToughButton) {
+    wishlistRankerTooToughButton.disabled = items.length < 2;
+  }
+
+  if (wishlistRankerPreviewMeta) {
+    const topCount = Math.min(ordered.length, 10);
+    wishlistRankerPreviewMeta.textContent = ordered.length
+      ? `Showing top ${topCount} of ${ordered.length}`
+      : "No ranked Sonnies yet";
+  }
+
+  if (wishlistRankerPreview) {
+    wishlistRankerPreview.innerHTML = "";
+    if (!ordered.length) {
+      wishlistRankerPreview.innerHTML = '<li class="wishlist-empty">No ISO or DISO Sonnies to rank yet.</li>';
+    } else {
+      ordered.slice(0, 10).forEach((item, index) => {
+        const row = document.createElement("li");
+        row.className = "ranker-preview-item";
+
+        const order = document.createElement("span");
+        order.className = "ranker-preview-order";
+        order.textContent = `${index + 1}.`;
+
+        const art = document.createElement("div");
+        art.className = "ranker-preview-art";
+        art.setAttribute("style", buildArtworkStyle(item));
+
+        const copy = document.createElement("div");
+        copy.className = "ranker-preview-copy";
+
+        const title = document.createElement("strong");
+        title.textContent = displayName(item);
+
+        const meta = document.createElement("span");
+        meta.textContent = `${labelForWishlistStatus(getStatus(item.id))} · ${formatSeriesUiLabel(displaySeries(item))}`;
+
+        copy.append(title, meta);
+        row.append(order, art, copy);
+        wishlistRankerPreview.append(row);
+      });
+    }
+  }
+}
+
+function advanceWishlistRanker(outcome) {
+  const items = getWishlistRankerItems();
+  if (items.length < 2 || currentWishlistRankerPair.length !== 2) {
+    renderWishlistRanker();
+    return;
+  }
+
+  const [leftItem, rightItem] = currentWishlistRankerPair;
+  const pairKey = buildWishlistRankerPairKey(leftItem.id, rightItem.id);
+  const nextScores = normalizeWishlistRankerScores(settings.wishlistRankerScores);
+  const nextCounts = normalizeWishlistRankerPairCounts(settings.wishlistRankerPairCounts);
+  const leftScore = Number.isFinite(nextScores[leftItem.id]) ? nextScores[leftItem.id] : estimateWishlistRankerScore(leftItem);
+  const rightScore = Number.isFinite(nextScores[rightItem.id]) ? nextScores[rightItem.id] : estimateWishlistRankerScore(rightItem);
+
+  nextCounts[pairKey] = (nextCounts[pairKey] || 0) + 1;
+
+  if (outcome === "left" || outcome === "right" || outcome === "tie") {
+    const expectedLeft = 1 / (1 + 10 ** ((rightScore - leftScore) / 400));
+    const expectedRight = 1 - expectedLeft;
+    const resultLeft = outcome === "left" ? 1 : outcome === "right" ? 0 : 0.5;
+    const resultRight = 1 - resultLeft;
+    const kValue = outcome === "tie" ? WISHLIST_RANKER_TIE_K : WISHLIST_RANKER_ELO_K;
+
+    nextScores[leftItem.id] = leftScore + kValue * (resultLeft - expectedLeft);
+    nextScores[rightItem.id] = rightScore + kValue * (resultRight - expectedRight);
+  }
+
+  settings.wishlistRankerScores = nextScores;
+  settings.wishlistRankerPairCounts = nextCounts;
+  saveSettings();
+  applyWishlistRanksFromRanker(items);
+  currentWishlistRankerPair = pickNextWishlistRankerPair(items);
+  renderWishlist();
+  renderWishlistRanker();
+}
+
+function openWishlistRanker() {
+  if (!wishlistBoardView || !wishlistRankerFlow) {
+    return;
+  }
+
+  wishlistBoardView.hidden = true;
+  wishlistMakerFlow.hidden = true;
+  wishlistRankerFlow.hidden = false;
+  currentWishlistRankerPair = [];
+  renderWishlistRanker();
+  wishlistRankerFlow.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeWishlistRanker() {
+  if (!wishlistBoardView || !wishlistRankerFlow) {
+    return;
+  }
+
+  wishlistRankerFlow.hidden = true;
+  wishlistMakerFlow.hidden = true;
+  wishlistBoardView.hidden = false;
+  currentWishlistRankerPair = [];
+  renderWishlist();
+  wishlistBoardView.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function getMakerItemsById() {
   return new Map(getWishlistMakerItems().map((item) => [item.id, item]));
+}
+
+function getSavedMakerLayouts() {
+  return normalizeWishlistMakerLayouts(settings.wishlistMakerLayouts);
+}
+
+function getNextMakerLayoutName() {
+  const existingNames = new Set(getSavedMakerLayouts().map((layout) => layout.name.toLowerCase()));
+  let index = 1;
+  while (existingNames.has(`dream board ${index}`)) {
+    index += 1;
+  }
+  return `Dream board ${index}`;
+}
+
+function snapshotMakerLayout() {
+  return {
+    draftSelection: [...makerDraftSelection],
+    appliedSelection: [...makerAppliedSelection],
+    background: makerBackground,
+    customBackgroundDataUrl: makerCustomBackgroundDataUrl,
+    customBackgroundName: makerCustomBackgroundName,
+    columns: makerColumns,
+    orderMode: makerOrderMode,
+    canvasWidthInches: makerCanvasWidthInches,
+    canvasHeightInches: makerCanvasHeightInches,
+    labelStyle: makerLabelStyle,
+    isoEmoji: makerIsoEmoji,
+    disoEmoji: makerDisoEmoji,
+    customCodeEnabled: makerCustomCodeEnabled,
+    customLabelName: makerCustomLabelName,
+    customEmoji: makerCustomEmoji,
+    customEmojiIds: [...makerCustomEmojiIds],
+  };
+}
+
+function updateMakerSavedLayoutControls() {
+  if (makerLayoutNameInput) {
+    makerLayoutNameInput.value = makerLayoutName;
+  }
+  if (makerSaveCurrentButton) {
+    makerSaveCurrentButton.disabled = !makerActiveSavedLayoutId;
+  }
+}
+
+function renderMakerSavedLayouts() {
+  updateMakerSavedLayoutControls();
+
+  if (!makerSavedList) {
+    return;
+  }
+
+  const layouts = getSavedMakerLayouts();
+  makerSavedList.innerHTML = "";
+
+  if (!layouts.length) {
+    makerSavedList.innerHTML = '<p class="wishlist-empty">No saved ISO / DISO designs yet. Save one here and you can reopen it later.</p>';
+    return;
+  }
+
+  layouts.forEach((layout) => {
+    const row = document.createElement("article");
+    row.className = "maker-saved-item";
+    row.classList.toggle("is-active", layout.id === makerActiveSavedLayoutId);
+
+    const copy = document.createElement("div");
+    copy.className = "maker-saved-copy";
+
+    const title = document.createElement("h5");
+    title.textContent = layout.name;
+
+    const meta = document.createElement("p");
+    const savedDate = new Date(layout.savedAt);
+    const savedLabel = Number.isNaN(savedDate.getTime())
+      ? "Saved recently"
+      : `Saved ${savedDate.toLocaleDateString(undefined, {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })}`;
+    meta.textContent = `${layout.appliedSelection.length || layout.draftSelection.length} Sonnies · ${layout.canvasWidthInches}x${layout.canvasHeightInches} · ${savedLabel}`;
+
+    copy.append(title, meta);
+
+    const actions = document.createElement("div");
+    actions.className = "maker-saved-actions-inline";
+
+    const openButton = document.createElement("button");
+    openButton.type = "button";
+    openButton.className = "ghost-button maker-saved-action";
+    openButton.textContent = layout.id === makerActiveSavedLayoutId ? "Open now" : "Open";
+    openButton.addEventListener("click", () => loadSavedMakerLayout(layout.id));
+
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "ghost-button maker-saved-action";
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", () => {
+      settings.wishlistMakerLayouts = getSavedMakerLayouts().filter((entry) => entry.id !== layout.id);
+      if (makerActiveSavedLayoutId === layout.id) {
+        makerActiveSavedLayoutId = "";
+        makerLayoutName = getNextMakerLayoutName();
+      }
+      saveSettings();
+      renderMakerSavedLayouts();
+    });
+
+    actions.append(openButton, deleteButton);
+    row.append(copy, actions);
+    makerSavedList.append(row);
+  });
+}
+
+function loadSavedMakerLayout(id) {
+  const layout = getSavedMakerLayouts().find((entry) => entry.id === id);
+  if (!layout) {
+    return;
+  }
+
+  makerActiveSavedLayoutId = layout.id;
+  makerLayoutName = layout.name;
+  makerDraftSelection = [...layout.draftSelection];
+  makerAppliedSelection = [...(layout.appliedSelection.length ? layout.appliedSelection : layout.draftSelection)];
+  makerBackground = layout.background;
+  makerCustomBackgroundDataUrl = layout.customBackgroundDataUrl;
+  makerCustomBackgroundName = layout.customBackgroundName;
+  makerColumns = layout.columns;
+  makerOrderMode = layout.orderMode;
+  makerCanvasWidthInches = layout.canvasWidthInches;
+  makerCanvasHeightInches = layout.canvasHeightInches;
+  makerLabelStyle = layout.labelStyle;
+  makerIsoEmoji = layout.isoEmoji;
+  makerDisoEmoji = layout.disoEmoji;
+  makerCustomCodeEnabled = layout.customCodeEnabled;
+  makerCustomLabelName = layout.customLabelName;
+  makerCustomEmoji = layout.customEmoji;
+  makerCustomEmojiIds = [...layout.customEmojiIds];
+
+  makerOrderSelect.value = makerOrderMode;
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
+  updateMakerLayoutControls();
+  wishlistBoardView.hidden = true;
+  wishlistMakerFlow.hidden = false;
+  makerSelectionStep.hidden = true;
+  makerCanvasStep.hidden = false;
+  renderMakerSavedLayouts();
+  renderMakerPicker();
+  renderMakerBackgroundOptions();
+  renderMakerArrangement();
+  renderMakerCanvas();
+}
+
+function saveCurrentMakerLayout(options = {}) {
+  const { asNew = false } = options;
+  const layouts = getSavedMakerLayouts();
+  const trimmedName = (makerLayoutNameInput?.value || makerLayoutName || "").trim() || getNextMakerLayoutName();
+  const snapshot = normalizeWishlistMakerLayouts([
+    {
+      id: !asNew && makerActiveSavedLayoutId ? makerActiveSavedLayoutId : crypto.randomUUID(),
+      name: trimmedName,
+      savedAt: new Date().toISOString(),
+      ...snapshotMakerLayout(),
+    },
+  ])[0];
+
+  const existingIndex = !asNew
+    ? layouts.findIndex((layout) => layout.id === makerActiveSavedLayoutId)
+    : -1;
+
+  if (existingIndex >= 0) {
+    layouts[existingIndex] = snapshot;
+  } else {
+    layouts.unshift(snapshot);
+  }
+
+  makerActiveSavedLayoutId = snapshot.id;
+  makerLayoutName = snapshot.name;
+  settings.wishlistMakerLayouts = layouts;
+  saveSettings();
+  renderMakerSavedLayouts();
+}
+
+function startNewMakerLayoutDraft() {
+  makerActiveSavedLayoutId = "";
+  makerLayoutName = getNextMakerLayoutName();
+  renderMakerSavedLayouts();
 }
 
 function makerBadgeEmojiForItem(item) {
@@ -4015,7 +4928,157 @@ function updateMakerLayoutControls() {
 
 function updateMakerSelectionCount() {
   const count = makerDraftSelection.length;
-  makerSelectionCount.textContent = `${count} selected`;
+  const maxCount = getMakerMaxSelectableCount(getWishlistMakerItems());
+  makerSelectionCount.textContent = `${count} selected · ${maxCount} fit on page`;
+}
+
+function getMakerSelectionCountsFromIds(selectionIds) {
+  let isoCount = 0;
+  let disoCount = 0;
+  const itemsById = getMakerItemsById();
+
+  selectionIds.forEach((id) => {
+    const item = itemsById.get(id);
+    if (!item) {
+      return;
+    }
+    if (getStatus(item.id) === "diso") {
+      disoCount += 1;
+      return;
+    }
+    isoCount += 1;
+  });
+
+  return {
+    totalCount: isoCount + disoCount,
+    isoCount,
+    disoCount,
+  };
+}
+
+function getMakerCanvasLayoutMetrics(counts) {
+  const columns = Math.max(1, makerColumns);
+  const canvasWidth = makerCanvasWidthInches * 96;
+  const canvasHeight = makerCanvasHeightInches * 96;
+  const contentWidth = Math.max(0, canvasWidth - MAKER_CANVAS_PADDING_PX);
+  const contentHeight = Math.max(0, canvasHeight - MAKER_CANVAS_PADDING_PX);
+  const cellWidth = Math.max(
+    0,
+    (contentWidth - MAKER_CANVAS_GAP_PX * Math.max(0, columns - 1)) / columns,
+  );
+
+  if (!counts.totalCount) {
+    return {
+      cellWidth,
+      cardHeight: Math.max(MAKER_CANVAS_MIN_CARD_HEIGHT_PX, cellWidth),
+      fits: cellWidth >= MAKER_CANVAS_MIN_CARD_WIDTH_PX,
+    };
+  }
+
+  let cardHeight = 0;
+
+  if (makerLabelStyle === "section-labels") {
+    const sectionCounts = [counts.disoCount, counts.isoCount].filter((value) => value > 0);
+    const totalRows = sectionCounts.reduce((sum, value) => sum + Math.ceil(value / columns), 0);
+    const totalGridGapHeight = sectionCounts.reduce((sum, value) => {
+      const rows = Math.ceil(value / columns);
+      return sum + Math.max(0, rows - 1) * MAKER_CANVAS_GAP_PX;
+    }, 0);
+    const sectionExtraHeight =
+      sectionCounts.length * MAKER_CANVAS_SECTION_TITLE_PX +
+      Math.max(0, sectionCounts.length - 1) * MAKER_CANVAS_SECTION_BREAK_PX;
+    const availableCardHeight = contentHeight - sectionExtraHeight - totalGridGapHeight;
+    cardHeight = totalRows > 0 ? availableCardHeight / totalRows : 0;
+  } else {
+    const rows = Math.ceil(counts.totalCount / columns);
+    const headerHeight = makerLabelStyle === "emoji-code" ? MAKER_CANVAS_EMOJI_LEGEND_PX : 0;
+    const totalGridGapHeight = Math.max(0, rows - 1) * MAKER_CANVAS_GAP_PX;
+    const availableCardHeight = contentHeight - headerHeight - totalGridGapHeight;
+    cardHeight = rows > 0 ? availableCardHeight / rows : 0;
+  }
+
+  return {
+    cellWidth,
+    cardHeight,
+    fits:
+      cellWidth >= MAKER_CANVAS_MIN_CARD_WIDTH_PX &&
+      cardHeight >= MAKER_CANVAS_MIN_CARD_HEIGHT_PX,
+  };
+}
+
+function doesMakerSelectionFit(selectionIds) {
+  return getMakerCanvasLayoutMetrics(getMakerSelectionCountsFromIds(selectionIds)).fits;
+}
+
+function getMakerSelectionIdsThatFit(selectionIds) {
+  const itemsById = getMakerItemsById();
+  const nextSelection = selectionIds.filter((id) => itemsById.has(id));
+
+  while (nextSelection.length && !doesMakerSelectionFit(nextSelection)) {
+    nextSelection.pop();
+  }
+
+  return nextSelection;
+}
+
+function getMakerMaxSelectableCount(items = getWishlistMakerItems()) {
+  const availableIso = items.filter((item) => getStatus(item.id) === "iso").length;
+  const availableDiso = items.length - availableIso;
+
+  for (let total = items.length; total >= 0; total -= 1) {
+    if (makerLabelStyle !== "section-labels") {
+      const counts = {
+        totalCount: total,
+        isoCount: Math.min(total, availableIso),
+        disoCount: Math.max(0, total - Math.min(total, availableIso)),
+      };
+      if (getMakerCanvasLayoutMetrics(counts).fits) {
+        return total;
+      }
+      continue;
+    }
+
+    const minDiso = Math.max(0, total - availableIso);
+    const maxDiso = Math.min(availableDiso, total);
+
+    for (let disoCount = minDiso; disoCount <= maxDiso; disoCount += 1) {
+      const isoCount = total - disoCount;
+      if (
+        getMakerCanvasLayoutMetrics({
+          totalCount: total,
+          isoCount,
+          disoCount,
+        }).fits
+      ) {
+        return total;
+      }
+    }
+  }
+
+  return 0;
+}
+
+function syncMakerSelectionCapacity(options = {}) {
+  const { syncDraftToApplied = false, syncDraftFromApplied = false } = options;
+
+  const nextDraft = getMakerSelectionIdsThatFit(makerDraftSelection);
+  if (nextDraft.length !== makerDraftSelection.length) {
+    makerDraftSelection = nextDraft;
+  }
+
+  if (syncDraftToApplied) {
+    makerAppliedSelection = [...makerDraftSelection];
+    return;
+  }
+
+  const nextApplied = getMakerSelectionIdsThatFit(makerAppliedSelection);
+  if (nextApplied.length !== makerAppliedSelection.length) {
+    makerAppliedSelection = nextApplied;
+  }
+
+  if (syncDraftFromApplied) {
+    makerDraftSelection = [...makerAppliedSelection];
+  }
 }
 
 function reconcileMakerSelections(options = {}) {
@@ -4026,6 +5089,7 @@ function reconcileMakerSelections(options = {}) {
     ? [...wantedIds]
     : makerDraftSelection.filter((id) => wantedIds.has(id));
   makerAppliedSelection = makerAppliedSelection.filter((id) => wantedIds.has(id));
+  syncMakerSelectionCapacity();
 
   updateMakerSelectionCount();
 
@@ -4038,26 +5102,32 @@ function reconcileMakerSelections(options = {}) {
 }
 
 function openWishlistMaker() {
-  makerDraftSelection = getWishlistMakerItems().map((item) => item.id);
-  makerAppliedSelection = [...makerDraftSelection];
   makerBackground = "blush";
   makerColumns = 4;
   makerOrderMode = "custom";
   makerCanvasWidthInches = 8;
   makerCanvasHeightInches = 10;
   makerLabelStyle = "none";
+  makerDraftSelection = getWishlistMakerItems().map((item) => item.id);
+  syncMakerSelectionCapacity({ syncDraftToApplied: true });
   makerIsoEmoji = "💙";
   makerDisoEmoji = "💗";
   makerCustomCodeEnabled = false;
   makerCustomLabelName = "On the way";
   makerCustomEmoji = "✨";
   makerCustomEmojiIds = [];
+  makerActiveSavedLayoutId = "";
+  makerLayoutName = getNextMakerLayoutName();
   makerOrderSelect.value = makerOrderMode;
   updateMakerLayoutControls();
   wishlistBoardView.hidden = true;
+  if (wishlistRankerFlow) {
+    wishlistRankerFlow.hidden = true;
+  }
   wishlistMakerFlow.hidden = false;
   makerSelectionStep.hidden = false;
   makerCanvasStep.hidden = true;
+  renderMakerSavedLayouts();
   renderMakerPicker();
   renderMakerCanvas();
 }
@@ -4072,8 +5142,10 @@ function closeWishlistMaker() {
 function showMakerCanvas() {
   makerAppliedSelection = [...makerDraftSelection];
   applyMakerOrdering();
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
   makerSelectionStep.hidden = true;
   makerCanvasStep.hidden = false;
+  renderMakerSavedLayouts();
   renderMakerBackgroundOptions();
   renderMakerArrangement();
   renderMakerCanvas();
@@ -4082,7 +5154,44 @@ function showMakerCanvas() {
 function showMakerSelection() {
   makerSelectionStep.hidden = false;
   makerCanvasStep.hidden = true;
+  renderMakerSavedLayouts();
   renderMakerPicker();
+}
+
+function escapeAttribute(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function triggerMakerBackgroundUpload() {
+  if (makerBackgroundUploadInput) {
+    makerBackgroundUploadInput.value = "";
+    makerBackgroundUploadInput.click();
+  }
+}
+
+function applyMakerCanvasBackground() {
+  if (!makerCanvas) {
+    return;
+  }
+
+  makerCanvas.dataset.background = makerBackground === "custom" ? "custom" : makerBackground;
+
+  if (makerBackground === "custom" && makerCustomBackgroundDataUrl) {
+    makerCanvas.style.backgroundImage = `url("${makerCustomBackgroundDataUrl}")`;
+    makerCanvas.style.backgroundSize = "cover";
+    makerCanvas.style.backgroundPosition = "center";
+    makerCanvas.style.backgroundRepeat = "no-repeat";
+    return;
+  }
+
+  makerCanvas.style.backgroundImage = "";
+  makerCanvas.style.backgroundSize = "";
+  makerCanvas.style.backgroundPosition = "";
+  makerCanvas.style.backgroundRepeat = "";
 }
 
 function renderMakerPicker() {
@@ -4131,10 +5240,17 @@ function renderMakerPicker() {
 
     function syncSelectionState() {
       const selected = input.checked;
+      const canIncludeMore = selected || doesMakerSelectionFit([...makerDraftSelection, item.id]);
       label.classList.toggle("is-selected", selected);
       label.classList.toggle("is-unselected", !selected);
+      label.classList.toggle("is-disabled", !selected && !canIncludeMore);
+      input.disabled = !selected && !canIncludeMore;
       marker.textContent = selected ? "Selected" : "Skipped";
-      selectionState.textContent = selected ? "Included in layout" : "Will not be included";
+      selectionState.textContent = selected
+        ? "Included in layout"
+        : canIncludeMore
+          ? "Will not be included"
+          : "Page is full at this size";
     }
 
     copy.append(series, name, statusPill);
@@ -4143,15 +5259,17 @@ function renderMakerPicker() {
 
     input.addEventListener("change", () => {
       if (input.checked) {
-        if (!makerDraftSelection.includes(item.id)) {
-          makerDraftSelection.push(item.id);
+        const nextSelection = [...makerDraftSelection, item.id];
+        if (!makerDraftSelection.includes(item.id) && doesMakerSelectionFit(nextSelection)) {
+          makerDraftSelection = nextSelection;
+        } else {
+          input.checked = false;
         }
       } else {
         makerDraftSelection = makerDraftSelection.filter((id) => id !== item.id);
       }
 
-      syncSelectionState();
-      updateMakerSelectionCount();
+      renderMakerPicker();
     });
 
     makerPickerGrid.append(label);
@@ -4179,6 +5297,69 @@ function renderMakerBackgroundOptions() {
     });
     makerBackgroundGrid.append(button);
   });
+
+  const customButton = document.createElement("div");
+  customButton.className = `maker-background-option maker-background-option-custom${
+    makerBackground === "custom" ? " is-selected" : ""
+  }`;
+
+  if (makerCustomBackgroundDataUrl) {
+    customButton.innerHTML = `
+      <button class="maker-background-select" type="button">
+        <div class="maker-background-preview maker-background-preview-image" style="background-image: url('${escapeAttribute(makerCustomBackgroundDataUrl)}')"></div>
+        <div>
+          <p class="maker-background-name">Your picture</p>
+          <p class="maker-background-description">${escapeAttribute(makerCustomBackgroundName || "Custom upload")}</p>
+        </div>
+      </button>
+      <div class="maker-background-custom-actions">
+        <button class="ghost-button maker-background-action" type="button" data-action="change">Change</button>
+        <button class="ghost-button maker-background-action" type="button" data-action="remove">Remove</button>
+      </div>
+    `;
+    customButton.querySelector(".maker-background-select")?.addEventListener("click", () => {
+      makerBackground = "custom";
+      renderMakerBackgroundOptions();
+      renderMakerCanvas();
+    });
+    customButton.querySelector('[data-action="change"]')?.addEventListener("click", () => {
+      triggerMakerBackgroundUpload();
+    });
+    customButton.querySelector('[data-action="remove"]')?.addEventListener("click", () => {
+      makerCustomBackgroundDataUrl = "";
+      makerCustomBackgroundName = "";
+      if (makerBackground === "custom") {
+        makerBackground = "blush";
+      }
+      if (makerBackgroundUploadInput) {
+        makerBackgroundUploadInput.value = "";
+      }
+      renderMakerBackgroundOptions();
+      renderMakerCanvas();
+    });
+  } else {
+    customButton.innerHTML = `
+      <button class="maker-background-select maker-background-select-empty" type="button">
+        <div class="maker-background-preview maker-background-preview-upload">
+          <span>+</span>
+        </div>
+        <div>
+          <p class="maker-background-name">Add your own</p>
+          <p class="maker-background-description">Upload a photo or graphic for the layout background.</p>
+        </div>
+      </button>
+    `;
+    customButton.querySelector(".maker-background-select")?.addEventListener("click", () => {
+      triggerMakerBackgroundUpload();
+    });
+  }
+
+  makerBackgroundGrid.append(customButton);
+
+  if (makerCustomBackgroundJustUploaded) {
+    makerCustomBackgroundJustUploaded = false;
+    customButton.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+  }
 }
 
 function renderMakerArrangement() {
@@ -4225,14 +5406,18 @@ function renderMakerArrangement() {
     const upButton = document.createElement("button");
     upButton.type = "button";
     upButton.className = "ghost-button maker-arrangement-button";
-    upButton.textContent = "Earlier";
+    upButton.textContent = "←";
+    upButton.setAttribute("aria-label", `Move ${displayName(item)} earlier`);
+    upButton.title = "Move earlier";
     upButton.disabled = makerOrderMode !== "custom" || index === 0;
     upButton.addEventListener("click", () => moveMakerSelection(item.id, -1));
 
     const downButton = document.createElement("button");
     downButton.type = "button";
     downButton.className = "ghost-button maker-arrangement-button";
-    downButton.textContent = "Later";
+    downButton.textContent = "→";
+    downButton.setAttribute("aria-label", `Move ${displayName(item)} later`);
+    downButton.title = "Move later";
     downButton.disabled = makerOrderMode !== "custom" || index === selectedItems.length - 1;
     downButton.addEventListener("click", () => moveMakerSelection(item.id, 1));
 
@@ -4299,14 +5484,18 @@ function getMakerSectionOrder(items) {
 }
 
 function renderMakerCanvas() {
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
   const itemsById = getMakerItemsById();
   const selectedItems = makerAppliedSelection
     .map((id) => itemsById.get(id))
     .filter(Boolean);
+  const selectedCounts = getMakerSelectionCountsFromIds(makerAppliedSelection);
+  const layoutMetrics = getMakerCanvasLayoutMetrics(selectedCounts);
+  const maxCount = getMakerMaxSelectableCount(getWishlistMakerItems());
 
   makerCanvasCount.textContent = `${selectedItems.length} Sonny${
     selectedItems.length === 1 ? "" : "s"
-  } in layout`;
+  } in layout · ${maxCount} max`;
   makerCanvas.innerHTML = "";
   makerCanvas.style.setProperty("--maker-columns", String(makerColumns));
   makerCanvas.style.setProperty("--maker-canvas-width", `${makerCanvasWidthInches * 96}px`);
@@ -4314,7 +5503,11 @@ function renderMakerCanvas() {
     "--maker-canvas-width-ratio",
     `${makerCanvasWidthInches} / ${makerCanvasHeightInches}`,
   );
-  makerCanvas.dataset.background = makerBackground;
+  makerCanvas.style.setProperty(
+    "--maker-card-height",
+    `${Math.max(layoutMetrics.cardHeight, MAKER_CANVAS_MIN_CARD_HEIGHT_PX)}px`,
+  );
+  applyMakerCanvasBackground();
   updateMakerLayoutControls();
 
   if (!selectedItems.length) {
@@ -5417,6 +6610,21 @@ function focusSeries(series) {
   seriesFilter.value = series;
   switchView("tracker");
   applyFilters();
+  window.requestAnimationFrame(() => {
+    const trackerMeta = document.querySelector('[data-panel="tracker"] .shelf-meta');
+    const target = trackerMeta || grid;
+    if (!target) {
+      return;
+    }
+
+    const header = document.querySelector(".app-header");
+    const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
+    const rect = target.getBoundingClientRect();
+    const absoluteTop = rect.top + window.scrollY;
+    const topPadding = 14;
+    const targetTop = Math.max(0, absoluteTop - headerBottom - topPadding);
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
+  });
 }
 
 function clearSeriesFocus() {
@@ -6420,7 +7628,35 @@ function switchView(view) {
   if (view === "stock") {
     renderStockPanel();
   }
+  updateTrackerBackToTopVisibility();
   requestAnimationFrame(updateWishlistImmersiveState);
+}
+
+function isTrackerViewActive() {
+  return document.querySelector('.view-panel[data-panel="tracker"]')?.classList.contains("is-active");
+}
+
+function updateTrackerBackToTopVisibility() {
+  if (!trackerBackToTopButton) {
+    return;
+  }
+
+  const shouldShow = isTrackerViewActive() && window.scrollY > 260;
+  trackerBackToTopButton.hidden = !shouldShow;
+  trackerBackToTopButton.classList.toggle("is-visible", shouldShow);
+}
+
+function scrollTrackerBackToTop() {
+  const trackerPanel = document.querySelector('.view-panel[data-panel="tracker"]');
+  const headerOffset = (appHeader?.getBoundingClientRect().height || 0) + 22;
+  const trackerTop = trackerPanel
+    ? window.scrollY + trackerPanel.getBoundingClientRect().top - headerOffset
+    : 0;
+
+  window.scrollTo({
+    top: Math.max(0, trackerTop),
+    behavior: "smooth",
+  });
 }
 
 function setMobileNavOpen(isOpen) {
@@ -6785,6 +8021,7 @@ async function init() {
   switchView(settings.activeView || "tracker");
   renderStockPanel();
   await initializeSupabaseAuth();
+  updateTrackerBackToTopVisibility();
 }
 
 searchInput.addEventListener("input", applyFilters);
@@ -6879,6 +8116,25 @@ wishlistLayoutResetButton?.addEventListener("click", () => {
   saveSettings();
   renderWishlist();
 });
+wishlistTitleEditButton?.addEventListener("click", () => {
+  settings.wishlistTitleEditMode = !settings.wishlistTitleEditMode;
+  saveSettings();
+  renderWishlistLandingTitleEditor();
+  if (settings.wishlistTitleEditMode) {
+    wishlistTitleTextInput?.focus();
+    wishlistTitleTextInput?.select();
+  }
+});
+wishlistTitleTextInput?.addEventListener("input", () => {
+  settings.wishlistLandingTitleText = normalizeWishlistTitleText(wishlistTitleTextInput.value);
+  saveSettings();
+  renderWishlistLandingTitleEditor();
+});
+wishlistTitleFontSelect?.addEventListener("change", () => {
+  settings.wishlistLandingTitleFont = normalizeWishlistTitleFont(wishlistTitleFontSelect.value);
+  saveSettings();
+  renderWishlistLandingTitleEditor();
+});
 wishlistLegendEditButton?.addEventListener("click", () => {
   settings.wishlistLegendEditMode = !settings.wishlistLegendEditMode;
   saveSettings();
@@ -6899,8 +8155,35 @@ wishlistLegendAddButton?.addEventListener("click", () => {
   saveSettings();
   renderWishlistLegend();
 });
+openWishlistRankerButton?.addEventListener("click", openWishlistRanker);
+wishlistRankerOpenButton?.addEventListener("click", openWishlistRanker);
+wishlistRankerCloseButton?.addEventListener("click", closeWishlistRanker);
+wishlistRankerLeftButton?.addEventListener("click", () => advanceWishlistRanker("left"));
+wishlistRankerRightButton?.addEventListener("click", () => advanceWishlistRanker("right"));
+wishlistRankerSkipButton?.addEventListener("click", () => advanceWishlistRanker("skip"));
+wishlistRankerTooToughButton?.addEventListener("click", () => advanceWishlistRanker("tie"));
 wishlistGridViewButton?.addEventListener("click", () => {
   switchWishlistBoardMode((settings.wishlistBoardMode || "immersive") === "grid" ? "immersive" : "grid");
+});
+makerBackgroundUploadInput?.addEventListener("change", () => {
+  const file = makerBackgroundUploadInput.files?.[0];
+  if (!file) {
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    if (typeof reader.result !== "string") {
+      return;
+    }
+    makerCustomBackgroundDataUrl = reader.result;
+    makerCustomBackgroundName = file.name;
+    makerCustomBackgroundJustUploaded = true;
+    makerBackground = "custom";
+    renderMakerBackgroundOptions();
+    renderMakerCanvas();
+  };
+  reader.readAsDataURL(file);
 });
 wishlistLandingStage?.addEventListener("pointermove", updateWishlistFloatingDragPosition);
 wishlistLandingStage?.addEventListener("pointerup", endWishlistFloatingDrag);
@@ -7278,6 +8561,8 @@ grid.addEventListener("mouseleave", () => {
 viewTabs.forEach((tab) => {
   tab.addEventListener("click", () => switchView(tab.dataset.view));
 });
+trackerBackToTopButton?.addEventListener("click", scrollTrackerBackToTop);
+window.addEventListener("scroll", updateTrackerBackToTopVisibility, { passive: true });
 hideViewButtons.forEach((button) => {
   button.addEventListener("click", () => setHideManagerView(button.dataset.hideView));
 });
@@ -7357,6 +8642,10 @@ wishlistControlsTrigger?.addEventListener("click", (event) => {
   const isOpen = wishlistControlsMenu?.classList.contains("is-open");
   setWishlistControlsOpen(!isOpen);
 });
+wishlistStageMenuClose?.addEventListener("click", (event) => {
+  event.preventDefault();
+  wishlistStageMenu?.removeAttribute("open");
+});
 document.addEventListener("click", (event) => {
   const signOutTrigger = event.target.closest("#auth-sign-out, #account-menu-sign-out");
   if (signOutTrigger) {
@@ -7386,6 +8675,16 @@ document.addEventListener("click", (event) => {
   if (wishlistControlsMenu && !wishlistControlsMenu.contains(event.target)) {
     setWishlistControlsOpen(false);
   }
+
+  if (wishlistStageMenu && !wishlistStageMenu.contains(event.target)) {
+    wishlistStageMenu.removeAttribute("open");
+  }
+
+  if (!event.target.closest(".wishlist-floating-item")) {
+    wishlistFloatingGrid?.querySelectorAll(".wishlist-floating-item.is-controls-open").forEach((item) => {
+      item.classList.remove("is-controls-open");
+    });
+  }
 });
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
@@ -7397,6 +8696,7 @@ document.addEventListener("keydown", (event) => {
     closeAccountModal();
     setMobileNavOpen(false);
     setWishlistControlsOpen(false);
+    wishlistStageMenu?.removeAttribute("open");
   }
 });
 window.addEventListener("focus", () => {
@@ -7410,6 +8710,7 @@ document.addEventListener("visibilitychange", () => {
 openIsoMakerButton?.addEventListener("click", openWishlistMaker);
 makerSelectAllButton?.addEventListener("click", () => {
   makerDraftSelection = getWishlistMakerItems().map((item) => item.id);
+  syncMakerSelectionCapacity();
   renderMakerPicker();
 });
 makerClearAllButton?.addEventListener("click", () => {
@@ -7422,26 +8723,44 @@ makerCloseButton?.addEventListener("click", closeWishlistMaker);
 makerCloseCanvasButton?.addEventListener("click", closeWishlistMaker);
 makerColumnsDownButton?.addEventListener("click", () => {
   makerColumns = Math.max(1, makerColumns - 1);
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
+  renderMakerPicker();
+  renderMakerArrangement();
   renderMakerCanvas();
 });
 makerColumnsUpButton?.addEventListener("click", () => {
   makerColumns = Math.min(10, makerColumns + 1);
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
+  renderMakerPicker();
+  renderMakerArrangement();
   renderMakerCanvas();
 });
 makerWidthDownButton?.addEventListener("click", () => {
   makerCanvasWidthInches = Math.max(1, makerCanvasWidthInches - 1);
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
+  renderMakerPicker();
+  renderMakerArrangement();
   renderMakerCanvas();
 });
 makerWidthUpButton?.addEventListener("click", () => {
   makerCanvasWidthInches = Math.min(20, makerCanvasWidthInches + 1);
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
+  renderMakerPicker();
+  renderMakerArrangement();
   renderMakerCanvas();
 });
 makerHeightDownButton?.addEventListener("click", () => {
   makerCanvasHeightInches = Math.max(1, makerCanvasHeightInches - 1);
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
+  renderMakerPicker();
+  renderMakerArrangement();
   renderMakerCanvas();
 });
 makerHeightUpButton?.addEventListener("click", () => {
   makerCanvasHeightInches = Math.min(20, makerCanvasHeightInches + 1);
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
+  renderMakerPicker();
+  renderMakerArrangement();
   renderMakerCanvas();
 });
 makerOrderSelect?.addEventListener("change", () => {
@@ -7452,7 +8771,9 @@ makerOrderSelect?.addEventListener("change", () => {
 });
 makerLabelStyleSelect?.addEventListener("change", () => {
   makerLabelStyle = makerLabelStyleSelect.value;
+  syncMakerSelectionCapacity({ syncDraftFromApplied: true });
   updateMakerLayoutControls();
+  renderMakerPicker();
   renderMakerArrangement();
   renderMakerCanvas();
 });
@@ -7480,6 +8801,19 @@ makerCustomLabelNameInput?.addEventListener("input", () => {
 makerCustomEmojiInput?.addEventListener("input", () => {
   makerCustomEmoji = makerCustomEmojiInput.value || "✨";
   renderMakerCanvas();
+});
+makerLayoutNameInput?.addEventListener("input", () => {
+  makerLayoutName = makerLayoutNameInput.value || "";
+  updateMakerSavedLayoutControls();
+});
+makerSaveNewButton?.addEventListener("click", () => {
+  saveCurrentMakerLayout({ asNew: true });
+});
+makerSaveCurrentButton?.addEventListener("click", () => {
+  saveCurrentMakerLayout();
+});
+makerNewDraftButton?.addEventListener("click", () => {
+  startNewMakerLayoutDraft();
 });
 authMagicLinkButton?.addEventListener("click", () => {
   sendMagicLink();

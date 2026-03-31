@@ -312,6 +312,167 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     });
   });
 
+  assign("page-54-07-chipmunk", {
+    isSecret: true,
+  });
+
+  assign("page-54-15-ufo", {
+    isSecret: true,
+  });
+
+  assign("page-55-07-humpty-dumpty", {
+    isSecret: true,
+  });
+
+  assign("page-56-09-happy-pink", {
+    isSecret: true,
+  });
+
+  assign("page-56-10-lucky-orange", {
+    badges: ["lucky"],
+  });
+
+  assign("page-56-12-lucky-purple", {
+    badges: ["lucky"],
+  });
+
+  assign("page-56-13-lucky-pink", {
+    badges: ["lucky"],
+  });
+
+  assign("page-57-09-doberman", {
+    isSecret: true,
+  });
+
+  assign("page-57-10-lucky-pomeranian-blue", {
+    badges: ["lucky"],
+  });
+
+  assign("page-57-11-lucky-pomeranian-orange", {
+    badges: ["lucky"],
+  });
+
+  assign("page-57-12-lucky-pomeranian-pink", {
+    badges: ["lucky"],
+  });
+
+  assign("page-58-07-movie-night-sonny-angel", {
+    isSecret: true,
+  });
+
+  assign("page-58-14-mint-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-59-07-friendship-work-with-robby-angel", {
+    isSecret: true,
+    isRobby: false,
+  });
+
+  assign("page-59-10-friendship-work-with-sonny-angel", {
+    isRobby: true,
+  });
+
+  assign("page-60-05-classical", {
+    isSecret: true,
+  });
+
+  assign("page-60-11-happy-little-bear", {
+    isSecret: true,
+  });
+
+  assign("page-61-06-golden-lucky-cat", {
+    isSecret: true,
+  });
+
+  assign("page-61-08-lucky-daruma-victory", {
+    badges: ["lucky"],
+  });
+
+  assign("page-61-09-lucky-daruma-great-blessing", {
+    badges: ["lucky"],
+  });
+
+  assign("page-61-10-lucky-daruma-love", {
+    badges: ["lucky"],
+  });
+
+  assign("page-61-11-lucky-daruma-good-luck", {
+    badges: ["lucky"],
+  });
+
+  assign("page-61-18-jeju-surfer", {
+    isSecret: true,
+  });
+
+  assign("page-62-13-ny-bull", {
+    isSecret: true,
+  });
+
+  assign("page-62-07-lantern-dragon", {
+    isSecret: true,
+  });
+
+  assign("page-62-22-i-heart-seoul", {
+    isSecret: true,
+  });
+
+  assign("page-63-07-pineapple-swimmer", {
+    isSecret: true,
+  });
+
+  assign("page-63-21-chipmunk", {
+    isSecret: true,
+  });
+
+  assign("page-64-13-kappa", {
+    isSecret: true,
+  });
+
+  assign("page-64-26-unicorn", {
+    isSecret: true,
+  });
+
+  assign("page-69-13-peanut", {
+    isSecret: true,
+  });
+
+  assign("page-70-14-potted-plant", {
+    isSecret: true,
+  });
+
+  assign("page-70-19-saun-nomini", {
+    isSecret: true,
+  });
+
+  assign("page-71-13-mini-marie-antoinette", {
+    isSecret: true,
+  });
+
+  assign("page-72-18-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-73-11-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-73-12-reindeer", {
+    isSecret: true,
+  });
+
+  assign("page-74-09-single-rose", {
+    isSecret: true,
+  });
+
+  assign("page-74-16-pass", {
+    isSecret: true,
+  });
+
+  assign("page-74-22-free-your-style", {
+    isSecret: true,
+  });
+
   [
     "page-22-03-round-balloon",
     "page-22-04-present-hug",
@@ -518,6 +679,255 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     catalogSortSlot: 5.5,
   });
 
+  assign("page-37-07-unicorn", {
+    isSecret: true,
+  });
+
+  assign("page-37-13-chocolate-toy-poodle", {
+    isSecret: true,
+  });
+
+  assign("page-37-19-chocolate-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-38-05-single-rose", {
+    isSecret: true,
+  });
+
+  assign("page-38-06-rose-bouquet", {
+    isSecret: true,
+  });
+
+  assign("page-38-12-teddy-bear", {
+    isSecret: true,
+  });
+
+  assign("page-38-13-sweet-kitty", {
+    isSecret: true,
+  });
+
+  assign("page-38-26-mint-chocolate", {
+    isSecret: true,
+  });
+
+  assign("page-38-27-mint-chocolate", {
+    isSecret: true,
+  });
+
+  assign("page-39-13-cats", {
+    isSecret: true,
+  });
+
+  assign("page-40-13-burry-designs-with", {
+    isSecret: true,
+  });
+
+  assign("page-39-08-easter-bunny", {
+    series: "Easter Series 2018",
+  });
+
+  assign("page-39-22-hatched-egg", {
+    series: "Easter Series 2018",
+  });
+
+  assign("page-40-15-koala-bunny", {
+    name: "Easter Cow",
+    series: "Easter Series 2018",
+  });
+
+  assign("page-39-11-easter-lamb", {
+    series: "Easter Series 2018",
+  });
+
+  assign("page-39-21-easter-bunny", {
+    series: "Easter Series 2018",
+    isSecret: true,
+  });
+
+  assign("page-39-09-hoiched-eada", {
+    name: "Hatched Egg",
+    series: "Easter Series 2018",
+    isSecret: true,
+  });
+
+  assign("page-40-18-robhy-hot-angel", {
+    name: "Paint Robby Angel",
+    series: "Easter Series 2018",
+  });
+
+  assign("page-40-28-easter-bunny-secret-2017", {
+    isSecret: true,
+  });
+
+  assign("page-40-29-egg-bonnet-secret-2017", {
+    isSecret: true,
+  });
+
+  assign("page-40-35-easter-bunny-secret-2016", {
+    isSecret: true,
+  });
+
+  assign("page-40-36-easter-egg-secret-2016", {
+    isSecret: true,
+  });
+
+  assign("page-40-01-robby-angel-eog", {
+    series: "Page 40 Review Queue",
+  });
+
+  assign("page-40-12-easter-agg", {
+    series: "Page 40 Review Queue",
+  });
+
+  assign("page-40-09-by-decorated-easter", {
+    series: "Page 40 Review Queue",
+  });
+
+  assign("page-40-19-rabbit", {
+    series: "Page 40 Review Queue",
+  });
+
+  assign("page-40-17-easter-bunny", {
+    series: "Page 40 Review Queue",
+  });
+
+  assign("page-40-16-easter", {
+    series: "Page 40 Review Queue",
+  });
+
+  assign("page-41-07-rabbit-pumpkin-orange", {
+    isSecret: true,
+  });
+
+  assign("page-41-08-rabbit-pumpkin-purple", {
+    isSecret: true,
+  });
+
+  assign("page-41-09-rabbit-pumpkin-green", {
+    isSecret: true,
+  });
+
+  assign("page-41-14-rabbit-pumpkin-pink", {
+    isSecret: true,
+  });
+
+  assign("page-42-05-witch", {
+    isSecret: true,
+  });
+
+  assign("page-42-06-ghost", {
+    isSecret: true,
+  });
+
+  assign("page-42-12-witch", {
+    isSecret: true,
+  });
+
+  assign("page-42-13-pumpkin", {
+    isSecret: true,
+  });
+
+  assign("page-42-15-vampire", {
+    isSecret: true,
+  });
+
+  assign("page-42-19-vampire", {
+    isSecret: true,
+  });
+
+  assign("page-42-26-ghost", {
+    isSecret: true,
+  });
+
+  assign("page-42-27-witch", {
+    isSecret: true,
+  });
+
+  assign("page-43-07-pumpkin", {
+    isSecret: true,
+  });
+
+  assign("page-43-08-ghost", {
+    isSecret: true,
+  });
+
+  assign("page-45-05-cherry", {
+    isSecret: true,
+  });
+
+  assign("page-45-11-cherry", {
+    isSecret: true,
+  });
+
+  assign("page-45-17-cherry", {
+    isSecret: true,
+  });
+
+  assign("page-46-07-bumblebee", {
+    isSecret: true,
+  });
+
+  assign("page-46-13-mexican-cactus", {
+    isSecret: true,
+  });
+
+  assign("page-46-14-pink-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-46-15-pink-monkey", {
+    isSecret: true,
+  });
+
+  assign("page-46-16-pink-mouse", {
+    isSecret: true,
+  });
+
+  assign("page-46-17-pink-parrot", {
+    isSecret: true,
+  });
+
+  assign("page-47-05-carrot", {
+    isSecret: true,
+  });
+
+  assign("page-47-10-ice", {
+    isSecret: true,
+  });
+
+  assign("page-47-17-caribbean-hat", {
+    isSecret: true,
+  });
+
+  assign("page-48-11-sailor", {
+    isSecret: true,
+  });
+
+  assign("page-49-11-white-swimwear", {
+    isSecret: true,
+  });
+
+  assign("page-50-13-lifeguard", {
+    isSecret: true,
+  });
+
+  assign("page-51-09-happiness", {
+    isSecret: true,
+  });
+
+  assign("page-52-11-dino-hatchling", {
+    isSecret: true,
+  });
+
+  assign("page-53-07-merry-go-round", {
+    isSecret: true,
+  });
+
+  assign("page-53-15-silk-hat-rabbit", {
+    isSecret: true,
+  });
+
   assign("page-31-26-wood-doll-santa", {
     isSecret: true,
   });
@@ -557,6 +967,16 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
       artLabel: parts[parts.length - 1].toUpperCase(),
       artSource: "generated-keychain",
     });
+  });
+
+  assign("page-52-11-dino-hatchling", {
+    artPath: "./app/assets/manual/dinosaur-2024-dino-hatchling-crop.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-52-12-egg-robby-angel", {
+    artPath: "./app/assets/manual/dinosaur-2024-egg-robby-crop.png",
+    artSource: "manual-upload",
   });
 
   return {

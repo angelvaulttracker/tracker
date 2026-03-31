@@ -92,6 +92,24 @@ create table if not exists public.activity_log (
 create index if not exists activity_log_user_created_idx
   on public.activity_log (user_id, created_at desc);
 
+create table if not exists public.bug_reports (
+  id uuid primary key default gen_random_uuid(),
+  reporter_user_id uuid references auth.users (id) on delete set null,
+  reporter_email text not null default '',
+  reporter_name text not null default '',
+  reporter_contact text not null default '',
+  description text not null default '',
+  page_url text not null default '',
+  site_url text not null default '',
+  active_view text not null default '',
+  user_agent text not null default '',
+  screenshot_urls jsonb not null default '[]'::jsonb,
+  created_at timestamptz not null default timezone('utc', now())
+);
+
+create index if not exists bug_reports_created_idx
+  on public.bug_reports (created_at desc);
+
 alter table public.profiles enable row level security;
 alter table public.collection_progress enable row level security;
 alter table public.stock_items enable row level security;
@@ -99,6 +117,21 @@ alter table public.fund_transactions enable row level security;
 alter table public.shipments enable row level security;
 alter table public.shipment_items enable row level security;
 alter table public.activity_log enable row level security;
+alter table public.bug_reports enable row level security;
+
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values (
+  'bug-report-images',
+  'bug-report-images',
+  true,
+  10485760,
+  array['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+)
+on conflict (id) do update
+set
+  public = excluded.public,
+  file_size_limit = excluded.file_size_limit,
+  allowed_mime_types = excluded.allowed_mime_types;
 
 drop policy if exists "Profiles are readable by owner" on public.profiles;
 create policy "Profiles are readable by owner"

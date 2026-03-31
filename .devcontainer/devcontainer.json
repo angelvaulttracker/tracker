@@ -1,0 +1,23 @@
+{
+  "name": "sonnies",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "forwardPorts": [
+    8000
+  ],
+  "portsAttributes": {
+    "8000": {
+      "label": "Sonny site preview",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.exclude": {
+          "**/.DS_Store": true
+        }
+      }
+    }
+  },
+  "postAttachCommand": "bash .devcontainer/start-preview.sh"
+}
