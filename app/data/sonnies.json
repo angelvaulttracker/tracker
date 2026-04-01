@@ -7085,35 +7085,9 @@
     }
   },
   {
-    "id": "page-39-10-easter-cow",
-    "name": "Bitter Chocolate Cow",
-    "series": "Valentine's Day Series 2013/ Chocolate Series",
-    "page": 39,
-    "image": {
-      "page": "./assets/pages/page-039.png",
-      "pageWidth": 1341,
-      "pageHeight": 964,
-      "x": 1002,
-      "y": 178
-    }
-  },
-  {
-    "id": "page-39-02-mocha-porakest",
-    "name": "Mocha Chocolate Parakeet",
-    "series": "Valentine's Day Series 2013/ Chocolate Series",
-    "page": 39,
-    "image": {
-      "page": "./assets/pages/page-039.png",
-      "pageWidth": 1341,
-      "pageHeight": 964,
-      "x": 60,
-      "y": 101
-    }
-  },
-  {
     "id": "page-39-01-panda",
     "name": "White Chocolate Panda",
-    "series": "Valentine's Day Series 2013/ Chocolate Series",
+    "series": "Valentine's Day Series 2013 / Chocolate Series",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7124,35 +7098,22 @@
     }
   },
   {
-    "id": "page-39-06-checelate",
-    "name": "Strawberry Chocolate Lop Ear Rabbit",
-    "series": "Valentine's Day Series 2013/ Chocolate Series",
+    "id": "page-39-02-mocha-porakest",
+    "name": "Mocha Chocolate Parakeet",
+    "series": "Valentine's Day Series 2013 / Chocolate Series",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
       "pageWidth": 1341,
       "pageHeight": 964,
-      "x": 247,
-      "y": 114
-    }
-  },
-  {
-    "id": "page-39-17-love",
-    "name": "Green Tea Chocolate Tiger",
-    "series": "Valentine's Day Series 2013/ Chocolate Series",
-    "page": 39,
-    "image": {
-      "page": "./assets/pages/page-039.png",
-      "pageWidth": 1341,
-      "pageHeight": 964,
-      "x": 0,
-      "y": 541
+      "x": 60,
+      "y": 101
     }
   },
   {
     "id": "page-39-04-choceiata",
     "name": "Milk Chocolate Zebra",
-    "series": "Valentine's Day Series 2013/ Chocolate Series",
+    "series": "Valentine's Day Series 2013 / Chocolate Series",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
@@ -7163,9 +7124,48 @@
     }
   },
   {
+    "id": "page-39-06-checelate",
+    "name": "Strawberry Chocolate Lop Ear Rabbit",
+    "series": "Valentine's Day Series 2013 / Chocolate Series",
+    "page": 39,
+    "image": {
+      "page": "./assets/pages/page-039.png",
+      "pageWidth": 1341,
+      "pageHeight": 964,
+      "x": 247,
+      "y": 114
+    }
+  },
+  {
+    "id": "page-39-10-easter-cow",
+    "name": "Bitter Chocolate Cow",
+    "series": "Valentine's Day Series 2013 / Chocolate Series",
+    "page": 39,
+    "image": {
+      "page": "./assets/pages/page-039.png",
+      "pageWidth": 1341,
+      "pageHeight": 964,
+      "x": 1002,
+      "y": 178
+    }
+  },
+  {
+    "id": "page-39-17-love",
+    "name": "Green Tea Chocolate Tiger",
+    "series": "Valentine's Day Series 2013 / Chocolate Series",
+    "page": 39,
+    "image": {
+      "page": "./assets/pages/page-039.png",
+      "pageWidth": 1341,
+      "pageHeight": 964,
+      "x": 0,
+      "y": 541
+    }
+  },
+  {
     "id": "page-39-13-cats",
-    "name": "Golden Cheetah",
-    "series": "Valentine's Day Series 2013/ Chocolate Series",
+    "name": "Golden Chocolate Cheetah",
+    "series": "Valentine's Day Series 2013 / Chocolate Series",
     "page": 39,
     "image": {
       "page": "./assets/pages/page-039.png",
