@@ -956,6 +956,50 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     name: "Pierrot Robby Angel",
   });
 
+  assign("page-96-07-strawberry-jam", {
+    isSecret: true,
+  });
+
+  assign("page-97-13-honey-bee", {
+    isSecret: true,
+  });
+
+  assign("page-98-12-white-bear", {
+    isSecret: true,
+  });
+
+  assign("page-98-14-red-bear", {
+    isSecret: true,
+  });
+
+  assign("page-99-07-santa-claus", {
+    isSecret: true,
+  });
+
+  assign("page-100-07-ghost", {
+    isSecret: true,
+  });
+
+  assign("page-101-13-big-hamburger", {
+    isSecret: true,
+  });
+
+  assign("page-102-07-raincoat-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-103-07-cherry-tree-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-104-06-lop-ear-rabbit", {
+    isSecret: true,
+  });
+
+  assign("page-49h-13-aloha", {
+    isSecret: true,
+  });
+
   [
     "page-91-01-a",
     "page-91-02-b",

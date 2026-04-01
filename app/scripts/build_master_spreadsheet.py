@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -13,6 +14,7 @@ from openpyxl.utils import get_column_letter
 ROOT = Path(__file__).resolve().parents[2]
 SONNIES_PATH = ROOT / "app" / "data" / "sonnies.json"
 IMAGE_MAP_PATH = ROOT / "app" / "data" / "sonny_image_map.json"
+MANUAL_OVERRIDES_PATH = ROOT / "app" / "data" / "manual_overrides.js"
 MANIFEST_PATH = ROOT / "sonny_png_library" / "manifest.csv"
 OUT_XLSX_PATH = ROOT / "master_sonny_catalog.xlsx"
 OUT_CSV_PATH = ROOT / "master_sonny_catalog.csv"
@@ -45,6 +47,9 @@ HEADER_FILL = PatternFill("solid", fgColor="EFD7B4")
 ACCOUNTED_FILL = PatternFill("solid", fgColor="D8E3CF")
 REVIEW_FILL = PatternFill("solid", fgColor="F4C8CF")
 
+ASSIGN_RE = re.compile(r'assign\("([^"]+)",\s*\{(.*?)\}\);', re.S)
+FIELD_RE = re.compile(r'(\w+):\s*(true|false|"[^"]*")\s*,?')
+
 
 def normalize(text: str) -> str:
     return " ".join((text or "").lower().replace("’", "'").split())
@@ -75,37 +80,94 @@ def load_manifest() -> dict[str, dict]:
     return manifest_by_path
 
 
+def load_existing_master_rows() -> dict[str, dict]:
+    if not OUT_CSV_PATH.exists():
+        return {}
+    rows = list(csv.DictReader(OUT_CSV_PATH.open()))
+    return {row["id"]: row for row in rows}
+
+
+def load_manual_overrides() -> dict[str, dict]:
+    text = MANUAL_OVERRIDES_PATH.read_text()
+    overrides: dict[str, dict] = {}
+    for match in ASSIGN_RE.finditer(text):
+        item_id, body = match.groups()
+        patch: dict[str, object] = {}
+        for key, raw_value in FIELD_RE.findall(body):
+            if raw_value == "true":
+                value: object = True
+            elif raw_value == "false":
+                value = False
+            else:
+                value = raw_value[1:-1]
+            patch[key] = value
+        if patch:
+            overrides[item_id] = {**overrides.get(item_id, {}), **patch}
+    return overrides
+
+
+def identity_status_for(
+    *,
+    series: str,
+    name: str,
+    mapped_path: str,
+    mapped_series: str,
+    mapped_name: str,
+    existing_row: dict,
+) -> str:
+    if not mapped_path:
+        return "UNMAPPED"
+    if mapped_series and mapped_name:
+        if normalize_series(mapped_series) == normalize_series(series) and normalize(mapped_name) == normalize(name):
+            return "MATCHED"
+        return "REVIEW"
+    if existing_row.get("identity_status"):
+        return existing_row["identity_status"]
+    return "MATCHED"
+
+
 def build_catalog_rows() -> list[dict]:
     sonnies = json.loads(SONNIES_PATH.read_text())
     image_map = json.loads(IMAGE_MAP_PATH.read_text())
     manifest_by_path = load_manifest()
+    existing_rows = load_existing_master_rows()
+    manual_overrides = load_manual_overrides()
 
     rows: list[dict] = []
-    for entry in sorted(sonnies, key=lambda row: (row["page"], row["series"], row["name"], row["id"])):
-        mapped = image_map.get(entry["id"])
-        mapped_path = None
-        mapped_series = None
-        mapped_name = None
-        mapped_source = None
-        identity_status = "UNMAPPED"
-        if mapped:
-            mapped_path = mapped.get("path", "").replace("./", "")
-            mapped_series = mapped.get("catalogSeries")
-            mapped_name = mapped.get("catalogName")
-            mapped_source = mapped.get("source")
-            if normalize_series(mapped_series) == normalize_series(entry["series"]) and normalize(mapped_name) == normalize(entry["name"]):
-                identity_status = "MATCHED"
-            else:
-                identity_status = "REVIEW"
+    for entry in sonnies:
+        entry_id = entry["id"]
+        existing_row = existing_rows.get(entry_id, {})
+        override = manual_overrides.get(entry_id, {})
+        mapped = image_map.get(entry_id, {})
 
+        series = str(override.get("series") or entry["series"])
+        name = str(override.get("name") or entry["name"])
+        mapped_path = (
+            str(override.get("artPath") or mapped.get("path") or existing_row.get("mapped_asset_path") or "")
+            .replace("./", "")
+        )
+        mapped_series = str(mapped.get("catalogSeries") or existing_row.get("mapped_catalog_series") or "")
+        mapped_name = str(mapped.get("catalogName") or existing_row.get("mapped_catalog_name") or "")
+        mapped_source = str(override.get("artSource") or mapped.get("source") or existing_row.get("mapped_source") or "")
+        identity_status = identity_status_for(
+            series=series,
+            name=name,
+            mapped_path=mapped_path,
+            mapped_series=mapped_series,
+            mapped_name=mapped_name,
+            existing_row=existing_row,
+        )
         manifest_row = manifest_by_path.get(mapped_path) if mapped_path else None
+
         rows.append(
             {
-                "id": entry["id"],
+                "id": entry_id,
                 "page": entry["page"],
-                "series": entry["series"],
-                "name": entry["name"],
-                "is_secret": "YES" if entry["id"] in SECRET_IDS else "",
+                "series": series,
+                "name": name,
+                "is_secret": "YES"
+                if override.get("isSecret") or entry_id in SECRET_IDS or existing_row.get("is_secret") == "YES"
+                else "",
                 "db_image_page": entry["image"]["page"],
                 "db_x": entry["image"]["x"],
                 "db_y": entry["image"]["y"],
@@ -114,8 +176,8 @@ def build_catalog_rows() -> list[dict]:
                 "mapped_catalog_name": mapped_name or "",
                 "mapped_source": mapped_source or "",
                 "identity_status": identity_status,
-                "manifest_image_url": manifest_row["image_url"] if manifest_row else "",
-                "manifest_page_url": manifest_row["page_url"] if manifest_row else "",
+                "manifest_image_url": manifest_row["image_url"] if manifest_row else existing_row.get("manifest_image_url", ""),
+                "manifest_page_url": manifest_row["page_url"] if manifest_row else existing_row.get("manifest_page_url", ""),
             }
         )
     return rows
@@ -123,11 +185,15 @@ def build_catalog_rows() -> list[dict]:
 
 def build_series_rows(catalog_rows: list[dict]) -> list[dict]:
     by_series: dict[str, list[dict]] = defaultdict(list)
+    series_order: list[str] = []
     for row in catalog_rows:
-        by_series[row["series"]].append(row)
+        series = row["series"]
+        if series not in by_series:
+            series_order.append(series)
+        by_series[series].append(row)
 
     series_rows: list[dict] = []
-    for series in sorted(by_series):
+    for series in series_order:
         rows = by_series[series]
         db_count = len(rows)
         matched_count = sum(1 for row in rows if row["identity_status"] == "MATCHED")
@@ -194,10 +260,13 @@ def write_series_sheet(ws, series_rows: list[dict]) -> None:
 
 def write_notes_sheet(ws) -> None:
     rows = [
-        ("Purpose", "Master Sonny catalog generated from the database so each row is a real Sonny entry."),
+        ("Purpose", "Master Sonny catalog generated from the tracker database so each row is a real Sonny entry."),
         ("Database source", str(SONNIES_PATH.relative_to(ROOT))),
+        ("Manual overrides source", str(MANUAL_OVERRIDES_PATH.relative_to(ROOT))),
         ("Image map source", str(IMAGE_MAP_PATH.relative_to(ROOT))),
         ("Manifest source", str(MANIFEST_PATH.relative_to(ROOT))),
+        ("Catalog order", "Rows follow the exact collection and item order in app/data/sonnies.json."),
+        ("Overrides", "Series, names, secrets, and manual art paths from manual_overrides.js are applied before export."),
         ("Accounted now", "Animal Series Ver. 1 (refined) is marked ACCOUNTED with 14/14 entries."),
         ("Review meaning", "REVIEW means the mapped asset identity does not exactly match the database series/name."),
         ("Unmapped meaning", "UNMAPPED means there is no linked asset path in the current image map."),

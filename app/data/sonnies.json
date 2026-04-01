@@ -9425,6 +9425,188 @@
     }
   },
   {
+    "id": "page-49h-01-ala-moana",
+    "name": "Ala Moana",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-02-hanauma-bay",
+    "name": "Hanauma Bay",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-03-kahaluu-beach",
+    "name": "Kahaluu Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-04-kailua-beach",
+    "name": "Kailua Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-05-ko-olina-bay",
+    "name": "Ko Olina Bay",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-06-kuhio-beach",
+    "name": "Kuhio Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-07-laniakea",
+    "name": "Laniakea",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-08-lanikai-beach",
+    "name": "Lanikai Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-09-sunset-beach",
+    "name": "Sunset Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-10-waikiki-beach",
+    "name": "Waikiki Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-11-waimanalo-beach",
+    "name": "Waimanalo Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-12-waimea-beach",
+    "name": "Waimea Beach",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-13-aloha",
+    "name": "Aloha",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-49h-14-robby-angel",
+    "name": "Robby Angel",
+    "series": "Beach Series - Hawaii Version -",
+    "page": 49,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-50-01-pink-hb",
     "name": "Pink HB",
     "series": "Summer Series Huntington Beach Version 2014",
@@ -11922,7 +12104,7 @@
   },
   {
     "id": "page-62-22-i-heart-seoul",
-    "name": "I ❤️ Seoul",
+    "name": "I \u2764\ufe0f Seoul",
     "series": "Seoul Series",
     "page": 62,
     "image": {
@@ -13729,8 +13911,8 @@
   },
   {
     "id": "page-71-01-saint-honore-rose-framboise",
-    "name": "Saint-Honoré Rose Framboise",
-    "series": "Ladurée Pâtisserie Collection",
+    "name": "Saint-Honor\u00e9 Rose Framboise",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13743,7 +13925,7 @@
   {
     "id": "page-71-02-ispahan",
     "name": "Ispahan",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13756,7 +13938,7 @@
   {
     "id": "page-71-03-tarte-passion-framboise",
     "name": "Tarte Passion Framboise",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13808,7 +13990,7 @@
   {
     "id": "page-71-04-corolle-rose-framboise",
     "name": "Corolle Rose Framboise",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13821,7 +14003,7 @@
   {
     "id": "page-71-05-religieuse-pistache",
     "name": "Religieuse Pistache",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13834,7 +14016,7 @@
   {
     "id": "page-71-06-religieuse-cassis-violette",
     "name": "Religieuse Cassis Violette",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13847,7 +14029,7 @@
   {
     "id": "page-71-07-macaron-fruits-rouges",
     "name": "Macaron Fruits Rouges",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13860,7 +14042,7 @@
   {
     "id": "page-71-08-macaron-pistache",
     "name": "Macaron Pistache",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13898,7 +14080,7 @@
   },
   {
     "id": "page-71-18-saint-honore-violette",
-    "name": "Saint Honoré Violette",
+    "name": "Saint Honor\u00e9 Violette",
     "series": "Christmas Ornament Laduree Patisseries Collection",
     "page": 71,
     "image": {
@@ -13925,7 +14107,7 @@
   {
     "id": "page-71-09-macaron-rose",
     "name": "Macaron Rose",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13938,7 +14120,7 @@
   {
     "id": "page-71-10-macaron-menthe-glaciale",
     "name": "Macaron Menthe Glaciale",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13951,7 +14133,7 @@
   {
     "id": "page-71-11-macaron-citron",
     "name": "Macaron Citron",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13964,7 +14146,7 @@
   {
     "id": "page-71-12-macaron-chocolat",
     "name": "Macaron Chocolat",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13977,7 +14159,7 @@
   {
     "id": "page-71-13-mini-marie-antoinette",
     "name": "Mini Marie-Antoinette",
-    "series": "Ladurée Pâtisserie Collection",
+    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13989,8 +14171,8 @@
   },
   {
     "id": "page-71-21-snow-globe-laduree-patisseries-collection",
-    "name": "Snow Globe Ladurée Pâtisserie Collection",
-    "series": "Snow Globe Ladurée Pâtisserie Collection",
+    "name": "Snow Globe Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Snow Globe Ladur\u00e9e P\u00e2tisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -19162,6 +19344,32 @@
     }
   },
   {
+    "id": "page-96-07-strawberry-jam",
+    "name": "Strawberry Jam",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-96-08-strawberry-robby-angel",
+    "name": "Strawberry Robby Angel",
+    "series": "Strawberry Love Series",
+    "page": 96,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-97-01-fawn",
     "name": "Fawn",
     "series": "HIPPERS Cherry Blossom Series",
@@ -19318,6 +19526,19 @@
     }
   },
   {
+    "id": "page-97-13-honey-bee",
+    "name": "Honey Bee",
+    "series": "HIPPERS Cherry Blossom Series",
+    "page": 97,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-98-01-rabbit",
     "name": "Rabbit",
     "series": "Advent Calendar(2025)",
@@ -19461,6 +19682,58 @@
     }
   },
   {
+    "id": "page-98-12-white-bear",
+    "name": "White Bear",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-13-white-robby-angel",
+    "name": "White Robby Angel",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-14-red-bear",
+    "name": "Red Bear",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-98-15-red-robby-angel",
+    "name": "Red Robby Angel",
+    "series": "Advent Calendar(2025)",
+    "page": 98,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-99-01-elephant",
     "name": "Elephant",
     "series": "Santa's Little Helper Series",
@@ -19539,6 +19812,32 @@
     }
   },
   {
+    "id": "page-99-07-santa-claus",
+    "name": "Santa Claus",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-99-08-reindeer-robby-angel",
+    "name": "Reindeer Robby Angel",
+    "series": "Santa's Little Helper Series",
+    "page": 99,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-100-01-cat",
     "name": "Cat",
     "series": "Pumpkin Patch Series",
@@ -19610,6 +19909,32 @@
     "page": 100,
     "image": {
       "page": "./sonny_png_library_web/limited/special-collections/pumpkin-patch-series/06__frog.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-07-ghost",
+    "name": "Ghost",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-100-08-witch-robby-angel",
+    "name": "Witch Robby Angel",
+    "series": "Pumpkin Patch Series",
+    "page": 100,
+    "image": {
+      "page": "",
       "pageWidth": 200,
       "pageHeight": 200,
       "x": 0,
@@ -19773,6 +20098,32 @@
     }
   },
   {
+    "id": "page-101-13-big-hamburger",
+    "name": "Big Hamburger",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-101-14-robby-angel",
+    "name": "Robby Angel",
+    "series": "Snack Series",
+    "page": 101,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-102-01-frog",
     "name": "Frog",
     "series": "I LOVE RAINY DAY Series",
@@ -19844,6 +20195,32 @@
     "page": 102,
     "image": {
       "page": "./sonny_png_library_web/limited/valentines-collections/i-love-rainy-day-series/06__elephant.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-07-raincoat-rabbit",
+    "name": "Raincoat Rabbit",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-102-08-raincoat-robby-angel",
+    "name": "Raincoat Robby Angel",
+    "series": "I LOVE RAINY DAY Series",
+    "page": 102,
+    "image": {
+      "page": "",
       "pageWidth": 200,
       "pageHeight": 200,
       "x": 0,
@@ -19929,6 +20306,32 @@
     }
   },
   {
+    "id": "page-103-07-cherry-tree-rabbit",
+    "name": "Cherry Tree Rabbit",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-103-08-cherry-tree-robby-angel",
+    "name": "Cherry Tree Robby Angel",
+    "series": "Cherry Blossom Series -Hanami Edition-",
+    "page": 103,
+    "image": {
+      "page": "",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-104-01-rabbit",
     "name": "Rabbit",
     "series": "Kiss Kiss(2025)",
@@ -19987,6 +20390,19 @@
     "page": 104,
     "image": {
       "page": "./sonny_png_library_web/limited/valentines-collections/kiss-kiss-2025/05__mouse.png",
+      "pageWidth": 200,
+      "pageHeight": 200,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-104-06-lop-ear-rabbit",
+    "name": "Lop Ear Rabbit",
+    "series": "Kiss Kiss(2025)",
+    "page": 104,
+    "image": {
+      "page": "",
       "pageWidth": 200,
       "pageHeight": 200,
       "x": 0,
