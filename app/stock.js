@@ -257,9 +257,9 @@ const fundAmountLabel = document.querySelector("#fund-amount-label");
 const fundAmountInput = document.querySelector("#fund-amount");
 const fundSonniesInput = document.querySelector("#fund-sonnies");
 const fundSonnyPreviewList = document.querySelector("#fund-sonny-preview-list");
-const fundFigurePriceInput = document.querySelector("#fund-figure-price");
 const fundShippingInput = document.querySelector("#fund-shipping");
 const fundPersonInput = document.querySelector("#fund-person");
+const fundPaidViaInput = document.querySelector("#fund-paid-via");
 const fundTypeInput = document.querySelector("#fund-type");
 const fundDateInput = document.querySelector("#fund-date");
 const fundSentToRealFundInput = document.querySelector("#fund-sent-to-real-fund");
@@ -320,6 +320,7 @@ const stockAuthState = {
   hydrating: false,
   stockTimer: null,
   fundTimer: null,
+  activityTimer: null,
   sessionCheckTimer: null,
 };
 
@@ -674,6 +675,17 @@ function normalizeLoadedStockItems(items) {
       status: normalizeStockStatus(item.status, Boolean(item.justTrading)),
       justTrading: Boolean(item.justTrading),
       price: Number(item.price) || 0,
+      soldHistory: Array.isArray(item.soldHistory)
+        ? item.soldHistory
+          .map((entry) => ({
+            id: entry.id || crypto.randomUUID(),
+            buyer: String(entry.buyer || "").trim(),
+            amount: Number.isFinite(Number(entry.amount)) ? Number(entry.amount) : null,
+            quantity: Math.max(1, Number(entry.quantity) || 1),
+            createdAt: entry.createdAt || new Date().toISOString(),
+          }))
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        : [],
       createdAt: item.createdAt || new Date().toISOString(),
     };
   });
@@ -901,6 +913,7 @@ function loadFundTransactions() {
         figurePricesById: normalizeFundSonnyPriceMap(item.figurePricesById, item.sonnyIds, item.figurePrice),
         shipping: Math.max(0, Number(item.shipping) || 0),
         person: String(item.person || item.personName || "").trim(),
+        paidVia: ["venmo", "zelle", "paypal"].includes(item.paidVia) ? item.paidVia : "",
         sentToRealFund: Boolean(item.sentToRealFund),
         type: item.type === "in" ? "in" : "out",
         date: item.date || "",
@@ -970,26 +983,26 @@ function renderStockAuthState() {
     stockAuthStatusCopy.textContent = "Add your Supabase project URL and anon key in app/supabase-config.js.";
     stockAuthStatusPill.textContent = "Setup needed";
     setStockAuthFeedback("Cloud sync is off until Supabase is connected.");
-    setStockSaveState("local", "Stock and fund changes are currently saved on this device.");
+    setStockSaveState("local", "Stock, fund, and activity changes are currently saved on this device.");
   } else if (stockAuthState.syncing) {
     stockAuthStatusTitle.textContent = stockAuthState.user
       ? `Syncing ${stockAuthState.user.email || "your account"}`
       : "Finishing account sync";
-    stockAuthStatusCopy.textContent = "Saving stock and fund changes to the cloud right now.";
+    stockAuthStatusCopy.textContent = "Saving stock, fund, and activity changes to the cloud right now.";
     stockAuthStatusPill.textContent = "Syncing";
     stockAuthStatusPill.classList.add("is-syncing");
-    setStockSaveState("syncing", "Saving stock and fund changes to the cloud right now.");
+    setStockSaveState("syncing", "Saving stock, fund, and activity changes to the cloud right now.");
   } else if (stockAuthState.user) {
     stockAuthStatusTitle.textContent = "Cloud sync is on";
-    stockAuthStatusCopy.textContent = `Signed in as ${stockAuthState.user.email || "your account"}. Stock and fund can now sync to your Supabase project.`;
+    stockAuthStatusCopy.textContent = `Signed in as ${stockAuthState.user.email || "your account"}. Stock, fund, and activity can now sync to your Supabase project.`;
     stockAuthStatusPill.textContent = "Connected";
     stockAuthStatusPill.classList.add("is-connected");
     setStockSaveState("connected", `Cloud sync is on for ${stockAuthState.user.email || "your account"}.`);
   } else {
     stockAuthStatusTitle.textContent = "Ready for account login";
-    stockAuthStatusCopy.textContent = "Sign in with a magic link or password to save stock and fund to the cloud.";
+    stockAuthStatusCopy.textContent = "Sign in with a magic link or password to save stock, fund, and activity to the cloud.";
     stockAuthStatusPill.textContent = "Not signed in";
-    setStockSaveState("local", "Stock and fund changes are saved on this device until you sign in.");
+    setStockSaveState("local", "Stock, fund, and activity changes are saved on this device until you sign in.");
   }
 
   const disabled = !stockAuthState.configured;
@@ -1014,6 +1027,7 @@ function buildStockRows() {
     status: normalizeStockStatus(item.status, Boolean(item.justTrading)),
     just_trading: Boolean(item.justTrading),
     price: Number(item.price) || 0,
+    sold_history: Array.isArray(item.soldHistory) ? item.soldHistory : [],
     created_at: item.createdAt || new Date().toISOString(),
     updated_at: new Date().toISOString(),
   }));
@@ -1031,10 +1045,23 @@ function buildFundRows() {
     figure_prices_by_id: normalizeFundSonnyPriceMap(item.figurePricesById, item.sonnyIds, item.figurePrice),
     shipping: Math.max(0, Number(item.shipping) || 0),
     person_name: item.person || "",
+    paid_via: ["venmo", "zelle", "paypal"].includes(item.paidVia) ? item.paidVia : null,
     sent_to_real_fund: Boolean(item.sentToRealFund),
     type: item.type === "in" ? "in" : "out",
     date: item.date || null,
     updated_at: new Date().toISOString(),
+  }));
+}
+
+function buildActivityRows() {
+  return activityLog.map((entry) => ({
+    id: entry.id || crypto.randomUUID(),
+    user_id: stockAuthState.user.id,
+    kind: entry.kind || "system",
+    title: entry.title || "",
+    detail: entry.detail || "",
+    metadata: entry.metadata && typeof entry.metadata === "object" ? entry.metadata : {},
+    created_at: entry.createdAt || new Date().toISOString(),
   }));
 }
 
@@ -1044,6 +1071,10 @@ function getLocalStockCount() {
 
 function getLocalFundCount() {
   return fundTransactions.length;
+}
+
+function getLocalActivityCount() {
+  return activityLog.length;
 }
 
 function scheduleStockCloudSync() {
@@ -1063,6 +1094,16 @@ function scheduleFundCloudSync() {
   window.clearTimeout(stockAuthState.fundTimer);
   stockAuthState.fundTimer = window.setTimeout(() => {
     syncFundToCloud();
+  }, 300);
+}
+
+function scheduleActivityCloudSync() {
+  if (!stockAuthState.user || !stockAuthState.client) {
+    return;
+  }
+  window.clearTimeout(stockAuthState.activityTimer);
+  stockAuthState.activityTimer = window.setTimeout(() => {
+    syncActivityToCloud();
   }, 300);
 }
 
@@ -1127,20 +1168,44 @@ async function syncFundToCloud() {
   }
 }
 
-async function syncStockAndFundToCloud() {
+async function syncActivityToCloud() {
+  if (!stockAuthState.client || !stockAuthState.user || stockAuthState.hydrating) {
+    return;
+  }
+  stockAuthState.syncing = true;
+  renderStockAuthState();
+  try {
+    await replaceCloudTable("activity_log", buildActivityRows());
+    setStockAuthFeedback("Activity log sync is up to date.");
+    setStockSaveState("saved", "Saved activity log changes to your cloud account.");
+  } catch (error) {
+    console.error("Failed to sync activity log to Supabase", error);
+    setStockAuthFeedback("Activity log sync hit a snag. Try syncing again in a moment.");
+    setStockSaveState("error", "Activity log sync hit a snag. Your changes may not be backed up yet.");
+  } finally {
+    stockAuthState.syncing = false;
+    renderStockAuthState();
+  }
+}
+
+async function syncStockFundAndActivityToCloud() {
   if (!stockAuthState.user) {
     return;
   }
   stockAuthState.syncing = true;
   renderStockAuthState();
   try {
-    await Promise.all([replaceCloudTable("stock_items", buildStockRows()), replaceCloudTable("fund_transactions", buildFundRows())]);
-    setStockAuthFeedback("Stock and fund are synced to the cloud.");
-    setStockSaveState("saved", "Saved stock and fund changes to your cloud account.");
+    await Promise.all([
+      replaceCloudTable("stock_items", buildStockRows()),
+      replaceCloudTable("fund_transactions", buildFundRows()),
+      replaceCloudTable("activity_log", buildActivityRows()),
+    ]);
+    setStockAuthFeedback("Stock, fund, and activity are synced to the cloud.");
+    setStockSaveState("saved", "Saved stock, fund, and activity changes to your cloud account.");
   } catch (error) {
-    console.error("Failed to sync stock and fund to Supabase", error);
-    setStockAuthFeedback("Cloud sync hit a snag for stock or fund. Try syncing again.");
-    setStockSaveState("error", "Cloud sync hit a snag for stock or fund. Your latest changes may not be backed up yet.");
+    console.error("Failed to sync stock, fund, and activity to Supabase", error);
+    setStockAuthFeedback("Cloud sync hit a snag for stock, fund, or activity. Try syncing again.");
+    setStockSaveState("error", "Cloud sync hit a snag for stock, fund, or activity. Your latest changes may not be backed up yet.");
   } finally {
     stockAuthState.syncing = false;
     renderStockAuthState();
@@ -1154,15 +1219,21 @@ async function hydrateStockAndFundFromCloud() {
 
   stockAuthState.hydrating = true;
   try {
-    const [{ data: stockRows, error: stockError }, { data: fundRows, error: fundError }] = await Promise.all([
-      stockAuthState.client.from("stock_items").select("id,sonny_id,name,series,quantity,status,just_trading,price,created_at").eq("user_id", stockAuthState.user.id),
+    const [
+      { data: stockRows, error: stockError },
+      { data: fundRows, error: fundError },
+      { data: activityRows, error: activityError },
+    ] = await Promise.all([
+      stockAuthState.client.from("stock_items").select("id,sonny_id,name,series,quantity,status,just_trading,price,sold_history,created_at").eq("user_id", stockAuthState.user.id),
       stockAuthState.client.from("fund_transactions").select("id,label,amount,type,date").eq("user_id", stockAuthState.user.id),
+      stockAuthState.client.from("activity_log").select("id,kind,title,detail,metadata,created_at").eq("user_id", stockAuthState.user.id).order("created_at", { ascending: false }),
     ]);
 
     if (stockError) throw stockError;
     if (fundError) throw fundError;
+    if (activityError) throw activityError;
 
-    if ((stockRows && stockRows.length) || (fundRows && fundRows.length)) {
+    if ((stockRows && stockRows.length) || (fundRows && fundRows.length) || (activityRows && activityRows.length)) {
       stock = (stockRows || []).map((item) => ({
         id: item.id || crypto.randomUUID(),
         sonnyId: item.sonny_id || "",
@@ -1172,6 +1243,15 @@ async function hydrateStockAndFundFromCloud() {
         status: normalizeStockStatus(item.status, Boolean(item.just_trading)),
         justTrading: Boolean(item.just_trading),
         price: Number(item.price) || 0,
+        soldHistory: Array.isArray(item.sold_history)
+          ? item.sold_history.map((entry) => ({
+            id: entry.id || crypto.randomUUID(),
+            buyer: String(entry.buyer || "").trim(),
+            amount: Number.isFinite(Number(entry.amount)) ? Number(entry.amount) : null,
+            quantity: Math.max(1, Number(entry.quantity) || 1),
+            createdAt: entry.createdAt || new Date().toISOString(),
+          }))
+          : [],
         createdAt: item.created_at || new Date().toISOString(),
       }));
 
@@ -1185,47 +1265,61 @@ async function hydrateStockAndFundFromCloud() {
         figurePricesById: normalizeFundSonnyPriceMap(item.figure_prices_by_id, item.sonny_ids, item.figure_price),
         shipping: Math.max(0, Number(item.shipping) || 0),
         person: String(item.person_name || "").trim(),
+        paidVia: ["venmo", "zelle", "paypal"].includes(item.paid_via) ? item.paid_via : "",
         sentToRealFund: Boolean(item.sent_to_real_fund),
         type: item.type === "in" ? "in" : "out",
         date: item.date || "",
       }));
 
+      if (Array.isArray(activityRows) && activityRows.length) {
+        activityLog = activityRows.map((entry) => ({
+          id: entry.id || crypto.randomUUID(),
+          kind: entry.kind || "system",
+          title: entry.title || "",
+          detail: entry.detail || "",
+          metadata: entry.metadata && typeof entry.metadata === "object" ? entry.metadata : {},
+          createdAt: entry.created_at || new Date().toISOString(),
+        }));
+        saveActivityLog();
+      }
+
       localStorage.removeItem(STOCK_STORAGE_KEY);
       localStorage.removeItem(FUND_STORAGE_KEY);
       syncPriceHistoryFromCurrentStock();
       render();
-      setStockAuthFeedback("Loaded your saved stock and fund from the cloud.");
-      setStockSaveState("saved", "Loaded your saved stock and fund from your account.");
+      setStockAuthFeedback("Loaded your saved stock, fund, and activity from the cloud.");
+      setStockSaveState("saved", "Loaded your saved stock, fund, and activity from your account.");
     } else {
       render();
-      setStockAuthFeedback("Signed in. Cloud stock and fund are empty for now. You can upload this device's data whenever you're ready.");
-      setStockSaveState("connected", "Signed in and ready for cloud sync. You can upload this device's stock and fund whenever you're ready.");
+      setStockAuthFeedback("Signed in. Cloud stock, fund, and activity are empty for now. You can upload this device's data whenever you're ready.");
+      setStockSaveState("connected", "Signed in and ready for cloud sync. You can upload this device's stock, fund, and activity whenever you're ready.");
     }
   } catch (error) {
-    console.error("Failed to hydrate stock and fund from Supabase", error);
-    setStockAuthFeedback("Could not load cloud stock and fund yet.");
-    setStockSaveState("error", "Could not load cloud stock and fund yet. You can keep using this device and try again.");
+    console.error("Failed to hydrate stock, fund, and activity from Supabase", error);
+    setStockAuthFeedback("Could not load cloud stock, fund, and activity yet.");
+    setStockSaveState("error", "Could not load cloud stock, fund, and activity yet. You can keep using this device and try again.");
   } finally {
     stockAuthState.hydrating = false;
     renderStockAuthState();
   }
 }
 
-async function importLocalStockAndFundToCloud() {
+async function importLocalStockFundAndActivityToCloud() {
   if (!stockAuthState.user) {
     return;
   }
   const stockCount = getLocalStockCount();
   const fundCount = getLocalFundCount();
+  const activityCount = getLocalActivityCount();
   const shouldImport = window.confirm(
-    `Use this device's stock and fund data for your account?\n\nThis will replace the stock and fund data currently saved in the cloud for this account.\n\nThis device currently has ${stockCount} stock unit${stockCount === 1 ? "" : "s"} and ${fundCount} fund movement${fundCount === 1 ? "" : "s"}.`,
+    `Use this device's stock, fund, and activity data for your account?\n\nThis will replace the stock, fund, and activity data currently saved in the cloud for this account.\n\nThis device currently has ${stockCount} stock unit${stockCount === 1 ? "" : "s"}, ${fundCount} fund movement${fundCount === 1 ? "" : "s"}, and ${activityCount} activity entr${activityCount === 1 ? "y" : "ies"}.`,
   );
 
   if (!shouldImport) {
     return;
   }
 
-  await syncStockAndFundToCloud();
+  await syncStockFundAndActivityToCloud();
 }
 
 function stockAuthRedirectUrl() {
@@ -1287,8 +1381,8 @@ async function stockSignInWithPassword() {
     setStockSaveState("error", "That email and password did not work just yet.");
     return;
   }
-  setStockAuthFeedback("Signed in. Loading your stock and fund now.");
-  setStockSaveState("syncing", "Signed in. Loading your stock and fund now.");
+  setStockAuthFeedback("Signed in. Loading your stock, fund, and activity now.");
+  setStockSaveState("syncing", "Signed in. Loading your stock, fund, and activity now.");
 }
 
 async function stockSignUpWithPassword() {
@@ -1344,8 +1438,8 @@ async function initializeStockSupabaseAuth() {
       window.clearTimeout(stockAuthState.sessionCheckTimer);
       stockAuthState.syncing = false;
       stockAuthState.hydrating = false;
-      setStockAuthFeedback("Signed out. Stock and fund changes are saved on this device until you sign in again.");
-      setStockSaveState("local", "Signed out. Stock and fund changes are now saved on this device.");
+      setStockAuthFeedback("Signed out. Stock, fund, and activity changes are saved on this device until you sign in again.");
+      setStockSaveState("local", "Signed out. Stock, fund, and activity changes are now saved on this device.");
       renderStockAuthState();
     }
   });
@@ -1390,7 +1484,7 @@ async function verifyStockSessionActive(contextLabel = "checking your session") 
       stockAuthState.user = null;
       renderStockAuthState();
       setStockAuthFeedback(`Your account session expired while ${contextLabel}. Please sign in again to keep syncing.`);
-      setStockSaveState("error", "Your session expired. Stock and fund changes are saved on this device until you sign in again.");
+      setStockSaveState("error", "Your session expired. Stock, fund, and activity changes are saved on this device until you sign in again.");
     }
   } catch (error) {
     console.warn("Stock session verification failed", error);
@@ -1715,11 +1809,13 @@ function logActivity(kind, title, detail) {
       kind,
       title,
       detail,
+      metadata: {},
       createdAt: new Date().toISOString(),
     },
     ...activityLog,
   ].slice(0, MAX_ACTIVITY_ITEMS);
   saveActivityLog();
+  scheduleActivityCloudSync();
 }
 
 function loadActiveView() {
@@ -2276,6 +2372,12 @@ function uniquePricePoints(entries) {
   });
 }
 
+function soldHistoryForItem(item) {
+  return Array.isArray(item.soldHistory)
+    ? [...item.soldHistory].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    : [];
+}
+
 function updateItem(id, updates) {
   let previousItem = null;
   stock = stock.map((item) => {
@@ -2552,6 +2654,7 @@ function renderInventory() {
     const soldButton = fragment.querySelector(".stock-sold-button");
     const removeButton = fragment.querySelector(".remove-button");
     const historyEntries = priceHistoryForItem(item);
+    const soldEntries = soldHistoryForItem(item);
     const uniqueEntries = uniquePricePoints(historyEntries);
     const previousEntries = uniqueEntries.filter((entry) => entry.stockItemId !== item.id || entry.price !== Number(item.price || 0));
     const statusOptions = item.justTrading
@@ -2582,49 +2685,83 @@ function renderInventory() {
       .join("");
     statusSelect.value = item.status;
     justTradingInput.checked = Boolean(item.justTrading);
-    historyButton.textContent = expandedHistoryItemId === item.id ? "Hide Price History" : "Show Price History";
+    historyButton.textContent = expandedHistoryItemId === item.id ? "Hide History" : "Show History";
     soldButton.disabled = item.status === "sold" || item.justTrading;
     soldButton.textContent = item.status === "sold"
       ? "Already Sold"
       : item.justTrading
         ? "Trading Only"
-        : stockSettings.useFund
-          ? "Mark Sold + Log Fund"
-          : "Mark as Sold";
+        : "Mark as Sold";
     historyPanel.hidden = expandedHistoryItemId !== item.id;
 
-    if (historyEntries.length) {
+    if (historyEntries.length || soldEntries.length) {
       const prices = historyEntries.map((entry) => entry.price);
-      const low = Math.min(...prices);
-      const high = Math.max(...prices);
+      const low = prices.length ? Math.min(...prices) : 0;
+      const high = prices.length ? Math.max(...prices) : 0;
       historySummary.innerHTML = `
-        <strong>${item.name} has been tracked at ${uniqueEntries.length} price${uniqueEntries.length === 1 ? "" : "s"}.</strong>
-        <span>Range: ${formatCurrency(low)} to ${formatCurrency(high)}. Latest tracked price: ${formatCurrency(historyEntries[0].price)} on ${formatTimestamp(historyEntries[0].createdAt)}.</span>
+        <strong>${item.name} has ${soldEntries.length} sold log${soldEntries.length === 1 ? "" : "s"} and ${uniqueEntries.length} tracked price${uniqueEntries.length === 1 ? "" : "s"}.</strong>
+        <span>${
+          historyEntries.length
+            ? `Price range: ${formatCurrency(low)} to ${formatCurrency(high)}. Latest tracked price: ${formatCurrency(historyEntries[0].price)} on ${formatTimestamp(historyEntries[0].createdAt)}.`
+            : "No price changes have been tracked for this Sonny yet."
+        }</span>
       `;
     } else {
       historySummary.innerHTML = `
-        <strong>No price history yet.</strong>
-        <span>Once this Sonny gets stocked or repriced, its history will show up here.</span>
+        <strong>No history yet.</strong>
+        <span>Once this Sonny gets repriced or marked sold, its history will show up here.</span>
       `;
     }
 
-    if (previousEntries.length) {
-      historyList.innerHTML = previousEntries
-        .slice(0, 6)
-        .map((entry) => `
-          <article class="stock-history-entry">
-            <strong>${formatCurrency(entry.price)}</strong>
-            <span>${entry.source === "updated" ? "Updated price" : entry.source === "shipment" ? "Sent from shipment" : "Added to stock"} on ${formatTimestamp(entry.createdAt)}</span>
-          </article>
-        `)
-        .join("");
-    } else {
-      historyList.innerHTML = `
-        <div class="stock-history-empty">
-          No older prices for this figure yet. Starting now, the tracker will keep every stocked and updated price here.
+    const soldHistoryMarkup = soldEntries.length
+      ? `
+        <div class="stock-history-section">
+          <strong class="stock-history-section-title">Sold History</strong>
+          ${soldEntries
+            .slice(0, 6)
+            .map((entry) => `
+              <article class="stock-history-entry is-sale">
+                <strong>${entry.amount !== null ? formatCurrency(entry.amount) : "Sold"}</strong>
+                <span>${entry.buyer ? `Buyer: ${entry.buyer}. ` : ""}${entry.quantity > 1 ? `Quantity: ${entry.quantity}. ` : ""}Logged on ${formatTimestamp(entry.createdAt)}</span>
+              </article>
+            `)
+            .join("")}
+        </div>
+      `
+      : `
+        <div class="stock-history-section">
+          <strong class="stock-history-section-title">Sold History</strong>
+          <div class="stock-history-empty">
+            No sold logs yet. Use Mark as Sold to save who bought it and for how much.
+          </div>
         </div>
       `;
-    }
+
+    const priceHistoryMarkup = previousEntries.length
+      ? `
+        <div class="stock-history-section">
+          <strong class="stock-history-section-title">Price History</strong>
+          ${previousEntries
+            .slice(0, 6)
+            .map((entry) => `
+              <article class="stock-history-entry">
+                <strong>${formatCurrency(entry.price)}</strong>
+                <span>${entry.source === "updated" ? "Updated price" : entry.source === "shipment" ? "Sent from shipment" : "Added to stock"} on ${formatTimestamp(entry.createdAt)}</span>
+              </article>
+            `)
+            .join("")}
+        </div>
+      `
+      : `
+        <div class="stock-history-section">
+          <strong class="stock-history-section-title">Price History</strong>
+          <div class="stock-history-empty">
+            No older prices for this figure yet. Starting now, the tracker will keep every stocked and updated price here.
+          </div>
+        </div>
+      `;
+
+    historyList.innerHTML = soldHistoryMarkup + priceHistoryMarkup;
 
     priceInput.addEventListener("change", (event) => {
       const nextPrice = event.target.value === "" ? 0 : Number.parseFloat(event.target.value);
@@ -2692,39 +2829,39 @@ function renderInventory() {
         return;
       }
 
-      const shouldProceed = window.confirm(
-        stockSettings.useFund
-          ? `Mark ${item.name} as sold and create a Sonny Fund money-in entry for ${formatCurrency(item.price * item.quantity)}?`
-          : `Mark ${item.name} as sold?`,
-      );
+      const shouldProceed = window.confirm(`Mark ${item.name} as sold?`);
       if (!shouldProceed) {
         return;
       }
 
-      const previous = updateItem(item.id, { status: "sold" });
-      if (previous && previous.status !== "sold") {
-        logActivity("stock", `Marked ${item.name} as sold`, `${item.name} was marked sold at ${formatCurrency(item.price)} each.`);
+      const buyerResponse = window.prompt(`Who bought ${item.name}? Leave blank if you don't want to save a buyer.`);
+      if (buyerResponse === null) {
+        return;
       }
+      const amountResponse = window.prompt(`How much did it sell for? Leave blank if you don't want to save an amount.`);
+      if (amountResponse === null) {
+        return;
+      }
+      const parsedAmount = amountResponse.trim() === "" ? null : Number.parseFloat(amountResponse);
+      const saleAmount = Number.isFinite(parsedAmount) ? parsedAmount : null;
+      const soldRecord = {
+        id: crypto.randomUUID(),
+        buyer: buyerResponse.trim(),
+        amount: saleAmount,
+        quantity: Math.max(1, Number(item.quantity) || 1),
+        createdAt: new Date().toISOString(),
+      };
 
-      if (stockSettings.useFund) {
-        const totalSale = item.price * item.quantity;
-        const transaction = {
-          id: crypto.randomUUID(),
-          label: `Sold ${item.quantity}x ${item.name}`,
-          amount: totalSale,
-          amountMode: "total",
-          sonnyIds: item.sonnyId ? [item.sonnyId] : [],
-          figurePrice: Number(item.price) || 0,
-          figurePricesById: item.sonnyId ? { [item.sonnyId]: Number(item.price) || 0 } : {},
-          shipping: 0,
-          person: "",
-          sentToRealFund: false,
-          type: "in",
-          date: new Date().toISOString().slice(0, 10),
-        };
-        fundTransactions = [...fundTransactions, transaction];
-        saveFundTransactions();
-        logActivity("fund", `Logged sale from stock`, `${transaction.label} added ${formatCurrency(totalSale)} to the Sonny fund.`);
+      const previous = updateItem(item.id, {
+        status: "sold",
+        soldHistory: [...soldEntries, soldRecord],
+      });
+      if (previous && previous.status !== "sold") {
+        logActivity(
+          "stock",
+          `Marked ${item.name} as sold`,
+          `${item.name} was marked sold${soldRecord.amount !== null ? ` for ${formatCurrency(soldRecord.amount)}` : ""}${soldRecord.buyer ? ` to ${soldRecord.buyer}` : ""}.`,
+        );
       }
       render();
     });
@@ -2761,17 +2898,15 @@ function renderFundList() {
     const fragment = fundRowTemplate.content.cloneNode(true);
     const row = fragment.querySelector(".fund-row");
     const labelInput = fragment.querySelector(".fund-label-input");
+    const amountFieldLabel = fragment.querySelector(".fund-amount-field-label");
+    const amountInput = fragment.querySelector(".fund-amount-input");
     const dateInput = fragment.querySelector(".fund-date-input");
     const typeInput = fragment.querySelector(".fund-type-input");
     const sonniesInput = fragment.querySelector(".fund-sonnies-input");
     const sonnyPreviewList = fragment.querySelector(".fund-sonny-preview-list");
-    const figureField = fragment.querySelector(".fund-figure-field");
     const shippingInput = fragment.querySelector(".fund-shipping-input");
-    const amountFieldLabel = fragment.querySelector(".fund-amount-field-label");
-    const figureFieldLabel = fragment.querySelector(".fund-figure-price-label");
-    const figurePriceInput = fragment.querySelector(".fund-figure-price-input");
-    const amountInput = fragment.querySelector(".fund-amount-input");
     const personInput = fragment.querySelector(".fund-person-input");
+    const paidViaInput = fragment.querySelector(".fund-paid-via-input");
     const sentToRealFundInput = fragment.querySelector(".fund-sent-to-real-fund-input");
     const sentToRealFundLabel = fragment.querySelector(".fund-sent-to-real-fund-label");
     const balance = fragment.querySelector(".fund-row-balance");
@@ -2785,20 +2920,13 @@ function renderFundList() {
     setFundSonnyPriceMap(sonniesInput, normalizeFundSonnyPriceMap(item.figurePricesById, item.sonnyIds, item.figurePrice));
     sonniesInput.value = "";
     renderFundSonnyPreview(sonnyPreviewList, item.sonnyIds, getFundSonnyPriceMap(sonniesInput));
-    const sharedFigurePrice = commonFundSonnyPrice(item.sonnyIds, getFundSonnyPriceMap(sonniesInput));
-    figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
     shippingInput.value = fundTransactionShipping(item) > 0 ? fundTransactionShipping(item).toFixed(2) : "";
     amountInput.value = Number(fundTransactionTotal(item)).toFixed(2);
     personInput.value = item.person || "";
+    paidViaInput.value = ["venmo", "zelle", "paypal"].includes(item.paidVia) ? item.paidVia : "";
     sentToRealFundInput.checked = Boolean(item.sentToRealFund);
-    if (figureFieldLabel) {
-      figureFieldLabel.textContent = "Sold for all selected (optional)";
-    }
     if (amountFieldLabel) {
-      amountFieldLabel.textContent = "Purchase total";
-    }
-    if (figureField) {
-      figureField.hidden = false;
+      amountFieldLabel.textContent = "Total amount";
     }
     if (sentToRealFundLabel) {
       sentToRealFundLabel.textContent = fundRealToggleLabel(item.type);
@@ -2835,15 +2963,13 @@ function renderFundList() {
       const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(sonniesInput), sonnyIds);
       setFundSonnyPriceMap(sonniesInput, nextPriceMap);
       renderFundSonnyPreview(sonnyPreviewList, sonnyIds, nextPriceMap);
-      const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
-      figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
       const previous = updateFundTransaction(item.id, { sonnyIds });
       if (previous && JSON.stringify(previous.sonnyIds || []) !== JSON.stringify(sonnyIds)) {
         logActivity("fund", `Updated transaction Sonnies`, `${item.label} now tracks ${sonnyIds.length} ${sonnyIds.length === 1 ? "Sonny" : "Sonnies"}.`);
       }
       updateFundTransaction(item.id, {
         figurePricesById: nextPriceMap,
-        figurePrice: Number.isFinite(sharedFigurePrice) ? sharedFigurePrice : 0,
+        figurePrice: Number.isFinite(commonFundSonnyPrice(sonnyIds, nextPriceMap)) ? commonFundSonnyPrice(sonnyIds, nextPriceMap) : 0,
       });
       render();
     });
@@ -2857,12 +2983,10 @@ function renderFundList() {
       const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(sonniesInput), nextIds);
       setFundSonnyPriceMap(sonniesInput, nextPriceMap);
       renderFundSonnyPreview(sonnyPreviewList, nextIds, nextPriceMap);
-      const sharedFigurePrice = commonFundSonnyPrice(nextIds, nextPriceMap);
-      figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
       const previous = updateFundTransaction(item.id, {
         sonnyIds: nextIds,
         figurePricesById: nextPriceMap,
-        figurePrice: Number.isFinite(sharedFigurePrice) ? sharedFigurePrice : 0,
+        figurePrice: Number.isFinite(commonFundSonnyPrice(nextIds, nextPriceMap)) ? commonFundSonnyPrice(nextIds, nextPriceMap) : 0,
       });
       if (previous && JSON.stringify(previous.sonnyIds || []) !== JSON.stringify(nextIds)) {
         logActivity("fund", `Updated transaction Sonnies`, `${item.label} now tracks ${nextIds.length} ${nextIds.length === 1 ? "Sonny" : "Sonnies"}.`);
@@ -2883,37 +3007,10 @@ function renderFundList() {
         delete nextPriceMap[priceInput.dataset.sonnyId];
       }
       setFundSonnyPriceMap(sonniesInput, nextPriceMap);
-      const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
-      figurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
       updateFundTransaction(item.id, {
         figurePricesById: nextPriceMap,
-        figurePrice: Number.isFinite(sharedFigurePrice) ? sharedFigurePrice : 0,
+        figurePrice: Number.isFinite(commonFundSonnyPrice(sonnyIds, nextPriceMap)) ? commonFundSonnyPrice(sonnyIds, nextPriceMap) : 0,
       });
-    });
-    figurePriceInput.addEventListener("change", (event) => {
-      const nextAmount = event.target.value === "" ? 0 : Number.parseFloat(event.target.value);
-      const safeAmount = Number.isFinite(nextAmount) ? nextAmount : 0;
-      const sonnyIds = getFundSonnyIds(sonniesInput);
-      const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(sonniesInput), sonnyIds);
-      if (safeAmount > 0) {
-        sonnyIds.forEach((sonnyId) => {
-          nextPriceMap[sonnyId] = safeAmount;
-        });
-      } else {
-        sonnyIds.forEach((sonnyId) => {
-          delete nextPriceMap[sonnyId];
-        });
-      }
-      setFundSonnyPriceMap(sonniesInput, nextPriceMap);
-      renderFundSonnyPreview(sonnyPreviewList, sonnyIds, nextPriceMap);
-      const previous = updateFundTransaction(item.id, {
-        figurePrice: safeAmount,
-        figurePricesById: nextPriceMap,
-      });
-      if (previous && previous.figurePrice !== safeAmount) {
-        logActivity("fund", `Updated sold amount`, `${item.label} sold amount changed from ${formatCurrency(previous.figurePrice || 0)} to ${formatCurrency(safeAmount)}.`);
-      }
-      render();
     });
     shippingInput.addEventListener("change", (event) => {
       const nextAmount = event.target.value === "" ? 0 : Number.parseFloat(event.target.value);
@@ -2945,6 +3042,16 @@ function renderFundList() {
       });
       if (previous && previous.person !== nextPerson) {
         logActivity("fund", `Updated person`, `${item.label} is now linked to ${nextPerson || "no person"}.`);
+      }
+      render();
+    });
+    paidViaInput.addEventListener("change", (event) => {
+      const nextPaidVia = ["venmo", "zelle", "paypal"].includes(event.target.value) ? event.target.value : "";
+      const previous = updateFundTransaction(item.id, {
+        paidVia: nextPaidVia,
+      });
+      if (previous && previous.paidVia !== nextPaidVia) {
+        logActivity("fund", `Updated payment method`, `${item.label} is now marked as ${nextPaidVia || "no payment method set"}.`);
       }
       render();
     });
@@ -3387,9 +3494,6 @@ function render() {
   if (fundAmountLabel) {
     fundAmountLabel.textContent = "Total amount";
   }
-  if (fundFigurePriceInput) {
-    fundFigurePriceInput.placeholder = "0.00";
-  }
   setFundSonnyPriceMap(fundSonniesInput, normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), getFundSonnyIds(fundSonniesInput)));
   renderFundSonnyPreview(fundSonnyPreviewList, getFundSonnyIds(fundSonniesInput), getFundSonnyPriceMap(fundSonniesInput));
   fundRangeFilter.value = fundFilter;
@@ -3467,11 +3571,11 @@ addFundForm.addEventListener("submit", (event) => {
 
   const label = fundNoteInput.value.trim();
   const amount = Number.parseFloat(fundAmountInput.value);
-  const figurePrice = Number.parseFloat(fundFigurePriceInput.value);
   const shipping = Number.parseFloat(fundShippingInput.value);
   const sonnyIds = getFundSonnyIds(fundSonniesInput);
-  const figurePricesById = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds, figurePrice);
+  const figurePricesById = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds);
   const person = fundPersonInput.value.trim();
+  const paidVia = ["venmo", "zelle", "paypal"].includes(fundPaidViaInput?.value) ? fundPaidViaInput.value : "";
   const type = fundTypeInput.value === "in" ? "in" : "out";
   const date = fundDateInput.value;
 
@@ -3490,6 +3594,7 @@ addFundForm.addEventListener("submit", (event) => {
     figurePricesById,
     shipping: Number.isFinite(shipping) ? Math.max(0, shipping) : 0,
     person,
+    paidVia,
     sentToRealFund: Boolean(fundSentToRealFundInput.checked),
     type,
     date,
@@ -3507,6 +3612,9 @@ addFundForm.addEventListener("submit", (event) => {
   fundSentToRealFundInput.checked = false;
   if (fundShippingInput) {
     fundShippingInput.value = "";
+  }
+  if (fundPaidViaInput) {
+    fundPaidViaInput.value = "";
   }
   fundNoteInput.focus();
   render();
@@ -3589,6 +3697,7 @@ resetButton.addEventListener("click", () => {
   } else {
     activityLog = [];
     saveActivityLog();
+    scheduleActivityCloudSync();
   }
   render();
 });
@@ -3619,13 +3728,9 @@ fundSonniesInput?.addEventListener("input", (event) => {
 
 fundSonniesInput?.addEventListener("change", (event) => {
   const sonnyIds = appendFundSonnyFromInput(fundSonniesInput, fundSonnyPreviewList);
-  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds, Number.parseFloat(fundFigurePriceInput?.value));
+  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds);
   setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
   renderFundSonnyPreview(fundSonnyPreviewList, sonnyIds, nextPriceMap);
-  const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
-  if (fundFigurePriceInput) {
-    fundFigurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
-  }
 });
 
 fundSonnyPreviewList?.addEventListener("click", (event) => {
@@ -3638,10 +3743,6 @@ fundSonnyPreviewList?.addEventListener("click", (event) => {
   const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), nextIds);
   setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
   renderFundSonnyPreview(fundSonnyPreviewList, nextIds, nextPriceMap);
-  const sharedFigurePrice = commonFundSonnyPrice(nextIds, nextPriceMap);
-  if (fundFigurePriceInput) {
-    fundFigurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
-  }
 });
 
 fundSonnyPreviewList?.addEventListener("input", (event) => {
@@ -3658,27 +3759,6 @@ fundSonnyPreviewList?.addEventListener("input", (event) => {
     delete nextPriceMap[priceInput.dataset.sonnyId];
   }
   setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
-  const sharedFigurePrice = commonFundSonnyPrice(sonnyIds, nextPriceMap);
-  if (fundFigurePriceInput) {
-    fundFigurePriceInput.value = Number.isFinite(sharedFigurePrice) ? Number(sharedFigurePrice).toFixed(2) : "";
-  }
-});
-
-fundFigurePriceInput?.addEventListener("input", (event) => {
-  const sonnyIds = getFundSonnyIds(fundSonniesInput);
-  const nextPriceMap = normalizeFundSonnyPriceMap(getFundSonnyPriceMap(fundSonniesInput), sonnyIds);
-  const safeAmount = Number.parseFloat(event.target.value);
-  if (Number.isFinite(safeAmount) && safeAmount > 0) {
-    sonnyIds.forEach((sonnyId) => {
-      nextPriceMap[sonnyId] = safeAmount;
-    });
-  } else {
-    sonnyIds.forEach((sonnyId) => {
-      delete nextPriceMap[sonnyId];
-    });
-  }
-  setFundSonnyPriceMap(fundSonniesInput, nextPriceMap);
-  renderFundSonnyPreview(fundSonnyPreviewList, sonnyIds, nextPriceMap);
 });
 
 stockSearchInput.addEventListener("input", (event) => {
@@ -3842,10 +3922,10 @@ stockAuthSignUpButton?.addEventListener("click", () => {
   stockSignUpWithPassword();
 });
 stockAuthSyncNowButton?.addEventListener("click", () => {
-  syncStockAndFundToCloud();
+  syncStockFundAndActivityToCloud();
 });
 stockAuthImportLocalButton?.addEventListener("click", () => {
-  importLocalStockAndFundToCloud();
+  importLocalStockFundAndActivityToCloud();
 });
 stockAuthSignOutButton?.addEventListener("click", async () => {
   if (!stockAuthState.client) {

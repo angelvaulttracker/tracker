@@ -325,6 +325,17 @@ h2 {
   gap: 8px;
 }
 
+.fund-add-total-field span {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.fund-add-total-field input {
+  min-height: 72px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
 .add-form input,
 .field input,
 .add-form select {
@@ -645,27 +656,39 @@ h2 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 12px;
   min-width: 0;
+  align-items: start;
 }
 
 .fund-sonny-preview-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
   min-height: 28px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
 }
 
 .fund-sonny-chip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  max-width: 100%;
-  padding: 6px 10px 6px 6px;
+  flex: 0 0 220px;
+  max-width: 220px;
+  padding: 8px 10px 8px 8px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.82);
   color: var(--ink);
   font-size: 0.82rem;
   line-height: 1.2;
+}
+
+.fund-sonny-chip-body {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .fund-sonny-chip-remove {
@@ -692,6 +715,44 @@ h2 {
   max-width: 150px;
 }
 
+.fund-sonny-chip-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  width: fit-content;
+}
+
+.fund-sonny-chip-price-currency {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.fund-sonny-chip-price-input {
+  width: 68px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.78rem;
+  outline: none;
+}
+
+.fund-sonny-chip-price-input::-webkit-outer-spin-button,
+.fund-sonny-chip-price-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fund-sonny-chip-price-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .fund-sonny-chip-thumb {
   width: 28px;
   height: 28px;
@@ -711,28 +772,43 @@ h2 {
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 238, 225, 0.88));
 }
 
-.fund-movement-field {
-  grid-column: span 4;
-}
-
 .fund-date-field,
 .fund-type-field,
-.fund-mode-field,
 .fund-person-field,
-.fund-amount-field {
+.fund-paid-via-field,
+.fund-shipping-field {
   grid-column: span 2;
+}
+
+.fund-amount-field {
+  grid-column: span 3;
+}
+
+.fund-amount-field-prominent {
+  grid-row: span 2;
+}
+
+.fund-amount-field-prominent .fund-amount-field-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.fund-amount-field-prominent .fund-amount-input {
+  height: 72px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.fund-movement-field {
+  grid-column: span 3;
 }
 
 .fund-sonnies-field {
-  grid-column: span 5;
-}
-
-.fund-figure-field {
-  grid-column: span 2;
+  grid-column: span 6;
 }
 
 .fund-real-toggle {
-  grid-column: span 3;
+  grid-column: span 2;
 }
 
 .fund-amount-input {
@@ -1338,6 +1414,18 @@ h2 {
   margin-top: 12px;
 }
 
+.stock-history-section {
+  display: grid;
+  gap: 10px;
+}
+
+.stock-history-section-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .stock-history-entry,
 .stock-history-empty {
   border-radius: 18px;
@@ -1353,6 +1441,10 @@ h2 {
 
 .stock-history-entry strong {
   font-size: 1rem;
+}
+
+.stock-history-entry.is-sale {
+  background: rgba(255, 247, 240, 0.94);
 }
 
 .stock-history-empty {
@@ -1576,11 +1668,11 @@ h2 {
   .fund-movement-field,
   .fund-date-field,
   .fund-type-field,
-  .fund-mode-field,
   .fund-person-field,
+  .fund-paid-via-field,
+  .fund-shipping-field,
   .fund-amount-field,
   .fund-sonnies-field,
-  .fund-figure-field,
   .fund-real-toggle {
     grid-column: span 1;
   }
@@ -1623,11 +1715,11 @@ h2 {
   .fund-movement-field,
   .fund-date-field,
   .fund-type-field,
-  .fund-mode-field,
   .fund-person-field,
+  .fund-paid-via-field,
+  .fund-shipping-field,
   .fund-amount-field,
   .fund-sonnies-field,
-  .fund-figure-field,
   .fund-real-toggle {
     grid-column: span 1;
   }

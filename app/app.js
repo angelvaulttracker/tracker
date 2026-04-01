@@ -7,6 +7,7 @@ const TRACKER_STOCK_STATUS_KEY = "tracker-stock-status-v1";
 const TRACKER_STOCK_SORT_KEY = "tracker-stock-sort-v1";
 const TRACKER_STOCK_DISPLAY_KEY = "tracker-stock-display-v1";
 const TRACKER_STOCK_DENSITY_KEY = "tracker-stock-density-v1";
+const ANALYTICS_SESSION_KEY = "sonny-site-analytics-session-v1";
 
 const STATUS_RANK = {
   have: 0,
@@ -883,6 +884,14 @@ const saveState = {
   mode: "local",
   message: "Tracker changes are currently saved on this device.",
 };
+const analyticsState = {
+  queue: [],
+  flushTimer: null,
+  flushing: false,
+  disabled: false,
+  fallbackSessionId: "",
+  seenKeys: new Set(),
+};
 const IMAGE_CACHE_BUSTER = "20260316-robby-refresh";
 const MANUAL_ASSET_CACHE_BUSTER = String(Date.now());
 const MAKER_BACKGROUNDS = [
@@ -1536,6 +1545,157 @@ function hasSupabaseConfig() {
   );
 }
 
+function createAnalyticsSessionId() {
+  if (window.crypto?.randomUUID) {
+    return window.crypto.randomUUID();
+  }
+  return `session-${Date.now()}-${Math.random().toString(16).slice(2, 10)}`;
+}
+
+function getAnalyticsSessionId() {
+  try {
+    const existing = window.sessionStorage.getItem(ANALYTICS_SESSION_KEY);
+    if (existing) {
+      return existing;
+    }
+    const next = createAnalyticsSessionId();
+    window.sessionStorage.setItem(ANALYTICS_SESSION_KEY, next);
+    return next;
+  } catch {
+    if (!analyticsState.fallbackSessionId) {
+      analyticsState.fallbackSessionId = createAnalyticsSessionId();
+    }
+    return analyticsState.fallbackSessionId;
+  }
+}
+
+function sanitizeAnalyticsValue(value) {
+  if (value == null || value === "") {
+    return null;
+  }
+  if (Array.isArray(value)) {
+    return value
+      .map((entry) => sanitizeAnalyticsValue(entry))
+      .filter((entry) => entry != null)
+      .slice(0, 12);
+  }
+  if (typeof value === "object") {
+    const next = {};
+    Object.entries(value).forEach(([key, entry]) => {
+      const sanitized = sanitizeAnalyticsValue(entry);
+      if (sanitized != null) {
+        next[key] = sanitized;
+      }
+    });
+    return next;
+  }
+  if (typeof value === "string") {
+    return value.slice(0, 240);
+  }
+  if (typeof value === "number" || typeof value === "boolean") {
+    return value;
+  }
+  return String(value).slice(0, 240);
+}
+
+function sanitizeAnalyticsMetadata(metadata = {}) {
+  return sanitizeAnalyticsValue(metadata) || {};
+}
+
+function isMissingSiteEventsError(error) {
+  const message = String(error?.message || "").toLowerCase();
+  return (
+    message.includes("site_events") ||
+    message.includes("relation") && message.includes("does not exist") ||
+    message.includes("could not find the table") && message.includes("site_events")
+  );
+}
+
+function scheduleAnalyticsFlush() {
+  if (
+    analyticsState.disabled ||
+    analyticsState.flushing ||
+    analyticsState.flushTimer ||
+    !analyticsState.queue.length
+  ) {
+    return;
+  }
+
+  analyticsState.flushTimer = window.setTimeout(() => {
+    analyticsState.flushTimer = null;
+    flushAnalyticsEvents();
+  }, 1200);
+}
+
+async function flushAnalyticsEvents() {
+  if (
+    analyticsState.disabled ||
+    analyticsState.flushing ||
+    !analyticsState.queue.length ||
+    !authState.client
+  ) {
+    return;
+  }
+
+  const batch = analyticsState.queue.splice(0, 20);
+  analyticsState.flushing = true;
+
+  const { error } = await authState.client.from("site_events").insert(batch);
+
+  analyticsState.flushing = false;
+
+  if (error) {
+    if (isMissingSiteEventsError(error)) {
+      analyticsState.disabled = true;
+      console.warn("site_events table is missing; disabling analytics logging.", error);
+      analyticsState.queue = [];
+      return;
+    }
+
+    console.warn("Could not write analytics event batch.", error);
+    analyticsState.queue = [...batch, ...analyticsState.queue].slice(-120);
+  }
+
+  if (analyticsState.queue.length) {
+    scheduleAnalyticsFlush();
+  }
+}
+
+function trackSiteEvent(eventName, metadata = {}, options = {}) {
+  if (!hasSupabaseConfig() || analyticsState.disabled || !eventName) {
+    return;
+  }
+
+  const sanitizedMetadata = sanitizeAnalyticsMetadata(metadata);
+  const dedupeKey = options.oncePerSession
+    ? `${eventName}:${JSON.stringify(sanitizedMetadata)}`
+    : "";
+  if (dedupeKey) {
+    if (analyticsState.seenKeys.has(dedupeKey)) {
+      return;
+    }
+    analyticsState.seenKeys.add(dedupeKey);
+  }
+
+  analyticsState.queue.push({
+    session_id: getAnalyticsSessionId(),
+    user_id: authState.user?.id || null,
+    event_name: eventName,
+    active_view:
+      settings.activeView ||
+      document.querySelector(".view-tab.is-active")?.dataset.view ||
+      "",
+    path: window.location.pathname || "/",
+    metadata: sanitizedMetadata,
+  });
+
+  if (analyticsState.queue.length > 120) {
+    analyticsState.queue.splice(0, analyticsState.queue.length - 120);
+  }
+
+  scheduleAnalyticsFlush();
+}
+
 function meaningfulProgressEntry(entry) {
   if (!entry || typeof entry !== "object") {
     return false;
@@ -2078,6 +2238,11 @@ function openCollectedDetailModal(item, copyIndex = getActiveCollectedCopyIndex(
     return;
   }
 
+  trackSiteEvent("open_collected_detail", {
+    itemId: item.id,
+    series: displaySeries(item),
+  });
+
   activeCollectedDetailId = item.id;
   setActiveCollectedCopyIndex(item.id, copyIndex);
   const detail = getOwnedDetail(item.id, copyIndex);
@@ -2615,6 +2780,7 @@ async function initializeSupabaseAuth() {
       autoRefreshToken: true,
     },
   });
+  scheduleAnalyticsFlush();
 
   authState.client.auth.onAuthStateChange(async (event, session) => {
     authState.session = session;
@@ -3769,10 +3935,15 @@ function openSupportPanel(mode = "bug_report", item = null) {
 }
 
 function openBugReportPanel() {
+  trackSiteEvent("open_bug_report_panel");
   openSupportPanel("bug_report");
 }
 
 function openImageRequestPanel(item) {
+  trackSiteEvent("open_sonny_picture_request", {
+    itemId: item?.id || "",
+    series: item ? displaySeries(item) : "",
+  });
   openSupportPanel("image_request", item);
 }
 
@@ -5432,6 +5603,8 @@ function openWishlistRanker() {
     return;
   }
 
+  trackSiteEvent("open_wishlist_ranker");
+
   activeWishlistSubview = "ranker";
   syncWishlistSubview();
   currentWishlistRankerPair = [];
@@ -5570,6 +5743,11 @@ function loadSavedMakerLayout(id) {
     return;
   }
 
+  trackSiteEvent("open_saved_wishlist_maker_layout", {
+    layoutId: layout.id,
+    layoutName: layout.name,
+  });
+
   makerActiveSavedLayoutId = layout.id;
   makerLayoutName = layout.name;
   makerDraftSelection = [...layout.draftSelection];
@@ -5630,6 +5808,11 @@ function saveCurrentMakerLayout(options = {}) {
   makerLayoutName = snapshot.name;
   settings.wishlistMakerLayouts = layouts;
   saveSettings();
+  trackSiteEvent(asNew ? "save_new_wishlist_maker_layout" : "update_wishlist_maker_layout", {
+    layoutId: snapshot.id,
+    layoutName: snapshot.name,
+    selectionCount: snapshot.appliedSelection.length || snapshot.draftSelection.length,
+  });
   renderMakerSavedLayouts();
 }
 
@@ -5896,6 +6079,7 @@ function reconcileMakerSelections(options = {}) {
 }
 
 function openWishlistMaker() {
+  trackSiteEvent("open_wishlist_maker");
   makerBackground = "blush";
   makerColumns = 4;
   makerOrderMode = "custom";
@@ -6476,6 +6660,11 @@ function moveCollectedItemToStock(item, copyIndex = getActiveCollectedCopyIndex(
     return;
   }
 
+  trackSiteEvent("move_collected_to_stock", {
+    itemId: item.id,
+    series: displaySeries(item),
+  });
+
   const stockItems = loadLocalStockItems();
   const matchingStockItem = stockItems.find((stockItem) => {
     return (
@@ -6536,6 +6725,12 @@ function sendStockItemBackToCollectionInTracker(stockItemId) {
   if (!stockItem?.sonnyId || stockItem.status === "sold") {
     return;
   }
+
+  trackSiteEvent("move_stock_to_collection", {
+    itemId: stockItem.sonnyId,
+    stockItemId,
+    series: stockItem.series || "",
+  });
 
   const current = progress[stockItem.sonnyId] && typeof progress[stockItem.sonnyId] === "object"
     ? progress[stockItem.sonnyId]
@@ -8410,6 +8605,12 @@ function switchView(view) {
   const previousView = settings.activeView || "tracker";
   settings.activeView = view;
   saveSettings();
+  if (previousView !== view) {
+    trackSiteEvent("view_tab", {
+      view,
+      previousView,
+    });
+  }
   setMobileNavOpen(false);
   if (previousView === "tracker" && view !== "tracker" && searchInput?.value) {
     searchInput.value = "";
@@ -8513,6 +8714,9 @@ function switchWishlistBoardMode(mode) {
   const nextMode = mode === "grid" ? "grid" : "immersive";
   settings.wishlistBoardMode = nextMode;
   saveSettings();
+  trackSiteEvent("switch_wishlist_board_mode", {
+    mode: nextMode,
+  });
   renderWishlist();
   if (nextMode === "grid") {
     wishlistImmersedForced = false;
@@ -8848,6 +9052,13 @@ async function init() {
   renderAuthState();
   applyFilters();
   switchView(settings.activeView || "tracker");
+  trackSiteEvent(
+    "page_load",
+    {
+      initialView: settings.activeView || "tracker",
+    },
+    { oncePerSession: true },
+  );
   renderStockPanel();
   await initializeSupabaseAuth();
   updateTrackerBackToTopVisibility();
@@ -9463,6 +9674,10 @@ supportRequestChoiceButtons.forEach((button) => {
 
     supportPanelMode = "image_request";
     supportImageRequestKind = selectedKind;
+    trackSiteEvent("select_sonny_picture_request_mode", {
+      mode: supportImageRequestKind,
+      itemId: supportPanelRequestedItem?.id || "",
+    });
     if (supportImageRequestKind !== "photo_submission" && supportPhotoConsentInput) {
       supportPhotoConsentInput.checked = false;
       if (bugReportImagesInput) {
@@ -9489,6 +9704,15 @@ bugReportForm?.addEventListener("submit", async (event) => {
   try {
     const payload = await submitBugReport();
     const attachmentCount = Number(payload?.attachments || 0);
+    trackSiteEvent(
+      isImageRequestMode()
+        ? (isPhotoSubmissionMode() ? "submit_sonny_photo_offer" : "submit_sonny_picture_request")
+        : "submit_bug_report",
+      {
+        attachments: attachmentCount,
+        itemId: supportPanelRequestedItem?.id || "",
+      },
+    );
     bugReportForm.reset();
     renderBugUploadList();
     resetSupportCaptcha();

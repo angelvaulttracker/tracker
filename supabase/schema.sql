@@ -118,6 +118,23 @@ create table if not exists public.bug_reports (
 create index if not exists bug_reports_created_idx
   on public.bug_reports (created_at desc);
 
+create table if not exists public.site_events (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users (id) on delete set null,
+  session_id text not null default '',
+  event_name text not null default '',
+  active_view text not null default '',
+  path text not null default '',
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default timezone('utc', now())
+);
+
+create index if not exists site_events_created_idx
+  on public.site_events (created_at desc);
+
+create index if not exists site_events_name_created_idx
+  on public.site_events (event_name, created_at desc);
+
 alter table public.profiles enable row level security;
 alter table public.collection_progress enable row level security;
 alter table public.stock_items enable row level security;
@@ -126,6 +143,7 @@ alter table public.shipments enable row level security;
 alter table public.shipment_items enable row level security;
 alter table public.activity_log enable row level security;
 alter table public.bug_reports enable row level security;
+alter table public.site_events enable row level security;
 
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values (
@@ -302,6 +320,12 @@ create policy "Activity log is deletable by owner"
   on public.activity_log
   for delete
   using (auth.uid() = user_id);
+
+drop policy if exists "Site events are insertable by anyone" on public.site_events;
+create policy "Site events are insertable by anyone"
+  on public.site_events
+  for insert
+  with check (user_id is null or auth.uid() = user_id);
 
 create or replace function public.handle_profile_created()
 returns trigger

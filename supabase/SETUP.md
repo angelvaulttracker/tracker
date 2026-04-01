@@ -23,6 +23,7 @@
 Notes:
 - Tracker cloud sync is wired now.
 - Tracker settings and native `UFS / UFT` stock state are now also saved into `profiles.tracker_settings` and `profiles.stock_state`, so re-run `schema.sql` after pulling schema updates.
+- Lightweight product analytics now log into `site_events`, so re-run `schema.sql` after pulling this change if you want usage events to save.
 - Fund, shipments, and activity tables are still schema-ready, but their frontend sync layer still needs to be connected.
 - The app can still work locally if Supabase is not configured yet.
 - Bug report screenshots upload to the `bug-report-images` Storage bucket created by `schema.sql`.
