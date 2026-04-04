@@ -1063,6 +1063,12 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-11-13-kappa", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/refined-kappa-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
