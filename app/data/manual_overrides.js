@@ -1069,6 +1069,12 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-13-13-dragon", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/refined-dragon-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
