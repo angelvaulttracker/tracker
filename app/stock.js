@@ -25,6 +25,8 @@ const FUND_STARTING_BALANCE = 5000;
 const MAX_ACTIVITY_ITEMS = 300;
 
 const imageMap = window.SONNY_IMAGE_MAP || {};
+const manualOverrides = window.SONNY_MANUAL_OVERRIDES || {};
+const manualItemOverrides = manualOverrides.items || {};
 const rawCatalog = window.SONNIES_DATA || [];
 const IMAGE_CACHE_BUSTER = "20260316-robby-refresh";
 const trimmedShelfImageCache = new Map();
@@ -39,10 +41,11 @@ function withImageVersion(path) {
 
 const stockCatalog = rawCatalog
   .map((item) => {
+    const override = manualItemOverrides[item.id] || {};
     const mapped = imageMap[item.id] || {};
-    const name = mapped.catalogName || item.name;
-    const series = mapped.catalogSeries || item.series;
-    const imagePath = withImageVersion(mapped.path || "");
+    const name = override.name || mapped.catalogName || item.name;
+    const series = override.series || mapped.catalogSeries || item.series;
+    const imagePath = withImageVersion(override.artPath || mapped.path || "");
     return {
       id: item.id,
       name,

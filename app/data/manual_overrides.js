@@ -357,7 +357,14 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
   });
 
   assign("page-58-07-movie-night-sonny-angel", {
+    artPath: "./app/assets/hero/secret-movie-night.png",
+    artSource: "manual-web-override",
     isSecret: true,
+  });
+
+  assign("page-58-08-movie-night-robby-angel", {
+    artPath: "./app/assets/hero/movie-night-robby.png",
+    artSource: "manual-web-override",
   });
 
   assign("page-58-14-mint-rabbit", {
