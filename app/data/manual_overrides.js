@@ -1039,6 +1039,23 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-39-17-love", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/green-tea-tiger-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-14-13-turtle", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/refined-turtle-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-12-13-unicorn", {
+    artPath: "./app/assets/manual/user-photo-candidates/unicorn-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
