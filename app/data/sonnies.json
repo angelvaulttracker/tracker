@@ -4563,19 +4563,6 @@
     }
   },
   {
-    "id": "page-29-06-dinner-robby-angel",
-    "name": "Dinner Robby Angel",
-    "series": "Christmas Dinner Series",
-    "page": 29,
-    "image": {
-      "page": "./assets/pages/page-029.png",
-      "pageWidth": 1328,
-      "pageHeight": 974,
-      "x": 875,
-      "y": 610
-    }
-  },
-  {
     "id": "page-29-07-crocodile",
     "name": "Crocodile",
     "series": "Christmas Dinner Series",
@@ -4598,6 +4585,19 @@
       "pageWidth": 1328,
       "pageHeight": 974,
       "x": 1085,
+      "y": 610
+    }
+  },
+  {
+    "id": "page-29-06-dinner-robby-angel",
+    "name": "Dinner Robby Angel",
+    "series": "Christmas Dinner Series",
+    "page": 29,
+    "image": {
+      "page": "./assets/pages/page-029.png",
+      "pageWidth": 1328,
+      "pageHeight": 974,
+      "x": 875,
       "y": 610
     }
   },
@@ -5083,6 +5083,19 @@
     }
   },
   {
+    "id": "page-31-13-classic-santa",
+    "name": "Classic Santa",
+    "series": "Christmas Series 2018",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 1158,
+      "y": 150
+    }
+  },
+  {
     "id": "page-31-14-classic-reindeer",
     "name": "Classic Reindeer",
     "series": "Christmas Series 2018",
@@ -5098,19 +5111,6 @@
   {
     "id": "page-31-15-classic-robby-angel",
     "name": "Classic Robby Angel",
-    "series": "Christmas Series 2018",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 1158,
-      "y": 150
-    }
-  },
-  {
-    "id": "page-31-13-classic-santa",
-    "name": "Classic Santa",
     "series": "Christmas Series 2018",
     "page": 31,
     "image": {
@@ -5161,8 +5161,21 @@
     }
   },
   {
-    "id": "page-31-28-pierrot-angel",
-    "name": "Pierrot Angel",
+    "id": "page-31-25-rocking-horse",
+    "name": "Rocking Horse",
+    "series": "Christmas Series 2017",
+    "page": 31,
+    "image": {
+      "page": "./assets/pages/page-031.png",
+      "pageWidth": 1338,
+      "pageHeight": 980,
+      "x": 1158,
+      "y": 520
+    }
+  },
+  {
+    "id": "page-31-26-wood-doll-santa",
+    "name": "Wood Doll Santa",
     "series": "Christmas Series 2017",
     "page": 31,
     "image": {
@@ -5187,21 +5200,8 @@
     }
   },
   {
-    "id": "page-31-25-rocking-horse",
-    "name": "Rocking Horse",
-    "series": "Christmas Series 2017",
-    "page": 31,
-    "image": {
-      "page": "./assets/pages/page-031.png",
-      "pageWidth": 1338,
-      "pageHeight": 980,
-      "x": 1158,
-      "y": 520
-    }
-  },
-  {
-    "id": "page-31-26-wood-doll-santa",
-    "name": "Wood Doll Santa",
+    "id": "page-31-28-pierrot-angel",
+    "name": "Pierrot Angel",
     "series": "Christmas Series 2017",
     "page": 31,
     "image": {
@@ -5720,8 +5720,21 @@
     }
   },
   {
-    "id": "page-33-21-blue-snow-robby-angel",
-    "name": "Blue Snow Robby Angel",
+    "id": "page-33-15-santa-claus",
+    "name": "Santa Claus",
+    "series": "Christmas Series 2014",
+    "page": 33,
+    "image": {
+      "page": "./assets/pages/page-033.png",
+      "pageWidth": 1332,
+      "pageHeight": 977,
+      "x": 1152,
+      "y": 185
+    }
+  },
+  {
+    "id": "page-33-16-reindeer",
+    "name": "Reindeer",
     "series": "Christmas Series 2014",
     "page": 33,
     "image": {
@@ -5759,8 +5772,8 @@
     }
   },
   {
-    "id": "page-33-16-reindeer",
-    "name": "Reindeer",
+    "id": "page-33-19-santa-claus",
+    "name": "Santa Claus",
     "series": "Christmas Series 2014",
     "page": 33,
     "image": {
@@ -5785,21 +5798,8 @@
     }
   },
   {
-    "id": "page-33-15-santa-claus",
-    "name": "Santa Claus",
-    "series": "Christmas Series 2014",
-    "page": 33,
-    "image": {
-      "page": "./assets/pages/page-033.png",
-      "pageWidth": 1332,
-      "pageHeight": 977,
-      "x": 1152,
-      "y": 185
-    }
-  },
-  {
-    "id": "page-33-19-santa-claus",
-    "name": "Santa Claus",
+    "id": "page-33-21-blue-snow-robby-angel",
+    "name": "Blue Snow Robby Angel",
     "series": "Christmas Series 2014",
     "page": 33,
     "image": {
@@ -6409,8 +6409,8 @@
     }
   },
   {
-    "id": "page-36-08-chocolate-robby-angel",
-    "name": "Chocolate Robby Angel",
+    "id": "page-36-06-love-lop-ear-rabbit",
+    "name": "Love Lop Ear Rabbit",
     "series": "Gifts of Love Series",
     "page": 36,
     "image": {
@@ -6422,8 +6422,8 @@
     }
   },
   {
-    "id": "page-36-06-love-lop-ear-rabbit",
-    "name": "Love Lop Ear Rabbit",
+    "id": "page-36-07-love-red-rabbit",
+    "name": "Love Red Rabbit",
     "series": "Gifts of Love Series",
     "page": 36,
     "image": {
@@ -6448,8 +6448,8 @@
     }
   },
   {
-    "id": "page-36-07-love-red-rabbit",
-    "name": "Love Red Rabbit",
+    "id": "page-36-08-chocolate-robby-angel",
+    "name": "Chocolate Robby Angel",
     "series": "Gifts of Love Series",
     "page": 36,
     "image": {
@@ -10569,19 +10569,6 @@
     }
   },
   {
-    "id": "page-54-16-alien-robby-angel",
-    "name": "Alien Robby Angel",
-    "series": "Sonny Angel in Space Adventure Series (2020)",
-    "page": 54,
-    "image": {
-      "page": "./assets/pages/page-054.png",
-      "pageWidth": 1370,
-      "pageHeight": 978,
-      "x": 1190,
-      "y": 678
-    }
-  },
-  {
     "id": "page-54-14-rocket",
     "name": "Rocket",
     "series": "Sonny Angel in Space Adventure Series (2020)",
@@ -10610,6 +10597,19 @@
   {
     "id": "page-54-15-ufo",
     "name": "UFO",
+    "series": "Sonny Angel in Space Adventure Series (2020)",
+    "page": 54,
+    "image": {
+      "page": "./assets/pages/page-054.png",
+      "pageWidth": 1370,
+      "pageHeight": 978,
+      "x": 1190,
+      "y": 678
+    }
+  },
+  {
+    "id": "page-54-16-alien-robby-angel",
+    "name": "Alien Robby Angel",
     "series": "Sonny Angel in Space Adventure Series (2020)",
     "page": 54,
     "image": {
