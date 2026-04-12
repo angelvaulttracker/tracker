@@ -1619,6 +1619,42 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-53-09-circus-tent", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/circus-series/circus-tent-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-53-10-elephant", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/circus-series/elephant-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-53-13-ringmaster", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/circus-series/ringmaster-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-53-14-lion", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/circus-series/lion-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-53-11-clown", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/circus-series/clown-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-53-12-bear", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/circus-series/bear-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
