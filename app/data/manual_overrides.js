@@ -1571,6 +1571,18 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-77-07-rabbit-blue", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited/rabbit-blue-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-77-08-rabbit-white", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited/rabbit-white-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-74-01-jet-7th-anniversary", {
     artPath:
       "./app/assets/manual/user-photo-candidates/limited-b/jet-7th-anniversary-candidate.png",
