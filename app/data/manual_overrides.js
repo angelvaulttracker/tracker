@@ -1156,6 +1156,11 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-77-09-crown", {
+    artPath: "./app/assets/manual/user-photo-candidates/limited-crown-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
