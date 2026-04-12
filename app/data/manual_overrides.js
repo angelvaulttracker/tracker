@@ -1221,6 +1221,54 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-65-01-elephant", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/pink-elephant-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-09-sheep", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/pink-sheep-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-02-lion", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/green-lion-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-07-monkey", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/white-monkey-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-03-tiger", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/white-tiger-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-06-sheep", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/white-pig-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-02-pig", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/gold-pig-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-08-parakeet", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/green-parakeet-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-24-04-groove-on", {
     artPath:
       "./app/assets/manual/user-photo-candidates/t-shirt-series/groove-on-candidate.png",
