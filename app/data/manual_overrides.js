@@ -1673,6 +1673,42 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-23-05-cloudy", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/sky-color-series/cloudy-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-23-06-rainbow", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/sky-color-series/rainbow-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-23-07-rainy", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/sky-color-series/rainy-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-23-13-sunny", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/sky-color-series/sunny-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-23-12-snowy", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/sky-color-series/snowy-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-23-08-thunder", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/sky-color-series/thunder-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
