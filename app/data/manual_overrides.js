@@ -1661,6 +1661,18 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-72-06-rabbit", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/nylon-15th-anniversary/nylon-rabbit-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-72-07-monkey", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/nylon-15th-anniversary/nylon-monkey-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
