@@ -4224,6 +4224,20 @@ function buildCatalogOrderMaps(items) {
   const seriesOrder = new Map();
   const itemOrder = new Map();
   const nextItemOrderBySeries = new Map();
+  const forcedTailAfterAnchor = [
+    "Snack Series",
+    "HIPPERS Cherry Blossom Series",
+    "Strawberry Love Series",
+    "Santa's Little Helper Series",
+    "Pumpkin Patch Series",
+    "I LOVE RAINY DAY Series",
+    "Cherry Blossom Series -Hanami Edition-",
+    "Kiss Kiss(2025)",
+  ].map((label) => canonicalSeriesKey(label));
+  const anchorSeriesCandidates = [
+    "HIPPERS Animal Series 2021",
+    "Hippers Animal Series",
+  ].map((label) => canonicalSeriesKey(label));
 
   items.forEach((item) => {
     const seriesLabel = displaySeries(item);
@@ -4237,6 +4251,31 @@ function buildCatalogOrderMaps(items) {
     itemOrder.set(item.id, nextOrder);
     nextItemOrderBySeries.set(seriesKey, nextOrder + 1);
   });
+
+  const orderedSeriesKeys = [...seriesOrder.entries()]
+    .sort((left, right) => left[1] - right[1])
+    .map(([key]) => key);
+  const existingForced = forcedTailAfterAnchor.filter((key) =>
+    orderedSeriesKeys.includes(key),
+  );
+
+  if (existingForced.length) {
+    const anchorIndex = orderedSeriesKeys.findIndex((key) =>
+      anchorSeriesCandidates.includes(key),
+    );
+    const baseSeries = orderedSeriesKeys.filter((key) => !existingForced.includes(key));
+    const insertAt = anchorIndex >= 0 ? anchorIndex + 1 : baseSeries.length;
+    const reorderedKeys = [
+      ...baseSeries.slice(0, insertAt),
+      ...existingForced,
+      ...baseSeries.slice(insertAt),
+    ];
+
+    seriesOrder.clear();
+    reorderedKeys.forEach((key, index) => {
+      seriesOrder.set(key, index);
+    });
+  }
 
   return { seriesOrder, itemOrder };
 }
