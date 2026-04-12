@@ -1553,6 +1553,30 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-43-01-mummy", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2012/mummy-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-43-02-pumpkin", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2012/pumpkin-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-43-03-witch", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2012/witch-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-43-04-vampire", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2012/vampire-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
