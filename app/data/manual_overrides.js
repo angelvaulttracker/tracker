@@ -1577,6 +1577,24 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-70-21-blowfish", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/exception-living-sea-blue/exception-blowfish-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-70-22-seahorse", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/exception-living-sea-blue/exception-seahorse-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-70-23-whale", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/exception-living-sea-blue/exception-whale-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
