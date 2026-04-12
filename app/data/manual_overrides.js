@@ -1325,6 +1325,78 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-92-01-rabbit", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/rabbit-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-02-frog", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/frog-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-03-cockerel", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/cockerel-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-04-panda", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/panda-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-05-koala", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/koala-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-06-tiger", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/tiger-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-07-elephant", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/elephant-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-08-dalmation", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/dalmatian-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-09-monkey", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/monkey-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-10-cheetah", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/cheetah-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-11-crocodile", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/crocodile-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-92-12-lion", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/decoppin-animal-series-ver-1/lion-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
