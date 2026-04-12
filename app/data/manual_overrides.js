@@ -1081,6 +1081,78 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-24-01-crown-green", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/crown-green-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-02-crown-pink", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/crown-pink-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-03-crown-red", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/crown-red-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-07-crown-yellow", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/crown-yellow-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-08-crown-orange", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/crown-orange-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-09-crown-silver", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/crown-silver-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-10-cross-crown-blue", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/cross-crown-blue-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-11-cross-crown-orange", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/cross-crown-orange-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-16-cross-crown-light-blue", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/cross-crown-light-blue-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-17-cross-crown-pink", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/cross-crown-pink-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-18-heart-crown-red", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/heart-crown-red-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-19-heart-crown-yellow", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/heart-crown-yellow-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
