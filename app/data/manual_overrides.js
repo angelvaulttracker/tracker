@@ -1433,6 +1433,30 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-32-01-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2012/santa-claus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-02-reindeer", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2012/reindeer-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-03-tree-cape", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2012/tree-cape-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-04-christmas-cake", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2012/christmas-cake-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
