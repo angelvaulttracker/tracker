@@ -1185,6 +1185,42 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-24-04-groove-on", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/groove-on-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-05-what-s-up", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/whats-up-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-06-rejoice", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/rejoice-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-12-fun-to-be-with", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/fun-to-be-with-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-13-hug-me", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/hug-me-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-14-sorry-mom", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/sorry-mom-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
