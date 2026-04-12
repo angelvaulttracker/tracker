@@ -1055,6 +1055,36 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-39-04-choceiata", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentine-series-2013/milk-chocolate-zebra-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-39-02-mocha-porakest", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentine-series-2013/mocha-chocolate-parakeet-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-39-01-panda", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentine-series-2013/white-chocolate-panda-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-39-06-checelate", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentine-series-2013/strawberry-chocolate-lop-ear-rabbit-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-39-13-cats", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentine-series-2013/golden-cheetah-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-14-13-turtle", {
     artPath:
       "./app/assets/manual/user-photo-candidates/refined-turtle-candidate.png",
