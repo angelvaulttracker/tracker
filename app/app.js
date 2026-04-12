@@ -892,7 +892,7 @@ const analyticsState = {
   fallbackSessionId: "",
   seenKeys: new Set(),
 };
-const IMAGE_CACHE_BUSTER = "20260316-robby-refresh";
+const IMAGE_CACHE_BUSTER = "20260412-nylon-alpha-fix";
 const MANUAL_ASSET_CACHE_BUSTER = String(Date.now());
 const MAKER_BACKGROUNDS = [
   {

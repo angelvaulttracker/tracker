@@ -28,7 +28,7 @@ const imageMap = window.SONNY_IMAGE_MAP || {};
 const manualOverrides = window.SONNY_MANUAL_OVERRIDES || {};
 const manualItemOverrides = manualOverrides.items || {};
 const rawCatalog = window.SONNIES_DATA || [];
-const IMAGE_CACHE_BUSTER = "20260316-robby-refresh";
+const IMAGE_CACHE_BUSTER = "20260412-nylon-alpha-fix";
 const trimmedShelfImageCache = new Map();
 
 function withImageVersion(path) {
