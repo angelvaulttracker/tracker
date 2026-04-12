@@ -1595,6 +1595,30 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-70-10-bed", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/dashin-socks-child-of-the-stars/bed-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-70-11-flamingo", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/dashin-socks-child-of-the-stars/flamingo-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-70-13-fruit-dish", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/dashin-socks-child-of-the-stars/fruit-dish-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-70-12-my-kitty", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/dashin-socks-child-of-the-stars/my-kitty-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
