@@ -1161,6 +1161,30 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-65-04-cabbage", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/purple-cabbage-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-05-paprika-red", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/red-pepper-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-09-paprika-yellow", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/yellow-pepper-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-65-10-muscat", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/special-color-2007/green-muskat-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
