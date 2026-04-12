@@ -855,10 +855,16 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
   });
 
   assign("page-43-07-pumpkin", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2007/pumpkin-gold-secret-candidate.png",
+    artSource: "manual-upload",
     isSecret: true,
   });
 
   assign("page-43-08-ghost", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2007/ghost-gold-secret-candidate.png",
+    artSource: "manual-upload",
     isSecret: true,
   });
 
