@@ -512,6 +512,9 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
   });
 
   assign("page-24-20-laurel-crown", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/crown-series/laurel-crown-candidate.png",
+    artSource: "manual-upload",
     isSecret: true,
   });
 
