@@ -1655,6 +1655,12 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-53-15-silk-hat-rabbit", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/circus-series/silk-hat-rabbit-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
