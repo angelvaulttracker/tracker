@@ -3692,6 +3692,19 @@
     }
   },
   {
+    "id": "page-24-15a-go-for-it",
+    "name": "Go For It",
+    "series": "T-Shirt Series",
+    "page": 24,
+    "image": {
+      "page": "./assets/pages/page-024.png",
+      "pageWidth": 1330,
+      "pageHeight": 974,
+      "x": 1150,
+      "y": 475
+    }
+  },
+  {
     "id": "page-24-16-cross-crown-light-blue",
     "name": "Cross Crown Light Blue",
     "series": "Crown Series",

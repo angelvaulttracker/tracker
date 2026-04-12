@@ -1221,6 +1221,50 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-24-15-yummy", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/yummy-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-15a-go-for-it", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/go-for-it-candidate.png",
+    artSource: "manual-upload",
+    catalogSortSlot: 15.5,
+  });
+
+  assign("page-24-21-thanks", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/thanks-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-22-cha-cha-cha", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/cha-cha-cha-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-23-sos", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/sos-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-24-cry-for-joy", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/cry-for-joy-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-24-25-chu", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-series/chu-secret-candidate.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+
   return {
     items,
   };
