@@ -1457,6 +1457,78 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-73-01-uribou-blue", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-uribou-blue-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-73-02-uribou-green", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-uribou-green-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-73-03-uribou-pink", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-uribou-pink-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-73-04-uribou-red", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-uribou-red-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-73-05-uribou-white", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-uribou-white-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-73-06-mouse-red", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-mouse-red-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-73-07-mouse-white", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-mouse-white-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-73-08-mouse-gold", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/francfranc-mouse-gold-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-77-06-marchand-de-legumes", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/marchand-de-legumes-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-77-05-cow-gold", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/cow-gold-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-77-01-normal", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/normal-black-doll-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-74-01-jet-7th-anniversary", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/limited-b/jet-7th-anniversary-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
