@@ -1265,6 +1265,42 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-74-17-good-luck", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-1300k/good-luck-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-74-18-it-s-ok", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-1300k/its-ok-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-74-19-i-m-genie", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-1300k/im-genie-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-74-20-dream-come-true", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-1300k/dream-come-true-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-74-21-try-again", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-1300k/try-again-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-74-22-free-your-style", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/t-shirt-1300k/free-your-style-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
