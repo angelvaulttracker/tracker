@@ -1301,6 +1301,30 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-42-11-spider", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2016/spider-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-42-10-bat", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2016/bat-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-42-08-witch", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2016/witch-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-42-09-pumpkin", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/halloween-2016/pumpkin-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
