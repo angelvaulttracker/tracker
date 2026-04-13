@@ -1903,6 +1903,54 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-83-04-normal-2006", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/normal-2006-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-83-03-uribou-2007", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/uribou-2007-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-83-02-mouse-2008", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/mouse-2008-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-83-01-cow-2009", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/cow-2009-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-82-09-tiger-2010-usa", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/tiger-2010-usa-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-82-11-tiger-2010", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/tiger-2010-japan-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-82-10-rabbit-2011", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/rabbit-2011-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-82-08-dragon-2012", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/new-year-card-figures/dragon-2012-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
