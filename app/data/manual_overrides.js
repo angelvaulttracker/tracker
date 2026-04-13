@@ -1505,6 +1505,24 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-32-07-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2011/santa-claus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-08-snowman", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2011/snowman-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-09-reindeer", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2011/reindeer-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-73-01-uribou-blue", {
     artPath:
       "./app/assets/manual/user-photo-candidates/limited-b/francfranc-uribou-blue-candidate.png",
