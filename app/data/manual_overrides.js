@@ -1879,6 +1879,30 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-34-05-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2007/francfranc-xmas-pink-santa-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-34-06-reindeer", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2007/francfranc-xmas-brown-reindeer-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-34-07-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2007/francfranc-xmas-gray-santa-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-34-08-reindeer", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2007/francfranc-xmas-gray-reindeer-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
