@@ -1843,6 +1843,18 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-34-09-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2006/santa-claus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-34-10-reindeer", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2006/reindeer-candidate.png",
+    artSource: "manual-upload",
+  });
+
   return {
     items,
   };
