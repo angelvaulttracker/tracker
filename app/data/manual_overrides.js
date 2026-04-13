@@ -1548,6 +1548,37 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-32-21-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2008/santa-claus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-22-snowman", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2008/snowman-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-23-christmas-cone", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2008/christmas-cone-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-24-bell", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2008/bell-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-32-25-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-2008/secret-santa-candidate.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+
   assign("page-73-01-uribou-blue", {
     artPath:
       "./app/assets/manual/user-photo-candidates/limited-b/francfranc-uribou-blue-candidate.png",
