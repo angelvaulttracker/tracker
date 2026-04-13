@@ -1579,6 +1579,49 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-40-02-chocolate", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentines-2009/love-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-05-taf", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentines-2009/you-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-21-white", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentines-2009/bitter-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-22-milic", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentines-2009/milky-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-23-white-chocolate", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentines-2009/cupcake-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-20-extra-hitter-cheestate", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentines-2009/donut-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-13-burry-designs-with", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/valentines-2009/strawberry-secret-candidate.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+
   assign("page-32-13-santa-claus", {
     artPath:
       "./app/assets/manual/user-photo-candidates/christmas-2010/santa-1-candidate.png",
