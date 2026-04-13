@@ -944,6 +944,72 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-79-10-rabbit", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/rabbit-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-11-elephant", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/elephant-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-12-lop-ear-rabbit", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/lop-ear-rabbit-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-13-cactus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/cactus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-14-apple", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/apple-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-16-fawn", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/fawn-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-17-monkey", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/monkey-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-18-mouse", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/mouse-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-19-rose", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/rose-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-20-cabbage", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/cabbage-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-79-21-shark", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/12th-anniversary/shark-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-79-05-colorful-cake-rabbit", {
     isSecret: true,
   });
