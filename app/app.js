@@ -4238,6 +4238,28 @@ function buildCatalogOrderMaps(items) {
     "HIPPERS Animal Series 2021",
     "Hippers Animal Series",
   ].map((label) => canonicalSeriesKey(label));
+  const forcedChristmasSequence = [
+    "Winter Wonderland Series",
+    "Christmas Series 2021 Dreaming Christmas",
+    "Christmas Series 2020 Presents from Sonny Angel",
+    "Christmas Series 2019",
+    "Christmas Series 2018",
+    "Christmas Series 2017",
+    "Christmas Series 2016",
+    "Christmas Series 2015",
+    "Christmas Series 2014",
+    "Christmas Series 2013",
+    "Christmas Series 2012",
+    "Christmas Series 2011",
+    "Christmas Series 2010",
+    "Christmas Series 2009",
+    "Christmas Series 2008",
+    "Christmas Series 2007",
+    "Christmas Series 2006",
+    "Christmas Ornament 2023",
+    "Sonny Angel Christmas Ornament(2022)",
+    "Christmas Ornament Series 2014",
+  ].map((label) => canonicalSeriesKey(label));
 
   items.forEach((item) => {
     const seriesLabel = displaySeries(item);
@@ -4269,6 +4291,32 @@ function buildCatalogOrderMaps(items) {
       ...baseSeries.slice(0, insertAt),
       ...existingForced,
       ...baseSeries.slice(insertAt),
+    ];
+
+    seriesOrder.clear();
+    reorderedKeys.forEach((key, index) => {
+      seriesOrder.set(key, index);
+    });
+  }
+
+  const currentOrderKeys = [...seriesOrder.entries()]
+    .sort((left, right) => left[1] - right[1])
+    .map(([key]) => key);
+  const existingChristmasBlock = forcedChristmasSequence.filter((key) =>
+    currentOrderKeys.includes(key),
+  );
+
+  if (existingChristmasBlock.length) {
+    const firstBlockIndex = Math.min(
+      ...existingChristmasBlock.map((key) => currentOrderKeys.indexOf(key)),
+    );
+    const baseSeries = currentOrderKeys.filter(
+      (key) => !existingChristmasBlock.includes(key),
+    );
+    const reorderedKeys = [
+      ...baseSeries.slice(0, firstBlockIndex),
+      ...existingChristmasBlock,
+      ...baseSeries.slice(firstBlockIndex),
     ];
 
     seriesOrder.clear();
