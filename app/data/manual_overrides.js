@@ -1622,6 +1622,42 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-40-39-rabbit-strawberry-chocolate-2014", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/easter-2014/rabbit-strawberry-chocolate-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-41-rabbit-milk-chocolate-2014", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/easter-2014/rabbit-milk-chocolate-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-40-rabbit-white-chocolate-2014", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/easter-2014/rabbit-white-chocolate-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-42-elephant-white-chocolate-2014", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/easter-2014/elephant-white-chocolate-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-43-koala-bitter-chocolate-2014", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/easter-2014/koala-bitter-chocolate-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-40-44-cockerel-strawberry-chocolate-2014", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/easter-2014/cockerel-strawberry-chocolate-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-32-13-santa-claus", {
     artPath:
       "./app/assets/manual/user-photo-candidates/christmas-2010/santa-1-candidate.png",
