@@ -980,6 +980,78 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-64-14-french-bulldog", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/french-bulldog-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-15-duckbill", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/duckbill-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-16-lop-ear-rabbit", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/lop-ear-rabbit-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-17-owl", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/owl-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-18-hippopotamus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/hippopotamus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-19-zebra", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/zebra-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-20-alpaca", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/alpaca-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-21-buffalo", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/buffalo-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-22-american-shorthair", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/american-shorthair-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-23-gorilla", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/gorilla-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-24-chameleon", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/chameleon-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-64-25-parrot", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/animal-series-ver-3-special-color/parrot-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-79-10-rabbit", {
     artPath:
       "./app/assets/manual/user-photo-candidates/12th-anniversary/rabbit-candidate.png",
