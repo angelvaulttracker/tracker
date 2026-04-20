@@ -944,6 +944,42 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  assign("page-35-11-pink-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-ornament-2014/pink-santa-claus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-35-12-pink-reindeer", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-ornament-2014/pink-reindeer-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-35-13-pink-snowman", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-ornament-2014/pink-snowman-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-35-14-silver-santa-claus", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-ornament-2014/silver-santa-claus-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-35-15-silver-reindeer", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-ornament-2014/silver-reindeer-candidate.png",
+    artSource: "manual-upload",
+  });
+
+  assign("page-35-16-silver-snowman", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-ornament-2014/silver-snowman-candidate.png",
+    artSource: "manual-upload",
+  });
+
   assign("page-79-10-rabbit", {
     artPath:
       "./app/assets/manual/user-photo-candidates/12th-anniversary/rabbit-candidate.png",
