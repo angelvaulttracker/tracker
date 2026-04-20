@@ -1052,6 +1052,13 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  assign("page-33-07-gingerbread-robby-angel", {
+    artPath:
+      "./app/assets/manual/user-photo-candidates/christmas-series-2020/gingerbread-robby-angel-candidate.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+
   assign("page-79-10-rabbit", {
     artPath:
       "./app/assets/manual/user-photo-candidates/12th-anniversary/rabbit-candidate.png",
