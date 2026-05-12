@@ -4047,7 +4047,7 @@ async function submitBugReport() {
     bugReportDescriptionInput?.focus();
     throw new Error("Add a short description of the bug first so the report has enough context.");
   }
-  if (isImageRequestMode() && !supportPanelRequestedItem) {
+  if (isImageRequestMode() && !isPhotoSubmissionMode() && !supportPanelRequestedItem) {
     throw new Error("Pick a Sonny first so I know which PNG image you want requested.");
   }
   if (isPhotoSubmissionMode() && !hasPhotoConsent) {
