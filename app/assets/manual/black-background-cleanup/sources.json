@@ -1,0 +1,461 @@
+[
+  {
+    "asset": "page-84-05-rabbit.png",
+    "source_file": "page-84-05-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      260,
+      617
+    ],
+    "background_seeds": [
+      [
+        157,
+        166
+      ]
+    ],
+    "original_asset": "sonny_png_library/collaboration/special-collections/angel-in-the-bird-garden/01__rabbit.png"
+  },
+  {
+    "asset": "page-84-06-elephant.png",
+    "source_file": "page-84-06-elephant.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      295,
+      491
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library/collaboration/special-collections/angel-in-the-bird-garden/02__elephant.png"
+  },
+  {
+    "asset": "page-84-03-rabbit.png",
+    "source_file": "page-84-03-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      275,
+      656
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library/collaboration/special-collections/jimmy-liao-a-garden-in-my-heart/01__rabbit.png"
+  },
+  {
+    "asset": "page-84-04-elephant.png",
+    "source_file": "page-84-04-elephant.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      296,
+      511
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library/collaboration/special-collections/jimmy-liao-a-garden-in-my-heart/02__elephant.png"
+  },
+  {
+    "asset": "page-84-01-rabbit.png",
+    "source_file": "page-84-01-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      272,
+      648
+    ],
+    "background_seeds": [
+      [
+        147,
+        144
+      ]
+    ],
+    "original_asset": "sonny_png_library/collaboration/special-collections/keme-life-everything-have-souls/01__rabbit.png"
+  },
+  {
+    "asset": "page-84-02-tiger.png",
+    "source_file": "page-84-02-tiger.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      268,
+      497
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library/collaboration/special-collections/keme-life-everything-have-souls/02__tiger.png"
+  },
+  {
+    "asset": "page-89-06-morning-glow.png",
+    "source_file": "page-89-06-morning-glow.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      302,
+      500
+    ],
+    "background_seeds": [
+      [
+        140,
+        495
+      ],
+      [
+        82,
+        486
+      ],
+      [
+        249,
+        517
+      ]
+    ],
+    "original_asset": "sonny_png_library/limited/special-collections/summer-island-holiday/01__morning-glow.png"
+  },
+  {
+    "asset": "page-89-07-sunset-glow.png",
+    "source_file": "page-89-07-sunset-glow.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      300,
+      496
+    ],
+    "background_seeds": [
+      [
+        150,
+        494
+      ],
+      [
+        85,
+        484
+      ],
+      [
+        244,
+        516
+      ]
+    ],
+    "original_asset": "sonny_png_library/limited/special-collections/summer-island-holiday/02__sunset-glow.png"
+  },
+  {
+    "asset": "page-89-13-cow.png",
+    "source_file": "page-89-13-cow.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      296,
+      484
+    ],
+    "background_seeds": [
+      [
+        216,
+        464
+      ],
+      [
+        99,
+        460
+      ]
+    ],
+    "original_asset": "sonny_png_library/limited/other-collections/bobbing-head/03__cloud-cow.png"
+  },
+  {
+    "asset": "page-89-11-rabbit.png",
+    "source_file": "page-89-11-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      296,
+      625
+    ],
+    "background_seeds": [
+      [
+        210,
+        460
+      ],
+      [
+        100,
+        451
+      ]
+    ],
+    "original_asset": "sonny_png_library/limited/other-collections/bobbing-head/01__cloud-rabbit.png"
+  },
+  {
+    "asset": "page-89-12-sheep.png",
+    "source_file": "page-89-12-sheep.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      296,
+      484
+    ],
+    "background_seeds": [
+      [
+        210,
+        454
+      ],
+      [
+        96,
+        449
+      ]
+    ],
+    "original_asset": "sonny_png_library/limited/other-collections/bobbing-head/02__cloud-sheep.png"
+  },
+  {
+    "asset": "page-99-01-elephant.png",
+    "source_file": "page-99-01-elephant.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      290,
+      600
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/01__elephant.png"
+  },
+  {
+    "asset": "page-99-02-dalmatian.png",
+    "source_file": "page-99-02-dalmatian.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      214,
+      614
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/02__dalmatian.png"
+  },
+  {
+    "asset": "page-99-03-pig.png",
+    "source_file": "page-99-03-pig.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      250,
+      612
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/03__pig.png"
+  },
+  {
+    "asset": "page-99-04-lop-ear-rabbit.png",
+    "source_file": "page-99-04-lop-ear-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      296,
+      451
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/04__lop-ear-rabbit.png"
+  },
+  {
+    "asset": "page-99-05-duck.png",
+    "source_file": "page-99-05-duck.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      184,
+      618
+    ],
+    "background_seeds": [
+      [
+        161,
+        520
+      ]
+    ],
+    "original_asset": "sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/05__duck.png"
+  },
+  {
+    "asset": "page-99-06-sloth.png",
+    "source_file": "page-99-06-sloth.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      182,
+      612
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/santa-s-little-helper-series/06__sloth.png"
+  },
+  {
+    "asset": "page-100-01-cat.png",
+    "source_file": "page-100-01-cat.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      262,
+      496
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/pumpkin-patch-series/01__cat.png"
+  },
+  {
+    "asset": "page-100-02-panda.png",
+    "source_file": "page-100-02-panda.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      262,
+      498
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/pumpkin-patch-series/02__panda.png"
+  },
+  {
+    "asset": "page-100-03-mouse.png",
+    "source_file": "page-100-03-mouse.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      272,
+      518
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/pumpkin-patch-series/03__mouse.png"
+  },
+  {
+    "asset": "page-100-04-lop-ear-rabbit.png",
+    "source_file": "page-100-04-lop-ear-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      262,
+      516
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/pumpkin-patch-series/04__lop-ear-rabbit.png"
+  },
+  {
+    "asset": "page-100-05-elephant.png",
+    "source_file": "page-100-05-elephant.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      292,
+      494
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/pumpkin-patch-series/05__elephant.png"
+  },
+  {
+    "asset": "page-100-06-frog.png",
+    "source_file": "page-100-06-frog.png",
+    "crop_box": [
+      0,
+      0,
+      300,
+      654
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      260,
+      516
+    ],
+    "background_seeds": [],
+    "original_asset": "sonny_png_library_web/limited/special-collections/pumpkin-patch-series/06__frog.png"
+  }
+]

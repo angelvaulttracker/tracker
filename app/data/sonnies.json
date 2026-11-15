@@ -4511,6 +4511,300 @@
     }
   },
   {
+    "id": "page-106-01-calico",
+    "name": "Calico",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-01-calico.png",
+      "pageWidth": 175,
+      "pageHeight": 377,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-106-02-white",
+    "name": "White",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-02-white.png",
+      "pageWidth": 187,
+      "pageHeight": 427,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-106-03-black",
+    "name": "Black",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-03-black.png",
+      "pageWidth": 171,
+      "pageHeight": 384,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-106-04-red-tabby",
+    "name": "Red Tabby",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-04-red-tabby.png",
+      "pageWidth": 175,
+      "pageHeight": 399,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-106-05-tuxedo",
+    "name": "Tuxedo",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-05-tuxedo.png",
+      "pageWidth": 187,
+      "pageHeight": 424,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-106-06-siamese",
+    "name": "Siamese",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-06-siamese.png",
+      "pageWidth": 188,
+      "pageHeight": 410,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-106-07-silver-tabby",
+    "name": "Silver Tabby",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-07-silver-tabby.png",
+      "pageWidth": 191,
+      "pageHeight": 388,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-106-08-tortoiseshell-robby-angel",
+    "name": "Tortoiseshell Robby Angel",
+    "series": "Cat Christmas Series",
+    "page": 106,
+    "releaseDate": "2026-11-13",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-106-08-tortoiseshell-robby-angel.png",
+      "pageWidth": 163,
+      "pageHeight": 317,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-107-01-artsy-peacock",
+    "name": "Artsy Peacock",
+    "series": "Makeup Angel Series (Sonny Angel × shu uemura)",
+    "page": 107,
+    "releaseDate": "2026-10-22",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-107-01-artsy-peacock.png",
+      "pageWidth": 447,
+      "pageHeight": 951,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-107-02-zen-deer",
+    "name": "Zen Deer",
+    "series": "Makeup Angel Series (Sonny Angel × shu uemura)",
+    "page": 107,
+    "releaseDate": "2026-10-22",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-107-02-zen-deer.png",
+      "pageWidth": 439,
+      "pageHeight": 969,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-107-03-lava-fox",
+    "name": "Lava Fox",
+    "series": "Makeup Angel Series (Sonny Angel × shu uemura)",
+    "page": 107,
+    "releaseDate": "2026-10-22",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-107-03-lava-fox.png",
+      "pageWidth": 451,
+      "pageHeight": 909,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-107-04-solar-tanuki",
+    "name": "Solar Tanuki",
+    "series": "Makeup Angel Series (Sonny Angel × shu uemura)",
+    "page": 107,
+    "releaseDate": "2026-10-22",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-107-04-solar-tanuki.png",
+      "pageWidth": 451,
+      "pageHeight": 839,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-107-05-shu-shu-monkey",
+    "name": "shu-shu Monkey",
+    "series": "Makeup Angel Series (Sonny Angel × shu uemura)",
+    "page": 107,
+    "releaseDate": "2026-10-22",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-107-05-shu-shu-monkey.png",
+      "pageWidth": 456,
+      "pageHeight": 889,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-01-rabbit",
+    "name": "Rabbit",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-01-rabbit.png",
+      "pageWidth": 189,
+      "pageHeight": 447,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-02-manatee",
+    "name": "Manatee",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-02-manatee.png",
+      "pageWidth": 141,
+      "pageHeight": 348,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-03-octopus",
+    "name": "Octopus",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-03-octopus.png",
+      "pageWidth": 170,
+      "pageHeight": 353,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-04-pineapple",
+    "name": "Pineapple",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-04-pineapple.png",
+      "pageWidth": 195,
+      "pageHeight": 420,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-05-shell",
+    "name": "Shell",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-05-shell.png",
+      "pageWidth": 137,
+      "pageHeight": 365,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-06-shark",
+    "name": "Shark",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-06-shark.png",
+      "pageWidth": 172,
+      "pageHeight": 363,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-07-unicorn",
+    "name": "Unicorn",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-07-unicorn.png",
+      "pageWidth": 204,
+      "pageHeight": 386,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "page-108-08-flamingo-robby-angel",
+    "name": "Flamingo Robby Angel",
+    "series": "Summer Vacation Series: Sun Kissed Style",
+    "page": 108,
+    "releaseDate": "2026-06-25",
+    "image": {
+      "page": "./app/assets/manual/new-series-2026/page-108-08-flamingo-robby-angel.png",
+      "pageWidth": 158,
+      "pageHeight": 340,
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
     "id": "page-29-01-strawberry",
     "name": "Strawberry",
     "series": "Christmas Dinner Series",
@@ -12117,7 +12411,7 @@
   },
   {
     "id": "page-62-22-i-heart-seoul",
-    "name": "I \u2764\ufe0f Seoul",
+    "name": "I ❤️ Seoul",
     "series": "Seoul Series",
     "page": 62,
     "image": {
@@ -13924,8 +14218,8 @@
   },
   {
     "id": "page-71-01-saint-honore-rose-framboise",
-    "name": "Saint-Honor\u00e9 Rose Framboise",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "name": "Saint-Honoré Rose Framboise",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13938,7 +14232,7 @@
   {
     "id": "page-71-02-ispahan",
     "name": "Ispahan",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -13951,7 +14245,7 @@
   {
     "id": "page-71-03-tarte-passion-framboise",
     "name": "Tarte Passion Framboise",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14003,7 +14297,7 @@
   {
     "id": "page-71-04-corolle-rose-framboise",
     "name": "Corolle Rose Framboise",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14016,7 +14310,7 @@
   {
     "id": "page-71-05-religieuse-pistache",
     "name": "Religieuse Pistache",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14029,7 +14323,7 @@
   {
     "id": "page-71-06-religieuse-cassis-violette",
     "name": "Religieuse Cassis Violette",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14042,7 +14336,7 @@
   {
     "id": "page-71-07-macaron-fruits-rouges",
     "name": "Macaron Fruits Rouges",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14055,7 +14349,7 @@
   {
     "id": "page-71-08-macaron-pistache",
     "name": "Macaron Pistache",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14093,7 +14387,7 @@
   },
   {
     "id": "page-71-18-saint-honore-violette",
-    "name": "Saint Honor\u00e9 Violette",
+    "name": "Saint Honoré Violette",
     "series": "Christmas Ornament Laduree Patisseries Collection",
     "page": 71,
     "image": {
@@ -14120,7 +14414,7 @@
   {
     "id": "page-71-09-macaron-rose",
     "name": "Macaron Rose",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14133,7 +14427,7 @@
   {
     "id": "page-71-10-macaron-menthe-glaciale",
     "name": "Macaron Menthe Glaciale",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14146,7 +14440,7 @@
   {
     "id": "page-71-11-macaron-citron",
     "name": "Macaron Citron",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14159,7 +14453,7 @@
   {
     "id": "page-71-12-macaron-chocolat",
     "name": "Macaron Chocolat",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14172,7 +14466,7 @@
   {
     "id": "page-71-13-mini-marie-antoinette",
     "name": "Mini Marie-Antoinette",
-    "series": "Ladur\u00e9e P\u00e2tisserie Collection",
+    "series": "Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",
@@ -14184,8 +14478,8 @@
   },
   {
     "id": "page-71-21-snow-globe-laduree-patisseries-collection",
-    "name": "Snow Globe Ladur\u00e9e P\u00e2tisserie Collection",
-    "series": "Snow Globe Ladur\u00e9e P\u00e2tisserie Collection",
+    "name": "Snow Globe Ladurée Pâtisserie Collection",
+    "series": "Snow Globe Ladurée Pâtisserie Collection",
     "page": 71,
     "image": {
       "page": "./assets/pages/page-071.png",

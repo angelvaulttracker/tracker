@@ -3094,6 +3094,61 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  // Remove verified flat black backdrops while retaining the same figure artwork.
+  [
+    "page-84-05-rabbit",
+    "page-84-06-elephant",
+    "page-84-03-rabbit",
+    "page-84-04-elephant",
+    "page-84-01-rabbit",
+    "page-84-02-tiger",
+    "page-89-06-morning-glow",
+    "page-89-07-sunset-glow",
+    "page-89-13-cow",
+    "page-89-11-rabbit",
+    "page-89-12-sheep",
+    "page-99-01-elephant",
+    "page-99-02-dalmatian",
+    "page-99-03-pig",
+    "page-99-04-lop-ear-rabbit",
+    "page-99-05-duck",
+    "page-99-06-sloth",
+    "page-100-01-cat",
+    "page-100-02-panda",
+    "page-100-03-mouse",
+    "page-100-04-lop-ear-rabbit",
+    "page-100-05-elephant",
+    "page-100-06-frog"
+].forEach((id) => {
+    assign(id, {
+      artPath: `./app/assets/manual/black-background-cleanup/${id}.png`,
+      artSource: "local-alpha-cleanup",
+    });
+  });
+
+  // Official 2026 releases: verified names, front-view artwork, and secret status.
+  assign("page-106-01-calico", {"artPath": "./app/assets/manual/new-series-2026/page-106-01-calico.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": false});
+  assign("page-106-02-white", {"artPath": "./app/assets/manual/new-series-2026/page-106-02-white.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": false});
+  assign("page-106-03-black", {"artPath": "./app/assets/manual/new-series-2026/page-106-03-black.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": false});
+  assign("page-106-04-red-tabby", {"artPath": "./app/assets/manual/new-series-2026/page-106-04-red-tabby.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": false});
+  assign("page-106-05-tuxedo", {"artPath": "./app/assets/manual/new-series-2026/page-106-05-tuxedo.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": false});
+  assign("page-106-06-siamese", {"artPath": "./app/assets/manual/new-series-2026/page-106-06-siamese.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": false});
+  assign("page-106-07-silver-tabby", {"artPath": "./app/assets/manual/new-series-2026/page-106-07-silver-tabby.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": true});
+  assign("page-106-08-tortoiseshell-robby-angel", {"artPath": "./app/assets/manual/new-series-2026/page-106-08-tortoiseshell-robby-angel.png", "artSource": "official-web", "displaySeries": "Cat Christmas Series (2026)", "isSecret": true});
+  assign("page-107-01-artsy-peacock", {"artPath": "./app/assets/manual/new-series-2026/page-107-01-artsy-peacock.png", "artSource": "official-web", "displaySeries": "Makeup Angel Series (Sonny Angel × shu uemura) (2026)", "isSecret": false});
+  assign("page-107-02-zen-deer", {"artPath": "./app/assets/manual/new-series-2026/page-107-02-zen-deer.png", "artSource": "official-web", "displaySeries": "Makeup Angel Series (Sonny Angel × shu uemura) (2026)", "isSecret": false});
+  assign("page-107-03-lava-fox", {"artPath": "./app/assets/manual/new-series-2026/page-107-03-lava-fox.png", "artSource": "official-web", "displaySeries": "Makeup Angel Series (Sonny Angel × shu uemura) (2026)", "isSecret": false});
+  assign("page-107-04-solar-tanuki", {"artPath": "./app/assets/manual/new-series-2026/page-107-04-solar-tanuki.png", "artSource": "official-web", "displaySeries": "Makeup Angel Series (Sonny Angel × shu uemura) (2026)", "isSecret": false});
+  assign("page-107-05-shu-shu-monkey", {"artPath": "./app/assets/manual/new-series-2026/page-107-05-shu-shu-monkey.png", "artSource": "official-web", "displaySeries": "Makeup Angel Series (Sonny Angel × shu uemura) (2026)", "isSecret": false});
+  assign("page-108-01-rabbit", {"artPath": "./app/assets/manual/new-series-2026/page-108-01-rabbit.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": false});
+  assign("page-108-02-manatee", {"artPath": "./app/assets/manual/new-series-2026/page-108-02-manatee.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": false});
+  assign("page-108-03-octopus", {"artPath": "./app/assets/manual/new-series-2026/page-108-03-octopus.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": false});
+  assign("page-108-04-pineapple", {"artPath": "./app/assets/manual/new-series-2026/page-108-04-pineapple.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": false});
+  assign("page-108-05-shell", {"artPath": "./app/assets/manual/new-series-2026/page-108-05-shell.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": false});
+  assign("page-108-06-shark", {"artPath": "./app/assets/manual/new-series-2026/page-108-06-shark.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": false});
+  assign("page-108-07-unicorn", {"artPath": "./app/assets/manual/new-series-2026/page-108-07-unicorn.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": true});
+  assign("page-108-08-flamingo-robby-angel", {"artPath": "./app/assets/manual/new-series-2026/page-108-08-flamingo-robby-angel.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": true});
+
   return {
     items,
   };

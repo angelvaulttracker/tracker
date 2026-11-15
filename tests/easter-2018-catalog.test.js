@@ -41,5 +41,6 @@ test('spurious page-40 records are omitted from tracker and stock, without delet
   const sc = vm.createContext({rawCatalog: data, manualItemOverrides: overrides, imageMap: {}, withImageVersion: p => p});
   vm.runInContext(stock.slice(start, end) + '\nglobalThis.result = stockCatalog;', sc);
   for (const i of omitted) assert.ok(!sc.result.some(r => r.id === i.id));
-  assert.equal(data.length, 1571);
+  assert.equal(c.window.result.length, data.length - omitted.length);
+  assert.equal(sc.result.length, data.length - omitted.length);
 });

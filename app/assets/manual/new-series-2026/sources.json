@@ -1,0 +1,317 @@
+[
+  {
+    "asset": "page-106-01-calico.png",
+    "source_file": "page-106-01-calico.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      377
+    ]
+  },
+  {
+    "asset": "page-106-02-white.png",
+    "source_file": "page-106-02-white.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      187,
+      427
+    ]
+  },
+  {
+    "asset": "page-106-03-black.png",
+    "source_file": "page-106-03-black.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      171,
+      384
+    ]
+  },
+  {
+    "asset": "page-106-04-red-tabby.png",
+    "source_file": "page-106-04-red-tabby.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      399
+    ]
+  },
+  {
+    "asset": "page-106-05-tuxedo.png",
+    "source_file": "page-106-05-tuxedo.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      187,
+      424
+    ]
+  },
+  {
+    "asset": "page-106-06-siamese.png",
+    "source_file": "page-106-06-siamese.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      188,
+      410
+    ]
+  },
+  {
+    "asset": "page-106-07-silver-tabby.png",
+    "source_file": "page-106-07-silver-tabby.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      191,
+      388
+    ]
+  },
+  {
+    "asset": "page-106-08-tortoiseshell-robby-angel.png",
+    "source_file": "page-106-08-tortoiseshell-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      163,
+      317
+    ]
+  },
+  {
+    "asset": "page-107-01-artsy-peacock.png",
+    "source_file": "page-107-01-artsy-peacock.png",
+    "crop_box": [
+      0,
+      0,
+      1024,
+      1280
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      447,
+      951
+    ]
+  },
+  {
+    "asset": "page-107-02-zen-deer.png",
+    "source_file": "page-107-02-zen-deer.png",
+    "crop_box": [
+      0,
+      0,
+      1024,
+      1280
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      439,
+      969
+    ]
+  },
+  {
+    "asset": "page-107-03-lava-fox.png",
+    "source_file": "page-107-03-lava-fox.png",
+    "crop_box": [
+      0,
+      0,
+      1024,
+      1280
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      451,
+      909
+    ]
+  },
+  {
+    "asset": "page-107-04-solar-tanuki.png",
+    "source_file": "page-107-04-solar-tanuki.png",
+    "crop_box": [
+      0,
+      0,
+      1024,
+      1280
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      451,
+      839
+    ]
+  },
+  {
+    "asset": "page-107-05-shu-shu-monkey.png",
+    "source_file": "page-107-05-shu-shu-monkey.png",
+    "crop_box": [
+      0,
+      0,
+      1024,
+      1280
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      456,
+      889
+    ]
+  },
+  {
+    "asset": "page-108-01-rabbit.png",
+    "source_file": "page-108-01-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      189,
+      447
+    ]
+  },
+  {
+    "asset": "page-108-02-manatee.png",
+    "source_file": "page-108-02-manatee.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      141,
+      348
+    ]
+  },
+  {
+    "asset": "page-108-03-octopus.png",
+    "source_file": "page-108-03-octopus.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      170,
+      353
+    ]
+  },
+  {
+    "asset": "page-108-04-pineapple.png",
+    "source_file": "page-108-04-pineapple.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      195,
+      420
+    ]
+  },
+  {
+    "asset": "page-108-05-shell.png",
+    "source_file": "page-108-05-shell.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      137,
+      365
+    ]
+  },
+  {
+    "asset": "page-108-06-shark.png",
+    "source_file": "page-108-06-shark.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      172,
+      363
+    ]
+  },
+  {
+    "asset": "page-108-07-unicorn.png",
+    "source_file": "page-108-07-unicorn.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      204,
+      386
+    ]
+  },
+  {
+    "asset": "page-108-08-flamingo-robby-angel.png",
+    "source_file": "page-108-08-flamingo-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      158,
+      340
+    ]
+  }
+]
