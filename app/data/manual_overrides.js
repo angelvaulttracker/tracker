@@ -2688,6 +2688,143 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
   assign("page-45-17-cherry", { isSecret: true });
   assign("page-45-18-cherry-robby-angel", { isSecret: true });
 
+  // Supplied Halloween 2021 orange Rabbit, 2016 secrets, and 2015 Skeleton Robby.
+  Object.entries({
+    "page-41-07-rabbit-pumpkin-orange": "rabbit-pumpkin-orange-2021",
+    "page-42-12-witch": "witch-secret-2016",
+    "page-42-13-pumpkin": "pumpkin-secret-2016",
+    "page-42-14-zombie-robby-angel": "zombie-robby-2016",
+    "page-42-21-skeleton-robby-angel": "skeleton-robby-2015",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/halloween-secret-fixes-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+      isSecret: true,
+    });
+  });
+
+  // Verified supplied Valentine, Shenzhen, and Chocolate variants.
+  Object.entries({
+    "page-37-13-chocolate-toy-poodle": "toy-poodle-secret",
+    "page-37-14-chocolate-robby-angel": "chocolate-robby",
+    "page-76-16-gold-love-robby-angel": "gold-love",
+    "page-76-17-red-rose-robby-angel": "red-rose",
+    "page-76-18-pink-love-robby-angel": "pink-love",
+    "page-76-19-white-rose-robby-angel": "white-rose",
+    "page-76-20-purple-love-robby-angel": "purple-love",
+    "page-38-27-mint-chocolate": "mint-chocolate-milk-secret",
+    "page-38-14-plushie-angel-robby-angel": "plushie-angel-robby",
+    "page-38-15-orange-chocolate": "orange-chocolate",
+    "page-38-16-strawberry-chocolate": "strawberry-chocolate",
+    "page-38-17-kiwi-chocolate": "kiwi-chocolate",
+    "page-38-18-berrys-chocolate": "berrys-chocolate",
+    "page-38-19-orange-chocolate": "orange-chocolate-secret",
+    "page-38-20-kiwi-chocolate": "kiwi-chocolate-secret",
+    "page-38-21-cherry-chocolate-robby-angel": "cherry-chocolate-robby"
+}).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/valentine-mixed-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  assign("page-37-13-chocolate-toy-poodle", { isSecret: true });
+  assign("page-37-14-chocolate-robby-angel", { isSecret: true });
+  assign("page-38-27-mint-chocolate", { isSecret: true });
+  assign("page-38-14-plushie-angel-robby-angel", { isSecret: true });
+  assign("page-38-19-orange-chocolate", { isSecret: true });
+  assign("page-38-20-kiwi-chocolate", { isSecret: true });
+  assign("page-38-21-cherry-chocolate-robby-angel", { isSecret: true });
+
+  // Supplied Valentine 2018 secrets and complete Easter 2012 lineup.
+  Object.entries({
+    "page-38-05-single-rose": "single-rose-secret",
+    "page-38-06-rose-bouquet": "rose-bouquet-secret",
+    "page-38-07-rose-robby-angel": "rose-robby-angel",
+    "page-40-45-rabbit-bitter-chocolate-2012": "rabbit-bitter-chocolate",
+    "page-40-46-rabbit-extra-bitter-chocolate-2012": "rabbit-extra-bitter-chocolate",
+    "page-40-47-rabbit-white-chocolate-2012": "rabbit-white-chocolate",
+    "page-40-48-elephant-milk-chocolate-2012": "elephant-milk-chocolate",
+    "page-40-49-koala-strawberry-chocolate-2012": "koala-strawberry-chocolate",
+    "page-40-50-cockerel-white-chocolate-2012": "cockerel-white-chocolate",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/valentine2018-easter2012-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  assign("page-38-07-rose-robby-angel", { isSecret: true, isRobby: true });
+
+  // Supplied Christmas secrets across seven years; Rocking Horse is regular.
+  Object.entries({
+    "page-30-18-santa-s-helper-mouse": "2021-helper-mouse",
+    "page-30-19-santa-s-helper-robby-angel": "2021-helper-robby",
+    "page-31-07-angel": "2020-angel",
+    "page-31-08-angel-robby-angel": "2020-angel-robby",
+    "page-31-20-wool-snowman": "2019-wool-snowman",
+    "page-31-21-wool-robby-angel": "2019-wool-robby",
+    "page-31-13-classic-santa": "2018-classic-santa",
+    "page-31-14-classic-reindeer": "2018-classic-reindeer",
+    "page-31-15-classic-robby-angel": "2018-classic-robby",
+    "page-31-25-rocking-horse": "2017-rocking-horse",
+    "page-31-26-wood-doll-santa": "2017-wood-doll-santa",
+    "page-31-27-reindeer-plushie": "2017-reindeer-plushie",
+    "page-31-28-pierrot-angel": "2017-pierrot-robby",
+    "page-32-05-santa-claus": "2012-santa",
+    "page-32-06-reindeer": "2012-reindeer",
+    "page-32-10-star-pendant": "2011-star-pendant",
+    "page-32-11-cross-pendant": "2011-cross-pendant",
+    "page-32-12-snowflake-pendant": "2011-snowflake-pendant"
+}).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/christmas-secrets-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+      isSecret: id !== "page-31-25-rocking-horse",
+    });
+  });
+
+  // Supplied Christmas/ornament variants, sample figures, and Mini Marie.
+  Object.entries({
+    "page-33-06-reindeer": "reindeer-secret",
+    "page-33-07-gingerbread-robby-angel": "gingerbread-robby",
+    "page-35-07-pink-bear": "pink-bear",
+    "page-35-08-blue-bear": "blue-bear",
+    "page-35-09-rabbit": "rabbit-secret",
+    "page-35-10-ornament-robby-angel": "ornament-robby",
+    "page-35-11-pink-santa-claus": "pink-santa",
+    "page-35-12-pink-reindeer": "pink-reindeer",
+    "page-35-13-pink-snowman": "pink-snowman",
+    "page-35-14-silver-santa-claus": "silver-santa",
+    "page-35-15-silver-reindeer": "silver-reindeer",
+    "page-35-16-silver-snowman": "silver-snowman",
+    "page-34-01-santa-claus": "sample-santa",
+    "page-34-02-snowman": "sample-snowman",
+    "page-34-03-christmas-cone": "sample-cone",
+    "page-34-04-bell": "sample-bell",
+    "page-71-13-mini-marie-antoinette": "mini-marie-secret",
+    "page-73-09-santa-claus": "francfranc-santa",
+    "page-73-10-reindeer": "francfranc-reindeer",
+    "page-73-11-santa-claus": "francfranc-santa-secret",
+    "page-73-12-reindeer": "francfranc-reindeer-secret"
+}).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/christmas-ornament-mixed-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  assign("page-33-06-reindeer", { isSecret: true });
+  assign("page-33-07-gingerbread-robby-angel", { isSecret: true });
+  assign("page-35-07-pink-bear", { isSecret: true });
+  assign("page-35-08-blue-bear", { isSecret: true });
+  assign("page-35-09-rabbit", { isSecret: true });
+  assign("page-35-10-ornament-robby-angel", { isSecret: true });
+  assign("page-34-01-santa-claus", { series: "Christmas Series 2008 Sample", displaySeries: "Christmas Series 2008 Sample" });
+  assign("page-34-02-snowman", { series: "Christmas Series 2008 Sample", displaySeries: "Christmas Series 2008 Sample" });
+  assign("page-34-03-christmas-cone", { series: "Christmas Series 2008 Sample", displaySeries: "Christmas Series 2008 Sample" });
+  assign("page-34-04-bell", { series: "Christmas Series 2008 Sample", displaySeries: "Christmas Series 2008 Sample" });
+  assign("page-71-13-mini-marie-antoinette", { isSecret: true });
+  assign("page-73-11-santa-claus", { isSecret: true });
+  assign("page-73-12-reindeer", { isSecret: true });
+
   return {
     items,
   };

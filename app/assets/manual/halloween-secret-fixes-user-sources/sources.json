@@ -1,0 +1,77 @@
+[
+  {
+    "asset": "rabbit-pumpkin-orange-2021.png",
+    "source_file": "rabbit-2021.png",
+    "crop_box": [
+      83,
+      0,
+      291,
+      504
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      211,
+      504
+    ]
+  },
+  {
+    "asset": "witch-secret-2016.png",
+    "source_file": "secrets-2016.png",
+    "crop_box": [
+      32,
+      19,
+      232,
+      451
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      199,
+      428
+    ]
+  },
+  {
+    "asset": "pumpkin-secret-2016.png",
+    "source_file": "secrets-2016.png",
+    "crop_box": [
+      237,
+      137,
+      442,
+      532
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      202,
+      395
+    ]
+  },
+  {
+    "asset": "zombie-robby-2016.png",
+    "source_file": "secrets-2016.png",
+    "crop_box": [
+      447,
+      155,
+      625,
+      453
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      297
+    ]
+  },
+  {
+    "asset": "skeleton-robby-2015.png",
+    "source_file": "robby-2015.png",
+    "crop_box": [
+      45,
+      42,
+      241,
+      388
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      195,
+      344
+    ]
+  }
+]

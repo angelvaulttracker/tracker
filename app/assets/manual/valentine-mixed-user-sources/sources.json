@@ -1,0 +1,242 @@
+[
+  {
+    "asset": "toy-poodle-secret.png",
+    "source_file": "valentine-2020.png",
+    "crop_box": [
+      61,
+      68,
+      302,
+      572
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      235,
+      500
+    ]
+  },
+  {
+    "asset": "chocolate-robby.png",
+    "source_file": "valentine-2020.png",
+    "crop_box": [
+      388,
+      118,
+      602,
+      568
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      208,
+      447
+    ]
+  },
+  {
+    "asset": "gold-love.png",
+    "source_file": "shenzhen.png",
+    "crop_box": [
+      37,
+      44,
+      284,
+      473
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      242,
+      420
+    ]
+  },
+  {
+    "asset": "red-rose.png",
+    "source_file": "shenzhen.png",
+    "crop_box": [
+      323,
+      51,
+      569,
+      475
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      239,
+      418
+    ]
+  },
+  {
+    "asset": "pink-love.png",
+    "source_file": "shenzhen.png",
+    "crop_box": [
+      601,
+      46,
+      847,
+      473
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      242,
+      420
+    ]
+  },
+  {
+    "asset": "white-rose.png",
+    "source_file": "shenzhen.png",
+    "crop_box": [
+      887,
+      43,
+      1135,
+      469
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      241,
+      423
+    ]
+  },
+  {
+    "asset": "purple-love.png",
+    "source_file": "shenzhen.png",
+    "crop_box": [
+      1170,
+      41,
+      1417,
+      466
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      241,
+      420
+    ]
+  },
+  {
+    "asset": "mint-chocolate-milk-secret.png",
+    "source_file": "mint-2015.png",
+    "crop_box": [
+      27,
+      29,
+      260,
+      493
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      231,
+      464
+    ]
+  },
+  {
+    "asset": "plushie-angel-robby.png",
+    "source_file": "plushie-2017.png",
+    "crop_box": [
+      66,
+      35,
+      341,
+      649
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      271,
+      613
+    ]
+  },
+  {
+    "asset": "orange-chocolate.png",
+    "source_file": "chocolate-2016.png",
+    "crop_box": [
+      17,
+      21,
+      232,
+      472
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      447
+    ]
+  },
+  {
+    "asset": "strawberry-chocolate.png",
+    "source_file": "chocolate-2016.png",
+    "crop_box": [
+      230,
+      111,
+      449,
+      552
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      439
+    ]
+  },
+  {
+    "asset": "kiwi-chocolate.png",
+    "source_file": "chocolate-2016.png",
+    "crop_box": [
+      446,
+      22,
+      658,
+      467
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      211,
+      444
+    ]
+  },
+  {
+    "asset": "berrys-chocolate.png",
+    "source_file": "chocolate-2016.png",
+    "crop_box": [
+      644,
+      134,
+      862,
+      548
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      216,
+      422
+    ]
+  },
+  {
+    "asset": "orange-chocolate-secret.png",
+    "source_file": "chocolate-2016.png",
+    "crop_box": [
+      856,
+      8,
+      1075,
+      461
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      216,
+      452
+    ]
+  },
+  {
+    "asset": "kiwi-chocolate-secret.png",
+    "source_file": "chocolate-2016.png",
+    "crop_box": [
+      1079,
+      108,
+      1292,
+      543
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      210,
+      434
+    ]
+  },
+  {
+    "asset": "cherry-chocolate-robby.png",
+    "source_file": "chocolate-2016.png",
+    "crop_box": [
+      1301,
+      147,
+      1485,
+      453
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      180,
+      303
+    ]
+  }
+]

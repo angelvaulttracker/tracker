@@ -1,0 +1,137 @@
+[
+  {
+    "asset": "single-rose-secret.png",
+    "source_file": "valentine-2018.png",
+    "crop_box": [
+      62,
+      68,
+      308,
+      513
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      243,
+      440
+    ]
+  },
+  {
+    "asset": "rose-bouquet-secret.png",
+    "source_file": "valentine-2018.png",
+    "crop_box": [
+      305,
+      169,
+      541,
+      612
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      235,
+      441
+    ]
+  },
+  {
+    "asset": "rose-robby-angel.png",
+    "source_file": "valentine-2018.png",
+    "crop_box": [
+      565,
+      116,
+      751,
+      523
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      182,
+      404
+    ]
+  },
+  {
+    "asset": "rabbit-bitter-chocolate.png",
+    "source_file": "easter-2012.png",
+    "crop_box": [
+      15,
+      40,
+      222,
+      557
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      206,
+      513
+    ]
+  },
+  {
+    "asset": "rabbit-extra-bitter-chocolate.png",
+    "source_file": "easter-2012.png",
+    "crop_box": [
+      271,
+      38,
+      481,
+      553
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      207,
+      514
+    ]
+  },
+  {
+    "asset": "rabbit-white-chocolate.png",
+    "source_file": "easter-2012.png",
+    "crop_box": [
+      559,
+      37,
+      720,
+      550
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      160,
+      508
+    ]
+  },
+  {
+    "asset": "elephant-milk-chocolate.png",
+    "source_file": "easter-2012.png",
+    "crop_box": [
+      768,
+      127,
+      1013,
+      546
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      244,
+      415
+    ]
+  },
+  {
+    "asset": "koala-strawberry-chocolate.png",
+    "source_file": "easter-2012.png",
+    "crop_box": [
+      1030,
+      132,
+      1273,
+      546
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      243,
+      410
+    ]
+  },
+  {
+    "asset": "cockerel-white-chocolate.png",
+    "source_file": "easter-2012.png",
+    "crop_box": [
+      1311,
+      98,
+      1531,
+      542
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      439
+    ]
+  }
+]

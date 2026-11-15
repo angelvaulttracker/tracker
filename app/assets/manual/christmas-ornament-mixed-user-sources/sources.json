@@ -1,0 +1,317 @@
+[
+  {
+    "asset": "reindeer-secret.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      33,
+      84,
+      373,
+      828
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      334,
+      744
+    ]
+  },
+  {
+    "asset": "gingerbread-robby.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      410,
+      208,
+      679,
+      696
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      242,
+      470
+    ]
+  },
+  {
+    "asset": "pink-bear.png",
+    "source_file": "ornaments-2022.png",
+    "crop_box": [
+      67,
+      76,
+      221,
+      424
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      353
+    ]
+  },
+  {
+    "asset": "blue-bear.png",
+    "source_file": "ornaments-2022.png",
+    "crop_box": [
+      306,
+      77,
+      487,
+      426
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      173,
+      341
+    ]
+  },
+  {
+    "asset": "rabbit-secret.png",
+    "source_file": "ornaments-2022.png",
+    "crop_box": [
+      558,
+      15,
+      741,
+      426
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      176,
+      408
+    ]
+  },
+  {
+    "asset": "ornament-robby.png",
+    "source_file": "ornaments-2022.png",
+    "crop_box": [
+      827,
+      69,
+      971,
+      431
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      140,
+      358
+    ]
+  },
+  {
+    "asset": "pink-santa.png",
+    "source_file": "ornaments-2014.png",
+    "crop_box": [
+      575,
+      57,
+      756,
+      445
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      178,
+      384
+    ]
+  },
+  {
+    "asset": "pink-reindeer.png",
+    "source_file": "ornaments-2014.png",
+    "crop_box": [
+      767,
+      120,
+      975,
+      550
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      203,
+      426
+    ]
+  },
+  {
+    "asset": "pink-snowman.png",
+    "source_file": "ornaments-2014.png",
+    "crop_box": [
+      80,
+      598,
+      273,
+      990
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      185,
+      385
+    ]
+  },
+  {
+    "asset": "silver-santa.png",
+    "source_file": "ornaments-2014.png",
+    "crop_box": [
+      326,
+      666,
+      507,
+      1055
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      177,
+      383
+    ]
+  },
+  {
+    "asset": "silver-reindeer.png",
+    "source_file": "ornaments-2014.png",
+    "crop_box": [
+      544,
+      563,
+      748,
+      990
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      201,
+      427
+    ]
+  },
+  {
+    "asset": "silver-snowman.png",
+    "source_file": "ornaments-2014.png",
+    "crop_box": [
+      777,
+      664,
+      963,
+      1047
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      184,
+      381
+    ]
+  },
+  {
+    "asset": "sample-santa.png",
+    "source_file": "sample-2008.png",
+    "crop_box": [
+      43,
+      32,
+      246,
+      431
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      199,
+      394
+    ]
+  },
+  {
+    "asset": "sample-snowman.png",
+    "source_file": "sample-2008.png",
+    "crop_box": [
+      315,
+      47,
+      510,
+      438
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      192,
+      386
+    ]
+  },
+  {
+    "asset": "sample-cone.png",
+    "source_file": "sample-2008.png",
+    "crop_box": [
+      560,
+      12,
+      759,
+      440
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      193,
+      419
+    ]
+  },
+  {
+    "asset": "sample-bell.png",
+    "source_file": "sample-2008.png",
+    "crop_box": [
+      817,
+      28,
+      1012,
+      441
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      192,
+      410
+    ]
+  },
+  {
+    "asset": "mini-marie-secret.png",
+    "source_file": "mini-marie.png",
+    "crop_box": [
+      66,
+      60,
+      369,
+      690
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      298,
+      625
+    ]
+  },
+  {
+    "asset": "francfranc-santa.png",
+    "source_file": "francfranc-2007.png",
+    "crop_box": [
+      31,
+      58,
+      260,
+      497
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      224,
+      434
+    ]
+  },
+  {
+    "asset": "francfranc-reindeer.png",
+    "source_file": "francfranc-2007.png",
+    "crop_box": [
+      373,
+      0,
+      590,
+      497
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      213,
+      496
+    ]
+  },
+  {
+    "asset": "francfranc-santa-secret.png",
+    "source_file": "francfranc-2007.png",
+    "crop_box": [
+      702,
+      51,
+      932,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      225,
+      446
+    ]
+  },
+  {
+    "asset": "francfranc-reindeer-secret.png",
+    "source_file": "francfranc-2007.png",
+    "crop_box": [
+      1053,
+      7,
+      1266,
+      502
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      205,
+      488
+    ]
+  }
+]

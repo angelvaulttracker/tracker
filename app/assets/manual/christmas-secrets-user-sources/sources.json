@@ -1,0 +1,272 @@
+[
+  {
+    "asset": "2021-helper-mouse.png",
+    "source_file": "2021.png",
+    "crop_box": [
+      105,
+      100,
+      473,
+      811
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      362,
+      700
+    ]
+  },
+  {
+    "asset": "2021-helper-robby.png",
+    "source_file": "2021.png",
+    "crop_box": [
+      630,
+      160,
+      987,
+      805
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      341,
+      637
+    ]
+  },
+  {
+    "asset": "2020-angel.png",
+    "source_file": "2020.png",
+    "crop_box": [
+      34,
+      82,
+      230,
+      579
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      192,
+      493
+    ]
+  },
+  {
+    "asset": "2020-angel-robby.png",
+    "source_file": "2020.png",
+    "crop_box": [
+      246,
+      137,
+      495,
+      581
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      246,
+      440
+    ]
+  },
+  {
+    "asset": "2019-wool-snowman.png",
+    "source_file": "2019.png",
+    "crop_box": [
+      49,
+      63,
+      371,
+      719
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      314,
+      649
+    ]
+  },
+  {
+    "asset": "2019-wool-robby.png",
+    "source_file": "2019.png",
+    "crop_box": [
+      480,
+      136,
+      759,
+      715
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      272,
+      571
+    ]
+  },
+  {
+    "asset": "2018-classic-santa.png",
+    "source_file": "2018.png",
+    "crop_box": [
+      82,
+      105,
+      388,
+      657
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      300,
+      544
+    ]
+  },
+  {
+    "asset": "2018-classic-reindeer.png",
+    "source_file": "2018.png",
+    "crop_box": [
+      380,
+      138,
+      676,
+      766
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      291,
+      622
+    ]
+  },
+  {
+    "asset": "2018-classic-robby.png",
+    "source_file": "2018.png",
+    "crop_box": [
+      692,
+      143,
+      918,
+      658
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      221,
+      509
+    ]
+  },
+  {
+    "asset": "2017-rocking-horse.png",
+    "source_file": "2017.png",
+    "crop_box": [
+      25,
+      131,
+      300,
+      713
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      274,
+      578
+    ]
+  },
+  {
+    "asset": "2017-wood-doll-santa.png",
+    "source_file": "2017.png",
+    "crop_box": [
+      301,
+      18,
+      587,
+      607
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      280,
+      583
+    ]
+  },
+  {
+    "asset": "2017-reindeer-plushie.png",
+    "source_file": "2017.png",
+    "crop_box": [
+      581,
+      128,
+      859,
+      746
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      273,
+      579
+    ]
+  },
+  {
+    "asset": "2017-pierrot-robby.png",
+    "source_file": "2017.png",
+    "crop_box": [
+      905,
+      123,
+      1119,
+      603
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      204,
+      474
+    ]
+  },
+  {
+    "asset": "2012-santa.png",
+    "source_file": "2012.png",
+    "crop_box": [
+      44,
+      99,
+      286,
+      573
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      237,
+      469
+    ]
+  },
+  {
+    "asset": "2012-reindeer.png",
+    "source_file": "2012.png",
+    "crop_box": [
+      310,
+      117,
+      555,
+      670
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      236,
+      548
+    ]
+  },
+  {
+    "asset": "2011-star-pendant.png",
+    "source_file": "2011.png",
+    "crop_box": [
+      48,
+      219,
+      287,
+      676
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      235,
+      456
+    ]
+  },
+  {
+    "asset": "2011-cross-pendant.png",
+    "source_file": "2011.png",
+    "crop_box": [
+      330,
+      126,
+      568,
+      586
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      236,
+      459
+    ]
+  },
+  {
+    "asset": "2011-snowflake-pendant.png",
+    "source_file": "2011.png",
+    "crop_box": [
+      579,
+      219,
+      816,
+      677
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      235,
+      455
+    ]
+  }
+]
