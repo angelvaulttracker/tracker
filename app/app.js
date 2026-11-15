@@ -3363,7 +3363,11 @@ function buildGeneratedKeychainStyle(label) {
 }
 
 function displayName(item) {
-  const name = getCatalogName(item);
+  let name = getCatalogName(item);
+  const isSecret = getManualItemOverride(item).isSecret || /secret/i.test(name);
+  if (isSecret && !/\(secret\)/i.test(name)) {
+    name = `${name} (Secret)`;
+  }
   if (isUnrefinedRegular(item) && !/\(unrefined\)$/i.test(name)) {
     return `${name} (Unrefined)`;
   }

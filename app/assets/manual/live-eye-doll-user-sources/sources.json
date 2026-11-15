@@ -1,0 +1,227 @@
+[
+  {
+    "asset": "rabbit-2006.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      30,
+      2,
+      215,
+      417
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      180,
+      415
+    ]
+  },
+  {
+    "asset": "frog-2006.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      238,
+      91,
+      414,
+      420
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      174,
+      326
+    ]
+  },
+  {
+    "asset": "panda-2007.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      419,
+      99,
+      598,
+      425
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      179,
+      323
+    ]
+  },
+  {
+    "asset": "mouse-2007.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      591,
+      81,
+      827,
+      428
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      235,
+      346
+    ]
+  },
+  {
+    "asset": "pig-2008.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      830,
+      108,
+      1010,
+      435
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      179,
+      326
+    ]
+  },
+  {
+    "asset": "tiger-2008.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      22,
+      660,
+      200,
+      987
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      172,
+      325
+    ]
+  },
+  {
+    "asset": "cow-2008.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      211,
+      665,
+      406,
+      990
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      190,
+      321
+    ]
+  },
+  {
+    "asset": "bee-2009.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      409,
+      655,
+      600,
+      999
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      186,
+      341
+    ]
+  },
+  {
+    "asset": "panda-2009.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      606,
+      680,
+      793,
+      1000
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      319
+    ]
+  },
+  {
+    "asset": "ladybug-2009.png",
+    "source_file": "costumes-2006-2009.png",
+    "crop_box": [
+      807,
+      681,
+      985,
+      1006
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      171,
+      323
+    ]
+  },
+  {
+    "asset": "kangaroo-2009.png",
+    "source_file": "costumes-2009-2013.png",
+    "crop_box": [
+      62,
+      30,
+      256,
+      369
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      191,
+      334
+    ]
+  },
+  {
+    "asset": "tiger-2009.png",
+    "source_file": "costumes-2009-2013.png",
+    "crop_box": [
+      263,
+      44,
+      449,
+      368
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      321
+    ]
+  },
+  {
+    "asset": "rabbit-white-2010.png",
+    "source_file": "costumes-2009-2013.png",
+    "crop_box": [
+      456,
+      6,
+      644,
+      365
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      173,
+      359
+    ]
+  },
+  {
+    "asset": "rabbit-pink-2010.png",
+    "source_file": "costumes-2009-2013.png",
+    "crop_box": [
+      646,
+      6,
+      839,
+      363
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      190,
+      354
+    ]
+  },
+  {
+    "asset": "butterfly-2013.png",
+    "source_file": "costumes-2009-2013.png",
+    "crop_box": [
+      856,
+      26,
+      1036,
+      361
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      173,
+      330
+    ]
+  }
+]

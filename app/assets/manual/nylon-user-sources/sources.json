@@ -1,0 +1,77 @@
+[
+  {
+    "asset": "rabbit.png",
+    "source_file": "nylon-lineup.png",
+    "crop_box": [
+      29,
+      7,
+      222,
+      475
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      189,
+      463
+    ]
+  },
+  {
+    "asset": "cheetah.png",
+    "source_file": "nylon-lineup.png",
+    "crop_box": [
+      230,
+      107,
+      426,
+      476
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      193,
+      365
+    ]
+  },
+  {
+    "asset": "frog.png",
+    "source_file": "nylon-lineup.png",
+    "crop_box": [
+      431,
+      109,
+      625,
+      477
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      190,
+      365
+    ]
+  },
+  {
+    "asset": "dalmatian.png",
+    "source_file": "nylon-lineup.png",
+    "crop_box": [
+      632,
+      110,
+      823,
+      479
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      186,
+      364
+    ]
+  },
+  {
+    "asset": "elephant.png",
+    "source_file": "nylon-lineup.png",
+    "crop_box": [
+      823,
+      109,
+      1044,
+      479
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      219,
+      366
+    ]
+  }
+]

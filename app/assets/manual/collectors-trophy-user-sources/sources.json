@@ -1,0 +1,197 @@
+[
+  {
+    "asset": "rabbit-white.png",
+    "source_file": "trophies-rabbit-anniversary.png",
+    "crop_box": [
+      37,
+      24,
+      181,
+      406
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      140,
+      380
+    ]
+  },
+  {
+    "asset": "rabbit-pink.png",
+    "source_file": "trophies-rabbit-anniversary.png",
+    "crop_box": [
+      211,
+      30,
+      356,
+      411
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      138,
+      379
+    ]
+  },
+  {
+    "asset": "dealer-rabbit-gold.png",
+    "source_file": "trophies-rabbit-anniversary.png",
+    "crop_box": [
+      463,
+      34,
+      603,
+      416
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      132,
+      381
+    ]
+  },
+  {
+    "asset": "dealer-rabbit-pink.png",
+    "source_file": "trophies-rabbit-anniversary.png",
+    "crop_box": [
+      633,
+      40,
+      771,
+      417
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      130,
+      375
+    ]
+  },
+  {
+    "asset": "rabbit-blue.png",
+    "source_file": "trophies-rabbit-anniversary.png",
+    "crop_box": [
+      29,
+      583,
+      172,
+      969
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      137,
+      384
+    ]
+  },
+  {
+    "asset": "elephant-blue.png",
+    "source_file": "trophies-rabbit-anniversary.png",
+    "crop_box": [
+      193,
+      649,
+      359,
+      972
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      163,
+      320
+    ]
+  },
+  {
+    "asset": "18th-anniversary.png",
+    "source_file": "trophies-rabbit-anniversary.png",
+    "crop_box": [
+      366,
+      651,
+      584,
+      1055
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      402
+    ]
+  },
+  {
+    "asset": "robby-blue.png",
+    "source_file": "trophies-robby-lucky-cat.png",
+    "crop_box": [
+      39,
+      35,
+      177,
+      305
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      131,
+      266
+    ]
+  },
+  {
+    "asset": "robby-pink.png",
+    "source_file": "trophies-robby-lucky-cat.png",
+    "crop_box": [
+      215,
+      35,
+      350,
+      305
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      133,
+      266
+    ]
+  },
+  {
+    "asset": "robby-violet.png",
+    "source_file": "trophies-robby-lucky-cat.png",
+    "crop_box": [
+      457,
+      26,
+      600,
+      304
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      138,
+      273
+    ]
+  },
+  {
+    "asset": "robby-gold.png",
+    "source_file": "trophies-robby-lucky-cat.png",
+    "crop_box": [
+      631,
+      30,
+      770,
+      307
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      134,
+      272
+    ]
+  },
+  {
+    "asset": "lucky-cat-large.png",
+    "source_file": "trophies-robby-lucky-cat.png",
+    "crop_box": [
+      249,
+      568,
+      483,
+      965
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      229,
+      395
+    ]
+  },
+  {
+    "asset": "lucky-cat-small.png",
+    "source_file": "trophies-robby-lucky-cat.png",
+    "crop_box": [
+      565,
+      706,
+      722,
+      966
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      154,
+      257
+    ]
+  }
+]

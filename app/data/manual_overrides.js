@@ -2375,6 +2375,167 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     });
   });
 
+  // Supplied Chinoiserie lineup and lantern secrets, extracted locally.
+  Object.entries({
+    "page-62-01-porcelain-monkey": "porcelain-monkey",
+    "page-62-02-kite-cockerel": "kite-cockerel",
+    "page-62-03-tiger-like-cap": "tiger-like-cap",
+    "page-62-04-peking-opera-peacock": "peking-opera-peacock",
+    "page-62-05-chinese-panda": "chinese-panda",
+    "page-62-06-paper-cutting-rabbit": "paper-cutting-rabbit",
+    "page-62-07-lantern-dragon": "lantern-dragon-secret",
+    "page-62-08-lantern-robby-angel": "lantern-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/chinoiserie-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // Supplied Summer 2018 regular lineup, extracted locally.
+  Object.entries({
+    "page-48-01-blue-pants": "blue-pants",
+    "page-48-02-green-pants": "green-pants",
+    "page-48-03-light-blue-pants": "light-blue-pants",
+    "page-48-04-pink-pants": "pink-pants",
+    "page-48-05-green-t-shirt": "green-t-shirt",
+    "page-48-06-pink-t-shirt": "pink-t-shirt",
+    "page-48-07-light-blue-t-shirt": "light-blue-t-shirt",
+    "page-48-08-orange-t-shirt": "orange-t-shirt",
+    "page-48-09-gray-pants": "gray-pants",
+    "page-48-10-purple-pants": "purple-pants",
+    "page-48-11-sailor": "sailor-secret",
+    "page-48-12-ocean-robby-angel": "ocean-robby-angel",
+    "page-48-13-yellow-t-shirt": "yellow-t-shirt",
+    "page-48-14-blue-t-shirt": "blue-t-shirt",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/summer-2018-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // Supplied Animal Ver. 1 Special Color lineup and pink Chipmunk secret.
+  Object.entries({
+    "page-63-09-cheetah": "cheetah",
+    "page-63-10-cockerel": "cockerel",
+    "page-63-11-elephant": "elephant",
+    "page-63-12-panda": "panda",
+    "page-63-13-monkey": "monkey",
+    "page-63-14-tiger": "tiger",
+    "page-63-15-crocodile": "crocodile",
+    "page-63-16-koala": "koala",
+    "page-63-17-dalmatian": "dalmatian",
+    "page-63-18-frog": "frog",
+    "page-63-19-rabbit": "rabbit",
+    "page-63-20-lion": "lion",
+    "page-63-21-chipmunk": "chipmunk-secret",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/special-color-v1-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  assign("page-63-21-chipmunk", { isSecret: true });
+
+  // Supplied ISETAN Display Special Color lineup, extracted locally.
+  Object.entries({
+    "page-65-16-rose-purple": "rose-purple",
+    "page-65-17-morning-glory-pink": "morning-glory-pink",
+    "page-65-18-morning-glory-purple": "morning-glory-purple",
+    "page-65-19-starfish-light-blue": "starfish-light-blue",
+    "page-65-20-starfish-blue": "starfish-blue",
+    "page-65-21-starfish-dark-blue": "starfish-dark-blue",
+    "page-65-22-elephant-light-green": "elephant-light-green",
+    "page-65-23-elephant-green": "elephant-green",
+    "page-65-24-owl-orange": "owl-orange",
+    "page-65-25-owl-orange-wink": "owl-orange-wink",
+    "page-65-26-acorn-yellow": "acorn-yellow",
+    "page-65-27-acorn-orange": "acorn-orange",
+    "page-65-28-acorn-red": "acorn-red",
+    "page-65-29-reindeer-green": "reindeer-green",
+    "page-65-30-reindeer-white": "reindeer-white",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/isetan-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // Supplied SAPPINESS Love Yourself 2023 and Key Chain 2021 photos.
+  Object.entries({
+    "page-59-01-dazzling-color": "dazzling-color",
+    "page-59-02-red": "red",
+    "page-59-03-sappiness-red-rabbit": "red-rabbit",
+    "page-59-04-sappiness-white-rabbit": "white-rabbit",
+    "page-59-05-sappiness-gift-cat": "gift-cat",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/sappiness-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // Supplied Live-Eye Doll costumes, matched by release year and outfit.
+  Object.entries({
+    "page-88-01-rabbit-style": "rabbit-2006",
+    "page-88-02-frog-style": "frog-2006",
+    "page-88-03-panda-style": "panda-2007",
+    "page-88-04-mouse-style": "mouse-2007",
+    "page-88-05-pig-style": "pig-2008",
+    "page-88-06-tiger-style": "tiger-2008",
+    "page-88-07-cow-style": "cow-2008",
+    "page-88-08-bee-style": "bee-2009",
+    "page-88-09-panda-style": "panda-2009",
+    "page-88-10-ladybug-style": "ladybug-2009",
+    "page-88-11-kangaroo-style": "kangaroo-2009",
+    "page-88-12-tiger-style": "tiger-2009",
+    "page-88-13-rabbit-style": "rabbit-white-2010",
+    "page-88-14-rabbit-style-pink": "rabbit-pink-2010",
+    "page-88-15-butterfly-style": "butterfly-2013",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/live-eye-doll-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // Supplied NYLON 10th Anniversary lineup, extracted locally.
+  Object.entries({
+    "page-72-01-rabbit": "rabbit",
+    "page-72-02-cheetah": "cheetah",
+    "page-72-03-frog": "frog",
+    "page-72-04-dalmatian": "dalmatian",
+    "page-72-05-elephant": "elephant",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/nylon-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // Supplied Collector's Trophy photos, including original pedestals.
+  Object.entries({
+    "page-87-01-collector-s-trophy-rabbit-white": "rabbit-white",
+    "page-87-02-collector-s-trophy-rabbit-pink": "rabbit-pink",
+    "page-87-03-authorized-dealer-s-trophy-rabbit-gold": "dealer-rabbit-gold",
+    "page-87-04-authorized-dealer-s-trophy-rabbit-pink": "dealer-rabbit-pink",
+    "page-87-05-collector-s-trophy-robby-angel-blue": "robby-blue",
+    "page-87-06-collector-s-trophy-robby-angel-pink": "robby-pink",
+    "page-87-07-collector-s-trophy-robby-angel-violet": "robby-violet",
+    "page-87-08-collector-s-trophy-robby-angel-gold": "robby-gold",
+    "page-87-09-collector-s-trophy-rabbit-blue": "rabbit-blue",
+    "page-87-10-collector-s-trophy-elephant-blue": "elephant-blue",
+    "page-87-11-collector-s-trophy-18th-anniversary": "18th-anniversary",
+    "page-87-12-collector-s-trophy-lucky-cat-l-size": "lucky-cat-large",
+    "page-87-13-collector-s-trophy-lucky-cat-s-size": "lucky-cat-small",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/collectors-trophy-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
   return {
     items,
   };

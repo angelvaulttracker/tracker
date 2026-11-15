@@ -43,7 +43,11 @@ const stockCatalog = rawCatalog
   .map((item) => {
     const override = manualItemOverrides[item.id] || {};
     const mapped = imageMap[item.id] || {};
-    const name = override.name || mapped.catalogName || item.name;
+    const catalogName = override.name || mapped.catalogName || item.name;
+    const isSecret = override.isSecret || /secret/i.test(catalogName);
+    const name = isSecret && !/\(secret\)/i.test(catalogName)
+      ? `${catalogName} (Secret)`
+      : catalogName;
     const series = override.series || mapped.catalogSeries || item.series;
     const imagePath = withImageVersion(override.artPath || mapped.path || "");
     return {

@@ -1,0 +1,212 @@
+[
+  {
+    "asset": "blue-pants.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      49,
+      40,
+      253,
+      448
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      201,
+      400
+    ]
+  },
+  {
+    "asset": "green-pants.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      304,
+      43,
+      508,
+      448
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      200,
+      398
+    ]
+  },
+  {
+    "asset": "light-blue-pants.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      554,
+      43,
+      762,
+      449
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      203,
+      401
+    ]
+  },
+  {
+    "asset": "pink-pants.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      810,
+      42,
+      1020,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      204,
+      403
+    ]
+  },
+  {
+    "asset": "green-t-shirt.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      41,
+      610,
+      260,
+      1040
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      214,
+      424
+    ]
+  },
+  {
+    "asset": "pink-t-shirt.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      299,
+      610,
+      516,
+      1041
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      214,
+      426
+    ]
+  },
+  {
+    "asset": "light-blue-t-shirt.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      552,
+      614,
+      762,
+      1042
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      206,
+      421
+    ]
+  },
+  {
+    "asset": "orange-t-shirt.png",
+    "source_file": "summer-2018-lineup.png",
+    "crop_box": [
+      804,
+      612,
+      1018,
+      1042
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      207,
+      426
+    ]
+  },
+  {
+    "asset": "gray-pants.png",
+    "source_file": "summer-2018-extra-lineup.png",
+    "crop_box": [
+      95,
+      132,
+      292,
+      516
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      193,
+      381
+    ]
+  },
+  {
+    "asset": "purple-pants.png",
+    "source_file": "summer-2018-extra-lineup.png",
+    "crop_box": [
+      334,
+      133,
+      530,
+      516
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      191,
+      380
+    ]
+  },
+  {
+    "asset": "sailor-secret.png",
+    "source_file": "summer-2018-extra-lineup.png",
+    "crop_box": [
+      611,
+      118,
+      816,
+      515
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      198,
+      393
+    ]
+  },
+  {
+    "asset": "ocean-robby-angel.png",
+    "source_file": "summer-2018-extra-lineup.png",
+    "crop_box": [
+      836,
+      160,
+      1000,
+      512
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      349
+    ]
+  },
+  {
+    "asset": "yellow-t-shirt.png",
+    "source_file": "summer-2018-extra-lineup.png",
+    "crop_box": [
+      92,
+      674,
+      300,
+      1078
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      203,
+      403
+    ]
+  },
+  {
+    "asset": "blue-t-shirt.png",
+    "source_file": "summer-2018-extra-lineup.png",
+    "crop_box": [
+      334,
+      674,
+      532,
+      1078
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      192,
+      400
+    ]
+  }
+]

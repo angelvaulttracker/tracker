@@ -1,0 +1,123 @@
+[
+  {
+    "asset": "porcelain-monkey.png",
+    "source_file": "img_chinoiserie_2020_01.png",
+    "crop_box": [
+      16,
+      626,
+      164,
+      938
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      310
+    ]
+  },
+  {
+    "asset": "kite-cockerel.png",
+    "source_file": "img_chinoiserie_2020_01.png",
+    "crop_box": [
+      161,
+      615,
+      326,
+      939
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      142,
+      322
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "tiger-like-cap.png",
+    "source_file": "img_chinoiserie_2020_01.png",
+    "crop_box": [
+      326,
+      632,
+      483,
+      938
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      165,
+      302
+    ]
+  },
+  {
+    "asset": "peking-opera-peacock.png",
+    "source_file": "img_chinoiserie_2020_01.png",
+    "crop_box": [
+      487,
+      604,
+      644,
+      939
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      160,
+      331
+    ]
+  },
+  {
+    "asset": "chinese-panda.png",
+    "source_file": "img_chinoiserie_2020_01.png",
+    "crop_box": [
+      649,
+      619,
+      782,
+      939
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      124,
+      318
+    ]
+  },
+  {
+    "asset": "paper-cutting-rabbit.png",
+    "source_file": "img_chinoiserie_2020_01.png",
+    "crop_box": [
+      785,
+      318,
+      983,
+      941
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      193,
+      631
+    ]
+  },
+  {
+    "asset": "lantern-dragon-secret.png",
+    "source_file": "images (20).jpeg",
+    "crop_box": [
+      126,
+      13,
+      318,
+      418
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      173,
+      401
+    ]
+  },
+  {
+    "asset": "lantern-robby-angel.png",
+    "source_file": "images (19).jpeg",
+    "crop_box": [
+      123,
+      101,
+      275,
+      454
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      149,
+      360
+    ]
+  }
+]

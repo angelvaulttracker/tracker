@@ -1,0 +1,77 @@
+[
+  {
+    "asset": "dazzling-color.png",
+    "source_file": "love-yourself-2023.png",
+    "crop_box": [
+      25,
+      8,
+      168,
+      339
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      140,
+      336
+    ]
+  },
+  {
+    "asset": "red.png",
+    "source_file": "love-yourself-2023.png",
+    "crop_box": [
+      214,
+      62,
+      328,
+      339
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      112,
+      278
+    ]
+  },
+  {
+    "asset": "red-rabbit.png",
+    "source_file": "key-chain-2021.png",
+    "crop_box": [
+      46,
+      36,
+      187,
+      373
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      139,
+      334
+    ]
+  },
+  {
+    "asset": "white-rabbit.png",
+    "source_file": "key-chain-2021.png",
+    "crop_box": [
+      207,
+      35,
+      314,
+      374
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      100,
+      339
+    ]
+  },
+  {
+    "asset": "gift-cat.png",
+    "source_file": "key-chain-2021.png",
+    "crop_box": [
+      356,
+      103,
+      459,
+      377
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      99,
+      273
+    ]
+  }
+]

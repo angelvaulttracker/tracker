@@ -1,0 +1,228 @@
+[
+  {
+    "asset": "rose-purple.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      43,
+      12,
+      193,
+      303
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      288
+    ]
+  },
+  {
+    "asset": "morning-glory-pink.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      229,
+      3,
+      385,
+      303
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      150,
+      299
+    ]
+  },
+  {
+    "asset": "morning-glory-purple.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      423,
+      4,
+      576,
+      303
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      150,
+      295
+    ]
+  },
+  {
+    "asset": "starfish-light-blue.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      615,
+      10,
+      762,
+      303
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      290
+    ]
+  },
+  {
+    "asset": "starfish-blue.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      807,
+      9,
+      961,
+      303
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      291
+    ]
+  },
+  {
+    "asset": "starfish-dark-blue.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      39,
+      398,
+      190,
+      694
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      150,
+      294
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "elephant-light-green.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      221,
+      414,
+      387,
+      694
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      166,
+      275
+    ]
+  },
+  {
+    "asset": "elephant-green.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      413,
+      410,
+      579,
+      694
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      165,
+      278
+    ]
+  },
+  {
+    "asset": "owl-orange.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      623,
+      431,
+      764,
+      694
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      136,
+      259
+    ]
+  },
+  {
+    "asset": "owl-orange-wink.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      817,
+      433,
+      957,
+      694
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      135,
+      256
+    ]
+  },
+  {
+    "asset": "acorn-yellow.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      43,
+      847,
+      190,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      143,
+      269
+    ]
+  },
+  {
+    "asset": "acorn-orange.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      235,
+      844,
+      382,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      141,
+      270
+    ]
+  },
+  {
+    "asset": "acorn-red.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      426,
+      844,
+      572,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      141,
+      267
+    ]
+  },
+  {
+    "asset": "reindeer-green.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      616,
+      797,
+      764,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      142,
+      310
+    ]
+  },
+  {
+    "asset": "reindeer-white.png",
+    "source_file": "isetan-lineup.png",
+    "crop_box": [
+      808,
+      787,
+      963,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      149,
+      322
+    ]
+  }
+]

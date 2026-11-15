@@ -1,0 +1,197 @@
+[
+  {
+    "asset": "cheetah.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      447,
+      44,
+      594,
+      319
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      144,
+      273
+    ]
+  },
+  {
+    "asset": "cockerel.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      617,
+      22,
+      770,
+      319
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      149,
+      293
+    ]
+  },
+  {
+    "asset": "elephant.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      775,
+      38,
+      939,
+      319
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      163,
+      278
+    ]
+  },
+  {
+    "asset": "panda.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      108,
+      428,
+      260,
+      706
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      149,
+      277
+    ]
+  },
+  {
+    "asset": "monkey.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      275,
+      425,
+      425,
+      706
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      278
+    ]
+  },
+  {
+    "asset": "tiger.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      448,
+      426,
+      598,
+      706
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      147,
+      273
+    ]
+  },
+  {
+    "asset": "crocodile.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      615,
+      422,
+      768,
+      706
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      150,
+      281
+    ]
+  },
+  {
+    "asset": "koala.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      780,
+      431,
+      940,
+      707
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      271
+    ]
+  },
+  {
+    "asset": "dalmatian.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      110,
+      840,
+      259,
+      1122
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      147,
+      277
+    ]
+  },
+  {
+    "asset": "frog.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      278,
+      838,
+      430,
+      1122
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      149,
+      283
+    ]
+  },
+  {
+    "asset": "rabbit.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      448,
+      764,
+      599,
+      1123
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      358
+    ]
+  },
+  {
+    "asset": "lion.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      610,
+      820,
+      761,
+      1122
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      300
+    ]
+  },
+  {
+    "asset": "chipmunk-secret.png",
+    "source_file": "special-color-v1-lineup.png",
+    "crop_box": [
+      800,
+      837,
+      921,
+      1121
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      123,
+      281
+    ]
+  }
+]
