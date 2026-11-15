@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "page-53-07-merry-go-round.png",
+    "source_file": "merry-go-round.png",
+    "crop_box": [
+      73,
+      27,
+      436,
+      846
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      357,
+      815
+    ]
+  }
+]

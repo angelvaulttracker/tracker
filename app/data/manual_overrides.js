@@ -3002,6 +3002,98 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
   assign("page-22-12-rainbow-sunflower-lion-robby-angel", { name: "Rainbow Sunflower Robby Angel" });
   assign("page-22-11b-sunflower-lion-rainbow", { catalogSortSlot: 11.01 });
 
+  // Supplied seasonal, collaboration, Lucky, and city-series figures.
+  [
+    "page-37-08-kiss-me-robby-angel",
+    "page-40-28-easter-bunny-secret-2017",
+    "page-47-11-blue-straw-hat",
+    "page-47-12-orange-panama-hat",
+    "page-47-13-yellow-straw-hat",
+    "page-47-14-blue-panama-hat",
+    "page-47-15-pink-straw-hat",
+    "page-47-16-sky-blue-panama-hat",
+    "page-47-17-caribbean-hat",
+    "page-47-18-caribbean-robby-angel",
+    "page-52-01-happy-rabbit",
+    "page-52-02-lucky-lop-ear-rabbit",
+    "page-52-03-rabbit",
+    "page-52-04-cow",
+    "page-53-01-ringmaster",
+    "page-53-04-horse",
+    "page-54-07-chipmunk",
+    "page-54-08-color-guard-robby-angel",
+    "page-54-15-ufo",
+    "page-55-07-humpty-dumpty",
+    "page-55-08-drink-me-robby-angel",
+    "page-57-10-lucky-pomeranian-blue",
+    "page-57-11-lucky-pomeranian-orange",
+    "page-57-12-lucky-pomeranian-pink",
+    "page-57-14-bull-terrier-robby-angel",
+    "page-57-09-doberman",
+    "page-59-07-friendship-work-with-robby-angel",
+    "page-59-10-friendship-work-with-sonny-angel",
+    "page-60-05-classical",
+    "page-60-11-happy-little-bear",
+    "page-61-06-golden-lucky-cat",
+    "page-61-07-daruma-robby-angel",
+    "page-61-08-lucky-daruma-victory",
+    "page-61-09-lucky-daruma-great-blessing",
+    "page-61-10-lucky-daruma-love",
+    "page-61-11-lucky-daruma-good-luck",
+    "page-62-13-ny-bull",
+    "page-62-14-big-apple-robby-angel",
+    "page-62-22-i-heart-seoul",
+    "page-62-21-seoul-strawberry-robby-angel",
+    "page-63-07-pineapple-swimmer",
+    "page-63-08-pineapple-robby-angel"
+].forEach((id) => {
+    assign(id, {
+      artPath: `./app/assets/manual/seasonal-city-secrets-user-sources/${id}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  [
+    "page-37-08-kiss-me-robby-angel",
+    "page-40-28-easter-bunny-secret-2017",
+    "page-47-17-caribbean-hat",
+    "page-47-18-caribbean-robby-angel",
+    "page-54-07-chipmunk",
+    "page-54-08-color-guard-robby-angel",
+    "page-54-15-ufo",
+    "page-55-07-humpty-dumpty",
+    "page-55-08-drink-me-robby-angel",
+    "page-57-14-bull-terrier-robby-angel",
+    "page-57-09-doberman",
+    "page-59-07-friendship-work-with-robby-angel",
+    "page-59-10-friendship-work-with-sonny-angel",
+    "page-60-05-classical",
+    "page-60-11-happy-little-bear",
+    "page-61-06-golden-lucky-cat",
+    "page-61-07-daruma-robby-angel",
+    "page-62-13-ny-bull",
+    "page-62-14-big-apple-robby-angel",
+    "page-62-22-i-heart-seoul",
+    "page-62-21-seoul-strawberry-robby-angel",
+    "page-63-07-pineapple-swimmer",
+    "page-63-08-pineapple-robby-angel"
+].forEach((id) => assign(id, { isSecret: true }));
+  [
+    "page-57-10-lucky-pomeranian-blue",
+    "page-57-11-lucky-pomeranian-orange",
+    "page-57-12-lucky-pomeranian-pink",
+    "page-61-08-lucky-daruma-victory",
+    "page-61-09-lucky-daruma-great-blessing",
+    "page-61-10-lucky-daruma-love",
+    "page-61-11-lucky-daruma-good-luck"
+].forEach((id) => assign(id, { isSecret: false, badges: ["lucky"] }));
+
+  // Supplied Circus 2022 Merry-go-round secret.
+  assign("page-53-07-merry-go-round", {
+    artPath: "./app/assets/manual/circus-merry-go-round-user-source/page-53-07-merry-go-round.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+
   return {
     items,
   };

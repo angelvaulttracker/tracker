@@ -1,0 +1,635 @@
+[
+  {
+    "asset": "page-37-08-kiss-me-robby-angel.png",
+    "source_file": "kiss.png",
+    "crop_box": [
+      39,
+      24,
+      332,
+      618
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      289,
+      594
+    ]
+  },
+  {
+    "asset": "page-40-28-easter-bunny-secret-2017.png",
+    "source_file": "easter.png",
+    "crop_box": [
+      72,
+      0,
+      407,
+      759
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      331,
+      769
+    ]
+  },
+  {
+    "asset": "page-47-11-blue-straw-hat.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      58,
+      24,
+      245,
+      373
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      187,
+      344
+    ]
+  },
+  {
+    "asset": "page-47-12-orange-panama-hat.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      243,
+      11,
+      422,
+      372
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      358
+    ]
+  },
+  {
+    "asset": "page-47-13-yellow-straw-hat.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      420,
+      29,
+      610,
+      371
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      188,
+      337
+    ]
+  },
+  {
+    "asset": "page-47-14-blue-panama-hat.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      606,
+      13,
+      788,
+      369
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      180,
+      352
+    ]
+  },
+  {
+    "asset": "page-47-15-pink-straw-hat.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      787,
+      19,
+      974,
+      365
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      187,
+      343
+    ]
+  },
+  {
+    "asset": "page-47-16-sky-blue-panama-hat.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      63,
+      516,
+      246,
+      870
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      183,
+      350
+    ]
+  },
+  {
+    "asset": "page-47-17-caribbean-hat.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      247,
+      516,
+      429,
+      871
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      180,
+      353
+    ]
+  },
+  {
+    "asset": "page-47-18-caribbean-robby-angel.png",
+    "source_file": "summer.png",
+    "crop_box": [
+      444,
+      607,
+      598,
+      869
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      150,
+      254
+    ]
+  },
+  {
+    "asset": "page-52-01-happy-rabbit.png",
+    "source_file": "newyear2023.png",
+    "crop_box": [
+      57,
+      29,
+      452,
+      918
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      390,
+      885
+    ]
+  },
+  {
+    "asset": "page-52-02-lucky-lop-ear-rabbit.png",
+    "source_file": "newyear2023.png",
+    "crop_box": [
+      542,
+      211,
+      924,
+      921
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      380,
+      708
+    ]
+  },
+  {
+    "asset": "page-52-03-rabbit.png",
+    "source_file": "newyear2021.png",
+    "crop_box": [
+      82,
+      10,
+      478,
+      954
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      390,
+      939
+    ]
+  },
+  {
+    "asset": "page-52-04-cow.png",
+    "source_file": "newyear2021.png",
+    "crop_box": [
+      565,
+      202,
+      963,
+      960
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      392,
+      753
+    ]
+  },
+  {
+    "asset": "page-53-01-ringmaster.png",
+    "source_file": "ringmaster.png",
+    "crop_box": [
+      35,
+      17,
+      311,
+      572
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      272,
+      551
+    ]
+  },
+  {
+    "asset": "page-53-04-horse.png",
+    "source_file": "horse.png",
+    "crop_box": [
+      0,
+      7,
+      283,
+      642
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      285,
+      633
+    ]
+  },
+  {
+    "asset": "page-54-07-chipmunk.png",
+    "source_file": "musicians.png",
+    "crop_box": [
+      60,
+      30,
+      285,
+      634
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      600
+    ]
+  },
+  {
+    "asset": "page-54-08-color-guard-robby-angel.png",
+    "source_file": "musicians.png",
+    "crop_box": [
+      460,
+      111,
+      702,
+      634
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      240,
+      517
+    ]
+  },
+  {
+    "asset": "page-54-15-ufo.png",
+    "source_file": "ufo.png",
+    "crop_box": [
+      32,
+      60,
+      340,
+      672
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      302,
+      605
+    ]
+  },
+  {
+    "asset": "page-55-07-humpty-dumpty.png",
+    "source_file": "wonderland.png",
+    "crop_box": [
+      39,
+      44,
+      339,
+      653
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      292,
+      603
+    ]
+  },
+  {
+    "asset": "page-55-08-drink-me-robby-angel.png",
+    "source_file": "wonderland.png",
+    "crop_box": [
+      432,
+      129,
+      694,
+      654
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      257,
+      522
+    ]
+  },
+  {
+    "asset": "page-57-10-lucky-pomeranian-blue.png",
+    "source_file": "dogluckies.png",
+    "crop_box": [
+      135,
+      95,
+      450,
+      806
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      310,
+      694
+    ]
+  },
+  {
+    "asset": "page-57-11-lucky-pomeranian-orange.png",
+    "source_file": "dogluckies.png",
+    "crop_box": [
+      490,
+      84,
+      836,
+      787
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      308,
+      685
+    ]
+  },
+  {
+    "asset": "page-57-12-lucky-pomeranian-pink.png",
+    "source_file": "dogluckies.png",
+    "crop_box": [
+      798,
+      100,
+      1148,
+      807
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      346,
+      698
+    ]
+  },
+  {
+    "asset": "page-57-14-bull-terrier-robby-angel.png",
+    "source_file": "dogrobby.png",
+    "crop_box": [
+      72,
+      59,
+      363,
+      684
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      288,
+      623
+    ]
+  },
+  {
+    "asset": "page-57-09-doberman.png",
+    "source_file": "doberman.png",
+    "crop_box": [
+      54,
+      16,
+      360,
+      747
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      310,
+      737
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-59-07-friendship-work-with-robby-angel.png",
+    "source_file": "enjoysonny.png",
+    "crop_box": [
+      65,
+      33,
+      338,
+      779
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      275,
+      747
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-59-10-friendship-work-with-sonny-angel.png",
+    "source_file": "enjoyrobby.png",
+    "crop_box": [
+      33,
+      26,
+      365,
+      671
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      333,
+      655
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-60-05-classical.png",
+    "source_file": "classical.png",
+    "crop_box": [
+      63,
+      39,
+      467,
+      783
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      401,
+      739
+    ]
+  },
+  {
+    "asset": "page-60-11-happy-little-bear.png",
+    "source_file": "tea.png",
+    "crop_box": [
+      67,
+      31,
+      369,
+      727
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      297,
+      689
+    ]
+  },
+  {
+    "asset": "page-61-06-golden-lucky-cat.png",
+    "source_file": "japan.png",
+    "crop_box": [
+      2,
+      20,
+      218,
+      463
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      211,
+      439
+    ]
+  },
+  {
+    "asset": "page-61-07-daruma-robby-angel.png",
+    "source_file": "japan.png",
+    "crop_box": [
+      226,
+      218,
+      402,
+      641
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      171,
+      419
+    ]
+  },
+  {
+    "asset": "page-61-08-lucky-daruma-victory.png",
+    "source_file": "japan.png",
+    "crop_box": [
+      409,
+      24,
+      659,
+      468
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      244,
+      440
+    ]
+  },
+  {
+    "asset": "page-61-09-lucky-daruma-great-blessing.png",
+    "source_file": "japan.png",
+    "crop_box": [
+      636,
+      184,
+      882,
+      634
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      244,
+      444
+    ]
+  },
+  {
+    "asset": "page-61-10-lucky-daruma-love.png",
+    "source_file": "japan.png",
+    "crop_box": [
+      858,
+      33,
+      1101,
+      481
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      243,
+      445
+    ]
+  },
+  {
+    "asset": "page-61-11-lucky-daruma-good-luck.png",
+    "source_file": "japan.png",
+    "crop_box": [
+      1089,
+      194,
+      1322,
+      640
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      239,
+      444
+    ]
+  },
+  {
+    "asset": "page-62-13-ny-bull.png",
+    "source_file": "nyc.png",
+    "crop_box": [
+      23,
+      72,
+      310,
+      616
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      280,
+      539
+    ]
+  },
+  {
+    "asset": "page-62-14-big-apple-robby-angel.png",
+    "source_file": "nyc.png",
+    "crop_box": [
+      344,
+      145,
+      563,
+      616
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      214,
+      465
+    ]
+  },
+  {
+    "asset": "page-62-22-i-heart-seoul.png",
+    "source_file": "seoul.png",
+    "crop_box": [
+      0,
+      113,
+      237,
+      607
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      242,
+      488
+    ]
+  },
+  {
+    "asset": "page-62-21-seoul-strawberry-robby-angel.png",
+    "source_file": "seoul.png",
+    "crop_box": [
+      239,
+      114,
+      438,
+      544
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      194,
+      426
+    ]
+  },
+  {
+    "asset": "page-63-07-pineapple-swimmer.png",
+    "source_file": "okinawa.png",
+    "crop_box": [
+      15,
+      6,
+      307,
+      625
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      287,
+      616
+    ]
+  },
+  {
+    "asset": "page-63-08-pineapple-robby-angel.png",
+    "source_file": "okinawa.png",
+    "crop_box": [
+      405,
+      91,
+      643,
+      630
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      232,
+      533
+    ]
+  }
+]
