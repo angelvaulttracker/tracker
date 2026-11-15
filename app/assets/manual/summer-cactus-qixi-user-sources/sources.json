@@ -1,0 +1,723 @@
+[
+  {
+    "asset": "page-46-14-pink-rabbit.png",
+    "source_file": "cactus.png",
+    "crop_box": [
+      61,
+      23,
+      329,
+      675
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      266,
+      647
+    ]
+  },
+  {
+    "asset": "page-46-15-pink-monkey.png",
+    "source_file": "cactus.png",
+    "crop_box": [
+      331,
+      140,
+      600,
+      671
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      267,
+      526
+    ]
+  },
+  {
+    "asset": "page-46-16-pink-mouse.png",
+    "source_file": "cactus.png",
+    "crop_box": [
+      597,
+      83,
+      871,
+      672
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      272,
+      582
+    ]
+  },
+  {
+    "asset": "page-46-17-pink-parrot.png",
+    "source_file": "cactus.png",
+    "crop_box": [
+      871,
+      99,
+      1137,
+      666
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      264,
+      559
+    ]
+  },
+  {
+    "asset": "page-46-18-cactus-robby-angel.png",
+    "source_file": "cactus.png",
+    "crop_box": [
+      1171,
+      181,
+      1381,
+      665
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      205,
+      478
+    ]
+  },
+  {
+    "asset": "page-49-01-red-swimwear.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      37,
+      40,
+      265,
+      471
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      223,
+      426
+    ]
+  },
+  {
+    "asset": "page-49-02-yellow-swimwear.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      302,
+      40,
+      531,
+      471
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      224,
+      427
+    ]
+  },
+  {
+    "asset": "page-49-03-light-green-swimwear.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      567,
+      40,
+      794,
+      471
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      223,
+      428
+    ]
+  },
+  {
+    "asset": "page-49-04-blue-swimwear.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      838,
+      38,
+      1068,
+      470
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      226,
+      426
+    ]
+  },
+  {
+    "asset": "page-49-05-blue-t-shirt.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      31,
+      657,
+      268,
+      1100
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      232,
+      438
+    ]
+  },
+  {
+    "asset": "page-49-06-rainbow-t-shirt.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      296,
+      657,
+      537,
+      1098
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      234,
+      424
+    ]
+  },
+  {
+    "asset": "page-49-07-orange-t-shirt.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      567,
+      658,
+      807,
+      1098
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      234,
+      432
+    ]
+  },
+  {
+    "asset": "page-49-08-pink-t-shirt.png",
+    "source_file": "vacation-a.png",
+    "crop_box": [
+      836,
+      662,
+      1066,
+      1098
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      225,
+      429
+    ]
+  },
+  {
+    "asset": "page-49-09-violet-swimwear.png",
+    "source_file": "vacation-b.png",
+    "crop_box": [
+      89,
+      94,
+      291,
+      480
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      198,
+      383
+    ]
+  },
+  {
+    "asset": "page-49-10-pink-swimwear.png",
+    "source_file": "vacation-b.png",
+    "crop_box": [
+      326,
+      92,
+      531,
+      479
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      200,
+      383
+    ]
+  },
+  {
+    "asset": "page-49-11-white-swimwear.png",
+    "source_file": "vacation-b.png",
+    "crop_box": [
+      718,
+      88,
+      928,
+      477
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      206,
+      383
+    ]
+  },
+  {
+    "asset": "page-49-12-blue-green-t-shirt.png",
+    "source_file": "vacation-b.png",
+    "crop_box": [
+      86,
+      644,
+      298,
+      1033
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      205,
+      384
+    ]
+  },
+  {
+    "asset": "page-49-13-light-yellow-t-shirt.png",
+    "source_file": "vacation-b.png",
+    "crop_box": [
+      321,
+      645,
+      531,
+      1033
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      205,
+      380
+    ]
+  },
+  {
+    "asset": "page-49-14-beach-robby-angel.png",
+    "source_file": "vacation-b.png",
+    "crop_box": [
+      605,
+      683,
+      767,
+      1033
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      155,
+      344
+    ]
+  },
+  {
+    "asset": "page-50-01-pink-hb.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      416,
+      26,
+      583,
+      337
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      160,
+      307
+    ]
+  },
+  {
+    "asset": "page-50-02-blue-hb.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      603,
+      25,
+      769,
+      337
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      160,
+      306
+    ]
+  },
+  {
+    "asset": "page-50-03-blue-cal.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      796,
+      27,
+      960,
+      337
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      160,
+      306
+    ]
+  },
+  {
+    "asset": "page-50-04-pink-cal.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      36,
+      459,
+      202,
+      772
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      307
+    ]
+  },
+  {
+    "asset": "page-50-05-purple-surfboard.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      228,
+      459,
+      391,
+      773
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      307
+    ]
+  },
+  {
+    "asset": "page-50-06-orange-surfboard.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      414,
+      460,
+      582,
+      773
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      163,
+      306
+    ]
+  },
+  {
+    "asset": "page-50-07-blue-seagulls.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      605,
+      461,
+      767,
+      773
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      304
+    ]
+  },
+  {
+    "asset": "page-50-08-white-seagulls.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      792,
+      460,
+      962,
+      773
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      166,
+      310
+    ]
+  },
+  {
+    "asset": "page-50-09-brown-sun.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      33,
+      891,
+      199,
+      1204
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      164,
+      307
+    ]
+  },
+  {
+    "asset": "page-50-10-green-sun.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      226,
+      891,
+      393,
+      1204
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      305
+    ]
+  },
+  {
+    "asset": "page-50-11-yellow-palm-trees.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      414,
+      891,
+      580,
+      1204
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      307
+    ]
+  },
+  {
+    "asset": "page-50-12-gray-palm-trees.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      603,
+      891,
+      768,
+      1204
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      307
+    ]
+  },
+  {
+    "asset": "page-50-13-lifeguard.png",
+    "source_file": "huntington.png",
+    "crop_box": [
+      793,
+      890,
+      962,
+      1204
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      163,
+      306
+    ]
+  },
+  {
+    "asset": "page-50-14-orange.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      568,
+      11,
+      734,
+      310
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      293
+    ]
+  },
+  {
+    "asset": "page-50-15-red.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      749,
+      10,
+      913,
+      311
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      296
+    ]
+  },
+  {
+    "asset": "page-50-16-pink.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      30,
+      425,
+      195,
+      727
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      294
+    ]
+  },
+  {
+    "asset": "page-50-17-purple.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      209,
+      423,
+      373,
+      728
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      297
+    ]
+  },
+  {
+    "asset": "page-50-18-yellow.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      389,
+      424,
+      554,
+      727
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      294
+    ]
+  },
+  {
+    "asset": "page-50-19-dark-blue.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      570,
+      424,
+      735,
+      725
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      294
+    ]
+  },
+  {
+    "asset": "page-50-20-blue.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      750,
+      425,
+      914,
+      724
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      294
+    ]
+  },
+  {
+    "asset": "page-50-21-brown.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      29,
+      838,
+      194,
+      1136
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      294
+    ]
+  },
+  {
+    "asset": "page-50-22-gray.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      209,
+      837,
+      377,
+      1135
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      298
+    ]
+  },
+  {
+    "asset": "page-50-23-light-blue.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      389,
+      834,
+      556,
+      1135
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      296
+    ]
+  },
+  {
+    "asset": "page-50-24-green.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      570,
+      834,
+      735,
+      1135
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      296
+    ]
+  },
+  {
+    "asset": "page-50-25-white.png",
+    "source_file": "strong-current.png",
+    "crop_box": [
+      751,
+      836,
+      916,
+      1136
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      160,
+      296
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-51-01-lop-ear-rabbit.png",
+    "source_file": "qixi.png",
+    "crop_box": [
+      45,
+      8,
+      265,
+      415
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      216,
+      402
+    ]
+  },
+  {
+    "asset": "page-51-02-qixi-robby-angel.png",
+    "source_file": "qixi.png",
+    "crop_box": [
+      303,
+      93,
+      494,
+      415
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      186,
+      318
+    ]
+  },
+  {
+    "asset": "page-51-03-rose-bouquet.png",
+    "source_file": "qixi.png",
+    "crop_box": [
+      29,
+      760,
+      268,
+      1195
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      233,
+      431
+    ]
+  },
+  {
+    "asset": "page-51-04-qixi-robby-angel.png",
+    "source_file": "qixi.png",
+    "crop_box": [
+      296,
+      865,
+      495,
+      1196
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      194,
+      326
+    ]
+  }
+]

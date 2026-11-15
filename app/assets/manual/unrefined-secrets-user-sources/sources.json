@@ -1,0 +1,227 @@
+[
+  {
+    "asset": "page-18-13-chipmunk.png",
+    "source_file": "animal1.png",
+    "crop_box": [
+      70,
+      102,
+      272,
+      563
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      196,
+      455
+    ]
+  },
+  {
+    "asset": "page-18-14-robby-angel.png",
+    "source_file": "animal1.png",
+    "crop_box": [
+      347,
+      190,
+      565,
+      563
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      211,
+      368
+    ]
+  },
+  {
+    "asset": "page-18-28-robby-angel.png",
+    "source_file": "animal2.png",
+    "crop_box": [
+      93,
+      90,
+      420,
+      662
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      319,
+      563
+    ]
+  },
+  {
+    "asset": "page-19-13-unicorn.png",
+    "source_file": "animal3.png",
+    "crop_box": [
+      78,
+      60,
+      264,
+      520
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      453
+    ]
+  },
+  {
+    "asset": "page-19-14-robby-angel.png",
+    "source_file": "animal3.png",
+    "crop_box": [
+      336,
+      181,
+      535,
+      522
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      190,
+      333
+    ]
+  },
+  {
+    "asset": "page-19-27-dragon.png",
+    "source_file": "animal4.png",
+    "crop_box": [
+      36,
+      44,
+      255,
+      522
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      214,
+      471
+    ]
+  },
+  {
+    "asset": "page-19-28-robby-angel.png",
+    "source_file": "animal4.png",
+    "crop_box": [
+      321,
+      180,
+      519,
+      520
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      187,
+      329
+    ]
+  },
+  {
+    "asset": "page-20-13-turtle.png",
+    "source_file": "marine.png",
+    "crop_box": [
+      58,
+      96,
+      241,
+      517
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      176,
+      410
+    ]
+  },
+  {
+    "asset": "page-20-14-robby-angel.png",
+    "source_file": "marine.png",
+    "crop_box": [
+      314,
+      180,
+      512,
+      521
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      188,
+      331
+    ]
+  },
+  {
+    "asset": "page-20-27-seed-leaf.png",
+    "source_file": "fruit.png",
+    "crop_box": [
+      74,
+      82,
+      325,
+      569
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      238,
+      476
+    ]
+  },
+  {
+    "asset": "page-20-28-robby-angel.png",
+    "source_file": "fruit.png",
+    "crop_box": [
+      399,
+      171,
+      625,
+      567
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      217,
+      387
+    ]
+  },
+  {
+    "asset": "page-21-13-bee.png",
+    "source_file": "flower.png",
+    "crop_box": [
+      59,
+      86,
+      262,
+      632
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      192,
+      537
+    ]
+  },
+  {
+    "asset": "page-21-14-robby-angel.png",
+    "source_file": "flower.png",
+    "crop_box": [
+      362,
+      232,
+      590,
+      637
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      221,
+      393
+    ]
+  },
+  {
+    "asset": "page-21-27-shiitake.png",
+    "source_file": "vegetable.png",
+    "crop_box": [
+      40,
+      132,
+      296,
+      612
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      246,
+      471
+    ]
+  },
+  {
+    "asset": "page-21-28-robby-angel.png",
+    "source_file": "vegetable.png",
+    "crop_box": [
+      380,
+      217,
+      604,
+      612
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      214,
+      383
+    ]
+  }
+]

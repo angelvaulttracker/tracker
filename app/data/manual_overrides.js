@@ -2825,6 +2825,183 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
   assign("page-73-11-santa-claus", { isSecret: true });
   assign("page-73-12-reindeer", { isSecret: true });
 
+  // Supplied Cactus secrets, summer lineups, Strong Current, and Qixi sets.
+  Object.entries({
+    "page-46-14-pink-rabbit": "page-46-14-pink-rabbit",
+    "page-46-15-pink-monkey": "page-46-15-pink-monkey",
+    "page-46-16-pink-mouse": "page-46-16-pink-mouse",
+    "page-46-17-pink-parrot": "page-46-17-pink-parrot",
+    "page-46-18-cactus-robby-angel": "page-46-18-cactus-robby-angel",
+    "page-49-01-red-swimwear": "page-49-01-red-swimwear",
+    "page-49-02-yellow-swimwear": "page-49-02-yellow-swimwear",
+    "page-49-03-light-green-swimwear": "page-49-03-light-green-swimwear",
+    "page-49-04-blue-swimwear": "page-49-04-blue-swimwear",
+    "page-49-05-blue-t-shirt": "page-49-05-blue-t-shirt",
+    "page-49-06-rainbow-t-shirt": "page-49-06-rainbow-t-shirt",
+    "page-49-07-orange-t-shirt": "page-49-07-orange-t-shirt",
+    "page-49-08-pink-t-shirt": "page-49-08-pink-t-shirt",
+    "page-49-09-violet-swimwear": "page-49-09-violet-swimwear",
+    "page-49-10-pink-swimwear": "page-49-10-pink-swimwear",
+    "page-49-11-white-swimwear": "page-49-11-white-swimwear",
+    "page-49-12-blue-green-t-shirt": "page-49-12-blue-green-t-shirt",
+    "page-49-13-light-yellow-t-shirt": "page-49-13-light-yellow-t-shirt",
+    "page-49-14-beach-robby-angel": "page-49-14-beach-robby-angel",
+    "page-50-01-pink-hb": "page-50-01-pink-hb",
+    "page-50-02-blue-hb": "page-50-02-blue-hb",
+    "page-50-03-blue-cal": "page-50-03-blue-cal",
+    "page-50-04-pink-cal": "page-50-04-pink-cal",
+    "page-50-05-purple-surfboard": "page-50-05-purple-surfboard",
+    "page-50-06-orange-surfboard": "page-50-06-orange-surfboard",
+    "page-50-07-blue-seagulls": "page-50-07-blue-seagulls",
+    "page-50-08-white-seagulls": "page-50-08-white-seagulls",
+    "page-50-09-brown-sun": "page-50-09-brown-sun",
+    "page-50-10-green-sun": "page-50-10-green-sun",
+    "page-50-11-yellow-palm-trees": "page-50-11-yellow-palm-trees",
+    "page-50-12-gray-palm-trees": "page-50-12-gray-palm-trees",
+    "page-50-13-lifeguard": "page-50-13-lifeguard",
+    "page-50-14-orange": "page-50-14-orange",
+    "page-50-15-red": "page-50-15-red",
+    "page-50-16-pink": "page-50-16-pink",
+    "page-50-17-purple": "page-50-17-purple",
+    "page-50-18-yellow": "page-50-18-yellow",
+    "page-50-19-dark-blue": "page-50-19-dark-blue",
+    "page-50-20-blue": "page-50-20-blue",
+    "page-50-21-brown": "page-50-21-brown",
+    "page-50-22-gray": "page-50-22-gray",
+    "page-50-23-light-blue": "page-50-23-light-blue",
+    "page-50-24-green": "page-50-24-green",
+    "page-50-25-white": "page-50-25-white",
+    "page-51-01-lop-ear-rabbit": "page-51-01-lop-ear-rabbit",
+    "page-51-02-qixi-robby-angel": "page-51-02-qixi-robby-angel",
+    "page-51-03-rose-bouquet": "page-51-03-rose-bouquet",
+    "page-51-04-qixi-robby-angel": "page-51-04-qixi-robby-angel"
+}).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/summer-cactus-qixi-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  assign("page-46-14-pink-rabbit", { isSecret: true });
+  assign("page-46-15-pink-monkey", { isSecret: true });
+  assign("page-46-16-pink-mouse", { isSecret: true });
+  assign("page-46-17-pink-parrot", { isSecret: true });
+  assign("page-46-18-cactus-robby-angel", { isSecret: true });
+  assign("page-49-11-white-swimwear", { isSecret: true });
+  assign("page-49-14-beach-robby-angel", { isSecret: true });
+  assign("page-50-13-lifeguard", { isSecret: true });
+
+  // Supplied Circus secrets and verified collaboration lineups.
+  Object.entries({
+    "page-53-08-long-legged-clown-robby-angel": "page-53-08-long-legged-clown-robby-angel",
+    "page-53-15-silk-hat-rabbit": "page-53-15-silk-hat-rabbit",
+    "page-53-16-clown-robby-angel": "page-53-16-clown-robby-angel",
+    "page-70-01-pink": "page-70-01-pink",
+    "page-70-02-green": "page-70-02-green",
+    "page-70-03-brown": "page-70-03-brown",
+    "page-70-04-navy": "page-70-04-navy",
+    "page-70-05-white": "page-70-05-white",
+    "page-70-06-green": "page-70-06-green",
+    "page-70-07-red": "page-70-07-red",
+    "page-70-08-black": "page-70-08-black",
+    "page-70-15-akari": "page-70-15-akari",
+    "page-70-16-little-h": "page-70-16-little-h",
+    "page-70-17-little-o": "page-70-17-little-o",
+    "page-70-18-little-child": "page-70-18-little-child",
+    "page-70-19-saun-nomini": "page-70-19-saun-nomini",
+    "page-70-20-scarecrow": "page-70-20-scarecrow",
+    "page-70-10-bed": "page-70-10-bed",
+    "page-70-11-flamingo": "page-70-11-flamingo",
+    "page-70-12-my-kitty": "page-70-12-my-kitty",
+    "page-70-13-fruit-dish": "page-70-13-fruit-dish",
+    "page-70-14-potted-plant": "page-70-14-potted-plant",
+    "page-72-14-rabbit": "page-72-14-rabbit",
+    "page-72-15-fawn": "page-72-15-fawn",
+    "page-72-16-giraffe": "page-72-16-giraffe",
+    "page-72-17-french-bulldog": "page-72-17-french-bulldog",
+    "page-72-18-rabbit": "page-72-18-rabbit"
+}).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/circus-collaboration-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  assign("page-53-08-long-legged-clown-robby-angel", { isSecret: true });
+  assign("page-53-15-silk-hat-rabbit", { isSecret: true });
+  assign("page-53-16-clown-robby-angel", { isSecret: true });
+  assign("page-70-19-saun-nomini", { isSecret: true });
+  assign("page-70-20-scarecrow", { isSecret: true });
+  assign("page-70-14-potted-plant", { isSecret: true });
+  assign("page-72-18-rabbit", { isSecret: true });
+
+  // Supplied refined regular-series Robbys and secret figures.
+  [
+    "page-10-14-robby-angel",
+    "page-11-14-robby-angel",
+    "page-12-14-robby-angel",
+    "page-13-14-robby-angel",
+    "page-14-14-robby-angel",
+    "page-15-14-robby-angel",
+    "page-12-13-unicorn",
+    "page-14-13-turtle",
+    "page-15-13-bee",
+    "page-16-13-shiitake",
+    "page-16-14-robby-angel",
+    "page-17-13-patissier",
+    "page-17-14-robby-angel"
+].forEach((id) => {
+    assign(id, {
+      artPath: `./app/assets/manual/refined-secrets-user-sources/${id}.png`,
+      artSource: "manual-upload",
+      isSecret: true,
+    });
+  });
+
+  // Supplied unrefined regular-series secrets.
+  [
+    "page-18-13-chipmunk",
+    "page-18-14-robby-angel",
+    "page-18-28-robby-angel",
+    "page-19-13-unicorn",
+    "page-19-14-robby-angel",
+    "page-19-27-dragon",
+    "page-19-28-robby-angel",
+    "page-20-13-turtle",
+    "page-20-14-robby-angel",
+    "page-20-27-seed-leaf",
+    "page-20-28-robby-angel",
+    "page-21-13-bee",
+    "page-21-14-robby-angel",
+    "page-21-27-shiitake",
+    "page-21-28-robby-angel"
+].forEach((id) => {
+    assign(id, {
+      artPath: `./app/assets/manual/unrefined-secrets-user-sources/${id}.png`,
+      artSource: "manual-upload",
+      isSecret: true,
+    });
+  });
+
+  // Supplied Flower Gift, birthday, and seasonal secret figures.
+  [
+    "page-22-11b-sunflower-lion-rainbow",
+    "page-22-12-rainbow-sunflower-lion-robby-angel",
+    "page-22-14-aurora-balloon-bear",
+    "page-22-15-aurora-robby-angel",
+    "page-23-14-aurora",
+    "page-23-11-special-cake",
+    "page-46-13-mexican-cactus",
+    "page-47-10-ice",
+    "page-51-09-happiness"
+].forEach((id) => {
+    assign(id, {
+      artPath: `./app/assets/manual/gift-mixed-secrets-user-sources/${id}.png`,
+      artSource: "manual-upload",
+      isSecret: true,
+    });
+  });
+  assign("page-22-12-rainbow-sunflower-lion-robby-angel", { name: "Rainbow Sunflower Robby Angel" });
+  assign("page-22-11b-sunflower-lion-rainbow", { catalogSortSlot: 11.01 });
+
   return {
     items,
   };

@@ -1,0 +1,408 @@
+[
+  {
+    "asset": "page-53-08-long-legged-clown-robby-angel.png",
+    "source_file": "long-clown.png",
+    "crop_box": [
+      48,
+      31,
+      277,
+      631
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      232,
+      569
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-53-15-silk-hat-rabbit.png",
+    "source_file": "circus.png",
+    "crop_box": [
+      35,
+      23,
+      310,
+      684
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      272,
+      657
+    ]
+  },
+  {
+    "asset": "page-53-16-clown-robby-angel.png",
+    "source_file": "circus.png",
+    "crop_box": [
+      430,
+      86,
+      661,
+      686
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      225,
+      595
+    ]
+  },
+  {
+    "asset": "page-70-01-pink.png",
+    "source_file": "waac2023.png",
+    "crop_box": [
+      21,
+      31,
+      242,
+      440
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      218,
+      407
+    ]
+  },
+  {
+    "asset": "page-70-02-green.png",
+    "source_file": "waac2023.png",
+    "crop_box": [
+      296,
+      31,
+      518,
+      448
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      220,
+      412
+    ]
+  },
+  {
+    "asset": "page-70-03-brown.png",
+    "source_file": "waac2023.png",
+    "crop_box": [
+      566,
+      30,
+      794,
+      453
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      225,
+      419
+    ]
+  },
+  {
+    "asset": "page-70-04-navy.png",
+    "source_file": "waac2023.png",
+    "crop_box": [
+      839,
+      38,
+      1062,
+      455
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      218,
+      412
+    ]
+  },
+  {
+    "asset": "page-70-05-white.png",
+    "source_file": "waac2022.png",
+    "crop_box": [
+      49,
+      28,
+      258,
+      434
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      204,
+      404
+    ]
+  },
+  {
+    "asset": "page-70-06-green.png",
+    "source_file": "waac2022.png",
+    "crop_box": [
+      319,
+      35,
+      532,
+      440
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      208,
+      401
+    ]
+  },
+  {
+    "asset": "page-70-07-red.png",
+    "source_file": "waac2022.png",
+    "crop_box": [
+      595,
+      39,
+      805,
+      444
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      205,
+      401
+    ]
+  },
+  {
+    "asset": "page-70-08-black.png",
+    "source_file": "waac2022.png",
+    "crop_box": [
+      868,
+      39,
+      1083,
+      448
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      209,
+      403
+    ]
+  },
+  {
+    "asset": "page-70-15-akari.png",
+    "source_file": "h-family.png",
+    "crop_box": [
+      35,
+      37,
+      193,
+      400
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      155,
+      361
+    ]
+  },
+  {
+    "asset": "page-70-16-little-h.png",
+    "source_file": "h-family.png",
+    "crop_box": [
+      195,
+      90,
+      385,
+      460
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      186,
+      366
+    ]
+  },
+  {
+    "asset": "page-70-17-little-o.png",
+    "source_file": "h-family.png",
+    "crop_box": [
+      397,
+      44,
+      548,
+      404
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      154,
+      358
+    ]
+  },
+  {
+    "asset": "page-70-18-little-child.png",
+    "source_file": "h-family.png",
+    "crop_box": [
+      547,
+      57,
+      740,
+      459
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      193,
+      396
+    ]
+  },
+  {
+    "asset": "page-70-19-saun-nomini.png",
+    "source_file": "h-family.png",
+    "crop_box": [
+      756,
+      18,
+      947,
+      400
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      189,
+      379
+    ]
+  },
+  {
+    "asset": "page-70-20-scarecrow.png",
+    "source_file": "h-family.png",
+    "crop_box": [
+      923,
+      75,
+      1084,
+      414
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      333
+    ]
+  },
+  {
+    "asset": "page-70-10-bed.png",
+    "source_file": "dashin.png",
+    "crop_box": [
+      10,
+      17,
+      205,
+      470
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      193,
+      449
+    ]
+  },
+  {
+    "asset": "page-70-11-flamingo.png",
+    "source_file": "dashin.png",
+    "crop_box": [
+      216,
+      105,
+      410,
+      468
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      193,
+      357
+    ]
+  },
+  {
+    "asset": "page-70-12-my-kitty.png",
+    "source_file": "dashin.png",
+    "crop_box": [
+      424,
+      109,
+      618,
+      470
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      191,
+      359
+    ]
+  },
+  {
+    "asset": "page-70-13-fruit-dish.png",
+    "source_file": "dashin.png",
+    "crop_box": [
+      637,
+      89,
+      825,
+      467
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      186,
+      376
+    ]
+  },
+  {
+    "asset": "page-70-14-potted-plant.png",
+    "source_file": "dashin.png",
+    "crop_box": [
+      837,
+      90,
+      1031,
+      467
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      190,
+      374
+    ]
+  },
+  {
+    "asset": "page-72-14-rabbit.png",
+    "source_file": "modi2015.png",
+    "crop_box": [
+      44,
+      19,
+      269,
+      542
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      221,
+      521
+    ]
+  },
+  {
+    "asset": "page-72-15-fawn.png",
+    "source_file": "modi2015.png",
+    "crop_box": [
+      306,
+      100,
+      540,
+      544
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      228,
+      439
+    ]
+  },
+  {
+    "asset": "page-72-16-giraffe.png",
+    "source_file": "modi2015.png",
+    "crop_box": [
+      587,
+      86,
+      816,
+      546
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      225,
+      455
+    ]
+  },
+  {
+    "asset": "page-72-17-french-bulldog.png",
+    "source_file": "modi2015.png",
+    "crop_box": [
+      866,
+      113,
+      1093,
+      547
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      224,
+      428
+    ]
+  },
+  {
+    "asset": "page-72-18-rabbit.png",
+    "source_file": "modi2015.png",
+    "crop_box": [
+      1143,
+      25,
+      1371,
+      548
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      223,
+      522
+    ]
+  }
+]

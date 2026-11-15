@@ -6714,6 +6714,19 @@ function saveStatusChange(id, status) {
 
 function saveOwnedCount(id, ownedCount) {
   const current = progress[id] && typeof progress[id] === "object" ? progress[id] : {};
+  if (ownedCount <= 0) {
+    if (!window.confirm("Are you sure you want to remove from collection?")) {
+      return false;
+    }
+    progress[id] = {
+      ...current,
+      status: "missing",
+      ownedCount: 0,
+      ownedDetails: [],
+    };
+    saveProgress();
+    return true;
+  }
   const currentDetails = getOwnedDetails(id);
   const nextCount = Math.max(1, ownedCount);
   const nextDetails = Array.from({ length: nextCount }, (_, index) => {
@@ -6727,6 +6740,7 @@ function saveOwnedCount(id, ownedCount) {
     ownedDetails: nextDetails,
   };
   saveProgress();
+  return true;
 }
 
 function saveOwnedDetailPatch(id, copyIndex, patch) {
@@ -8164,15 +8178,15 @@ function buildCollectedQuantityControl(item) {
   decrease.className = "collected-quantity-button";
   decrease.type = "button";
   decrease.textContent = "−";
-  decrease.disabled = ownedCount <= 1;
+  decrease.disabled = ownedCount <= 0;
   decrease.addEventListener("click", (event) => {
     event.stopPropagation();
-    if (ownedCount <= 1) {
+    const nextCount = getOwnedCount(item.id) - 1;
+    if (!saveOwnedCount(item.id, nextCount)) {
       return;
     }
-    saveOwnedCount(item.id, ownedCount - 1);
-    setActiveCollectedCopyIndex(item.id, Math.max(0, Math.min(getActiveCollectedCopyIndex(item.id), ownedCount - 2)));
-    renderCollected(sonnies);
+    setActiveCollectedCopyIndex(item.id, Math.max(0, Math.min(getActiveCollectedCopyIndex(item.id), nextCount - 1)));
+    applyFilters();
   });
 
   const value = document.createElement("span");
@@ -9091,7 +9105,7 @@ function renderGrid(items) {
       mobileOwnedValue.textContent = String(ownedCount);
     }
     if (mobileOwnedDecreaseButton) {
-      mobileOwnedDecreaseButton.disabled = ownedCount <= 1;
+      mobileOwnedDecreaseButton.disabled = ownedCount <= 0;
     }
     if (ownedButton) {
       ownedButton.classList.toggle("has-inline-counter", isOwned);
@@ -9103,7 +9117,7 @@ function renderGrid(items) {
       ownedCounterValue.textContent = String(ownedCount);
     }
     if (ownedDecreaseButton) {
-      ownedDecreaseButton.disabled = ownedCount <= 1;
+      ownedDecreaseButton.disabled = ownedCount <= 0;
     }
 
     card.dataset.id = item.id;
@@ -9636,9 +9650,11 @@ grid.addEventListener("click", (event) => {
       return;
     }
 
-    const nextCount = Math.max(1, getOwnedCount(id) + delta);
+    const nextCount = Math.max(0, getOwnedCount(id) + delta);
+    if (!saveOwnedCount(id, nextCount)) {
+      return;
+    }
     activeOwnedCounterId = id;
-    saveOwnedCount(id, nextCount);
     try {
       applyFilters();
     } catch (error) {
@@ -9656,8 +9672,10 @@ grid.addEventListener("click", (event) => {
       return;
     }
 
-    const nextCount = Math.max(1, getOwnedCount(id) + delta);
-    saveOwnedCount(id, nextCount);
+    const nextCount = Math.max(0, getOwnedCount(id) + delta);
+    if (!saveOwnedCount(id, nextCount)) {
+      return;
+    }
     try {
       applyFilters();
     } catch (error) {

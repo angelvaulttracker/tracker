@@ -1,0 +1,137 @@
+[
+  {
+    "asset": "page-22-11b-sunflower-lion-rainbow.png",
+    "source_file": "flower.png",
+    "crop_box": [
+      180,
+      30,
+      580,
+      655
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      397,
+      619
+    ]
+  },
+  {
+    "asset": "page-22-12-rainbow-sunflower-lion-robby-angel.png",
+    "source_file": "flower.png",
+    "crop_box": [
+      900,
+      83,
+      1130,
+      663
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      222,
+      578
+    ]
+  },
+  {
+    "asset": "page-22-14-aurora-balloon-bear.png",
+    "source_file": "bear.png",
+    "crop_box": [
+      237,
+      26,
+      677,
+      695
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      430,
+      661
+    ]
+  },
+  {
+    "asset": "page-22-15-aurora-robby-angel.png",
+    "source_file": "bear.png",
+    "crop_box": [
+      1007,
+      94,
+      1250,
+      683
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      242,
+      586
+    ]
+  },
+  {
+    "asset": "page-23-14-aurora.png",
+    "source_file": "aurora.png",
+    "crop_box": [
+      72,
+      25,
+      372,
+      612
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      294,
+      580
+    ]
+  },
+  {
+    "asset": "page-23-11-special-cake.png",
+    "source_file": "cake.png",
+    "crop_box": [
+      96,
+      29,
+      478,
+      799
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      376,
+      765
+    ]
+  },
+  {
+    "asset": "page-46-13-mexican-cactus.png",
+    "source_file": "cactus.png",
+    "crop_box": [
+      55,
+      49,
+      375,
+      700
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      313,
+      647
+    ]
+  },
+  {
+    "asset": "page-47-10-ice.png",
+    "source_file": "ice.png",
+    "crop_box": [
+      34,
+      35,
+      260,
+      485
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      223,
+      447
+    ]
+  },
+  {
+    "asset": "page-51-09-happiness.png",
+    "source_file": "happiness.png",
+    "crop_box": [
+      35,
+      9,
+      330,
+      570
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      290,
+      554
+    ]
+  }
+]
