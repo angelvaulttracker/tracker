@@ -27,11 +27,13 @@ config=[
 ('2018-easter-bunny','sonnyangel_easter2018_ovr__61970.webp',(530,135,700,540)),
 ('2018-paint-robby-angel','5_d1bdd1e6-a995-4c22-9df5-38be5bf57c53_large.webp',(130,55,355,465)),
 ('2018-hatched-egg-secret','652eb54139e4ab4dc3c1b6b7_1728653463754_IMG_8206_5000x.webp',(390,240,1220,1790)),
+('2017-egg-bonnet-secret','P0.jpg',(410,200,865,1135)),
+('2017-bunny-robby-angel','SonnyEaster20177_1024x1024@2x.webp',(0,0,1754,2048)),
 ]
 session=new_session('u2net',providers=['CPUExecutionProvider'])
 manifest=[]
 for name,filename,box in config:
- if args.only and name != args.only: continue
+ if args.only and name not in args.only.split(','): continue
  im=Image.open(source/filename).convert('RGB').crop(box)
  result=remove(im,session=session,post_process_mask=True).convert('RGBA')
  # Keep the source RGB values even where rembg masked a pixel out.
@@ -60,9 +62,9 @@ merged={i['asset']:i for i in old}
 merged.update({i['asset']:i for i in manifest})
 (out/'sources.json').write_text(json.dumps(list(merged.values()),indent=2))
 font=ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial.ttf',15)
-sheet=Image.new('RGB',(1500,870),'#f9f4ed');draw=ImageDraw.Draw(sheet)
+sheet=Image.new('RGB',(1200,((len(config)+3)//4)*435),'#f9f4ed');draw=ImageDraw.Draw(sheet)
 for n,(name,_,_) in enumerate(config):
- im=Image.open(out/(name+'.png'));im.thumbnail((260,355));x=(n%5)*300;y=(n//5)*435
+ im=Image.open(out/(name+'.png'));im.thumbnail((260,355));x=(n%4)*300;y=(n//4)*435
  for a in range(0,300,15):
   for b in range(0,390,15):draw.rectangle((x+a,y+b,x+a+14,y+b+14),fill='#e6e1db' if (a//15+b//15)%2 else '#f6f3ee')
  sheet.paste(im,(x+(300-im.width)//2,y+390-im.height),im)

@@ -2217,6 +2217,8 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     "page-40-25-egg-bonnet-2017": "2017-egg-bonnet",
     "page-40-26-easter-lamb-2017": "2017-easter-lamb",
     "page-40-27-clover-field-2017": "2017-clover-field",
+    "page-40-29-egg-bonnet-secret-2017": "2017-egg-bonnet-secret",
+    "page-40-30-bunny-robby-angel-2017": "2017-bunny-robby-angel",
     "page-39-11-easter-lamb": "2018-easter-lamb",
     "page-39-22-hatched-egg": "2018-hatched-egg",
     "page-40-15-koala-bunny": "2018-easter-cow",

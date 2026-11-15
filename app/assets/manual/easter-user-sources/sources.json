@@ -149,5 +149,35 @@
       763,
       1513
     ]
+  },
+  {
+    "asset": "2017-egg-bonnet-secret.png",
+    "source_file": "P0.jpg",
+    "crop_box": [
+      410,
+      200,
+      865,
+      1135
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      417,
+      896
+    ]
+  },
+  {
+    "asset": "2017-bunny-robby-angel.png",
+    "source_file": "SonnyEaster20177_1024x1024@2x.webp",
+    "crop_box": [
+      0,
+      0,
+      1754,
+      2048
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      780,
+      1941
+    ]
   }
 ]
