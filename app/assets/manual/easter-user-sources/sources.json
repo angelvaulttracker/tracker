@@ -1,0 +1,153 @@
+[
+  {
+    "asset": "2017-easter-bunny.png",
+    "source_file": "s-l1600 (1).webp",
+    "crop_box": [
+      35,
+      30,
+      295,
+      640
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      246,
+      593
+    ]
+  },
+  {
+    "asset": "2017-egg-bonnet.png",
+    "source_file": "s-l1600 (1).webp",
+    "crop_box": [
+      300,
+      100,
+      560,
+      640
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      247,
+      509
+    ]
+  },
+  {
+    "asset": "2017-easter-lamb.png",
+    "source_file": "s-l1600 (1).webp",
+    "crop_box": [
+      560,
+      140,
+      830,
+      640
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      274,
+      468
+    ],
+    "alpha_refinement": "Hand-traced pale left ear; restored original source RGB pixels"
+  },
+  {
+    "asset": "2017-clover-field.png",
+    "source_file": "s-l1600 (1).webp",
+    "crop_box": [
+      835,
+      140,
+      1090,
+      640
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      250,
+      478
+    ]
+  },
+  {
+    "asset": "2018-easter-lamb.png",
+    "source_file": "sonnyangel_easter2018_ovr__61970.webp",
+    "crop_box": [
+      10,
+      205,
+      190,
+      540
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      179,
+      325
+    ]
+  },
+  {
+    "asset": "2018-hatched-egg.png",
+    "source_file": "sonnyangel_easter2018_ovr__61970.webp",
+    "crop_box": [
+      190,
+      205,
+      355,
+      540
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      169,
+      324
+    ]
+  },
+  {
+    "asset": "2018-easter-cow.png",
+    "source_file": "sonnyangel_easter2018_ovr__61970.webp",
+    "crop_box": [
+      355,
+      205,
+      523,
+      540
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      167,
+      324
+    ]
+  },
+  {
+    "asset": "2018-easter-bunny.png",
+    "source_file": "sonnyangel_easter2018_ovr__61970.webp",
+    "crop_box": [
+      530,
+      135,
+      700,
+      540
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      168,
+      396
+    ]
+  },
+  {
+    "asset": "2018-paint-robby-angel.png",
+    "source_file": "5_d1bdd1e6-a995-4c22-9df5-38be5bf57c53_large.webp",
+    "crop_box": [
+      130,
+      55,
+      355,
+      465
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      221,
+      410
+    ]
+  },
+  {
+    "asset": "2018-hatched-egg-secret.png",
+    "source_file": "652eb54139e4ab4dc3c1b6b7_1728653463754_IMG_8206_5000x.webp",
+    "crop_box": [
+      390,
+      240,
+      1220,
+      1790
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      763,
+      1513
+    ]
+  }
+]

@@ -2211,6 +2211,25 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  // User-supplied Easter photos, extracted locally without generating figure pixels.
+  Object.entries({
+    "page-40-24-easter-bunny-2017": "2017-easter-bunny",
+    "page-40-25-egg-bonnet-2017": "2017-egg-bonnet",
+    "page-40-26-easter-lamb-2017": "2017-easter-lamb",
+    "page-40-27-clover-field-2017": "2017-clover-field",
+    "page-39-11-easter-lamb": "2018-easter-lamb",
+    "page-39-22-hatched-egg": "2018-hatched-egg",
+    "page-40-15-koala-bunny": "2018-easter-cow",
+    "page-39-08-easter-bunny": "2018-easter-bunny",
+    "page-40-18-robhy-hot-angel": "2018-paint-robby-angel",
+    "page-39-09-hoiched-eada": "2018-hatched-egg-secret",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/easter-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
   return {
     items,
   };
