@@ -2536,6 +2536,158 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     });
   });
 
+  // Canonical Easter 2018 grouping: four regulars and three distinct secrets.
+  [
+    "page-39-08-easter-bunny",
+    "page-39-22-hatched-egg",
+    "page-40-15-koala-bunny",
+    "page-39-11-easter-lamb",
+    "page-39-21-easter-bunny",
+    "page-39-09-hoiched-eada",
+    "page-40-18-robhy-hot-angel",
+  ].forEach((id) => assign(id, {
+    series: "Easter Series 2018",
+    displaySeries: "Easter Series 2018",
+  }));
+  assign("page-39-21-easter-bunny", {
+    artPath: "./app/assets/manual/easter-2018-secrets-user-sources/easter-bunny-secret.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+  assign("page-40-18-robhy-hot-angel", { isSecret: true });
+
+  // OCR text fragments and duplicate page-40 crops, not additional 2018 figures.
+  // Keep source IDs/data intact so existing backups remain recoverable.
+  [
+    "page-40-01-robby-angel-eog",
+    "page-40-12-easter-agg",
+    "page-40-09-by-decorated-easter",
+    "page-40-19-rabbit",
+    "page-40-17-easter-bunny",
+    "page-40-16-easter",
+  ].forEach((id) => assign(id, { excludeFromCatalog: true }));
+
+  // Correct a mislabeled cow asset and use the supplied Golden Cheetah secret.
+  assign("page-39-10-easter-cow", {
+    artPath: "./app/assets/manual/valentine-2013-user-sources/bitter-chocolate-cow.png",
+    artSource: "manual-upload",
+  });
+  assign("page-39-13-cats", {
+    artPath: "./app/assets/manual/valentine-2013-user-sources/golden-cheetah-secret.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+
+  // Verified Easter 2016 lineup: four regulars and three secrets.
+  Object.entries({
+    "page-40-31-easter-bunny-2016": "easter-bunny",
+    "page-40-32-easter-chick-2016": "easter-chick",
+    "page-40-33-easter-egg-2016": "easter-egg",
+    "page-40-34-easter-lily-2016": "easter-lily",
+    "page-40-35-easter-bunny-secret-2016": "easter-bunny-secret",
+    "page-40-36-easter-egg-secret-2016": "easter-egg-secret",
+    "page-40-38-robby-angel-2016": "egg-hat-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/easter-2016-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+      displaySeries: "Easter Series 2016",
+    });
+  });
+  assign("page-40-38-robby-angel-2016", {
+    name: "Egg Hat Robby Angel",
+    isSecret: true,
+    isRobby: true,
+  });
+  // Egg Hat and Robby Angel were split from one figure's multiline caption.
+  assign("page-40-37-egg-hat-2016", { excludeFromCatalog: true });
+
+  // Supplied Halloween 2018 regulars and pastel secrets.
+  Object.entries({
+    "page-42-01-pumpkin": "pumpkin",
+    "page-42-02-witch": "witch",
+    "page-42-03-ghost": "ghost",
+    "page-42-04-owl": "owl",
+    "page-42-05-witch": "witch-secret",
+    "page-42-06-ghost": "ghost-secret",
+    "page-42-07-dreamy-robby-angel": "dreamy-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/halloween-2018-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+      displaySeries: "Halloween Series 2018",
+    });
+  });
+  assign("page-42-07-dreamy-robby-angel", { isSecret: true, isRobby: true });
+
+  // Halloween 2021 additional secret colors, verified against supplied lineup.
+  Object.entries({
+    "page-41-08-rabbit-pumpkin-purple": "rabbit-pumpkin-purple",
+    "page-41-09-rabbit-pumpkin-green": "rabbit-pumpkin-green",
+    "page-41-14-rabbit-pumpkin-pink": "rabbit-pumpkin-pink",
+    "page-41-11-pumpkin-pants-robby-angel-purple": "robby-purple",
+    "page-41-12-pumpkin-pants-robby-angel-green": "robby-green",
+    "page-41-13-pumpkin-pants-robby-angel-pink": "robby-pink",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/halloween-2021-variants-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+      displaySeries: "Halloween Series 2021 Additional Secret",
+      isSecret: true,
+    });
+  });
+
+  // Supplied Halloween 2014 regular and pale secret variants.
+  Object.entries({
+    "page-42-22-ghost": "ghost",
+    "page-42-23-witch": "witch",
+    "page-42-24-pumpkin": "pumpkin",
+    "page-42-25-cat": "cat",
+    "page-42-26-ghost": "ghost-secret",
+    "page-42-27-witch": "witch-secret",
+    "page-42-28-pumpkin-robby-angel": "pumpkin-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/halloween-2014-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+      displaySeries: "Halloween Series 2014",
+    });
+  });
+  assign("page-42-28-pumpkin-robby-angel", { isSecret: true, isRobby: true });
+
+  // Supplied Cherry Blossom Spring, Night, and original lineups.
+  Object.entries({
+    "page-45-01-calico-cat": "spring-calico-cat",
+    "page-45-02-rabbit": "spring-rabbit",
+    "page-45-03-goat": "spring-goat",
+    "page-45-04-peacock": "spring-peacock",
+    "page-45-05-cherry": "spring-cherry-secret",
+    "page-45-06-cherry-robby-angel": "spring-cherry-robby-angel",
+    "page-45-07-calico-cat": "night-calico-cat",
+    "page-45-08-rabbit": "night-rabbit",
+    "page-45-09-goat": "night-goat",
+    "page-45-10-peacock": "night-peacock",
+    "page-45-11-cherry": "night-cherry-secret",
+    "page-45-12-cherry-robby-angel": "night-cherry-robby-angel",
+    "page-45-13-calico-cat": "original-calico-cat",
+    "page-45-14-rabbit": "original-rabbit",
+    "page-45-15-goat": "original-goat",
+    "page-45-16-peacock": "original-peacock",
+    "page-45-17-cherry": "original-cherry-secret",
+    "page-45-18-cherry-robby-angel": "original-cherry-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/cherry-blossom-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+  assign("page-45-05-cherry", { isSecret: true });
+  assign("page-45-06-cherry-robby-angel", { isSecret: true });
+  assign("page-45-11-cherry", { isSecret: true });
+  assign("page-45-12-cherry-robby-angel", { isSecret: true });
+  assign("page-45-17-cherry", { isSecret: true });
+  assign("page-45-18-cherry-robby-angel", { isSecret: true });
+
   return {
     items,
   };

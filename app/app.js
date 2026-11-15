@@ -9112,7 +9112,9 @@ function renderGrid(items) {
 }
 
 async function init() {
-  sonnies = window.SONNIES_DATA || [];
+  sonnies = (window.SONNIES_DATA || []).filter(
+    (item) => !getManualItemOverride(item).excludeFromCatalog,
+  );
   collectedSeriesSelection = Array.isArray(settings.collectedSeriesSelection)
     ? [...settings.collectedSeriesSelection]
     : [];

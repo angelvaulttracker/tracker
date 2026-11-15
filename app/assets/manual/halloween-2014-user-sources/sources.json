@@ -1,0 +1,110 @@
+[
+  {
+    "asset": "cat.png",
+    "source_file": "regulars.png",
+    "crop_box": [
+      162,
+      59,
+      364,
+      463
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      206,
+      397
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "witch.png",
+    "source_file": "regulars.png",
+    "crop_box": [
+      377,
+      49,
+      580,
+      464
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      207,
+      409
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "pumpkin.png",
+    "source_file": "regulars.png",
+    "crop_box": [
+      597,
+      67,
+      802,
+      464
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      207,
+      390
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "ghost.png",
+    "source_file": "regulars.png",
+    "crop_box": [
+      813,
+      32,
+      1028,
+      463
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      186,
+      425
+    ]
+  },
+  {
+    "asset": "ghost-secret.png",
+    "source_file": "secrets.png",
+    "crop_box": [
+      12,
+      30,
+      240,
+      503
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      230,
+      469
+    ]
+  },
+  {
+    "asset": "witch-secret.png",
+    "source_file": "secrets.png",
+    "crop_box": [
+      233,
+      122,
+      467,
+      592
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      235,
+      466
+    ]
+  },
+  {
+    "asset": "pumpkin-robby-angel.png",
+    "source_file": "secrets.png",
+    "crop_box": [
+      477,
+      177,
+      660,
+      499
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      183,
+      319
+    ]
+  }
+]

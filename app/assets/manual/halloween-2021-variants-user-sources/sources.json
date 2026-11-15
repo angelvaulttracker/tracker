@@ -1,0 +1,92 @@
+[
+  {
+    "asset": "rabbit-pumpkin-purple.png",
+    "source_file": "variants.png",
+    "crop_box": [
+      46,
+      16,
+      229,
+      448
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      428
+    ]
+  },
+  {
+    "asset": "rabbit-pumpkin-green.png",
+    "source_file": "variants.png",
+    "crop_box": [
+      343,
+      13,
+      529,
+      444
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      182,
+      423
+    ]
+  },
+  {
+    "asset": "rabbit-pumpkin-pink.png",
+    "source_file": "variants.png",
+    "crop_box": [
+      645,
+      5,
+      833,
+      436
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      184,
+      426
+    ]
+  },
+  {
+    "asset": "robby-purple.png",
+    "source_file": "variants.png",
+    "crop_box": [
+      55,
+      570,
+      236,
+      891
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      177,
+      319
+    ]
+  },
+  {
+    "asset": "robby-green.png",
+    "source_file": "variants.png",
+    "crop_box": [
+      357,
+      560,
+      538,
+      886
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      178,
+      323
+    ]
+  },
+  {
+    "asset": "robby-pink.png",
+    "source_file": "variants.png",
+    "crop_box": [
+      656,
+      561,
+      837,
+      880
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      179,
+      314
+    ]
+  }
+]

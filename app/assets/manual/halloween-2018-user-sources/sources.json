@@ -1,0 +1,107 @@
+[
+  {
+    "asset": "owl.png",
+    "source_file": "regulars.webp",
+    "crop_box": [
+      20,
+      28,
+      183,
+      383
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      169,
+      349
+    ]
+  },
+  {
+    "asset": "ghost.png",
+    "source_file": "regulars.webp",
+    "crop_box": [
+      181,
+      48,
+      366,
+      382
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      197,
+      329
+    ]
+  },
+  {
+    "asset": "pumpkin.png",
+    "source_file": "regulars.webp",
+    "crop_box": [
+      363,
+      48,
+      523,
+      382
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      170,
+      330
+    ]
+  },
+  {
+    "asset": "witch.png",
+    "source_file": "regulars.webp",
+    "crop_box": [
+      527,
+      24,
+      696,
+      382
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      169,
+      354
+    ]
+  },
+  {
+    "asset": "witch-secret.png",
+    "source_file": "witch-secret.webp",
+    "crop_box": [
+      392,
+      76,
+      867,
+      1084
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      459,
+      996
+    ]
+  },
+  {
+    "asset": "ghost-secret.png",
+    "source_file": "secrets.png",
+    "crop_box": [
+      16,
+      139,
+      264,
+      566
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      258,
+      428
+    ]
+  },
+  {
+    "asset": "dreamy-robby-angel.png",
+    "source_file": "secrets.png",
+    "crop_box": [
+      268,
+      84,
+      451,
+      487
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      405
+    ]
+  }
+]

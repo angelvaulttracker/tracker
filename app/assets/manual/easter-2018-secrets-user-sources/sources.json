@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "easter-bunny-secret.png",
+    "source_file": "easter-2018-secrets.png",
+    "crop_box": [
+      98,
+      12,
+      317,
+      498
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      483
+    ]
+  }
+]

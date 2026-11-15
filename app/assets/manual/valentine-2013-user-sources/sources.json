@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "golden-cheetah-secret.png",
+    "source_file": "golden-cheetah.png",
+    "crop_box": [
+      17,
+      32,
+      225,
+      429
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      208,
+      402
+    ]
+  }
+]

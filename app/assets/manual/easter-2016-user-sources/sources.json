@@ -1,0 +1,108 @@
+[
+  {
+    "asset": "easter-lily.png",
+    "source_file": "easter-2016-lineup.webp",
+    "crop_box": [
+      12,
+      106,
+      187,
+      414
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      302
+    ]
+  },
+  {
+    "asset": "easter-chick.png",
+    "source_file": "easter-2016-lineup.webp",
+    "crop_box": [
+      187,
+      96,
+      349,
+      407
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      165,
+      307
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "easter-egg.png",
+    "source_file": "easter-2016-lineup.webp",
+    "crop_box": [
+      354,
+      99,
+      517,
+      407
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      163,
+      304
+    ]
+  },
+  {
+    "asset": "easter-bunny.png",
+    "source_file": "easter-2016-lineup.webp",
+    "crop_box": [
+      519,
+      13,
+      672,
+      404
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      154,
+      388
+    ]
+  },
+  {
+    "asset": "easter-egg-secret.png",
+    "source_file": "easter-2016-lineup.webp",
+    "crop_box": [
+      679,
+      98,
+      840,
+      403
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      165,
+      302
+    ]
+  },
+  {
+    "asset": "easter-bunny-secret.png",
+    "source_file": "easter-2016-lineup.webp",
+    "crop_box": [
+      840,
+      10,
+      1000,
+      401
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      159,
+      387
+    ]
+  },
+  {
+    "asset": "egg-hat-robby-angel.png",
+    "source_file": "egg-hat-robby.png",
+    "crop_box": [
+      23,
+      16,
+      160,
+      251
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      136,
+      239
+    ]
+  }
+]

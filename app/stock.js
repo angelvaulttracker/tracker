@@ -40,6 +40,7 @@ function withImageVersion(path) {
 }
 
 const stockCatalog = rawCatalog
+  .filter((item) => !manualItemOverrides[item.id]?.excludeFromCatalog)
   .map((item) => {
     const override = manualItemOverrides[item.id] || {};
     const mapped = imageMap[item.id] || {};

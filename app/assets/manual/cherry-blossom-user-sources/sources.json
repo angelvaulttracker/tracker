@@ -1,0 +1,272 @@
+[
+  {
+    "asset": "spring-calico-cat.png",
+    "source_file": "spring.png",
+    "crop_box": [
+      39,
+      81,
+      219,
+      432
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      176,
+      350
+    ]
+  },
+  {
+    "asset": "spring-rabbit.png",
+    "source_file": "spring.png",
+    "crop_box": [
+      336,
+      2,
+      518,
+      432
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      180,
+      429
+    ]
+  },
+  {
+    "asset": "spring-goat.png",
+    "source_file": "spring.png",
+    "crop_box": [
+      628,
+      48,
+      817,
+      439
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      186,
+      387
+    ]
+  },
+  {
+    "asset": "spring-peacock.png",
+    "source_file": "spring.png",
+    "crop_box": [
+      35,
+      544,
+      218,
+      916
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      178,
+      369
+    ]
+  },
+  {
+    "asset": "spring-cherry-secret.png",
+    "source_file": "spring.png",
+    "crop_box": [
+      332,
+      497,
+      507,
+      920
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      420
+    ]
+  },
+  {
+    "asset": "spring-cherry-robby-angel.png",
+    "source_file": "spring.png",
+    "crop_box": [
+      641,
+      609,
+      781,
+      923
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      136,
+      313
+    ]
+  },
+  {
+    "asset": "night-calico-cat.png",
+    "source_file": "night.png",
+    "crop_box": [
+      40,
+      87,
+      170,
+      327
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      127,
+      242
+    ]
+  },
+  {
+    "asset": "night-rabbit.png",
+    "source_file": "night.png",
+    "crop_box": [
+      180,
+      25,
+      310,
+      327
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      131,
+      304
+    ]
+  },
+  {
+    "asset": "night-goat.png",
+    "source_file": "night.png",
+    "crop_box": [
+      319,
+      51,
+      452,
+      326
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      131,
+      272
+    ]
+  },
+  {
+    "asset": "night-peacock.png",
+    "source_file": "night.png",
+    "crop_box": [
+      460,
+      62,
+      590,
+      324
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      127,
+      261
+    ]
+  },
+  {
+    "asset": "night-cherry-secret.png",
+    "source_file": "night.png",
+    "crop_box": [
+      598,
+      20,
+      731,
+      324
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      128,
+      300
+    ]
+  },
+  {
+    "asset": "night-cherry-robby-angel.png",
+    "source_file": "night.png",
+    "crop_box": [
+      748,
+      93,
+      853,
+      324
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      98,
+      228
+    ]
+  },
+  {
+    "asset": "original-calico-cat.png",
+    "source_file": "original.png",
+    "crop_box": [
+      31,
+      124,
+      252,
+      531
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      216,
+      410
+    ]
+  },
+  {
+    "asset": "original-rabbit.png",
+    "source_file": "original.png",
+    "crop_box": [
+      264,
+      16,
+      480,
+      531
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      513
+    ]
+  },
+  {
+    "asset": "original-goat.png",
+    "source_file": "original.png",
+    "crop_box": [
+      495,
+      74,
+      719,
+      528
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      220,
+      453
+    ]
+  },
+  {
+    "asset": "original-peacock.png",
+    "source_file": "original.png",
+    "crop_box": [
+      735,
+      81,
+      952,
+      525
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      444
+    ]
+  },
+  {
+    "asset": "original-cherry-secret.png",
+    "source_file": "original.png",
+    "crop_box": [
+      975,
+      2,
+      1198,
+      520
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      219,
+      516
+    ]
+  },
+  {
+    "asset": "original-cherry-robby-angel.png",
+    "source_file": "original.png",
+    "crop_box": [
+      1233,
+      137,
+      1400,
+      518
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      379
+    ]
+  }
+]
