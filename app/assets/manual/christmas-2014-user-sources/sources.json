@@ -1,0 +1,107 @@
+[
+  {
+    "asset": "santa-claus.png",
+    "source_file": "7233cc17db01a62c2ffa251f8355eb66.jpg",
+    "crop_box": [
+      43,
+      242,
+      203,
+      577
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      332
+    ]
+  },
+  {
+    "asset": "chocolate-cake.png",
+    "source_file": "7233cc17db01a62c2ffa251f8355eb66.jpg",
+    "crop_box": [
+      205,
+      238,
+      377,
+      582
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      171,
+      343
+    ]
+  },
+  {
+    "asset": "poinsettia.png",
+    "source_file": "7233cc17db01a62c2ffa251f8355eb66.jpg",
+    "crop_box": [
+      378,
+      263,
+      524,
+      574
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      155,
+      307
+    ]
+  },
+  {
+    "asset": "reindeer.png",
+    "source_file": "7233cc17db01a62c2ffa251f8355eb66.jpg",
+    "crop_box": [
+      520,
+      193,
+      690,
+      577
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      379
+    ]
+  },
+  {
+    "asset": "reindeer-secret.png",
+    "source_file": "3f19e11408dd30d5cbb43867cb17f31c.jpg",
+    "crop_box": [
+      34,
+      72,
+      248,
+      535
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      216,
+      455
+    ]
+  },
+  {
+    "asset": "blue-snow-robby-angel.png",
+    "source_file": "3f19e11408dd30d5cbb43867cb17f31c.jpg",
+    "crop_box": [
+      216,
+      247,
+      385,
+      540
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      142,
+      290
+    ]
+  },
+  {
+    "asset": "santa-claus-secret.png",
+    "source_file": "3f19e11408dd30d5cbb43867cb17f31c.jpg",
+    "crop_box": [
+      358,
+      124,
+      560,
+      535
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      205,
+      404
+    ]
+  }
+]

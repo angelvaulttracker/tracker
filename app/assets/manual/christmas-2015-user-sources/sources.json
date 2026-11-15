@@ -1,0 +1,108 @@
+[
+  {
+    "asset": "santa-claus.png",
+    "source_file": "news_xmas2015.png",
+    "crop_box": [
+      31,
+      153,
+      105,
+      307
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      85,
+      158
+    ]
+  },
+  {
+    "asset": "christmas-candle.png",
+    "source_file": "news_xmas2015.png",
+    "crop_box": [
+      106,
+      154,
+      172,
+      305
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      67,
+      154
+    ]
+  },
+  {
+    "asset": "reindeer.png",
+    "source_file": "news_xmas2015.png",
+    "crop_box": [
+      172,
+      140,
+      243,
+      305
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      80,
+      168
+    ]
+  },
+  {
+    "asset": "christmas-tree.png",
+    "source_file": "news_xmas2015.png",
+    "crop_box": [
+      243,
+      143,
+      321,
+      306
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      83,
+      162
+    ]
+  },
+  {
+    "asset": "santa-claus-secret.png",
+    "source_file": "s-l1200 (1).jpg",
+    "crop_box": [
+      125,
+      8,
+      405,
+      565
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      271,
+      549
+    ]
+  },
+  {
+    "asset": "reindeer-secret.png",
+    "source_file": "2_2_d3079814-62e1-472e-a38d-d2bbaf009bed.webp",
+    "crop_box": [
+      250,
+      55,
+      585,
+      770
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      311,
+      701
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "white-snow-robby-angel.png",
+    "source_file": "m57454668451_1.avif",
+    "crop_box": [
+      370,
+      530,
+      790,
+      1260
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      370,
+      671
+    ]
+  }
+]

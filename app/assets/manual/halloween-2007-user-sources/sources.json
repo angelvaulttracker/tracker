@@ -1,0 +1,66 @@
+[
+  {
+    "asset": "pumpkin.png",
+    "source_file": "figurines-a-collectionner-sonny-angels-sonny-angel-halloween-2007_500x500.webp",
+    "crop_box": [
+      0,
+      110,
+      118,
+      370
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      132,
+      258
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "ghost.png",
+    "source_file": "figurines-a-collectionner-sonny-angels-sonny-angel-halloween-2007_500x500.webp",
+    "crop_box": [
+      123,
+      120,
+      244,
+      370
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      135,
+      248
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "pumpkin-gold-secret.png",
+    "source_file": "figurines-a-collectionner-sonny-angels-sonny-angel-halloween-2007_500x500.webp",
+    "crop_box": [
+      253,
+      110,
+      374,
+      370
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      137,
+      259
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "ghost-gold-secret.png",
+    "source_file": "figurines-a-collectionner-sonny-angels-sonny-angel-halloween-2007_500x500.webp",
+    "crop_box": [
+      380,
+      117,
+      500,
+      370
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      134,
+      249
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  }
+]

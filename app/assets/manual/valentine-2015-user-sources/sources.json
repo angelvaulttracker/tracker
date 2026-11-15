@@ -1,0 +1,92 @@
+[
+  {
+    "asset": "milk-chocolate.png",
+    "source_file": "id-11134207-7qul9-lfzf9jhi645vea.jpeg",
+    "crop_box": [
+      40,
+      340,
+      212,
+      678
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      164,
+      328
+    ]
+  },
+  {
+    "asset": "strawberry-chocolate.png",
+    "source_file": "id-11134207-7qul9-lfzf9jhi645vea.jpeg",
+    "crop_box": [
+      230,
+      340,
+      392,
+      678
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      164,
+      336
+    ]
+  },
+  {
+    "asset": "white-chocolate.png",
+    "source_file": "id-11134207-7qul9-lfzf9jhi645vea.jpeg",
+    "crop_box": [
+      410,
+      340,
+      570,
+      678
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      164,
+      327
+    ]
+  },
+  {
+    "asset": "bitter-chocolate.png",
+    "source_file": "id-11134207-7qul9-lfzf9jhi645vea.jpeg",
+    "crop_box": [
+      590,
+      340,
+      758,
+      678
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      168,
+      329
+    ]
+  },
+  {
+    "asset": "mint-chocolate-secret.png",
+    "source_file": "sonny-angel-chocolat-st-valentin-2015-secret-2.jpg",
+    "crop_box": [
+      205,
+      210,
+      825,
+      1450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      590,
+      1215
+    ]
+  },
+  {
+    "asset": "mint-chocolate-robby-angel.png",
+    "source_file": "3_73162f08-cfee-4158-8e7e-244b6d456b1b.webp",
+    "crop_box": [
+      245,
+      145,
+      540,
+      675
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      271,
+      514
+    ]
+  }
+]

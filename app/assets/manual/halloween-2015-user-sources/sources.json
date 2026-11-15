@@ -1,0 +1,92 @@
+[
+  {
+    "asset": "werewolf.png",
+    "source_file": "images (17).jpeg",
+    "crop_box": [
+      27,
+      116,
+      98,
+      277
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      72,
+      161
+    ]
+  },
+  {
+    "asset": "pumpkin-cat.png",
+    "source_file": "images (17).jpeg",
+    "crop_box": [
+      96,
+      113,
+      176,
+      274
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      80,
+      156
+    ]
+  },
+  {
+    "asset": "vampire.png",
+    "source_file": "images (17).jpeg",
+    "crop_box": [
+      174,
+      115,
+      245,
+      274
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      73,
+      157
+    ]
+  },
+  {
+    "asset": "skeleton.png",
+    "source_file": "images (17).jpeg",
+    "crop_box": [
+      244,
+      110,
+      324,
+      279
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      82,
+      168
+    ]
+  },
+  {
+    "asset": "skeleton-secret.png",
+    "source_file": "m95050723839_6.avif",
+    "crop_box": [
+      135,
+      181,
+      377,
+      655
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      223,
+      478
+    ]
+  },
+  {
+    "asset": "vampire-secret.png",
+    "source_file": "m95050723839_6.avif",
+    "crop_box": [
+      372,
+      199,
+      609,
+      666
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      237,
+      458
+    ]
+  }
+]

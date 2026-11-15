@@ -1,0 +1,94 @@
+[
+  {
+    "asset": "santa-claus.png",
+    "source_file": "images (16).jpeg",
+    "crop_box": [
+      12,
+      24,
+      109,
+      220
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      100,
+      193
+    ]
+  },
+  {
+    "asset": "reindeer.png",
+    "source_file": "images (16).jpeg",
+    "crop_box": [
+      205,
+      185,
+      300,
+      388
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      102,
+      207
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "snowman.png",
+    "source_file": "images (16).jpeg",
+    "crop_box": [
+      14,
+      360,
+      110,
+      542
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      105,
+      184
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "gingerbread-man.png",
+    "source_file": "images (16).jpeg",
+    "crop_box": [
+      207,
+      525,
+      307,
+      700
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      99,
+      176
+    ]
+  },
+  {
+    "asset": "reindeer-secret.png",
+    "source_file": "1_eb10b2928ae3ba79183c4eba459d6b98.jpg",
+    "crop_box": [
+      4,
+      53,
+      143,
+      358
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      305
+    ]
+  },
+  {
+    "asset": "santa-claus-secret.png",
+    "source_file": "1_eb10b2928ae3ba79183c4eba459d6b98.jpg",
+    "crop_box": [
+      137,
+      78,
+      268,
+      346
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      129,
+      265
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "asset": "cherry-blossom-b.png",
+    "source_file": "1_43ded369c585596e87f9d08a1769b821.jpg",
+    "crop_box": [
+      78,
+      45,
+      305,
+      483
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      218,
+      429
+    ]
+  },
+  {
+    "asset": "cactus-e.png",
+    "source_file": "1_43ded369c585596e87f9d08a1769b821.jpg",
+    "crop_box": [
+      325,
+      25,
+      553,
+      483
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      223,
+      452
+    ]
+  },
+  {
+    "asset": "rose-a.png",
+    "source_file": "1_43ded369c585596e87f9d08a1769b821.jpg",
+    "crop_box": [
+      570,
+      32,
+      798,
+      483
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      221,
+      448
+    ]
+  },
+  {
+    "asset": "carnation-u.png",
+    "source_file": "1_43ded369c585596e87f9d08a1769b821.jpg",
+    "crop_box": [
+      817,
+      55,
+      1042,
+      483
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      220,
+      417
+    ]
+  },
+  {
+    "asset": "morning-glory-t.png",
+    "source_file": "1_43ded369c585596e87f9d08a1769b821.jpg",
+    "crop_box": [
+      1057,
+      8,
+      1285,
+      483
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      230,
+      472
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "lily-bell-y.png",
+    "source_file": "1_43ded369c585596e87f9d08a1769b821.jpg",
+    "crop_box": [
+      1310,
+      32,
+      1534,
+      483
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      219,
+      447
+    ]
+  }
+]

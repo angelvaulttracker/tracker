@@ -1,0 +1,92 @@
+[
+  {
+    "asset": "fawn.png",
+    "source_file": "images (18).jpeg",
+    "crop_box": [
+      25,
+      20,
+      140,
+      244
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      118,
+      223
+    ]
+  },
+  {
+    "asset": "pig.png",
+    "source_file": "images (18).jpeg",
+    "crop_box": [
+      139,
+      35,
+      245,
+      245
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      111,
+      208
+    ]
+  },
+  {
+    "asset": "lesser-panda.png",
+    "source_file": "images (18).jpeg",
+    "crop_box": [
+      245,
+      39,
+      357,
+      245
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      112,
+      203
+    ]
+  },
+  {
+    "asset": "uribou.png",
+    "source_file": "images (18).jpeg",
+    "crop_box": [
+      25,
+      296,
+      141,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      112,
+      205
+    ]
+  },
+  {
+    "asset": "giraffe.png",
+    "source_file": "images (18).jpeg",
+    "crop_box": [
+      139,
+      272,
+      248,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      111,
+      229
+    ]
+  },
+  {
+    "asset": "sheep.png",
+    "source_file": "images (18).jpeg",
+    "crop_box": [
+      246,
+      291,
+      359,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      115,
+      211
+    ]
+  }
+]

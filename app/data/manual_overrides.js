@@ -2232,6 +2232,149 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     });
   });
 
+  // User-supplied Valentine's Day 2015 photos, processed with local masks.
+  Object.entries({
+    "page-38-22-strawberry-chocolate": "strawberry-chocolate",
+    "page-38-23-white-chocolate": "white-chocolate",
+    "page-38-24-bitter-chocolate": "bitter-chocolate",
+    "page-38-25-milk-chocolate": "milk-chocolate",
+    "page-38-26-mint-chocolate": "mint-chocolate-secret",
+    "page-38-27-mint-chocolate": "mint-chocolate-secret",
+    "page-38-28-mint-chocolate-robby-angel": "mint-chocolate-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/valentine-2015-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // User-supplied Christmas 2015 regular and secret photos, extracted locally.
+  Object.entries({
+    "page-33-08-santa-claus": "santa-claus",
+    "page-33-09-reindeer": "reindeer",
+    "page-33-10-christmas-tree": "christmas-tree",
+    "page-33-11-christmas-candle": "christmas-candle",
+    "page-33-12-santa-claus": "santa-claus-secret",
+    "page-33-13-reindeer": "reindeer-secret",
+    "page-33-14-white-snow-robby-angel": "white-snow-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/christmas-2015-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // User-supplied Christmas 2014 regular and blue secret photo cutouts.
+  Object.entries({
+    "page-33-15-santa-claus": "santa-claus",
+    "page-33-16-reindeer": "reindeer",
+    "page-33-17-chocolate-cake": "chocolate-cake",
+    "page-33-18-poinsettia": "poinsettia",
+    "page-33-19-santa-claus": "santa-claus-secret",
+    "page-33-20-reindeer": "reindeer-secret",
+    "page-33-21-blue-snow-robby-angel": "blue-snow-robby-angel",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/christmas-2014-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // User-supplied Christmas 2013 front views and pink secret variants.
+  Object.entries({
+    "page-33-22-santa-claus": "santa-claus",
+    "page-33-23-snowman": "snowman",
+    "page-33-24-reindeer": "reindeer",
+    "page-33-25-gingerbread-man": "gingerbread-man",
+    "page-33-26-santa-claus": "santa-claus-secret",
+    "page-33-27-reindeer": "reindeer-secret",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/christmas-2013-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // MODI Beauty Flowers: user-supplied B E A U T Y lineup, extracted locally.
+  Object.entries({
+    "page-72-08-cheery-blossom": "cherry-blossom-b",
+    "page-72-09-cactus": "cactus-e",
+    "page-72-10-rose": "rose-a",
+    "page-72-11-carnation": "carnation-u",
+    "page-72-12-morning-glory": "morning-glory-t",
+    "page-72-13-lily-bell": "lily-bell-y",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/modi-beauty-flowers-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // User-supplied Halloween 2015 lineup and green secret variants.
+  Object.entries({
+    "page-42-15-vampire": "vampire",
+    "page-42-16-werewolf": "werewolf",
+    "page-42-17-pumpkin-cat": "pumpkin-cat",
+    "page-42-18-skeleton": "skeleton",
+    "page-42-19-vampire": "vampire-secret",
+    "page-42-20-skeleton": "skeleton-secret",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/halloween-2015-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+      isSecret: id === "page-42-19-vampire" || id === "page-42-20-skeleton",
+    });
+  });
+
+  // User-supplied Halloween 2007 regular and gold secret photo cutouts.
+  Object.entries({
+    "page-43-05-pumpkin": "pumpkin",
+    "page-43-06-ghost": "ghost",
+    "page-43-07-pumpkin": "pumpkin-gold-secret",
+    "page-43-08-ghost": "ghost-gold-secret",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/halloween-2007-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // User-supplied Animal Series Ver. 3 Special Color lineup, extracted locally.
+  Object.entries({
+    "page-64-14-french-bulldog": "french-bulldog",
+    "page-64-15-duckbill": "duckbill",
+    "page-64-16-lop-ear-rabbit": "lop-ear-rabbit",
+    "page-64-17-owl": "owl",
+    "page-64-18-hippopotamus": "hippopotamus",
+    "page-64-19-zebra": "zebra",
+    "page-64-20-alpaca": "alpaca",
+    "page-64-21-buffalo": "buffalo",
+    "page-64-22-american-shorthair": "american-shorthair",
+    "page-64-23-gorilla": "gorilla",
+    "page-64-24-chameleon": "chameleon",
+    "page-64-25-parrot": "parrot",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/special-color-v3-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
+  // User-supplied partial Animal Series Ver. 2 Special Color lineup.
+  Object.entries({
+    "page-64-01-fawn": "fawn",
+    "page-64-02-pig": "pig",
+    "page-64-03-lesser-panda": "lesser-panda",
+    "page-64-07-uribou": "uribou",
+    "page-64-08-giraffe": "giraffe",
+    "page-64-09-sheep": "sheep",
+  }).forEach(([id, filename]) => {
+    assign(id, {
+      artPath: `./app/assets/manual/special-color-v2-user-sources/${filename}.png`,
+      artSource: "manual-upload",
+    });
+  });
+
   return {
     items,
   };
