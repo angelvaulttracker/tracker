@@ -1,0 +1,3 @@
+# Official secret image links
+
+18 already-existing Secret/Robby entries now use verified official images: Strawberry Love (2), Advent Calendar 2025 (4), Santa’s Little Helper (2), Pumpkin Patch (2), Snack (2), I LOVE RAINY DAY (2), Hanami (2), Kiss Kiss (1), and Creatures Peanut (1). Honey Bee was linked separately. Official downloads remain in deliverables/official-secrets-linked/source-photos; official-sources.json preserves names, catalog IDs, and image/page URLs. Crops and mask corrections are recorded in scripts/photo_batches/official-secrets-linked.json and sources.json. Local cached u2net processing preserves source pixels; no generated imagery. Existing catalog IDs are unchanged.

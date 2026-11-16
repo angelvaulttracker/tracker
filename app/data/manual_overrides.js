@@ -3156,6 +3156,34 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  // Verified official announcement images for the remaining 18 Secret figures.
+  [
+    "page-96-07-strawberry-jam",
+    "page-96-08-strawberry-robby-angel",
+    "page-98-12-white-bear",
+    "page-98-13-white-robby-angel",
+    "page-98-14-red-bear",
+    "page-98-15-red-robby-angel",
+    "page-99-07-santa-claus",
+    "page-99-08-reindeer-robby-angel",
+    "page-100-07-ghost",
+    "page-100-08-witch-robby-angel",
+    "page-101-13-big-hamburger",
+    "page-101-14-robby-angel",
+    "page-102-07-raincoat-rabbit",
+    "page-102-08-raincoat-robby-angel",
+    "page-103-07-cherry-tree-rabbit",
+    "page-103-08-cherry-tree-robby-angel",
+    "page-104-06-lop-ear-rabbit",
+    "page-69-13-peanut"
+].forEach((id) => {
+    assign(id, {
+      artPath: `./app/assets/manual/official-secrets-linked/${id}.png`,
+      artSource: "official-web-crop",
+      isSecret: true,
+    });
+  });
+
   return {
     items,
   };

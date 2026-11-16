@@ -1,0 +1,274 @@
+[
+  {
+    "asset": "page-96-07-strawberry-jam.png",
+    "source_file": "page-96-07-strawberry-jam.png",
+    "crop_box": [
+      0,
+      0,
+      1209,
+      1512
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      533,
+      1103
+    ]
+  },
+  {
+    "asset": "page-96-08-strawberry-robby-angel.png",
+    "source_file": "page-96-08-strawberry-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      1209,
+      1512
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      435,
+      987
+    ]
+  },
+  {
+    "asset": "page-98-12-white-bear.png",
+    "source_file": "page-98-12-white-bear.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      168,
+      337
+    ]
+  },
+  {
+    "asset": "page-98-13-white-robby-angel.png",
+    "source_file": "page-98-13-white-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      155,
+      275
+    ]
+  },
+  {
+    "asset": "page-98-14-red-bear.png",
+    "source_file": "page-98-14-red-bear.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      188,
+      358
+    ]
+  },
+  {
+    "asset": "page-98-15-red-robby-angel.png",
+    "source_file": "page-98-15-red-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      271
+    ]
+  },
+  {
+    "asset": "page-99-07-santa-claus.png",
+    "source_file": "page-99-07-santa-claus.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      189,
+      398
+    ]
+  },
+  {
+    "asset": "page-99-08-reindeer-robby-angel.png",
+    "source_file": "page-99-08-reindeer-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      145,
+      366
+    ]
+  },
+  {
+    "asset": "page-100-07-ghost.png",
+    "source_file": "page-100-07-ghost.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      154,
+      425
+    ]
+  },
+  {
+    "asset": "page-100-08-witch-robby-angel.png",
+    "source_file": "page-100-08-witch-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      165,
+      381
+    ]
+  },
+  {
+    "asset": "page-101-13-big-hamburger.png",
+    "source_file": "page-101-13-big-hamburger.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      140,
+      412
+    ]
+  },
+  {
+    "asset": "page-101-14-robby-angel.png",
+    "source_file": "page-101-14-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      364
+    ]
+  },
+  {
+    "asset": "page-102-07-raincoat-rabbit.png",
+    "source_file": "page-102-07-raincoat-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      625
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      220,
+      528
+    ]
+  },
+  {
+    "asset": "page-102-08-raincoat-robby-angel.png",
+    "source_file": "page-102-08-raincoat-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      625
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      403
+    ]
+  },
+  {
+    "asset": "page-103-07-cherry-tree-rabbit.png",
+    "source_file": "page-103-07-cherry-tree-rabbit.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      625
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      196,
+      547
+    ]
+  },
+  {
+    "asset": "page-103-08-cherry-tree-robby-angel.png",
+    "source_file": "page-103-08-cherry-tree-robby-angel.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      625
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      213,
+      409
+    ]
+  },
+  {
+    "asset": "page-104-06-lop-ear-rabbit.png",
+    "source_file": "page-104-06-lop-ear-rabbit.png",
+    "crop_box": [
+      500,
+      0,
+      1000,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      179,
+      338
+    ]
+  },
+  {
+    "asset": "page-69-13-peanut.png",
+    "source_file": "page-69-13-peanut.png",
+    "crop_box": [
+      0,
+      0,
+      208,
+      414
+    ],
+    "method": "local border-connected black removal; original RGB and foreground alpha retained",
+    "dimensions": [
+      192,
+      348
+    ],
+    "background_seeds": [],
+    "original_asset": ""
+  }
+]
