@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "page-89-05-strawberry-robby-angel.png",
+    "source_file": "terrace-plushie.png",
+    "crop_box": [
+      43,
+      16,
+      259,
+      404
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      390
+    ]
+  }
+]

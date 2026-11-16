@@ -1,0 +1,1221 @@
+[
+  {
+    "asset": "page-86-01-rabbit.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      28,
+      31,
+      193,
+      414
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      160,
+      377
+    ]
+  },
+  {
+    "asset": "page-86-02-elephant.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      208,
+      105,
+      387,
+      419
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      177,
+      307
+    ]
+  },
+  {
+    "asset": "page-86-03-shiba-inu.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      411,
+      109,
+      577,
+      423
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      306
+    ]
+  },
+  {
+    "asset": "page-86-04-monkey.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      605,
+      116,
+      771,
+      426
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      302
+    ]
+  },
+  {
+    "asset": "page-86-05-cockerel.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      798,
+      109,
+      965,
+      431
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      313
+    ]
+  },
+  {
+    "asset": "page-86-06-sheep.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      103,
+      491,
+      271,
+      804
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      166,
+      303
+    ]
+  },
+  {
+    "asset": "page-86-07-birthday-cake.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      298,
+      483,
+      468,
+      805
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      143,
+      314
+    ]
+  },
+  {
+    "asset": "page-86-08-uribou.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      490,
+      506,
+      659,
+      808
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      297
+    ]
+  },
+  {
+    "asset": "page-86-09-mouse.png",
+    "source_file": "workshop.png",
+    "crop_box": [
+      681,
+      488,
+      851,
+      812
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      163,
+      315
+    ]
+  },
+  {
+    "asset": "page-90-13-rabbit.png",
+    "source_file": "limitedcolor.png",
+    "crop_box": [
+      44,
+      58,
+      223,
+      494
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      173,
+      430
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-90-14-panda.png",
+    "source_file": "limitedcolor.png",
+    "crop_box": [
+      280,
+      168,
+      456,
+      495
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      170,
+      319
+    ]
+  },
+  {
+    "asset": "page-90-15-koala.png",
+    "source_file": "limitedcolor.png",
+    "crop_box": [
+      499,
+      147,
+      700,
+      489
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      195,
+      335
+    ]
+  },
+  {
+    "asset": "page-90-16-sheep.png",
+    "source_file": "limitedcolor.png",
+    "crop_box": [
+      721,
+      129,
+      917,
+      490
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      190,
+      346
+    ]
+  },
+  {
+    "asset": "page-90-17-elephant.png",
+    "source_file": "limitedcolor.png",
+    "crop_box": [
+      956,
+      132,
+      1163,
+      486
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      202,
+      347
+    ]
+  },
+  {
+    "asset": "page-90-18-frog.png",
+    "source_file": "limitedcolor.png",
+    "crop_box": [
+      1206,
+      130,
+      1390,
+      486
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      346
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-90-07-cow.png",
+    "source_file": "series2.png",
+    "crop_box": [
+      74,
+      77,
+      275,
+      449
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      195,
+      370
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-90-08-pig.png",
+    "source_file": "series2.png",
+    "crop_box": [
+      285,
+      98,
+      462,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      172,
+      344
+    ]
+  },
+  {
+    "asset": "page-90-09-mouse.png",
+    "source_file": "series2.png",
+    "crop_box": [
+      485,
+      84,
+      688,
+      451
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      194,
+      363
+    ]
+  },
+  {
+    "asset": "page-90-19-rabbit.png",
+    "source_file": "vividshanghai.png",
+    "crop_box": [
+      40,
+      56,
+      216,
+      489
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      172,
+      433
+    ]
+  },
+  {
+    "asset": "page-90-20-elephant.png",
+    "source_file": "vividshanghai.png",
+    "crop_box": [
+      216,
+      151,
+      427,
+      492
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      208,
+      336
+    ]
+  },
+  {
+    "asset": "page-90-21-sheep.png",
+    "source_file": "vividshanghai.png",
+    "crop_box": [
+      433,
+      133,
+      626,
+      492
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      188,
+      350
+    ]
+  },
+  {
+    "asset": "page-90-22-rabbit.png",
+    "source_file": "vividshanghai.png",
+    "crop_box": [
+      764,
+      49,
+      944,
+      485
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      171,
+      432
+    ]
+  },
+  {
+    "asset": "page-90-23-pig.png",
+    "source_file": "vividshanghai.png",
+    "crop_box": [
+      968,
+      131,
+      1150,
+      485
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      176,
+      347
+    ]
+  },
+  {
+    "asset": "page-90-24-elephant.png",
+    "source_file": "vividshanghai.png",
+    "crop_box": [
+      1151,
+      131,
+      1367,
+      486
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      210,
+      342
+    ]
+  },
+  {
+    "asset": "page-91-01-a.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      38,
+      41,
+      188,
+      493
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      145,
+      447
+    ]
+  },
+  {
+    "asset": "page-91-02-b.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      200,
+      41,
+      352,
+      493
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      147,
+      443
+    ]
+  },
+  {
+    "asset": "page-91-03-c.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      365,
+      40,
+      517,
+      493
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      446
+    ]
+  },
+  {
+    "asset": "page-91-04-d.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      531,
+      40,
+      683,
+      492
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      447
+    ]
+  },
+  {
+    "asset": "page-91-05-e.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      697,
+      40,
+      850,
+      492
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      144,
+      446
+    ]
+  },
+  {
+    "asset": "page-91-06-f.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      861,
+      40,
+      1017,
+      491
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      445
+    ]
+  },
+  {
+    "asset": "page-91-13-n.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      34,
+      655,
+      185,
+      1108
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      144,
+      446
+    ]
+  },
+  {
+    "asset": "page-91-14-o.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      199,
+      656,
+      351,
+      1107
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      145,
+      448
+    ]
+  },
+  {
+    "asset": "page-91-15-r.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      365,
+      655,
+      517,
+      1107
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      447
+    ]
+  },
+  {
+    "asset": "page-91-16-s.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      531,
+      654,
+      683,
+      1107
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      144,
+      447
+    ]
+  },
+  {
+    "asset": "page-91-17-t.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      697,
+      654,
+      849,
+      1107
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      448
+    ]
+  },
+  {
+    "asset": "page-91-18-u.png",
+    "source_file": "alphabet1.png",
+    "crop_box": [
+      862,
+      653,
+      1017,
+      1107
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      145,
+      447
+    ]
+  },
+  {
+    "asset": "page-91-07-g.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      21,
+      0,
+      172,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      143,
+      446
+    ]
+  },
+  {
+    "asset": "page-91-08-h.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      188,
+      0,
+      340,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      143,
+      441
+    ]
+  },
+  {
+    "asset": "page-91-09-i.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      355,
+      0,
+      509,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      147,
+      449
+    ]
+  },
+  {
+    "asset": "page-91-10-j.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      520,
+      0,
+      675,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      145,
+      445
+    ]
+  },
+  {
+    "asset": "page-91-11-k.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      685,
+      0,
+      840,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      446
+    ]
+  },
+  {
+    "asset": "page-91-12-m.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      849,
+      0,
+      1005,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      145,
+      447
+    ]
+  },
+  {
+    "asset": "page-91-19-w.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      21,
+      611,
+      176,
+      1064
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      146,
+      448
+    ]
+  },
+  {
+    "asset": "page-91-20-y.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      187,
+      610,
+      343,
+      1064
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      144,
+      445
+    ]
+  },
+  {
+    "asset": "page-91-21-wagen-bus-type-ii-key-light.png",
+    "source_file": "alphabet2.png",
+    "crop_box": [
+      442,
+      956,
+      1028,
+      1207
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      570,
+      242
+    ]
+  },
+  {
+    "asset": "page-92-01-rabbit.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      376,
+      25,
+      518,
+      349
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      136,
+      319
+    ]
+  },
+  {
+    "asset": "page-92-02-frog.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      528,
+      80,
+      673,
+      353
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      137,
+      265
+    ]
+  },
+  {
+    "asset": "page-92-03-cockerel.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      699,
+      65,
+      844,
+      353
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      137,
+      282
+    ]
+  },
+  {
+    "asset": "page-92-04-panda.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      45,
+      456,
+      188,
+      729
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      139,
+      263
+    ]
+  },
+  {
+    "asset": "page-92-05-koala.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      198,
+      467,
+      368,
+      729
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      256
+    ]
+  },
+  {
+    "asset": "page-92-06-tiger.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      367,
+      459,
+      509,
+      729
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      139,
+      266
+    ]
+  },
+  {
+    "asset": "page-92-07-elephant.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      521,
+      465,
+      681,
+      730
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      259
+    ]
+  },
+  {
+    "asset": "page-92-08-dalmation.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      692,
+      465,
+      832,
+      730
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      140,
+      260
+    ]
+  },
+  {
+    "asset": "page-92-09-monkey.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      28,
+      842,
+      174,
+      1123
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      135,
+      265
+    ]
+  },
+  {
+    "asset": "page-92-10-cheetah.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      198,
+      844,
+      343,
+      1124
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      140,
+      268
+    ]
+  },
+  {
+    "asset": "page-92-11-crocodile.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      363,
+      847,
+      511,
+      1124
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      140,
+      265
+    ]
+  },
+  {
+    "asset": "page-92-12-lion.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      521,
+      839,
+      667,
+      1127
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      137,
+      277
+    ]
+  },
+  {
+    "asset": "page-92-13-chipmunk.png",
+    "source_file": "decoppin.png",
+    "crop_box": [
+      691,
+      840,
+      834,
+      1127
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      138,
+      276
+    ]
+  },
+  {
+    "asset": "page-92-14-tiger.png",
+    "source_file": "straps.png",
+    "crop_box": [
+      499,
+      0,
+      691,
+      370
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      181,
+      373
+    ]
+  },
+  {
+    "asset": "page-92-15-rabbit.png",
+    "source_file": "straps.png",
+    "crop_box": [
+      18,
+      427,
+      172,
+      1117
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      148,
+      686
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-92-16-frog.png",
+    "source_file": "straps.png",
+    "crop_box": [
+      192,
+      415,
+      348,
+      1117
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      147,
+      693
+    ]
+  },
+  {
+    "asset": "page-92-17-monkey.png",
+    "source_file": "straps.png",
+    "crop_box": [
+      371,
+      401,
+      524,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      151,
+      706
+    ]
+  },
+  {
+    "asset": "page-92-18-panda.png",
+    "source_file": "straps.png",
+    "crop_box": [
+      551,
+      392,
+      706,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      152,
+      712
+    ]
+  },
+  {
+    "asset": "page-92-19-elephant.png",
+    "source_file": "straps.png",
+    "crop_box": [
+      712,
+      389,
+      886,
+      1118
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      168,
+      712
+    ]
+  },
+  {
+    "asset": "page-93-06-classic-animal-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      25,
+      5,
+      190,
+      182
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      158,
+      169
+    ]
+  },
+  {
+    "asset": "page-93-07-pop-animal-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      234,
+      3,
+      409,
+      185
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      176,
+      181
+    ]
+  },
+  {
+    "asset": "page-93-08-cute-animal-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      433,
+      46,
+      600,
+      180
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      165,
+      127
+    ]
+  },
+  {
+    "asset": "page-93-09-marine-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      124,
+      264,
+      287,
+      412
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      152,
+      144
+    ]
+  },
+  {
+    "asset": "page-93-10-secret-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      315,
+      266,
+      493,
+      412
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      180,
+      145
+    ]
+  },
+  {
+    "asset": "page-93-11-flower-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      32,
+      523,
+      191,
+      680
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      149,
+      147
+    ]
+  },
+  {
+    "asset": "page-93-12-vegetable-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      237,
+      519,
+      403,
+      682
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      162
+    ]
+  },
+  {
+    "asset": "page-93-13-fruit-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      450,
+      533,
+      609,
+      681
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      150,
+      143
+    ]
+  },
+  {
+    "asset": "page-93-14-sweets-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      126,
+      763,
+      293,
+      932
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      154,
+      155
+    ]
+  },
+  {
+    "asset": "page-93-15-secret-pack.png",
+    "source_file": "stickers.png",
+    "crop_box": [
+      317,
+      769,
+      488,
+      933
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      161,
+      144
+    ]
+  },
+  {
+    "asset": "page-94-01-rabbit-refined.png",
+    "source_file": "costume2.png",
+    "crop_box": [
+      484,
+      49,
+      654,
+      312
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      168,
+      260
+    ]
+  },
+  {
+    "asset": "page-94-02-frog.png",
+    "source_file": "costume2.png",
+    "crop_box": [
+      485,
+      397,
+      653,
+      578
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      172,
+      177
+    ]
+  },
+  {
+    "asset": "page-94-03-cow.png",
+    "source_file": "costume2.png",
+    "crop_box": [
+      20,
+      546,
+      232,
+      721
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      210,
+      167
+    ]
+  },
+  {
+    "asset": "page-94-04-calico-cat.png",
+    "source_file": "costume2.png",
+    "crop_box": [
+      31,
+      790,
+      233,
+      965
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      185,
+      171
+    ]
+  },
+  {
+    "asset": "page-94-05-fawn.png",
+    "source_file": "costume1.png",
+    "crop_box": [
+      475,
+      373,
+      685,
+      574
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      198,
+      193
+    ]
+  },
+  {
+    "asset": "page-94-06-rabbit.png",
+    "source_file": "costume1.png",
+    "crop_box": [
+      54,
+      643,
+      228,
+      909
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      164,
+      255
+    ]
+  },
+  {
+    "asset": "page-94-07-mouse.png",
+    "source_file": "costume1.png",
+    "crop_box": [
+      470,
+      725,
+      686,
+      913
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      205,
+      183
+    ]
+  }
+]
