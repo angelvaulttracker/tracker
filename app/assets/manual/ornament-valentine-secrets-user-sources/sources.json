@@ -1,0 +1,93 @@
+[
+  {
+    "asset": "page-34-17-lop-ear-rabbit.png",
+    "source_file": "ornament.png",
+    "crop_box": [
+      49,
+      21,
+      286,
+      492
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      239,
+      471
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-37-19-chocolate-rabbit.png",
+    "source_file": "chocolate2019.png",
+    "crop_box": [
+      44,
+      25,
+      169,
+      426
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      124,
+      402
+    ]
+  },
+  {
+    "asset": "page-37-20-chocolate-robby-angel.png",
+    "source_file": "chocolate2019.png",
+    "crop_box": [
+      232,
+      128,
+      374,
+      425
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      139,
+      296
+    ]
+  },
+  {
+    "asset": "page-38-12-teddy-bear.png",
+    "source_file": "valentine2017.png",
+    "crop_box": [
+      29,
+      61,
+      206,
+      406
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      178,
+      345
+    ]
+  },
+  {
+    "asset": "page-38-13-sweet-kitty.png",
+    "source_file": "valentine2017.png",
+    "crop_box": [
+      201,
+      139,
+      378,
+      476
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      335
+    ]
+  },
+  {
+    "asset": "page-38-14-plushie-angel-robby-angel.png",
+    "source_file": "valentine2017.png",
+    "crop_box": [
+      388,
+      102,
+      535,
+      411
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      142,
+      310
+    ]
+  }
+]

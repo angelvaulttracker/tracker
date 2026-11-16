@@ -3487,6 +3487,27 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
    "page-39-18-ea-fe", "page-39-23-point"].forEach((id) =>
     assign(id, { excludeFromCatalog: true }));
 
+  // Supplied ornament and Valentine secret variants; regular artwork remains separate.
+  [
+    "page-34-17-lop-ear-rabbit",
+    "page-37-19-chocolate-rabbit",
+    "page-37-20-chocolate-robby-angel",
+    "page-38-12-teddy-bear",
+    "page-38-13-sweet-kitty",
+    "page-38-14-plushie-angel-robby-angel"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/ornament-valentine-secrets-user-sources/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // Supplied pastel secret Santa, distinct from Christmas 2016 regular Santa.
+  assign("page-33-05-santa-claus", {
+    artPath: "./app/assets/manual/santa-2016-secret-user-source/page-33-05-santa-claus.png",
+    artSource: "manual-upload",
+    isSecret: true,
+  });
+
   return {
     items,
   };

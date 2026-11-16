@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "page-33-05-santa-claus.png",
+    "source_file": "santa-2016-secret.png",
+    "crop_box": [
+      40,
+      23,
+      260,
+      511
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      223,
+      490
+    ]
+  }
+]
