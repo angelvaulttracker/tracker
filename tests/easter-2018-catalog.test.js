@@ -27,9 +27,12 @@ test('seven distinct Easter 2018 figures share one explicit display series', () 
     assert.ok(fs.existsSync(path.join(root, overrides[i.id].artPath)));
   }
 });
-test('spurious page-40 records are omitted from tracker and stock, without deleting IDs', () => {
+test('OCR review records are omitted from tracker and stock, without deleting IDs', () => {
   const omitted = data.filter(i => overrides[i.id]?.excludeFromCatalog);
-  assert.equal(omitted.length, 7);
+  assert.equal(omitted.filter(i => i.id.startsWith("page-40-")).length, 7);
+  assert.equal(omitted.filter(i => i.id.startsWith("page-39-")).length, 5);
+  const visible = data.filter(i => !overrides[i.id]?.excludeFromCatalog);
+  assert.ok(!visible.some(i => (overrides[i.id]?.displaySeries || overrides[i.id]?.series || i.series) === "Page 39 Review Queue"));
   const init = source.slice(source.indexOf('async function init()'));
   const assignment = init.slice(init.indexOf('  sonnies ='), init.indexOf('  collectedSeriesSelection'));
   const c = vm.createContext({window: {SONNIES_DATA: data}, getManualItemOverride: i => overrides[i.id] || {}});

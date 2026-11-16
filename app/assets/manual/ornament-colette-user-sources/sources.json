@@ -1,0 +1,32 @@
+[
+  {
+    "asset": "page-71-20-mini-marie-antoinette.png",
+    "source_file": "ornament-marie.png",
+    "crop_box": [
+      38,
+      28,
+      277,
+      521
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      240,
+      502
+    ]
+  },
+  {
+    "asset": "page-74-02-colette-rabbit.png",
+    "source_file": "colette.png",
+    "crop_box": [
+      34,
+      14,
+      233,
+      495
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      197,
+      480
+    ]
+  }
+]

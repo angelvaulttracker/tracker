@@ -3425,6 +3425,68 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     }
   });
 
+  // Supplied remaining V2 and Special Color 2016/2014 photographs.
+  [
+    "page-64-04-bear",
+    "page-64-05-parakeet",
+    "page-64-06-rhinoceros",
+    "page-64-10-mouse",
+    "page-64-11-reindeer",
+    "page-64-12-cow",
+    "page-64-13-kappa",
+    "page-66-09-frog",
+    "page-66-10-gorilla",
+    "page-66-11-onion",
+    "page-66-12-pineapple",
+    "page-66-13-seal",
+    "page-66-14-cow",
+    "page-66-15-lily-bell",
+    "page-66-16-duck",
+    "page-66-17-bear",
+    "page-66-18-cheetah",
+    "page-66-19-tomato",
+    "page-66-20-apple",
+    "page-66-21-american-shorthair",
+    "page-66-22-shiba-inu",
+    "page-66-23-starfish",
+    "page-66-24-rose"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/special-color-completion-user-sources/${id}.png`,
+    artSource: "manual-upload",
+  }));
+
+  // Supplied Sky Color Special Edition secret photographs.
+  ["page-66-07-aurora", "page-66-08-shooting-star-robby-angel"].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/sky-special-secrets-user-source/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // Supplied Special Color Unicorn and distinct Hippers secret photographs.
+  [
+    "page-64-26-unicorn",
+    "page-28-13-unicorn",
+    "page-27-13-seed-leaf",
+    "page-26-13-unicorn",
+    "page-25-11-chipmunk"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/unicorn-hipper-secrets-user-sources/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // Supplied ornament Mini Marie-Antoinette and Colette Rabbit photographs.
+  ["page-71-20-mini-marie-antoinette", "page-74-02-colette-rabbit"].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/ornament-colette-user-sources/${id}.png`,
+    artSource: "manual-upload",
+  }));
+  assign("page-71-20-mini-marie-antoinette", { isSecret: true });
+
+  // Remaining Page 39 review entries are OCR fragments, not catalog figures.
+  ["page-39-05-lon", "page-39-20-strawherry", "page-39-19-py-cupeake",
+   "page-39-18-ea-fe", "page-39-23-point"].forEach((id) =>
+    assign(id, { excludeFromCatalog: true }));
+
   return {
     items,
   };

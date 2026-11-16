@@ -1,0 +1,80 @@
+[
+  {
+    "asset": "page-64-26-unicorn.png",
+    "source_file": "special-unicorn.png",
+    "crop_box": [
+      25,
+      25,
+      263,
+      535
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      236,
+      508
+    ]
+  },
+  {
+    "asset": "page-28-13-unicorn.png",
+    "source_file": "animal-unicorn.png",
+    "crop_box": [
+      70,
+      29,
+      274,
+      309
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      209,
+      286
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-27-13-seed-leaf.png",
+    "source_file": "harvest-seed.png",
+    "crop_box": [
+      68,
+      18,
+      252,
+      248
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      183,
+      237
+    ]
+  },
+  {
+    "asset": "page-26-13-unicorn.png",
+    "source_file": "dreaming-unicorn.png",
+    "crop_box": [
+      72,
+      36,
+      276,
+      312
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      210,
+      285
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-25-11-chipmunk.png",
+    "source_file": "looking-back-chipmunk.png",
+    "crop_box": [
+      101,
+      76,
+      328,
+      477
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      221,
+      398
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  }
+]

@@ -1,0 +1,349 @@
+[
+  {
+    "asset": "page-64-04-bear.png",
+    "source_file": "v2.png",
+    "crop_box": [
+      40,
+      425,
+      192,
+      707
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      151,
+      283
+    ]
+  },
+  {
+    "asset": "page-64-05-parakeet.png",
+    "source_file": "v2.png",
+    "crop_box": [
+      214,
+      422,
+      367,
+      708
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      147,
+      285
+    ]
+  },
+  {
+    "asset": "page-64-06-rhinoceros.png",
+    "source_file": "v2.png",
+    "crop_box": [
+      380,
+      414,
+      534,
+      708
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      153,
+      295
+    ]
+  },
+  {
+    "asset": "page-64-10-mouse.png",
+    "source_file": "v2.png",
+    "crop_box": [
+      207,
+      825,
+      367,
+      1127
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      298
+    ]
+  },
+  {
+    "asset": "page-64-11-reindeer.png",
+    "source_file": "v2.png",
+    "crop_box": [
+      382,
+      793,
+      535,
+      1127
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      150,
+      331
+    ]
+  },
+  {
+    "asset": "page-64-12-cow.png",
+    "source_file": "v2.png",
+    "crop_box": [
+      544,
+      825,
+      704,
+      1127
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      158,
+      301
+    ]
+  },
+  {
+    "asset": "page-64-13-kappa.png",
+    "source_file": "v2.png",
+    "crop_box": [
+      716,
+      850,
+      870,
+      1127
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      151,
+      276
+    ]
+  },
+  {
+    "asset": "page-66-09-frog.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      27,
+      44,
+      237,
+      447
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      209,
+      402
+    ]
+  },
+  {
+    "asset": "page-66-10-gorilla.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      195,
+      90,
+      411,
+      496
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      409
+    ]
+  },
+  {
+    "asset": "page-66-11-onion.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      371,
+      31,
+      581,
+      450
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      417
+    ]
+  },
+  {
+    "asset": "page-66-12-pineapple.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      545,
+      22,
+      757,
+      498
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      208,
+      475
+    ]
+  },
+  {
+    "asset": "page-66-13-seal.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      713,
+      49,
+      925,
+      445
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      394
+    ]
+  },
+  {
+    "asset": "page-66-14-cow.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      881,
+      66,
+      1101,
+      495
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      226,
+      428
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-66-15-lily-bell.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      1062,
+      26,
+      1273,
+      442
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      413
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-66-16-duck.png",
+    "source_file": "2016.png",
+    "crop_box": [
+      1231,
+      83,
+      1443,
+      495
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      213,
+      411
+    ]
+  },
+  {
+    "asset": "page-66-17-bear.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      20,
+      37,
+      226,
+      433
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      208,
+      392
+    ]
+  },
+  {
+    "asset": "page-66-18-cheetah.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      188,
+      82,
+      404,
+      486
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      403
+    ]
+  },
+  {
+    "asset": "page-66-19-tomato.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      362,
+      14,
+      575,
+      437
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      418
+    ]
+  },
+  {
+    "asset": "page-66-20-apple.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      531,
+      56,
+      747,
+      485
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      424
+    ]
+  },
+  {
+    "asset": "page-66-21-american-shorthair.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      705,
+      28,
+      919,
+      434
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      209,
+      402
+    ]
+  },
+  {
+    "asset": "page-66-22-shiba-inu.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      879,
+      64,
+      1095,
+      484
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      214,
+      416
+    ]
+  },
+  {
+    "asset": "page-66-23-starfish.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      1048,
+      0,
+      1267,
+      432
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      432
+    ]
+  },
+  {
+    "asset": "page-66-24-rose.png",
+    "source_file": "2014.png",
+    "crop_box": [
+      1216,
+      49,
+      1440,
+      483
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      217,
+      428
+    ]
+  }
+]

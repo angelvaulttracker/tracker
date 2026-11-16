@@ -1,0 +1,32 @@
+[
+  {
+    "asset": "page-66-07-aurora.png",
+    "source_file": "sky-special-secrets.png",
+    "crop_box": [
+      43,
+      39,
+      300,
+      536
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      253,
+      492
+    ]
+  },
+  {
+    "asset": "page-66-08-shooting-star-robby-angel.png",
+    "source_file": "sky-special-secrets.png",
+    "crop_box": [
+      377,
+      115,
+      576,
+      538
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      195,
+      416
+    ]
+  }
+]
