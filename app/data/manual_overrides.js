@@ -3418,6 +3418,13 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   });
 
+  // Real supplied keychain photos replace the former illustration labels.
+  Object.entries(items).forEach(([id, item]) => {
+    if (id.startsWith("page-91-") && item.artSource === "manual-upload") {
+      assign(id, { artLabel: null });
+    }
+  });
+
   return {
     items,
   };
