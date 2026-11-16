@@ -3149,6 +3149,13 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
   assign("page-108-07-unicorn", {"artPath": "./app/assets/manual/new-series-2026/page-108-07-unicorn.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": true});
   assign("page-108-08-flamingo-robby-angel", {"artPath": "./app/assets/manual/new-series-2026/page-108-08-flamingo-robby-angel.png", "artSource": "official-web", "displaySeries": "Summer Vacation Series: Sun Kissed Style (2026)", "isSecret": true});
 
+  // Honey Bee sleeping-face inset cropped from the official HIPPERS reveal.
+  assign("page-97-13-honey-bee", {
+    artPath: "./app/assets/manual/honey-bee-secret/page-97-13-honey-bee.png",
+    artSource: "official-web-crop",
+    isSecret: true,
+  });
+
   return {
     items,
   };

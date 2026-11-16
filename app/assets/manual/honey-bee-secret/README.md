@@ -1,0 +1,3 @@
+# HIPPERS Cherry Blossom Honey Bee secret
+
+Sleeping-face inset cropped from the official reveal at https://www.sonnyangel.com/renewal/wp-content/uploads/2026/02/hippers_cherryblossom_banner_store_lineup07.png . The source inset shows the head, antennae, and folded hands only. Original pixels are preserved; local u2net background removal was used without image generation. Full original is saved locally in deliverables/honey-bee-secret/source-photos/official-reveal.png. Crop coordinates are recorded in sources.json and scripts/photo_batches/honey-bee-secret.json. Existing catalog ID and Secret status are preserved.

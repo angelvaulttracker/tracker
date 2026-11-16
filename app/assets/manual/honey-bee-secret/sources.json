@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "page-97-13-honey-bee.png",
+    "source_file": "official-reveal.png",
+    "crop_box": [
+      1450,
+      190,
+      1715,
+      530
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      236,
+      338
+    ]
+  }
+]
