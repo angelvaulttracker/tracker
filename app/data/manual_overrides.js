@@ -3671,6 +3671,17 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     artSource: "manual-upload",
   }));
 
+  // Supplied replacements for the final Hawaii gaps and Halloween 2012 artwork.
+  [
+    "page-43-04-vampire",
+    "page-43-01-mummy",
+    "page-49h-13-aloha",
+    "page-49h-14-robby-angel"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/final-hawaii-halloween-user-sources/${id}.png`,
+    artSource: "manual-upload",
+  }));
+
   return {
     items,
   };

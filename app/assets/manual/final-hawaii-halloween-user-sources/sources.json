@@ -1,0 +1,62 @@
+[
+  {
+    "asset": "page-43-04-vampire.png",
+    "source_file": "vampire.png",
+    "crop_box": [
+      0,
+      0,
+      314,
+      566
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      208,
+      457
+    ]
+  },
+  {
+    "asset": "page-43-01-mummy.png",
+    "source_file": "mummy.png",
+    "crop_box": [
+      0,
+      0,
+      326,
+      454
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      212,
+      415
+    ]
+  },
+  {
+    "asset": "page-49h-13-aloha.png",
+    "source_file": "aloha.jpeg",
+    "crop_box": [
+      0,
+      0,
+      399,
+      501
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      199,
+      346
+    ]
+  },
+  {
+    "asset": "page-49h-14-robby-angel.png",
+    "source_file": "robby.webp",
+    "crop_box": [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      655,
+      1191
+    ]
+  }
+]
