@@ -7015,3 +7015,28 @@ body.wishlist-active.wishlist-immersed .app-header {
   pointer-events: auto;
 }
 .wishlist-empty-state { position: relative; z-index: 1; padding: 180px 24px 48px; text-align: center; }
+
+/* Keep collection filters in the page flow so browsing leaves the shelf clear. */
+.collected-panel .collected-controls {
+  position: static;
+  top: auto;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 20px;
+}
+.collected-panel .collected-controls .search-field,
+.collected-panel .collected-controls .select-field { gap: 6px; }
+.collected-panel .collected-controls input:not([type="checkbox"]),
+.collected-panel .collected-controls select {
+  min-height: 42px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+.collected-panel .collected-controls > .toggle-field {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  grid-column: 1 / -1;
+}
+/* Replacing shelf cards must not re-anchor the page to a different figure. */
+.collected-panel #collected-grid { overflow-anchor: none; }

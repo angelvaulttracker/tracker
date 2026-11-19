@@ -606,7 +606,6 @@ let makerActiveSavedLayoutId = "";
 let makerLayoutName = "Dream board 1";
 let expandedCollectedId = null;
 let expandedCollectedKey = null;
-let pendingCollectedCenterKey = null;
 let collectedSeriesSelection = [];
 let inferredSeriesYearHints = new Map();
 let displaySeriesCache = new Map();
@@ -2271,65 +2270,6 @@ function shouldUseCollectedMobileDetailModal() {
 
 function isCollectedEntryExpanded(item, key = item.id) {
   return settings.collectedShowMultipleSeparate ? expandedCollectedKey === key : expandedCollectedId === item.id;
-}
-
-function centerPendingCollectedBubble() {
-  if (!pendingCollectedCenterKey) {
-    return;
-  }
-
-  const pendingKey = pendingCollectedCenterKey;
-  pendingCollectedCenterKey = null;
-
-  window.requestAnimationFrame(() => {
-    const expandedEntry = [...document.querySelectorAll("[data-id]")].find((element) => {
-      return element.dataset.id === pendingKey;
-    });
-    if (!expandedEntry) {
-      return;
-    }
-
-    const bubble = expandedEntry.querySelector(
-      ".collected-shelf-details, .collected-minimal-details, .collected-body",
-    ) || expandedEntry;
-
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-      const stickySelectors = [".app-header", ".collected-controls", ".shelf-meta"];
-      const visibleTop = stickySelectors.reduce((maxBottom, selector) => {
-        const element = document.querySelector(selector);
-        if (!element) {
-          return maxBottom;
-        }
-        const rect = element.getBoundingClientRect();
-        if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
-          return maxBottom;
-        }
-        return Math.max(maxBottom, rect.bottom);
-      }, 0);
-
-      const rect = bubble.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-      const visibleHeight = Math.max(120, viewportHeight - visibleTop);
-      const targetCenter = visibleTop + visibleHeight / 2;
-      const bubbleCenter = rect.top + rect.height / 2;
-      const delta = bubbleCenter - targetCenter;
-      const maxScroll = Math.max(
-        0,
-        document.documentElement.scrollHeight - viewportHeight,
-      );
-      const nextTop = Math.min(
-        maxScroll,
-        Math.max(0, window.scrollY + delta),
-      );
-
-      window.scrollTo({
-        top: nextTop,
-        behavior: "smooth",
-      });
-      });
-    });
-  });
 }
 
 async function signOutOfCloudSync() {
@@ -7920,7 +7860,6 @@ function renderCollected(items) {
   if (useCollectedMobileModal) {
     expandedCollectedId = null;
     expandedCollectedKey = null;
-    pendingCollectedCenterKey = null;
   }
 
   collectedGrid.classList.toggle("is-shelf-view", viewMode === "shelf-series" || (viewMode === "armies" && armiesViewMode === "shelf"));
@@ -7931,13 +7870,11 @@ function renderCollected(items) {
 
   if (viewMode === "shelf-series") {
     renderCollectedShelfBySeries(shelfEntries);
-    centerPendingCollectedBubble();
     return;
   }
 
   if (viewMode === "minimalist") {
     renderCollectedMinimalist(shelfEntries);
-    centerPendingCollectedBubble();
     return;
   }
 
@@ -7947,12 +7884,10 @@ function renderCollected(items) {
     } else {
       renderCollectedArmies(armyItems, armyThreshold);
     }
-    centerPendingCollectedBubble();
     return;
   }
 
   renderCollectedCompact(sortedEntries);
-  centerPendingCollectedBubble();
 }
 
 function buildCollectedDateLabel(item, copyIndex = null) {
@@ -8199,7 +8134,6 @@ function buildCollectedQuantityControl(item) {
 function toggleCollectedExpansion(id) {
   expandedCollectedId = expandedCollectedId === id ? null : id;
   expandedCollectedKey = expandedCollectedId ? id : null;
-  pendingCollectedCenterKey = expandedCollectedKey;
   renderCollected(sonnies);
 }
 
@@ -8207,7 +8141,6 @@ function toggleCollectedEntryExpansion(item, key = item.id) {
   if (settings.collectedShowMultipleSeparate) {
     expandedCollectedKey = expandedCollectedKey === key ? null : key;
     expandedCollectedId = expandedCollectedKey ? item.id : null;
-    pendingCollectedCenterKey = expandedCollectedKey;
     renderCollected(sonnies);
     return;
   }
