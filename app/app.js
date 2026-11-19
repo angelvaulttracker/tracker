@@ -151,6 +151,7 @@ const wishlistLegendEditor = document.querySelector("#wishlist-legend-editor");
 const wishlistLegendEditorList = document.querySelector("#wishlist-legend-editor-list");
 const wishlistLegendAddButton = document.querySelector("#wishlist-legend-add");
 const wishlistGridViewButton = document.querySelector("#wishlist-grid-view");
+const wishlistDreamBoardButton = document.querySelector("#wishlist-dream-board");
 const wishlistBench = document.querySelector("#wishlist-bench");
 const wishlistBenchGrid = document.querySelector("#wishlist-bench-grid");
 const wishlistBenchCopy = document.querySelector("#wishlist-bench-copy");
@@ -5142,6 +5143,9 @@ function renderWishlist() {
   if (wishlistGridViewSection) {
     wishlistGridViewSection.hidden = boardMode !== "grid";
   }
+  if (wishlistDreamBoardButton) {
+    wishlistDreamBoardButton.hidden = boardMode !== "grid";
+  }
   if (wishlistGridViewButton) {
     wishlistGridViewButton.textContent = boardMode === "grid" ? "Dream board" : "Grid view";
     wishlistGridViewButton.classList.toggle("is-active", boardMode === "grid");
@@ -9325,6 +9329,7 @@ wishlistRankerLeftButton?.addEventListener("click", () => advanceWishlistRanker(
 wishlistRankerRightButton?.addEventListener("click", () => advanceWishlistRanker("right"));
 wishlistRankerSkipButton?.addEventListener("click", () => advanceWishlistRanker("skip"));
 wishlistRankerTooToughButton?.addEventListener("click", () => advanceWishlistRanker("tie"));
+wishlistDreamBoardButton?.addEventListener("click", () => switchWishlistBoardMode("immersive"));
 wishlistGridViewButton?.addEventListener("click", () => {
   switchWishlistBoardMode((settings.wishlistBoardMode || "immersive") === "grid" ? "immersive" : "grid");
 });

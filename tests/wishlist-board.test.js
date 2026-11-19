@@ -31,3 +31,11 @@ test('floating board expands for new rows and ignores invalid saved positions', 
   assert.equal(boardHeight('invalid'), 530);
   assert.ok(boardHeight(null, 30) > 720);
 });
+
+test('grid view has a return control outside the hidden floating stage', () => {
+  const html = fs.readFileSync(require('node:path').join(__dirname, '../index.html'), 'utf8');
+  const header = html.slice(html.indexOf('<div class="wishlist-header">'), html.indexOf('<section class="wishlist-landing"'));
+  assert.match(header, /id="wishlist-dream-board"/);
+  assert.match(source, /wishlistDreamBoardButton\.hidden = boardMode !== "grid"/);
+  assert.match(source, /wishlistDreamBoardButton\?\.addEventListener\("click", \(\) => switchWishlistBoardMode\("immersive"\)\)/);
+});
