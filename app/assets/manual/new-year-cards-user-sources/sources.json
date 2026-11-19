@@ -1,0 +1,347 @@
+[
+  {
+    "asset": "page-81-01-dragon-2024.png",
+    "source_file": "cards-1.png",
+    "crop_box": [
+      56,
+      514,
+      497,
+      1156
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      457,
+      658
+    ]
+  },
+  {
+    "asset": "page-81-03-robby-2023.png",
+    "source_file": "cards-1.png",
+    "crop_box": [
+      573,
+      63,
+      905,
+      548
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      348,
+      501
+    ]
+  },
+  {
+    "asset": "page-81-02-tiger-2022.png",
+    "source_file": "cards-1.png",
+    "crop_box": [
+      575,
+      672,
+      906,
+      1153
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      347,
+      497
+    ]
+  },
+  {
+    "asset": "page-81-04-cow-2021.png",
+    "source_file": "cards-2.png",
+    "crop_box": [
+      61,
+      58,
+      449,
+      628
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      404,
+      586
+    ]
+  },
+  {
+    "asset": "page-81-05-mouse-2020.png",
+    "source_file": "cards-2.png",
+    "crop_box": [
+      521,
+      50,
+      915,
+      621
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      410,
+      587
+    ]
+  },
+  {
+    "asset": "page-81-06-uribou-2019.png",
+    "source_file": "cards-2.png",
+    "crop_box": [
+      70,
+      770,
+      331,
+      1152
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      277,
+      398
+    ]
+  },
+  {
+    "asset": "page-81-07-pink-dog-2018.png",
+    "source_file": "cards-2.png",
+    "crop_box": [
+      361,
+      766,
+      626,
+      1148
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      281,
+      398
+    ]
+  },
+  {
+    "asset": "page-81-08-blue-dog-2018.png",
+    "source_file": "cards-2.png",
+    "crop_box": [
+      656,
+      762,
+      919,
+      1146
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      279,
+      400
+    ]
+  },
+  {
+    "asset": "page-82-01-red-cockerel-2017.png",
+    "source_file": "cards-3.png",
+    "crop_box": [
+      33,
+      39,
+      420,
+      608
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      403,
+      585
+    ]
+  },
+  {
+    "asset": "page-82-02-green-cockerel-2017.png",
+    "source_file": "cards-3.png",
+    "crop_box": [
+      499,
+      42,
+      884,
+      609
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      401,
+      583
+    ]
+  },
+  {
+    "asset": "page-82-03-red-monkey-2016.png",
+    "source_file": "cards-3.png",
+    "crop_box": [
+      28,
+      748,
+      292,
+      1132
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      280,
+      400
+    ]
+  },
+  {
+    "asset": "page-82-04-white-monkey-2016.png",
+    "source_file": "cards-3.png",
+    "crop_box": [
+      321,
+      749,
+      585,
+      1133
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      280,
+      400
+    ]
+  },
+  {
+    "asset": "page-82-05-sheep-2015.png",
+    "source_file": "cards-3.png",
+    "crop_box": [
+      619,
+      750,
+      880,
+      1134
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      277,
+      400
+    ]
+  },
+  {
+    "asset": "page-82-06-horse-2014.png",
+    "source_file": "cards-4.png",
+    "crop_box": [
+      76,
+      55,
+      317,
+      411
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      257,
+      372
+    ]
+  },
+  {
+    "asset": "page-82-07-snake-2013.png",
+    "source_file": "cards-4.png",
+    "crop_box": [
+      347,
+      53,
+      592,
+      410
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      261,
+      373
+    ]
+  },
+  {
+    "asset": "page-82-08-dragon-2012.png",
+    "source_file": "cards-4.png",
+    "crop_box": [
+      619,
+      50,
+      863,
+      407
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      260,
+      373
+    ]
+  },
+  {
+    "asset": "page-82-09-tiger-2010-usa.png",
+    "source_file": "cards-4.png",
+    "crop_box": [
+      449,
+      501,
+      637,
+      751
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      204,
+      266
+    ]
+  },
+  {
+    "asset": "page-82-10-rabbit-2011.png",
+    "source_file": "cards-4.png",
+    "crop_box": [
+      80,
+      678,
+      438,
+      1204
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      374,
+      542
+    ]
+  },
+  {
+    "asset": "page-82-11-tiger-2010.png",
+    "source_file": "cards-4.png",
+    "crop_box": [
+      511,
+      674,
+      869,
+      1200
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      374,
+      542
+    ]
+  },
+  {
+    "asset": "page-83-01-cow-2009.png",
+    "source_file": "cards-5.png",
+    "crop_box": [
+      45,
+      69,
+      359,
+      526
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      330,
+      473
+    ]
+  },
+  {
+    "asset": "page-83-02-mouse-2008.png",
+    "source_file": "cards-5.png",
+    "crop_box": [
+      415,
+      78,
+      730,
+      535
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      331,
+      473
+    ]
+  },
+  {
+    "asset": "page-83-03-uribou-2007.png",
+    "source_file": "cards-5.png",
+    "crop_box": [
+      33,
+      627,
+      347,
+      1084
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      330,
+      473
+    ]
+  },
+  {
+    "asset": "page-83-04-normal-2006.png",
+    "source_file": "cards-5.png",
+    "crop_box": [
+      434,
+      674,
+      736,
+      1081
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      318,
+      423
+    ]
+  }
+]

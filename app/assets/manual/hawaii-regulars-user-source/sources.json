@@ -1,0 +1,182 @@
+[
+  {
+    "asset": "page-49h-02-hanauma-bay.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      34,
+      51,
+      146,
+      260
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      110,
+      209
+    ]
+  },
+  {
+    "asset": "page-49h-12-waimea-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      146,
+      51,
+      258,
+      260
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      109,
+      210
+    ]
+  },
+  {
+    "asset": "page-49h-08-lanikai-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      258,
+      51,
+      370,
+      260
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      111,
+      210
+    ]
+  },
+  {
+    "asset": "page-49h-03-kahaluu-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      370,
+      51,
+      482,
+      260
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      110,
+      209
+    ]
+  },
+  {
+    "asset": "page-49h-10-waikiki-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      482,
+      51,
+      594,
+      260
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      109,
+      209
+    ]
+  },
+  {
+    "asset": "page-49h-04-kailua-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      594,
+      51,
+      706,
+      260
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      109,
+      209
+    ]
+  },
+  {
+    "asset": "page-49h-06-kuhio-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      34,
+      270,
+      146,
+      480
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      109,
+      210
+    ]
+  },
+  {
+    "asset": "page-49h-09-sunset-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      146,
+      270,
+      258,
+      480
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      109,
+      209
+    ]
+  },
+  {
+    "asset": "page-49h-01-ala-moana.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      258,
+      270,
+      370,
+      480
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      108,
+      209
+    ]
+  },
+  {
+    "asset": "page-49h-11-waimanalo-beach.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      370,
+      270,
+      482,
+      480
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      108,
+      208
+    ]
+  },
+  {
+    "asset": "page-49h-05-ko-olina-bay.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      482,
+      270,
+      594,
+      480
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      110,
+      210
+    ]
+  },
+  {
+    "asset": "page-49h-07-laniakea.png",
+    "source_file": "hawaii-lineup.png",
+    "crop_box": [
+      594,
+      270,
+      706,
+      480
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      110,
+      213
+    ]
+  }
+]

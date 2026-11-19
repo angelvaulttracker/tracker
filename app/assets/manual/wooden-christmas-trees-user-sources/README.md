@@ -1,0 +1,3 @@
+# Wooden Christmas trees
+
+Two supplied product photos processed locally with cached u2net while retaining original RGB. First is the mint Stand Type, identified by the user as the 2023 release accompanying Winter Wonderland; its existing ID remains intact and display series is Sonny Items (2023). Second is the yellow-green Ornament Type with pegs and gold base; no release year inferred. Packaging is excluded; explicit erase polygon removes remaining package fragments behind the Stand Type. Manifest: scripts/photo_batches/wooden-christmas-trees.json. Provenance: sources.json. Originals and previews: ignored deliverables/wooden-christmas-trees.

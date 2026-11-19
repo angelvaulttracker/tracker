@@ -4714,7 +4714,7 @@ function renderWishlistLanding(items) {
 
   const maxCustomY = orderedFloatingItems.reduce((maxValue, item) => {
     const saved = persistedPositions[item.id];
-    const numeric = Number(saved?.y || 0);
+    const numeric = Number.parseFloat(saved?.y || "0");
     return Number.isFinite(numeric) ? Math.max(maxValue, numeric) : maxValue;
   }, 0);
   const stageHeight = Math.max(topPadding + rowCount * rowGap + bottomPadding, maxCustomY + 220);

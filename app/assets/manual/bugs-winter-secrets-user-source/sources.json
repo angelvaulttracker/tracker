@@ -1,0 +1,77 @@
+[
+  {
+    "asset": "page-46-07-bumblebee.png",
+    "source_file": "bugs.png",
+    "crop_box": [
+      46,
+      48,
+      279,
+      549
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      232,
+      501
+    ]
+  },
+  {
+    "asset": "page-46-08-bumblebee-robby-angel.png",
+    "source_file": "bugs.png",
+    "crop_box": [
+      365,
+      160,
+      563,
+      551
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      201,
+      396
+    ]
+  },
+  {
+    "asset": "page-30-07-snow-fairy-fox.png",
+    "source_file": "winter.png",
+    "crop_box": [
+      67,
+      29,
+      336,
+      586
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      275,
+      557
+    ]
+  },
+  {
+    "asset": "page-30-08-snow-fairy-lop-ear-rabbit.png",
+    "source_file": "winter.png",
+    "crop_box": [
+      335,
+      38,
+      600,
+      585
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      268,
+      547
+    ]
+  },
+  {
+    "asset": "page-30-09-snow-fairy-mouse.png",
+    "source_file": "winter.png",
+    "crop_box": [
+      609,
+      38,
+      882,
+      587
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      276,
+      550
+    ]
+  }
+]

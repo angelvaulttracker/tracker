@@ -1,0 +1,32 @@
+[
+  {
+    "asset": "page-61-18-jeju-surfer.png",
+    "source_file": "jeju.png",
+    "crop_box": [
+      58,
+      37,
+      550,
+      799
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      489,
+      751
+    ]
+  },
+  {
+    "asset": "page-61-19-dol-hareubang-robby-angel.png",
+    "source_file": "jeju.png",
+    "crop_box": [
+      667,
+      245,
+      922,
+      799
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      247,
+      554
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "page-79-15-cow.png",
+    "source_file": "cow.png",
+    "crop_box": [
+      61,
+      43,
+      344,
+      578
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      279,
+      528
+    ]
+  }
+]

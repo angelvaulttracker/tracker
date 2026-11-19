@@ -1,0 +1,273 @@
+[
+  {
+    "asset": "page-83-05-heart-rabbit.png",
+    "source_file": "master.jpeg",
+    "crop_box": [
+      35,
+      100,
+      179,
+      420
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      152,
+      315
+    ]
+  },
+  {
+    "asset": "page-83-06-clover-rabbit.png",
+    "source_file": "master.jpeg",
+    "crop_box": [
+      158,
+      17,
+      290,
+      393
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      144,
+      383
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-83-07-rabbit.png",
+    "source_file": "master.jpeg",
+    "crop_box": [
+      274,
+      87,
+      436,
+      434
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      129,
+      343
+    ]
+  },
+  {
+    "asset": "page-86-10-collector-s-trophy-rabbit-red.png",
+    "source_file": "trophy.png",
+    "crop_box": [
+      106,
+      58,
+      419,
+      942
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      305,
+      881
+    ]
+  },
+  {
+    "asset": "page-89-08-rabbit.png",
+    "source_file": "logon.png",
+    "crop_box": [
+      49,
+      43,
+      264,
+      576
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      209,
+      525
+    ]
+  },
+  {
+    "asset": "page-89-09-elephant.png",
+    "source_file": "logon.png",
+    "crop_box": [
+      291,
+      163,
+      544,
+      576
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      250,
+      411
+    ]
+  },
+  {
+    "asset": "page-89-10-mouse.png",
+    "source_file": "logon.png",
+    "crop_box": [
+      558,
+      136,
+      795,
+      576
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      234,
+      437
+    ]
+  },
+  {
+    "asset": "page-93-02-apartment.png",
+    "source_file": "Apartment.jpg",
+    "crop_box": [
+      213,
+      65,
+      746,
+      946
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      549,
+      897
+    ]
+  },
+  {
+    "asset": "page-93-04-forest.png",
+    "source_file": "forest.jpg",
+    "crop_box": [
+      139,
+      106,
+      836,
+      923
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      713,
+      833
+    ]
+  },
+  {
+    "asset": "page-93-01-sky.png",
+    "source_file": "sky.jpg",
+    "crop_box": [
+      132,
+      87,
+      842,
+      906
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      726,
+      835
+    ]
+  },
+  {
+    "asset": "page-93-03-store.png",
+    "source_file": "store.jpg",
+    "crop_box": [
+      129,
+      80,
+      845,
+      918
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      732,
+      854
+    ]
+  },
+  {
+    "asset": "page-93-05-my-crew-bag.png",
+    "source_file": "bag.webp",
+    "crop_box": [
+      139,
+      23,
+      562,
+      669
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      413,
+      640
+    ]
+  },
+  {
+    "asset": "page-95-01-japanese-good-luck.png",
+    "source_file": "towels.png",
+    "crop_box": [
+      175,
+      79,
+      350,
+      538
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      191,
+      475
+    ]
+  },
+  {
+    "asset": "page-95-02-cactus.png",
+    "source_file": "towels.png",
+    "crop_box": [
+      516,
+      80,
+      681,
+      536
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      181,
+      472
+    ]
+  },
+  {
+    "asset": "page-95-03-strawberry.png",
+    "source_file": "towels.png",
+    "crop_box": [
+      859,
+      78,
+      1034,
+      542
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      191,
+      480
+    ]
+  },
+  {
+    "asset": "page-95-04-rose.png",
+    "source_file": "towels.png",
+    "crop_box": [
+      174,
+      698,
+      346,
+      1157
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      188,
+      475
+    ]
+  },
+  {
+    "asset": "page-95-05-carrot-rabbit.png",
+    "source_file": "towels.png",
+    "crop_box": [
+      507,
+      696,
+      682,
+      1162
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      191,
+      482
+    ]
+  },
+  {
+    "asset": "page-95-06-step-and-repeat-rabbit.png",
+    "source_file": "towels.png",
+    "crop_box": [
+      858,
+      704,
+      1032,
+      1161
+    ],
+    "method": "local card polygon crop; original printed artwork retained",
+    "dimensions": [
+      190,
+      473
+    ]
+  }
+]

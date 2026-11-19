@@ -6987,3 +6987,17 @@ body.wishlist-active.wishlist-immersed .wishlist-landing {
     height: 92px;
   }
 }
+
+/* Keep every floating row and saved drag position inside the visible board,
+   including narrow layouts where earlier rules used a fixed stage height. */
+.wishlist-landing-stage {
+  min-height: var(--wishlist-stage-height, 720px);
+}
+
+#wishlist-board-view[hidden],
+#wishlist-ranker-flow[hidden],
+#wishlist-maker-flow[hidden],
+#wishlist-landing[hidden],
+#wishlist-grid-view-section[hidden] {
+  display: none !important;
+}

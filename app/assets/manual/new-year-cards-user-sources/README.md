@@ -1,0 +1,3 @@
+# New Year greeting cards, 2006–2024
+
+23 printed cards cropped from five user-supplied guidebook photos, retaining the full card backgrounds as requested. Cow 2021 and tilted Tiger 2010 USA / Normal 2006 use explicit card polygons; other cards retain rectangular crops. Original RGB retained, with transparent exterior padding. No segmentation model used. The source overlaps Tiger 2010 USA over the upper left corner of Tiger 2010; that small visible overlap is retained. Existing catalog IDs preserved. Printed labels correct Rabbit 2023 and Green Cockerel 2017 names. Reproduction: scripts/photo_batches/new-year-cards.json; provenance: sources.json. Originals and preview: ignored deliverables/new-year-cards.

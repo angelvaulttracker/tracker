@@ -1,0 +1,47 @@
+[
+  {
+    "asset": "page-36-07-love-red-rabbit.png",
+    "source_file": "gifts-of-love-secrets.jpeg",
+    "crop_box": [
+      27,
+      151,
+      150,
+      382
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      126,
+      230
+    ]
+  },
+  {
+    "asset": "page-36-09-love-pink-rabbit.png",
+    "source_file": "gifts-of-love-secrets.jpeg",
+    "crop_box": [
+      153,
+      120,
+      277,
+      374
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      118,
+      254
+    ]
+  },
+  {
+    "asset": "page-36-06-love-lop-ear-rabbit.png",
+    "source_file": "gifts-of-love-secrets.jpeg",
+    "crop_box": [
+      294,
+      196,
+      411,
+      384
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      116,
+      188
+    ]
+  }
+]

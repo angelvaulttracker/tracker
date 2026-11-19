@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "page-47-05-carrot.png",
+    "source_file": "carrot.png",
+    "crop_box": [
+      0,
+      0,
+      500,
+      500
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      175,
+      487
+    ]
+  }
+]

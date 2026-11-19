@@ -1,0 +1,33 @@
+[
+  {
+    "asset": "page-30-11-sonny-angel-wooden-christmas-tree.png",
+    "source_file": "stand-2023.png",
+    "crop_box": [
+      65,
+      240,
+      1000,
+      1550
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      920,
+      1306
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-34-18-wooden-christmas-tree-ornament-type.png",
+    "source_file": "ornament.webp",
+    "crop_box": [
+      185,
+      84,
+      456,
+      467
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      274,
+      380
+    ]
+  }
+]

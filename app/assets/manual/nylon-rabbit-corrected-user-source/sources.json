@@ -1,0 +1,17 @@
+[
+  {
+    "asset": "page-72-01-rabbit.png",
+    "source_file": "nylon-rabbit.png",
+    "crop_box": [
+      73,
+      36,
+      487,
+      1036
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      404,
+      991
+    ]
+  }
+]

@@ -3508,6 +3508,169 @@ window.SONNY_MANUAL_OVERRIDES = (() => {
     isSecret: true,
   });
 
+  // Supplied Hawaii regular lineup, matched by shirt graphics and named references.
+  [
+    "page-49h-02-hanauma-bay",
+    "page-49h-12-waimea-beach",
+    "page-49h-08-lanikai-beach",
+    "page-49h-03-kahaluu-beach",
+    "page-49h-10-waikiki-beach",
+    "page-49h-04-kailua-beach",
+    "page-49h-06-kuhio-beach",
+    "page-49h-09-sunset-beach",
+    "page-49h-01-ala-moana",
+    "page-49h-11-waimanalo-beach",
+    "page-49h-05-ko-olina-bay",
+    "page-49h-07-laniakea"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/hawaii-regulars-user-source/${id}.png`,
+    artSource: "manual-upload",
+  }));
+
+  // Supplied refined Fruit Series secrets, distinct from unrefined Fruit figures.
+  ["page-105-14-robby-angel", "page-105-13-seed-leaf"].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/refined-fruit-secrets-user-sources/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // Supplied Christmas Dinner secrets: top-left Robby and right-side Rabbit.
+  ["page-29-06-dinner-robby-angel", "page-29-08-dinner-rabbit"].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/christmas-dinner-secrets-user-source/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // Supplied wooden Christmas trees; first photo is the 2023 Stand Type.
+  ["page-30-11-sonny-angel-wooden-christmas-tree", "page-34-18-wooden-christmas-tree-ornament-type"].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/wooden-christmas-trees-user-sources/${id}.png`,
+    artSource: "manual-upload",
+  }));
+  assign("page-30-11-sonny-angel-wooden-christmas-tree", {
+    name: "Wooden Christmas Tree Stand Type",
+    series: "Sonny Items",
+    displaySeries: "Sonny Items (2023)",
+  });
+
+  // Supplied seated Gifts of Love secrets: red, pink and lop-ear rabbits.
+  ["page-36-07-love-red-rabbit", "page-36-09-love-pink-rabbit", "page-36-06-love-lop-ear-rabbit"].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/gifts-of-love-secrets-user-source/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // User-corrected Easter 2014 chocolate variants, matched to printed labels.
+  [
+    "page-40-39-rabbit-strawberry-chocolate-2014",
+    "page-40-40-rabbit-white-chocolate-2014",
+    "page-40-41-rabbit-milk-chocolate-2014",
+    "page-40-42-elephant-white-chocolate-2014",
+    "page-40-43-koala-bitter-chocolate-2014",
+    "page-40-44-cockerel-strawberry-chocolate-2014"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/easter-2014-corrected-user-source/${id}.png`,
+    artSource: "manual-upload",
+  }));
+
+  // Clearer user-supplied Bug's Life and Winter Wonderland secret photos.
+  [
+    "page-46-07-bumblebee",
+    "page-46-08-bumblebee-robby-angel",
+    "page-30-07-snow-fairy-fox",
+    "page-30-08-snow-fairy-lop-ear-rabbit",
+    "page-30-09-snow-fairy-mouse"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/bugs-winter-secrets-user-source/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // Remove the pink photographic background from the existing carrot secret.
+  assign("page-47-05-carrot", {
+    artPath: "./app/assets/manual/cold-drinks-carrot-cleanup/page-47-05-carrot.png",
+    artSource: "manual-cleanup",
+    isSecret: true,
+  });
+
+  // Clearer user-supplied Jeju secrets, including surfboard and stone base.
+  [
+    "page-61-18-jeju-surfer",
+    "page-61-19-dol-hareubang-robby-angel"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/jeju-secrets-user-source/${id}.png`,
+    artSource: "manual-upload",
+    isSecret: true,
+  }));
+
+  // User-corrected NYLON Rabbit with the pink heart N shirt.
+  assign("page-72-01-rabbit", {
+    artPath: "./app/assets/manual/nylon-rabbit-corrected-user-source/page-72-01-rabbit.png",
+    artSource: "manual-upload",
+  });
+
+  // Supplied 12th Anniversary Cow, retaining its yellow letter stand.
+  assign("page-79-15-cow", {
+    artPath: "./app/assets/manual/anniversary-12-cow-user-source/page-79-15-cow.png",
+    artSource: "manual-upload",
+  });
+
+  // Supplied New Year cards: preserve the full printed card artwork.
+  [
+    "page-81-01-dragon-2024",
+    "page-81-03-robby-2023",
+    "page-81-02-tiger-2022",
+    "page-81-04-cow-2021",
+    "page-81-05-mouse-2020",
+    "page-81-06-uribou-2019",
+    "page-81-07-pink-dog-2018",
+    "page-81-08-blue-dog-2018",
+    "page-82-01-red-cockerel-2017",
+    "page-82-02-green-cockerel-2017",
+    "page-82-03-red-monkey-2016",
+    "page-82-04-white-monkey-2016",
+    "page-82-05-sheep-2015",
+    "page-82-06-horse-2014",
+    "page-82-07-snake-2013",
+    "page-82-08-dragon-2012",
+    "page-82-09-tiger-2010-usa",
+    "page-82-10-rabbit-2011",
+    "page-82-11-tiger-2010",
+    "page-83-01-cow-2009",
+    "page-83-02-mouse-2008",
+    "page-83-03-uribou-2007",
+    "page-83-04-normal-2006"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/new-year-cards-user-sources/${id}.png`,
+    artSource: "manual-upload",
+  }));
+  assign("page-81-03-robby-2023", { name: "Rabbit 2023" });
+  assign("page-82-02-green-cockerel-2017", { name: "Cockerel 2017 Green" });
+
+  // Supplied Master Collection, trophy, LOG-ON, displays, bag, and Kamawanu towels.
+  [
+    "page-83-05-heart-rabbit",
+    "page-83-06-clover-rabbit",
+    "page-83-07-rabbit",
+    "page-86-10-collector-s-trophy-rabbit-red",
+    "page-89-08-rabbit",
+    "page-89-09-elephant",
+    "page-89-10-mouse",
+    "page-93-02-apartment",
+    "page-93-04-forest",
+    "page-93-01-sky",
+    "page-93-03-store",
+    "page-93-05-my-crew-bag",
+    "page-95-01-japanese-good-luck",
+    "page-95-02-cactus",
+    "page-95-03-strawberry",
+    "page-95-04-rose",
+    "page-95-05-carrot-rabbit",
+    "page-95-06-step-and-repeat-rabbit"
+].forEach((id) => assign(id, {
+    artPath: `./app/assets/manual/collections-displays-textiles-user-sources/${id}.png`,
+    artSource: "manual-upload",
+  }));
+
   return {
     items,
   };

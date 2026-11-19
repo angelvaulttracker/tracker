@@ -1,0 +1,92 @@
+[
+  {
+    "asset": "page-40-39-rabbit-strawberry-chocolate-2014.png",
+    "source_file": "easter-2014.png",
+    "crop_box": [
+      49,
+      13,
+      206,
+      392
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      157,
+      379
+    ]
+  },
+  {
+    "asset": "page-40-40-rabbit-white-chocolate-2014.png",
+    "source_file": "easter-2014.png",
+    "crop_box": [
+      239,
+      19,
+      391,
+      391
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      152,
+      372
+    ]
+  },
+  {
+    "asset": "page-40-41-rabbit-milk-chocolate-2014.png",
+    "source_file": "easter-2014.png",
+    "crop_box": [
+      438,
+      17,
+      594,
+      388
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      155,
+      371
+    ]
+  },
+  {
+    "asset": "page-40-42-elephant-white-chocolate-2014.png",
+    "source_file": "easter-2014.png",
+    "crop_box": [
+      610,
+      61,
+      798,
+      386
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      189,
+      320
+    ]
+  },
+  {
+    "asset": "page-40-43-koala-bitter-chocolate-2014.png",
+    "source_file": "easter-2014.png",
+    "crop_box": [
+      812,
+      68,
+      997,
+      382
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      185,
+      309
+    ]
+  },
+  {
+    "asset": "page-40-44-cockerel-strawberry-chocolate-2014.png",
+    "source_file": "easter-2014.png",
+    "crop_box": [
+      1022,
+      51,
+      1188,
+      382
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      162,
+      329
+    ]
+  }
+]

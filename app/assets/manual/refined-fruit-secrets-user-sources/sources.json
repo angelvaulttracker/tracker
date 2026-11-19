@@ -1,0 +1,32 @@
+[
+  {
+    "asset": "page-105-14-robby-angel.png",
+    "source_file": "yellow-robby.webp",
+    "crop_box": [
+      995,
+      550,
+      1620,
+      1990
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      587,
+      1391
+    ]
+  },
+  {
+    "asset": "page-105-13-seed-leaf.png",
+    "source_file": "seed-leaf.jpeg",
+    "crop_box": [
+      99,
+      128,
+      319,
+      594
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      215,
+      461
+    ]
+  }
+]

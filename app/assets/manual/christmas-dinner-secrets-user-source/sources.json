@@ -1,0 +1,33 @@
+[
+  {
+    "asset": "page-29-06-dinner-robby-angel.png",
+    "source_file": "christmas-dinner.png",
+    "crop_box": [
+      111,
+      65,
+      337,
+      555
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      229,
+      492
+    ],
+    "alpha_refinement": "Hand-traced alpha corrections; original source RGB pixels retained"
+  },
+  {
+    "asset": "page-29-08-dinner-rabbit.png",
+    "source_file": "christmas-dinner.png",
+    "crop_box": [
+      757,
+      111,
+      1088,
+      860
+    ],
+    "method": "local u2net segmentation; original RGB pixels retained",
+    "dimensions": [
+      331,
+      741
+    ]
+  }
+]
