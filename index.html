@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="image/png" sizes="32x32" href="./app/brand-assets/png/favicons/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./app/brand-assets/png/favicons/apple-touch-icon-180.png" />
-    <link rel="stylesheet" href="./app/styles.css?v=20261118-floating-board" />
+    <link rel="stylesheet" href="./app/styles.css?v=20261118-audit-fixes" />
   </head>
   <body>
     <div class="page-shell">
@@ -175,7 +175,7 @@
           </section>
 
           <section class="shelf-meta" hidden>
-            <p id="results-count"></p>
+            <p id="results-count" aria-live="polite" role="status"></p>
             <div class="legend">
               <span class="pill pill-have">Owned</span>
               <span class="pill pill-missing">Missing</span>
@@ -1667,9 +1667,10 @@
 
     <script src="./app/data/sonnies.js?v=20261115-new-2026-series"></script>
     <script src="./app/data/sonny_image_map.js?v=20261115-new-2026-series"></script>
-    <script src="./app/data/manual_overrides.js?20261118-final-four"></script>
+    <script src="./app/data/manual_overrides.js?20261118-series-grouping"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./app/supabase-config.js?v=20260328-wishlist-copy-trim"></script>
-    <script src="./app/app.js?v=20261118-floating-board" ></script>
+    <script src="./app/cloud-progress.js?v=20261118-details"></script>
+    <script src="./app/app.js?v=20261118-audit-fixes" ></script>
   </body>
 </html>

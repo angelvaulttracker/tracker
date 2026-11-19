@@ -7,6 +7,8 @@ const TRACKER_STOCK_STATUS_KEY = "tracker-stock-status-v1";
 const TRACKER_STOCK_SORT_KEY = "tracker-stock-sort-v1";
 const TRACKER_STOCK_DISPLAY_KEY = "tracker-stock-display-v1";
 const TRACKER_STOCK_DENSITY_KEY = "tracker-stock-density-v1";
+const cloudProgress = window.SONNY_CLOUD_PROGRESS;
+
 const ANALYTICS_SESSION_KEY = "sonny-site-analytics-session-v1";
 
 const STATUS_RANK = {
@@ -974,7 +976,8 @@ function normalizeGuideRegularSeriesLabel(label) {
 
 function loadProgress() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
   } catch {
     return {};
   }
@@ -1697,20 +1700,7 @@ function trackSiteEvent(eventName, metadata = {}, options = {}) {
 }
 
 function meaningfulProgressEntry(entry) {
-  if (!entry || typeof entry !== "object") {
-    return false;
-  }
-
-  const status = entry.status || "missing";
-  const notes = (entry.notes || "").trim();
-  const wishlistRank = getNormalizedWishlistRank(entry.wishlistRank);
-  return Boolean(
-    status !== "missing" ||
-      notes ||
-      wishlistRank != null ||
-      entry.collectedAt ||
-      entry.wishlistAddedAt,
-  );
+  return cloudProgress.isMeaningfulEntry(entry);
 }
 
 function getNormalizedWishlistRank(raw) {
@@ -1727,28 +1717,7 @@ function getNormalizedWishlistRank(raw) {
 }
 
 function buildCloudRowsFromProgress() {
-  const rows = [];
-  const emptyIds = [];
-
-  Object.entries(progress).forEach(([sonnyId, entry]) => {
-    if (!meaningfulProgressEntry(entry)) {
-      emptyIds.push(sonnyId);
-      return;
-    }
-
-    rows.push({
-      user_id: authState.user.id,
-      sonny_id: sonnyId,
-      status: entry.status || "missing",
-      notes: entry.notes || "",
-      wishlist_rank: getNormalizedWishlistRank(entry.wishlistRank),
-      collected_at: entry.collectedAt || null,
-      wishlist_added_at: entry.wishlistAddedAt || null,
-      updated_at: new Date().toISOString(),
-    });
-  });
-
-  return { rows, emptyIds };
+  return cloudProgress.buildRows(progress, authState.user.id);
 }
 
 function getMeaningfulProgressCount(sourceProgress = progress) {
@@ -1829,6 +1798,7 @@ function buildTrackerBackupPayload() {
     data: {
       [STORAGE_KEY]: progress,
       [SETTINGS_STORAGE_KEY]: settings,
+      [STOCK_STORAGE_KEY]: loadLocalStockItems(),
     },
     summary: {
       trackedEntries: getMeaningfulProgressCount(progress),
@@ -1926,19 +1896,7 @@ function renderSyncSnapshot() {
 }
 
 function buildProgressFromCloudRows(rows) {
-  const nextProgress = {};
-
-  (rows || []).forEach((row) => {
-    nextProgress[row.sonny_id] = {
-      status: row.status || "missing",
-      notes: row.notes || "",
-      wishlistRank: row.wishlist_rank ?? "",
-      collectedAt: row.collected_at || "",
-      wishlistAddedAt: row.wishlist_added_at || "",
-    };
-  });
-
-  return nextProgress;
+  return cloudProgress.buildProgress(rows);
 }
 
 function setAuthFeedback(message) {
@@ -2546,7 +2504,7 @@ async function ensureProfileRow() {
 
 async function syncProgressToCloud() {
   if (!authState.client || !authState.user || authState.hydrating) {
-    return;
+    return false;
   }
 
   authState.syncing = true;
@@ -2586,15 +2544,17 @@ async function syncProgressToCloud() {
     authState.lastSuccessfulSyncAt = new Date().toISOString();
     setAuthFeedback("Cloud sync is up to date.");
     setSaveState("saved", "Saved to your cloud account. Your tracker should load the same way on any signed-in device.");
+    return true;
   } catch (error) {
     console.error("Failed to sync tracker progress to Supabase", error);
     if (isSessionError(error)) {
       await handleExpiredSession("saving to the cloud");
-      return;
+      return false;
     }
     authState.cloudLoadState = "error";
     setAuthFeedback("Cloud sync hit a snag. Your changes are still in memory, so try syncing again.");
     setSaveState("error", "Cloud sync hit a snag. Your latest changes are still on screen, but they may not be backed up yet.");
+    return false;
   } finally {
     authState.syncing = false;
     renderAuthState();
@@ -2628,7 +2588,7 @@ async function hydrateProgressFromCloud() {
     const hasInMemoryProgress = hasMeaningfulProgress(inMemoryProgress);
     const { data, error } = await authState.client
       .from("collection_progress")
-      .select("sonny_id,status,notes,wishlist_rank,collected_at,wishlist_added_at")
+      .select("sonny_id,status,notes,wishlist_rank,collected_at,wishlist_added_at,progress_data")
       .eq("user_id", authState.user.id);
 
     if (error) {
@@ -3068,6 +3028,15 @@ async function restoreTrackerBackupFromFile() {
       return;
     }
 
+    const backupData = parsed.data && typeof parsed.data === "object" ? parsed.data : parsed;
+    const restoredSettings = backupData[SETTINGS_STORAGE_KEY];
+    if (restoredSettings && typeof restoredSettings === "object" && !Array.isArray(restoredSettings)) {
+      settings = normalizeSettingsSnapshot(restoredSettings);
+      saveSettings();
+    }
+    if (Array.isArray(backupData[STOCK_STORAGE_KEY])) {
+      saveLocalStockItems(backupData[STOCK_STORAGE_KEY]);
+    }
     progress = restoredProgress;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     localStorage.setItem(RECOVERY_STORAGE_KEY, JSON.stringify(progress));
@@ -3075,7 +3044,12 @@ async function restoreTrackerBackupFromFile() {
 
     const restoredCount = getMeaningfulProgressCount(restoredProgress);
     if (authState.user && authState.configured) {
-      await syncProgressToCloud();
+      const synced = await syncProgressToCloud();
+      if (!synced) {
+        setAuthFeedback(`Restored ${restoredCount} tracker entries on this device, but cloud sync failed. Your local backup is safe; try syncing again.`);
+        setSaveState("error", "Backup restored locally. Cloud sync still needs attention.");
+        return;
+      }
       setAuthFeedback(`Restored ${restoredCount} tracker entr${restoredCount === 1 ? "y" : "ies"} from your backup and synced them to your account.`);
       setSaveState("saved", "Backup restored and synced to your cloud account.");
     } else {
@@ -4656,7 +4630,17 @@ function renderWishlistLanding(items) {
   }
   renderWishlistLegend();
   if (!items.length) {
-    wishlistLanding.hidden = true;
+    wishlistLanding.hidden = false;
+    const empty = document.createElement("div");
+    empty.className = "wishlist-empty-state";
+    const message = document.createElement("p");
+    message.textContent = "No ISO or DISO Sonnies match this board. Mark Sonnies as ISO or DISO in the tracker, or clear your board filters.";
+    const browse = document.createElement("button");
+    browse.type = "button";
+    browse.textContent = "Browse Sonnies";
+    browse.addEventListener("click", () => switchView("tracker"));
+    empty.append(message, browse);
+    wishlistFloatingGrid.append(empty);
     return;
   }
 
@@ -6589,18 +6573,18 @@ function renderMakerCanvas() {
 
     const disoLegend = document.createElement("div");
     disoLegend.className = "maker-canvas-legend-item";
-    disoLegend.innerHTML = `<span class="maker-canvas-legend-emoji">${makerDisoEmoji.trim() || "💗"}</span><span>DISO</span>`;
+    disoLegend.innerHTML = `<span class="maker-canvas-legend-emoji">${escapeAttribute(makerDisoEmoji.trim() || "💗")}</span><span>DISO</span>`;
 
     const isoLegend = document.createElement("div");
     isoLegend.className = "maker-canvas-legend-item";
-    isoLegend.innerHTML = `<span class="maker-canvas-legend-emoji">${makerIsoEmoji.trim() || "💙"}</span><span>ISO</span>`;
+    isoLegend.innerHTML = `<span class="maker-canvas-legend-emoji">${escapeAttribute(makerIsoEmoji.trim() || "💙")}</span><span>ISO</span>`;
 
     legend.append(disoLegend, isoLegend);
 
     if (makerCustomCodeEnabled) {
       const customLegend = document.createElement("div");
       customLegend.className = "maker-canvas-legend-item";
-      customLegend.innerHTML = `<span class="maker-canvas-legend-emoji">${makerCustomEmoji.trim() || "✨"}</span><span>${makerCustomLabelName.trim() || "Custom"}</span>`;
+      customLegend.innerHTML = `<span class="maker-canvas-legend-emoji">${escapeAttribute(makerCustomEmoji.trim() || "✨")}</span><span>${escapeAttribute(makerCustomLabelName.trim() || "Custom")}</span>`;
       legend.append(customLegend);
     }
 
@@ -9042,6 +9026,26 @@ function sourceLabel(item) {
 
 function renderGrid(items) {
   grid.innerHTML = "";
+  if (!items.length) {
+    const empty = document.createElement("div");
+    empty.className = "tracker-empty-state";
+    const message = document.createElement("p");
+    message.textContent = "No Sonnies match these filters.";
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.textContent = "Clear search and filters";
+    reset.addEventListener("click", () => {
+      searchInput.value = "";
+      statusFilter.value = "all";
+      seriesFilter.value = "all";
+      showOnlyFavorites.checked = false;
+      applyFilters();
+      searchInput.focus();
+    });
+    empty.append(message, reset);
+    grid.append(empty);
+    return;
+  }
 
   items.forEach((item) => {
     const fragment = template.content.cloneNode(true);
@@ -9171,7 +9175,11 @@ async function init() {
   updateTrackerBackToTopVisibility();
 }
 
-searchInput.addEventListener("input", applyFilters);
+let trackerSearchTimer;
+searchInput.addEventListener("input", () => {
+  window.clearTimeout(trackerSearchTimer);
+  trackerSearchTimer = window.setTimeout(applyFilters, 150);
+});
 statusFilter.addEventListener("change", applyFilters);
 seriesFilter.addEventListener("change", applyFilters);
 sortFilter.addEventListener("change", applyFilters);
@@ -9936,6 +9944,7 @@ document.addEventListener("click", (event) => {
 });
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    if (collectedDetailModalShell && !collectedDetailModalShell.hidden) closeCollectedDetailModal();
     if (collectedSeriesFilterPanel && !collectedSeriesFilterPanel.hidden) {
       collectedSeriesFilterPanel.hidden = true;
       collectedSeriesFilterButton?.setAttribute("aria-expanded", "false");

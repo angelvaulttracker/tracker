@@ -7001,3 +7001,17 @@ body.wishlist-active.wishlist-immersed .wishlist-landing {
 #wishlist-grid-view-section[hidden] {
   display: none !important;
 }
+
+.tracker-empty-state { grid-column: 1 / -1; padding: 2rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .wishlist-controls-panel { grid-template-columns: minmax(0, 1fr); width: min(100%, calc(100vw - 32px)); }
+}
+
+/* Keep a route out of immersive boards on every screen size. */
+body.wishlist-active.wishlist-immersed .app-header {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.wishlist-empty-state { position: relative; z-index: 1; padding: 180px 24px 48px; text-align: center; }
