@@ -3,6 +3,7 @@ import { corsHeaders } from "../_shared/cors.ts";
 
 const MAX_SCREENSHOTS = 5;
 const MAX_FILE_BYTES = 10 * 1024 * 1024;
+const SIGNED_URL_EXPIRES_IN_SECONDS = 7 * 24 * 60 * 60;
 const BUCKET_NAME = "bug-report-images";
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
@@ -163,8 +164,16 @@ Deno.serve(async (request) => {
         return json({ error: "Could not upload one of the screenshots." }, 500);
       }
 
-      const { data } = supabase.storage.from(BUCKET_NAME).getPublicUrl(objectPath);
-      uploadedUrls.push(data.publicUrl);
+      const signedUrlResult = await supabase.storage
+        .from(BUCKET_NAME)
+        .createSignedUrl(objectPath, SIGNED_URL_EXPIRES_IN_SECONDS);
+
+      if (signedUrlResult.error || !signedUrlResult.data?.signedUrl) {
+        console.error("Could not create screenshot signed URL", signedUrlResult.error);
+        return json({ error: "Could not prepare one of the screenshots." }, 500);
+      }
+
+      uploadedUrls.push(signedUrlResult.data.signedUrl);
     }
 
     const requestedItemLabel = requestedItemName

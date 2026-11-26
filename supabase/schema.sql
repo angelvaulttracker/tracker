@@ -21,10 +21,14 @@ create table if not exists public.collection_progress (
   wishlist_rank integer,
   collected_at timestamptz,
   wishlist_added_at timestamptz,
+  progress_data jsonb not null default '{}'::jsonb,
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now()),
   primary key (user_id, sonny_id)
 );
+
+alter table public.collection_progress
+  add column if not exists progress_data jsonb not null default '{}'::jsonb;
 
 create index if not exists collection_progress_user_updated_idx
   on public.collection_progress (user_id, updated_at desc);
@@ -39,9 +43,13 @@ create table if not exists public.stock_items (
   status text not null default 'available' check (status in ('available', 'pending', 'sold', 'traded')),
   just_trading boolean not null default false,
   price numeric(10, 2) not null default 0,
+  sold_history jsonb not null default '[]'::jsonb,
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now())
 );
+
+alter table public.stock_items
+  add column if not exists sold_history jsonb not null default '[]'::jsonb;
 
 create index if not exists stock_items_user_updated_idx
   on public.stock_items (user_id, updated_at desc);
@@ -51,11 +59,29 @@ create table if not exists public.fund_transactions (
   user_id uuid not null references auth.users (id) on delete cascade,
   label text not null default '',
   amount numeric(10, 2) not null default 0,
+  amount_mode text not null default 'total',
+  sonny_ids jsonb not null default '[]'::jsonb,
+  figure_price numeric(10, 2) not null default 0,
+  figure_prices_by_id jsonb not null default '{}'::jsonb,
+  shipping numeric(10, 2) not null default 0,
+  person_name text not null default '',
+  paid_via text,
+  sent_to_real_fund boolean not null default false,
   type text not null default 'out' check (type in ('in', 'out')),
   date date,
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now())
 );
+
+alter table public.fund_transactions
+  add column if not exists amount_mode text not null default 'total',
+  add column if not exists sonny_ids jsonb not null default '[]'::jsonb,
+  add column if not exists figure_price numeric(10, 2) not null default 0,
+  add column if not exists figure_prices_by_id jsonb not null default '{}'::jsonb,
+  add column if not exists shipping numeric(10, 2) not null default 0,
+  add column if not exists person_name text not null default '',
+  add column if not exists paid_via text,
+  add column if not exists sent_to_real_fund boolean not null default false;
 
 create index if not exists fund_transactions_user_updated_idx
   on public.fund_transactions (user_id, updated_at desc);
@@ -100,6 +126,22 @@ create table if not exists public.activity_log (
 create index if not exists activity_log_user_created_idx
   on public.activity_log (user_id, created_at desc);
 
+create table if not exists public.stock_price_history (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users (id) on delete cascade,
+  stock_item_id uuid,
+  figure_key text not null default '',
+  sonny_id text not null default '',
+  name text not null default '',
+  series text not null default '',
+  price numeric(10, 2) not null default 0,
+  source text not null default 'stocked',
+  created_at timestamptz not null default timezone('utc', now())
+);
+
+create index if not exists stock_price_history_user_created_idx
+  on public.stock_price_history (user_id, created_at desc);
+
 create table if not exists public.bug_reports (
   id uuid primary key default gen_random_uuid(),
   reporter_user_id uuid references auth.users (id) on delete set null,
@@ -142,6 +184,7 @@ alter table public.fund_transactions enable row level security;
 alter table public.shipments enable row level security;
 alter table public.shipment_items enable row level security;
 alter table public.activity_log enable row level security;
+alter table public.stock_price_history enable row level security;
 alter table public.bug_reports enable row level security;
 alter table public.site_events enable row level security;
 
@@ -149,7 +192,7 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values (
   'bug-report-images',
   'bug-report-images',
-  true,
+  false,
   10485760,
   array['image/jpeg', 'image/png', 'image/webp', 'image/gif']
 )
@@ -318,6 +361,30 @@ create policy "Activity log is updatable by owner"
 drop policy if exists "Activity log is deletable by owner" on public.activity_log;
 create policy "Activity log is deletable by owner"
   on public.activity_log
+  for delete
+  using (auth.uid() = user_id);
+
+drop policy if exists "Stock price history is readable by owner" on public.stock_price_history;
+create policy "Stock price history is readable by owner"
+  on public.stock_price_history
+  for select
+  using (auth.uid() = user_id);
+
+drop policy if exists "Stock price history is insertable by owner" on public.stock_price_history;
+create policy "Stock price history is insertable by owner"
+  on public.stock_price_history
+  for insert
+  with check (auth.uid() = user_id);
+
+drop policy if exists "Stock price history is updatable by owner" on public.stock_price_history;
+create policy "Stock price history is updatable by owner"
+  on public.stock_price_history
+  for update
+  using (auth.uid() = user_id);
+
+drop policy if exists "Stock price history is deletable by owner" on public.stock_price_history;
+create policy "Stock price history is deletable by owner"
+  on public.stock_price_history
   for delete
   using (auth.uid() = user_id);
 
